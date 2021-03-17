@@ -101,9 +101,10 @@ header h2 {
 }
 
 #show-case {
-  background-image: linear-gradient(white, white), url("img/graffiti.jpeg");
+  /* background-image: linear-gradient(white, white), url("img/graffiti.jpeg");
   background-size: cover;
-  background-blend-mode: multiply;
+  background-blend-mode: multiply; */
+  background-color: #fe5f55;
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 1em;
@@ -134,7 +135,7 @@ header h2 {
 #skills {
   width: 40%;
   height: 400px;
-  background-color: #161616;
+  background-color: #495867;
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 1em;
