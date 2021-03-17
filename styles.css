@@ -9,7 +9,7 @@ body {
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 1em;
-  height: 600px;
+  height: auto;
   box-shadow: 10px 10px rgb(109, 107, 107);
   margin-bottom: 20px;
 }
@@ -75,6 +75,8 @@ header h2 {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   border-right: solid #e8f0ff 10px;
+  height: 600px;
+  border-bottom: solid #e8f0ff 10px;
 }
 
 .logo-size {
@@ -193,4 +195,48 @@ footer {
   background-color: #8eec3c;
   border-radius: 0.2em;
   opacity: 0.5;
+}
+
+.ux-show {
+  display: flex;
+  justify-content: center;
+}
+
+#designs {
+  display: flex;
+  flex-direction: column;
+  background-color: #495867;
+  margin-left: 10px;
+  margin-right: 20px;
+  border-radius: 1em;
+  height: auto;
+  box-shadow: 10px 10px rgb(109, 107, 107);
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+#designs p {
+  font-size: 18px;
+  margin: 60px;
+  margin-left: 200px;
+  margin-right: 200px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  color: #8eec3c;
+}
+
+iframe {
+  border-radius: 1em;
+}
+
+#blue-em {
+  text-decoration: none;
+  font-weight: bold;
+  color: #3399ff;
+}
+
+#orange-em {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff9933;
 }
