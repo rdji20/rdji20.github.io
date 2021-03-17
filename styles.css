@@ -1,5 +1,5 @@
 body {
-  background-color: #e8f0ff;
+  background-color: #f7f7ff;
   margin: 0em;
 }
 
@@ -21,7 +21,7 @@ body {
   padding-left: 40px;
   padding-right: 20px;
   margin-left: 10px;
-  color: #e8f0ff;
+  color: #f7f7ff;
   font-family: "Roboto", sans-serif;
   font-size: 24px;
   font-weight: lighter;
@@ -74,9 +74,9 @@ header h2 {
 #profile_pic {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  border-right: solid #e8f0ff 10px;
+  border-right: solid #f7f7ff 10px;
   height: 600px;
-  border-bottom: solid #e8f0ff 10px;
+  border-bottom: solid #f7f7ff 10px;
 }
 
 .logo-size {
@@ -103,7 +103,7 @@ header h2 {
 }
 
 #show-case {
-  background-image: linear-gradient(#fe5f55, #fe5f55), url("img/graffiti.jpeg");
+  background-image: linear-gradient(#495867, #8eec3c), url("img/graffiti.jpeg");
   background-size: cover;
   background-blend-mode: multiply;
   margin-left: 10px;
