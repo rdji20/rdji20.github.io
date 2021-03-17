@@ -103,10 +103,9 @@ header h2 {
 }
 
 #show-case {
-  /* background-image: linear-gradient(white, white), url("img/graffiti.jpeg");
+  background-image: linear-gradient(#fe5f55, #fe5f55), url("img/graffiti.jpeg");
   background-size: cover;
-  background-blend-mode: multiply; */
-  background-color: #92b375;
+  background-blend-mode: multiply;
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 1em;
@@ -191,7 +190,8 @@ footer {
   color: black;
 }
 
-.medium-buttons a:hover {
+.medium-buttons a:hover,
+.flexy-row a:hover {
   background-color: #8eec3c;
   border-radius: 0.2em;
   opacity: 0.5;
@@ -239,4 +239,56 @@ iframe {
   text-decoration: none;
   font-weight: bold;
   color: #ff9933;
+}
+
+li {
+  font-size: 18px;
+}
+
+#design-header h1,
+#design-header p,
+#design-header div {
+  display: inline-block;
+}
+
+#design-header p {
+  font-size: 30px;
+  font-family: "Roboto Mono", monospace;
+  margin-bottom: 40px;
+  margin-top: 0px;
+  padding-bottom: 60px;
+  color: black;
+}
+.flexy-row a:visited,
+.flexy-row a:link {
+  font-size: 30px;
+  font-family: "Roboto Mono", monospace;
+  color: black;
+  padding-top: 60px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+#design-header div img {
+  clip-path: circle(50% at 50% 50%);
+  width: 100px;
+  height: 100px;
+}
+
+#design-header div {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.flexy-row {
+  display: flex;
+}
+
+#design-header h1 {
+  align-self: flex-start;
+  padding-right: 600px;
+}
+
+#design-header {
+  height: 120px;
 }
