@@ -81,19 +81,19 @@ header h2 {
   width: 35px;
 }
 
-a:link {
+#intro p a:link {
   color: #8eec3c;
   background-color: transparent;
   text-decoration: none;
 }
 
-a:visited {
+#intro p a:visited {
   color: #8eec3c;
   background-color: transparent;
   text-decoration: none;
 }
 
-a:hover {
+#intro p a:hover {
   color: #8eec3c;
   background-color: black;
   border-radius: 0.2em;
@@ -170,4 +170,26 @@ footer {
   margin-top: 40px;
   margin-right: 20px;
   margin-bottom: 20px;
+}
+
+.medium-buttons a:link {
+  text-decoration: none;
+  font-size: 35px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  color: black;
+}
+
+.medium-buttons a:visited {
+  text-decoration: none;
+  font-size: 35px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  color: black;
+}
+
+.medium-buttons a:hover {
+  background-color: #8eec3c;
+  border-radius: 0.2em;
+  opacity: 0.5;
 }
