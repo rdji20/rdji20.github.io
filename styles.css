@@ -287,3 +287,8 @@ li {
 #design-header {
   height: 120px;
 }
+
+.large-image {
+  width: 1200px;
+  border-radius: 1em;
+}
