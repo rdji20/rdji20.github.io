@@ -254,9 +254,6 @@ li {
 #design-header p {
   font-size: 30px;
   font-family: "Roboto Mono", monospace;
-  margin-bottom: 40px;
-  margin-top: 0px;
-  padding-bottom: 60px;
   color: black;
 }
 .flexy-row a:visited,
