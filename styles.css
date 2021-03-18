@@ -178,6 +178,7 @@ footer {
   font-family: "Roboto Mono", monospace;
   font-weight: bold;
   color: black;
+  padding: 5px;
 }
 
 .medium-buttons a:visited {
@@ -186,6 +187,7 @@ footer {
   font-family: "Roboto Mono", monospace;
   font-weight: bold;
   color: black;
+  padding: 5px;
 }
 
 .medium-buttons a:hover,
@@ -291,4 +293,13 @@ li {
 .large-image {
   width: 1200px;
   border-radius: 1em;
+}
+
+.top-logo img {
+  width: 100px;
+}
+
+.top-logo {
+  display: flex;
+  justify-content: center;
 }
