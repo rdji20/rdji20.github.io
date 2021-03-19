@@ -317,3 +317,17 @@ li {
   color: #f7f7ff;
   font-size: 28px;
 }
+
+header h2 a:link {
+  color: black;
+}
+
+header h2 a:visited {
+  color: black;
+}
+
+header h2 a:hover {
+  background-color: #8eec3c;
+  border-radius: 0.2em;
+  opacity: 0.5;
+}
