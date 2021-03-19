@@ -312,3 +312,8 @@ li {
 .get-space {
   padding: 30px;
 }
+
+.slash {
+  color: #f7f7ff;
+  font-size: 28px;
+}
