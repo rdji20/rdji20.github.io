@@ -191,7 +191,8 @@ footer {
 }
 
 .medium-buttons a:hover,
-.flexy-row a:hover {
+.flexy-row a:hover,
+#designs a:hover {
   background-color: #8eec3c;
   border-radius: 0.2em;
   opacity: 0.5;
@@ -302,4 +303,12 @@ li {
 .top-logo {
   display: flex;
   justify-content: center;
+}
+
+#designs img {
+  margin: 20px;
+}
+
+.get-space {
+  padding: 30px;
 }
