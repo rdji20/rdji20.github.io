@@ -27,6 +27,11 @@ body {
   font-weight: lighter;
 }
 
+footer {
+  font-family: "Roboto", sans-serif;
+  padding-top: 30px;
+}
+
 header h1 {
   text-align: left;
   width: 500px;
@@ -292,7 +297,7 @@ li {
 }
 
 .large-image {
-  width: 1200px;
+  width: 90%;
   border-radius: 1em;
 }
 
