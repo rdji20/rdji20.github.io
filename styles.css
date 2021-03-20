@@ -331,3 +331,14 @@ header h2 a:hover {
   border-radius: 0.2em;
   opacity: 0.5;
 }
+
+#linkedin {
+  padding-top: 130px;
+  padding-right: 30px;
+  border-radius: 1em;
+}
+
+#linkedin div {
+  background-color: #8eec3c;
+  border-radius: 1em;
+}
