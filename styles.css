@@ -79,9 +79,9 @@ header h2 {
 #profile_pic {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  border-right: solid #f7f7ff 10px;
-  height: 600px;
-  border-bottom: solid #f7f7ff 10px;
+  border-right: solid #f7f7ff 15px;
+  height: 620px;
+  border-bottom: solid #f7f7ff 15px;
 }
 
 .logo-size {
