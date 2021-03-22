@@ -124,6 +124,10 @@ header h2 {
   display: flex;
 }
 
+#show-case div img {
+  width: 100%;
+}
+
 .att-size {
   width: 400px;
 }
@@ -393,4 +397,15 @@ header h2 a:hover {
 
 .bigger img {
   width: 100%;
+}
+
+#show-message {
+  display: flex;
+}
+
+#show-message p {
+  padding: 10px;
+  color: #f7f7ff;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bolder;
 }

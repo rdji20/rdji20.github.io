@@ -22,6 +22,7 @@
     }
     this.classList.remove("hidden");
     this.classList.add("bigger");
+    this.classList.remove("fit");
     this.addEventListener("click", closeImg);
   }
 
@@ -32,6 +33,7 @@
     for(let i = 0; i < logos.length ; i++) {
       logos[i].classList.remove("hidden");
     }
+    this.classList.add("fit");
     this.removeEventListener("click", closeImg);
   }
 
