@@ -6,6 +6,9 @@
     createEventlisteners();
   }
 
+  /**
+   * Creates event click listeners for all the images 
+   */
   function createEventlisteners() {
     let logos = id("show-case").children ;
     console.log(logos);
@@ -14,6 +17,9 @@
     }
   }
 
+  /**
+   * Displays the image clicked to appear bigger and hides other images
+   */
   function logoClick() {
     let logos = id("show-case").children ;
     console.log(this)
@@ -26,6 +32,9 @@
     this.addEventListener("click", closeImg);
   }
 
+  /**
+   * Closes the image selected to return to the showcase
+   */
   function closeImg() {
     this.classList.remove("bigger");
     let logos = id("show-case").children ;
@@ -43,27 +52,6 @@
    */
   function id(idName) {
     return document.getElementById(idName);
-  }
-
-  /**
-   * @param {string} selector takes any class and/or children.
-   * @return {object} DOM object associated with all class.
-   */
-  function qsa(selector) {
-    return document.querySelectorAll(selector);
-  }
-
-  function qs(selector) {
-    return document.querySelector(selector);
-  }
-
-   /**
-   * Returns new element with given tag name.
-   * @param {string} elType - HTML tag name for new DOM element.
-   * @returns {object} New DOM object for a HTML tag.
-   */
-  function gen(elType) {
-    return document.createElement(elType);
   }
 
 })();
