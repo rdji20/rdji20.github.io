@@ -384,5 +384,13 @@ header h2 a:hover {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
+}
+
+.bigger {
+  width: 100% !important;
+}
+
+.bigger img {
+  width: 100%;
 }
