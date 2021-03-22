@@ -5,13 +5,18 @@ body {
 
 #profile {
   display: flex;
-  background-color: #3c53ec;
+  flex-wrap: wrap;
+  background-color: #495867;
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 1em;
   height: auto;
-  box-shadow: 10px 10px rgb(109, 107, 107);
+  box-shadow: 10px 10px rgb(33, 33, 33);
   margin-bottom: 20px;
+}
+
+#intro {
+  width: 55%;
 }
 
 #intro p {
@@ -106,14 +111,12 @@ header h2 {
 }
 
 #show-case {
-  background-image: linear-gradient(#3c53ec, #8eec3c), url("img/graffiti.jpeg");
-  background-size: cover;
-  background-blend-mode: darken;
+  background-color: rgb(33, 33, 33);
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 1em;
   height: auto;
-  box-shadow: 10px 10px rgb(109, 107, 107);
+  box-shadow: 10px 10px #495867;
   width: 60%;
   align-content: space-around;
   justify-content: center;
@@ -131,24 +134,29 @@ header h2 {
 }
 
 #show-case div {
-  width: 40%;
+  width: 180px;
+  height: auto;
   display: flex;
   justify-content: center;
-  padding: 10px;
+  border-radius: 1em;
+  background-color: #3c53ec;
+  margin: 15px;
 }
 
 #work {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 #skills {
-  width: 40%;
-  height: 400px;
-  background-color: #495867;
+  width: 35%;
+  height: auto;
+  background-color: rgb(33, 33, 33);
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 1em;
-  box-shadow: 10px 10px rgb(109, 107, 107);
+  box-shadow: 10px 10px #495867;
   color: #8eec3c;
   font-family: "Roboto Mono", monospace;
   font-weight: lighter;
@@ -156,6 +164,13 @@ header h2 {
 
 #skills h1 {
   font-size: 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#skills li {
+  padding-top: 20px;
+  font-size: 20px;
 }
 
 #intro div img {
@@ -180,6 +195,7 @@ footer {
   margin-top: 40px;
   margin-right: 20px;
   margin-bottom: 20px;
+  color: #3c53ec;
 }
 
 .medium-buttons a:link {
@@ -221,7 +237,7 @@ footer {
   margin-right: 20px;
   border-radius: 1em;
   height: auto;
-  box-shadow: 10px 10px rgb(109, 107, 107);
+  box-shadow: 10px 10px rgb(33, 33, 33);
   margin-bottom: 20px;
   align-items: center;
 }
@@ -346,11 +362,26 @@ header h2 a:hover {
   padding-top: 130px;
   padding-right: 30px;
   border-radius: 1em;
+  color: #f7f7ff;
 }
 
 #linkedin div {
-  background-color: #8eec3c;
+  background-color: rgb(33, 33, 33);
   border-radius: 1em;
+  color: #f7f7ff;
+}
+
+#linkedin a:link {
+  color: #f7f7ff;
+}
+
+#linkedin a:visited {
+  color: #f7f7ff;
+}
+
+#linkedin a:hover {
+  opacity: 0.5;
+  color: white;
 }
 
 .hidden {
