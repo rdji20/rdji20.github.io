@@ -11,7 +11,7 @@ body {
   margin-right: 20px;
   border-radius: 1em;
   height: auto;
-  box-shadow: 10px 10px rgb(33, 33, 33);
+  box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 20px;
 }
 
@@ -116,7 +116,7 @@ header h2 {
   margin-right: 20px;
   border-radius: 1em;
   height: auto;
-  box-shadow: 10px 10px #495867;
+  box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.25);
   width: 60%;
   align-content: space-around;
   justify-content: center;
@@ -156,7 +156,7 @@ header h2 {
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 1em;
-  box-shadow: 10px 10px #495867;
+  box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.25);
   color: #8eec3c;
   font-family: "Roboto Mono", monospace;
   font-weight: lighter;
@@ -237,7 +237,7 @@ footer {
   margin-right: 20px;
   border-radius: 1em;
   height: auto;
-  box-shadow: 10px 10px rgb(33, 33, 33);
+  box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 20px;
   align-items: center;
 }
