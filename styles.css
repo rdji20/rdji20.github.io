@@ -106,19 +106,23 @@ header h2 {
 }
 
 #show-case {
-  background-image: linear-gradient(#495867, #8eec3c), url("img/graffiti.jpeg");
+  background-image: linear-gradient(#3c53ec, #8eec3c), url("img/graffiti.jpeg");
   background-size: cover;
-  background-blend-mode: multiply;
+  background-blend-mode: darken;
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 1em;
-  height: 400px;
+  height: auto;
   box-shadow: 10px 10px rgb(109, 107, 107);
   width: 60%;
   align-content: space-around;
   justify-content: center;
   flex-wrap: wrap;
   display: flex;
+}
+
+.att-size {
+  width: 400px;
 }
 
 .small-img {
@@ -130,6 +134,7 @@ header h2 {
   width: 40%;
   display: flex;
   justify-content: center;
+  padding: 10px;
 }
 
 #work {
@@ -346,4 +351,8 @@ header h2 a:hover {
 #linkedin div {
   background-color: #8eec3c;
   border-radius: 1em;
+}
+
+.hidden {
+  display: none;
 }
