@@ -412,15 +412,7 @@ header h2 a:hover {
 
 @media only screen and (max-width: 500px) {
   .top-logo img {
-    width: 50px;
-  }
-
-  #profile img {
-    width: 200px;
-    height: 420px;
-    border: none;
-    padding-left: 30%;
-    padding-top: 20px;
+    display: none;
   }
 
   header h1 {
