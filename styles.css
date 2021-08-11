@@ -153,31 +153,6 @@ footer {
   color: #3c53ec;
 }
 
-.medium-buttons a:link {
-  text-decoration: none;
-  font-size: 35px;
-  font-family: "Roboto Mono", monospace;
-  font-weight: bold;
-  color: black;
-  padding: 5px;
-}
-
-.medium-buttons a:visited {
-  text-decoration: none;
-  font-size: 35px;
-  font-family: "Roboto Mono", monospace;
-  font-weight: bold;
-  color: black;
-  padding: 5px;
-}
-
-.medium-buttons a:hover,
-.flexy-row a:hover,
-#designs a:hover {
-  background-color: #8eec3c;
-  border-radius: 0.2em;
-  opacity: 0.5;
-}
 
 #designs {
   display: flex;
@@ -337,6 +312,50 @@ header h2 a:hover {
   html, body {
     max-width: 100%;
     overflow-x: hidden;
+  }
+
+  .medium-buttons a:link {
+    text-decoration: none;
+    font-size: 35px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    color: black;
+    padding: 5px;
+  }
+  
+  .medium-buttons a:visited {
+    text-decoration: none;
+    font-size: 35px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    color: black;
+    padding: 5px;
+  }
+  
+  .medium-buttons a:hover,
+  .flexy-row a:hover,
+  #designs a:hover {
+    background-color: #8eec3c;
+    border-radius: 0.2em;
+    opacity: 0.5;
+  }
+
+  .medium-buttons {
+    padding-bottom: 30px;
+  }
+
+  #mrw {
+    color: #f7f7ff;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    background-color: transparent;
+    text-decoration: none;
+    border: #8eec3c solid 2px;
+    padding: 9px;
+    border-radius: 1em;
+    box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
+    position: relative;
+    left: 25%;
   }
 
   .ux-show {
