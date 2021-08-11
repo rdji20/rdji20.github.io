@@ -1,35 +1,11 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background-color: #f7f7ff;
   margin: 0em;
-}
-
-#profile {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #495867;
-  margin-left: 10px;
-  margin-right: 20px;
-  border-radius: 1em;
-  height: auto;
-  box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.25);
-  margin-bottom: 20px;
-}
-
-#intro {
-  width: 55%;
-}
-
-#intro p {
-  width: 80%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 40px;
-  padding-right: 20px;
-  margin-left: 10px;
-  color: #f7f7ff;
-  font-family: "Roboto", sans-serif;
-  font-size: 24px;
-  font-weight: lighter;
 }
 
 footer {
@@ -64,30 +40,12 @@ header h2 {
   padding-bottom: 50px;
 }
 
-#intro h1 {
-  font-family: "Roboto Mono", monospace;
-  color: #8eec3c;
-  font-weight: bolder;
-  font-size: 40px;
-  width: 50%;
-  padding-top: 20px;
-  padding-left: 40px;
-  padding-right: 20px;
-  margin-left: 10px;
-}
 
 .highlight {
   font-family: "Roboto Mono", monospace;
   background-color: #8eec3c;
 }
 
-#profile_pic {
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
-  border-right: solid #f7f7ff 15px;
-  height: 620px;
-  border-bottom: solid #f7f7ff 15px;
-}
 
 .logo-size {
   width: 35px;
@@ -178,12 +136,6 @@ header h2 {
 
 #intro div img {
   display: block;
-}
-
-#intro div {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 #intro div p {
@@ -344,7 +296,6 @@ li {
 
 .slash {
   color: #f7f7ff;
-  font-size: 28px;
 }
 
 header h2 a:link {
@@ -359,19 +310,6 @@ header h2 a:hover {
   background-color: #8eec3c;
   border-radius: 0.2em;
   opacity: 0.5;
-}
-
-#linkedin {
-  padding-top: 130px;
-  padding-right: 30px;
-  border-radius: 1em;
-  color: #f7f7ff;
-}
-
-#linkedin div {
-  background-color: rgb(33, 33, 33);
-  border-radius: 1em;
-  color: #f7f7ff;
 }
 
 #linkedin a:link {
@@ -410,20 +348,166 @@ header h2 a:hover {
   font-weight: bolder;
 }
 
-@media only screen and (max-width: 500px) {
-  .top-logo img {
-    display: none;
+@media (min-width: 400px) and (max-width: 768px) { 
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
   }
+
+  #rdji-botton p {
+    idth: 30px;
+    font-size: 10px;
+    position: fixed;
+    left: 88.4%;
+    top: 6.5%;
+    font-family: "Roboto Mono", monospace;
+  }
+
+  #designs {
+    display: flex;
+    width: 110%;
+    flex-direction: column;
+    background-color: #495867;
+    margin-left: 10px;
+    margin-right: 20px;
+    border-radius: 1em;
+    height: auto;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  #rdji-botton {
+    border: black solid 2px;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    left: 86%;
+    top: 4%;
+    border-radius: 5em;
+    background-color: #8eec3c;
+    box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
+  }
+
+  a:visited {
+    color: black;
+  }
+
+  #rdji-home {
+    width: 40px;
+    position: fixed;
+    left: 86.4%;
+    top: 3%;
+  }
+
+  em {
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #f7f7ff;
+    margin: 0em;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .top-logo img {
+    width: 200px;
+  }
+
+  div {
+    width: 100%;
+  }
+
+  header h1 {
+    text-align: left;
+    color: black;
+    font-family: "Roboto Mono", monospace;
+    margin-left: 40px;
+    font-weight: bold;
+  }
+
+  header {
+    width: 90%;
+  }
+
+  #profile {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #495867;
+    border-radius: 1em;
+    width: 95%;
+    height: auto;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    margin-bottom: 20px;
+  }
+
+  #profile_pic {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 1em;
+  }
+
+  #intro h1 {
+    font-family: "Roboto Mono", monospace;
+    color: #8eec3c;
+
+    padding-left: 40px;
+    margin-left: 10px;
+  }
+
+  #intro p {
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 20px;
+    color: #f7f7ff;
+    font-family: "Roboto", sans-serif;
+    font-weight: lighter;
+  }
+
+  #intro div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  #intro div a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    border-radius: 1em;
+    padding: 10px;
+    border: #8eec3c solid 2px;
+  }
+
+  #linkedin {
+    padding-top: 30px;
+    border-radius: 1em;
+  }
+  
+  #linkedin div {
+    background-color: rgb(33, 33, 33);
+    border-radius: 1em;
+    color: #8eec3c;
+  }
+
+}
 
   header h1 {
     font-size: 20px;
   }
   header h2 {
     font-size: 15px;
-  }
-
-  #profile div {
-    width: auto;
   }
 
   #work div {
