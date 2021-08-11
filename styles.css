@@ -179,11 +179,6 @@ footer {
   opacity: 0.5;
 }
 
-.ux-show {
-  display: flex;
-  justify-content: center;
-}
-
 #designs {
   display: flex;
   flex-direction: column;
@@ -195,16 +190,6 @@ footer {
   box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 20px;
   align-items: center;
-}
-
-#designs p {
-  font-size: 18px;
-  margin: 60px;
-  margin-left: 200px;
-  margin-right: 200px;
-  font-family: "Roboto Mono", monospace;
-  font-weight: 300;
-  color: #8eec3c;
 }
 
 iframe {
@@ -354,6 +339,25 @@ header h2 a:hover {
     overflow-x: hidden;
   }
 
+  .ux-show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    padding-bottom: 30px;
+  }
+
+  iframe {
+    height: 300px;
+  }
+
+  #designs p {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300;
+    color: #8eec3c;
+    width: 80%;
+}
+
   #rdji-botton p {
     width: 30px;
     font-size: 12px;
@@ -391,6 +395,10 @@ header h2 a:hover {
   }
 
   a:visited {
+    color: black;
+  }
+
+  a:link {
     color: black;
   }
 
