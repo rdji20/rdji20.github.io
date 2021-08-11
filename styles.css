@@ -356,6 +356,7 @@ header h2 a:hover {
     box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
     position: relative;
     left: 25%;
+    margin-top: 100px;
   }
 
   .ux-show {
@@ -482,6 +483,13 @@ header h2 a:hover {
     object-position: top;
     border-radius: 1em;
   }
+  #profile_pic_bot {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: bottom;
+    border-radius: 1em;
+  }
 
   #intro h1 {
     font-family: "Roboto Mono", monospace;
@@ -525,7 +533,6 @@ header h2 a:hover {
   
   #linkedin div {
     background-color: rgb(33, 33, 33);
-    border-radius: 1em;
     color: #8eec3c;
   }
 
