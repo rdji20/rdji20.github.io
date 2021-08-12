@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -24,28 +25,10 @@ header h1 {
   font-weight: bold;
 }
 
-header {
-  margin-top: 40px;
-}
-
-header h2 {
-  margin-top: 50px;
-  text-align: left;
-  width: 70%;
-  color: black;
-  font-family: "Roboto Mono", monospace;
-  margin-left: 25%;
-  font-weight: 300;
-  font-size: 22px;
-  padding-bottom: 50px;
-}
-
-
 .highlight {
   font-family: "Roboto Mono", monospace;
   background-color: #8eec3c;
 }
-
 
 .logo-size {
   width: 35px;
@@ -111,19 +94,6 @@ header h2 {
   justify-content: space-evenly;
 }
 
-#skills {
-  width: 35%;
-  height: auto;
-  background-color: rgb(33, 33, 33);
-  margin-left: 10px;
-  margin-right: 20px;
-  border-radius: 1em;
-  box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.25);
-  color: #8eec3c;
-  font-family: "Roboto Mono", monospace;
-  font-weight: lighter;
-}
-
 #skills h1 {
   font-size: 40px;
   padding-top: 30px;
@@ -152,7 +122,6 @@ footer {
   margin-bottom: 20px;
   color: #3c53ec;
 }
-
 
 #designs {
   display: flex;
@@ -308,10 +277,83 @@ header h2 a:hover {
   font-weight: bolder;
 }
 
-@media (min-width: 360px) and (max-width: 500px) { 
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+@media (min-width: 700px) {
+  #image-holder {
+    display: none;
+  }
+
+  #designs p {
+    color: #8eec3c;
+    width: 80%;
+    font-family: "Roboto Mono", monospace;
+  }
+
+  iframe {
+    height: 500px;
+    width: 500px;
+  }
+
+  #intro {
+    display: flex;
+    flex-direction: column;
+    font-size: 120%;
+  }
+
+  #rdji-botton {
+    border: black solid 2px;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    left: 90%;
+    top: 3%;
+    border-radius: 5em;
+    background-color: #8eec3c;
+    box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
+  }
+
+  a:visited {
+    color: black;
+  }
+
+  #rdji-botton p {
+    width: 30px;
+    font-size: 12px;
+    position: fixed;
+    left: 91%;
+    top: 7.5%;
+    font-family: "Roboto Mono", monospace;
+    margin: 0px;
+  }
+
+  #rdji-home {
+    width: 45px;
+    position: fixed;
+    left: 90.4%;
+    top: 3%;
+  }
+
+  #intro div a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    border-radius: 1em;
+    padding: 10px;
+    border: #8eec3c solid 2px;
+  }
+
+  #mrw {
+    color: #f7f7ff;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    background-color: transparent;
+    text-decoration: none;
+    border: #8eec3c solid 2px;
+    padding: 9px;
+    border-radius: 0.5em;
+    box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
+    width: 30%;
+    align-self: center;
+    text-align: center;
   }
 
   .medium-buttons a:link {
@@ -322,7 +364,7 @@ header h2 a:hover {
     color: black;
     padding: 5px;
   }
-  
+
   .medium-buttons a:visited {
     text-decoration: none;
     font-size: 35px;
@@ -331,7 +373,122 @@ header h2 a:hover {
     color: black;
     padding: 5px;
   }
-  
+
+  .medium-buttons a:hover,
+  .flexy-row a:hover,
+  #designs a:hover,
+  #mrw:hover {
+    background-color: #8eec3c;
+    border-radius: 0.2em;
+    opacity: 0.5;
+  }
+
+  .medium-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .medium-buttons a {
+    width: fit-content;
+  }
+
+  #linkedin {
+    display: none;
+  }
+
+  #profile {
+    display: flex;
+    background-color: #495867;
+    border-radius: 0em 1em 1em 0em;
+    width: 95%;
+    box-shadow: 7px 10px 4px rgb(0 0 0 / 25%);
+    margin-bottom: 5px;
+  }
+
+  #profile_pic {
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  header h2 {
+    width: 70%;
+    color: black;
+    font-family: "Roboto Mono", monospace;
+    margin-left: 10%;
+    font-weight: 300;
+    font-size: 22px;
+    padding-bottom: 50px;
+  }
+
+  em {
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  #intro h1 {
+    font-family: "Roboto Mono", monospace;
+    color: #8eec3c;
+    padding-left: 40px;
+    margin-left: 10px;
+  }
+
+  #intro p {
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 20px;
+    color: #f7f7ff;
+    font-family: "Roboto", sans-serif;
+    font-weight: lighter;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 500px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  header {
+    margin-top: 40px;
+  }
+
+  header h2 {
+    margin-top: 50px;
+    text-align: left;
+    width: 70%;
+    color: black;
+    font-family: "Roboto Mono", monospace;
+    margin-left: 25%;
+    font-weight: 300;
+    font-size: 22px;
+    padding-bottom: 50px;
+  }
+
+  .medium-buttons a:link {
+    text-decoration: none;
+    font-size: 35px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    color: black;
+    padding: 5px;
+  }
+
+  .medium-buttons a:visited {
+    text-decoration: none;
+    font-size: 35px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    color: black;
+    padding: 5px;
+  }
+
   .medium-buttons a:hover,
   .flexy-row a:hover,
   #designs a:hover {
@@ -376,7 +533,7 @@ header h2 a:hover {
     font-weight: 300;
     color: #8eec3c;
     width: 80%;
-}
+  }
 
   #rdji-botton p {
     width: 30px;
@@ -499,7 +656,6 @@ header h2 a:hover {
   #intro h1 {
     font-family: "Roboto Mono", monospace;
     color: #8eec3c;
-
     padding-left: 40px;
     margin-left: 10px;
   }
@@ -535,37 +691,36 @@ header h2 a:hover {
     padding-top: 30px;
     border-radius: 1em;
   }
-  
+
   #linkedin div {
     background-color: rgb(33, 33, 33);
     color: #8eec3c;
   }
-
 }
 
-  header h1 {
-    font-size: 20px;
-  }
-  header h2 {
-    font-size: 15px;
-  }
+header h1 {
+  font-size: 20px;
+}
 
-  #work div {
-    width: 100%;
-  }
-  #work div img {
-    width: 40%;
-  }
+header h2 {
+  font-size: 15px;
+}
 
-  #skills ul li {
-    font-size: 15px;
-  }
+#work div {
+  width: 100%;
+}
+#work div img {
+  width: 40%;
+}
 
-  #skills ul h1 {
-    font-size: 20px;
-  }
+#skills ul li {
+  font-size: 15px;
+}
 
-  #skills {
-    margin-top: 10px;
-  }
+#skills ul h1 {
+  font-size: 20px;
+}
+
+#skills {
+  margin-top: 10px;
 }
