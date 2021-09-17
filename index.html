@@ -10,6 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=PT+Serif&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="shortcut icon" type="image/jpg" href="img/rdji-logo-4.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -25,111 +32,113 @@
     <title>Rjil_Portfolio</title>
   </head>
   <body>
-    <div class="top-logo">
-      <img src="img/rdji-logo.png" alt="rdji-logo" />
+    <div id="menu">
+      <p>Menu</p>
     </div>
-    <header>
-      <h1>#My_Portfolio</h1>
-      <h2>
-        profile { <br />
-        &nbsp &nbsp <em>name</em>:
-        <span class="highlight">"Roberto Infante"</span>,
-        <br />
-        &nbsp &nbsp <em>education</em> : "UW",
-        <br />
-        &nbsp &nbsp <em>skills</em> :
-        <span class="highlight"
-          >"FullStack Dev, React, DB Management, Java OOP, UX, Data
-          Visualization, Data Science, SQL, R, Python"
-        </span>
-        <br />
-        &nbsp &nbsp <em>hobbies</em> : "football('Not American'), basketball,
-        fifa, read"
-        <br />
-        &nbsp &nbsp <em>contact</em> : "<a
-          href="mailto: infanteroberto20@yahoo.com"
-          >infanteroberto20@yahoo.com</a
-        >"
-        <br />
-        }
-      </h2>
-    </header>
-    <section id="profile">
-      <img
-        id="profile_pic"
-        src="img/me.jpeg"
-        alt="Profile picture of a person with a husky"
-      />
-      <div id="intro">
-        <h1>Who I am /</h1>
-        <p>
-          I am Roberto Infante, an international undergrad from Mexico at the
-          University of Washington, learning Data Science and Human Centered
-          Design. I am the co-founder of the mexican startup<a
-            href="https://artour.com.mx/"
-            target="_blank"
-          >
-            ARtour<img
-              class="logo-size"
-              src="img/logo1png-bw.png"
-              alt="artour logo" /></a
-          >, augmented reality tours for properties. Two of people who I admire
-          the most are designer Thomas A. Edison and clutch basketball player
-          Damian Lillard. Sko Dawgs!
-        </p>
-        <h1>Work / <span class="slash">Click on'em</span></h1>
-        <div class="medium-buttons">
-          <a href="https://medium.com/@roberto-infante03" target="_blank"
-            ><img
-              src="img/real_medium_logo.png"
-              alt="medium logo"
-              class="small-img"
-          /></a>
-          <a href="public/db_work.html"
-            ><img src="img/icons8-database-96.png" alt="database logo"
-          /></a>
-          <a href="public/design_work.html">UX/UI</a>
-        </div>
-        <h1>Most recent work /</h1>
-        <a
-          id="mrw"
-          href="https://rdji20.github.io/first-react/"
-          target="_blank"
-        >
-          Data Analysis NBA</a
-        >
-        <p>
-          <em>(Just desktop!!)</em> This is a class project for data science and
-          data visualization in where I used multiple data science skills such
-          as data mining, data transformation, data wrangling, etc. to create a
-          visualization for the location of all the shots taken by all the nba
-          players in one season. Webiste made with React.
-        </p>
+    <div id="main_screen">
+      <div class="top-logo">
+        <img src="img/rdji-logo.png" alt="rdji-logo" />
       </div>
-
-      <div
-        id="linkedin"
-        class="LI-profile-badge"
-        data-version="v1"
-        data-size="medium"
-        data-locale="es_ES"
-        data-type="horizontal"
-        data-theme="light"
-        data-vanity="rjil20"
-      >
-        <a
-          class="LI-simple-link"
-          href="https://www.linkedin.com/in/rjil20?trk=profile-badge"
-          >Roberto de Jesús Infante Lopez</a
-        >
-      </div>
-      <div id="image-holder">
+      <h3>
+        Hi! I'm Roberto, a software engineer, UX designer and
+        <a href="https://artour.com.mx/" target="_blank">
+          ARtour<img
+            class="logo-size"
+            src="img/logo1png-bw.png"
+            alt="artour logo" /></a
+        >Co-founder.
+      </h3>
+      <header>
+        <h1>#My_Portfolio</h1>
+        <h2>
+          profile { <br />
+          &nbsp &nbsp <em>name</em>:
+          <span class="highlight">"Roberto Infante"</span>,
+          <br />
+          &nbsp &nbsp <em>education</em> : "UW Seattle",
+          <br />
+          &nbsp &nbsp <em>skills</em> :
+          <span class="highlight"
+            >"FullStack Dev, React, DB Management, Java OOP, UX/UI, Data
+            Visualization, Data Science, SQL, R, Python, UX Reasearch"
+          </span>
+          <br />
+          &nbsp &nbsp <em>hobbies</em> : "football('Not American'), basketball,
+          fifa, read"
+          <br />
+          &nbsp &nbsp <em>contact</em> : "<a
+            href="mailto: infanteroberto20@yahoo.com"
+            >infanteroberto20@yahoo.com</a
+          >"
+          <br />
+          }
+        </h2>
+      </header>
+      <section id="profile">
         <img
-          id="profile_pic_bot"
+          id="profile_pic"
           src="img/me.jpeg"
           alt="Profile picture of a person with a husky"
         />
-      </div>
-    </section>
+        <div id="intro">
+          <!-- <h1>Who I am /</h1>
+          <p>
+            Hi! I'm Roberto, a software engineer and UX designer and
+            <a href="https://artour.com.mx/" target="_blank">
+              ARtour<img
+                class="logo-size"
+                src="img/logo1png-bw.png"
+                alt="artour logo" /></a
+            >Co-founder
+          </p> -->
+          <h1>Work / <span class="slash">Click on'em</span></h1>
+          <div class="medium-buttons">
+            <a href="https://medium.com/@roberto-infante03" target="_blank"
+              ><img
+                src="img/real_medium_logo.png"
+                alt="medium logo"
+                class="small-img"
+            /></a>
+            <a href="public/db_work.html"
+              ><img src="img/icons8-database-96.png" alt="database logo"
+            /></a>
+            <a href="public/design_work.html">UX/UI</a>
+          </div>
+          <h1>Most recent work /</h1>
+          <a
+            id="mrw"
+            href="https://rdji20.github.io/first-react/"
+            target="_blank"
+          >
+            Data Analysis NBA</a
+          >
+          <p>
+            <em>(Just desktop!!)</em> This is a class project for data science
+            and data visualization in where I used multiple data science skills
+            such as data mining, data transformation, data wrangling, etc. to
+            create a visualization for the location of all the shots taken by
+            all the nba players in one season. Webiste made with React.
+          </p>
+        </div>
+        <div id="image-holder">
+          <img
+            id="profile_pic_bot"
+            src="img/me.jpeg"
+            alt="Profile picture of a person with a husky"
+          />
+        </div>
+      </section>
+    </div>
+    <div id="menu_links" class="hidden">
+      <img
+        id="exit-icon"
+        src="https://img.icons8.com/ios/50/000000/delete-sign--v3.png"
+      />
+      <ul>
+        <li>Work</li>
+        <li>Contact</li>
+        <li>About Me</li>
+      </ul>
+    </div>
   </body>
 </html>

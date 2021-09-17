@@ -3,47 +3,20 @@
   window.addEventListener("load", init);
 
   function init() {
-    createEventlisteners();
+    id("menu").addEventListener("click", showMenuScreen);
+    id("exit-icon").addEventListener("click", showScreen);
   }
 
-  /**
-   * Creates event click listeners for all the images 
-   */
-  function createEventlisteners() {
-    let logos = id("show-case").children ;
-    console.log(logos);
-    for(let i = 0; i < logos.length ; i++) {
-      logos[i].addEventListener("click", logoClick);
-    }
+  function showScreen() {
+    id("main_screen").classList.remove("hidden");
+    id("menu").classList.remove("hidden");
+    id("menu_links").classList.add("hidden");
   }
 
-  /**
-   * Displays the image clicked to appear bigger and hides other images
-   */
-  function logoClick() {
-    let logos = id("show-case").children ;
-    console.log(this)
-    for(let i = 0; i < logos.length ; i++) {
-      logos[i].classList.add("hidden");
-    }
-    this.classList.remove("hidden");
-    this.classList.add("bigger");
-    this.classList.remove("fit");
-    this.addEventListener("click", closeImg);
-  }
-
-  /**
-   * Closes the image selected to return to the showcase
-   */
-  function closeImg() {
-    this.classList.remove("bigger");
-    let logos = id("show-case").children ;
-    console.log(logos);
-    for(let i = 0; i < logos.length ; i++) {
-      logos[i].classList.remove("hidden");
-    }
-    this.classList.add("fit");
-    this.removeEventListener("click", closeImg);
+  function showMenuScreen() {
+    id("main_screen").classList.add("hidden");
+    id("menu").classList.add("hidden");
+    id("menu_links").classList.remove("hidden");
   }
 
   /**
@@ -53,5 +26,4 @@
   function id(idName) {
     return document.getElementById(idName);
   }
-
 })();
