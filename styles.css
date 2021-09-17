@@ -17,8 +17,8 @@ footer {
 header h1 {
   text-align: left;
   width: 500px;
-  color: black;
-  font-family: "Mukta", sans-serif;
+  color: rgb(255, 255, 255);
+  font-family: "PT Serif", serif;
   margin-left: 40px;
   font-weight: 300;
   font-size: 38px;
@@ -28,6 +28,7 @@ header h1 {
 .highlight {
   font-family: "Mukta", sans-serif;
   background-color: #8eec3c;
+  color: #495867;
 }
 
 .logo-size {
@@ -198,7 +199,7 @@ li {
 }
 
 #design-header {
-  height: 120px;
+  height: 60px;
 }
 
 .large-image {
@@ -278,185 +279,14 @@ header h2 a:hover {
 }
 
 @media (min-width: 700px) {
-  #image-holder {
-    display: none;
-  }
-
-  h3 {
-    font-family: "Mukta", sans-serif;
-  }
-
-  #designs p {
-    color: #8eec3c;
-    width: 80%;
-    font-family: "Roboto Mono", monospace;
-  }
-
-  iframe {
-    height: 500px;
-    width: 500px;
-  }
-
-  #intro {
+  #content-container {
     display: flex;
     flex-direction: column;
-    font-size: 120%;
-  }
-
-  #rdji-botton {
-    border: black solid 2px;
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    left: 90%;
-    top: 3%;
-    border-radius: 5em;
-    background-color: #8eec3c;
-    box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
-  }
-
-  a:visited {
-    color: black;
-  }
-
-  #rdji-botton p {
-    width: 30px;
-    font-size: 12px;
-    position: fixed;
-    left: 91%;
-    top: 7.5%;
-    font-family: "Roboto Mono", monospace;
-    margin: 0px;
-  }
-
-  #rdji-home {
-    width: 45px;
-    position: fixed;
-    left: 90.4%;
-    top: 3%;
-  }
-
-  #intro div a {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
-    border-radius: 1em;
-    padding: 10px;
-    border: #8eec3c solid 2px;
-  }
-
-  #mrw {
-    color: #f7f7ff;
-    font-family: "Roboto Mono", monospace;
-    font-weight: bold;
-    background-color: transparent;
-    text-decoration: none;
-    border: #8eec3c solid 2px;
-    padding: 9px;
-    border-radius: 0.5em;
-    box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
-    width: 30%;
-    align-self: center;
-    text-align: center;
-  }
-
-  .medium-buttons a:link {
-    text-decoration: none;
-    font-size: 35px;
-    font-family: "Roboto Mono", monospace;
-    font-weight: bold;
-    color: black;
-    padding: 5px;
-  }
-
-  .medium-buttons a:visited {
-    text-decoration: none;
-    font-size: 35px;
-    font-family: "Roboto Mono", monospace;
-    font-weight: bold;
-    color: black;
-    padding: 5px;
-  }
-
-  .medium-buttons a:hover,
-  .flexy-row a:hover,
-  #designs a:hover,
-  #mrw:hover {
-    background-color: #8eec3c;
-    border-radius: 0.2em;
-    opacity: 0.5;
-  }
-
-  .medium-buttons {
-    display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
   }
 
-  .medium-buttons a {
-    width: fit-content;
-  }
-
-  #linkedin {
-    display: none;
-  }
-
-  #profile {
-    display: flex;
-    background-color: #495867;
-    border-radius: 0em 1em 1em 0em;
-    width: 95%;
-    box-shadow: 7px 10px 4px rgb(0 0 0 / 25%);
-    margin-bottom: 5px;
-  }
-
-  #profile_pic {
-    width: 30%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-  }
-
-  header h2 {
-    width: 70%;
-    color: black;
-    font-family: "Roboto Mono", monospace;
-    margin-left: 10%;
-    font-weight: 300;
-    font-size: 22px;
-    padding-bottom: 50px;
-  }
-
-  em {
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  #intro h1 {
-    font-family: "Roboto Mono", monospace;
-    color: #8eec3c;
-    padding-left: 40px;
-    margin-left: 10px;
-  }
-
-  #intro p {
-    width: 80%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 40px;
-    padding-right: 20px;
-    color: #f7f7ff;
-    font-family: "Roboto", sans-serif;
-    font-weight: lighter;
-  }
-}
-
-@media (min-width: 360px) and (max-width: 500px) {
   #menu_links {
     background-color: #000000e8;
-    width: 100%;
-    height: 100%;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -483,6 +313,7 @@ header h2 a:hover {
     height: 40px;
     border-radius: 1em;
     width: 98%;
+    margin-top: 3px;
   }
 
   #menu p {
@@ -497,25 +328,364 @@ header h2 a:hover {
     max-width: 100%;
     overflow-x: hidden;
   }
+
   h3 {
     font-family: "Mukta", sans-serif;
     font-size: 24px;
     width: 80%;
-    margin: 60px;
+    margin-left: 30px;
+    margin-top: 100px;
+    margin-bottom: 80px;
   }
+
   header {
     margin-top: 40px;
+    background-color: #495867;
+    width: 95%;
+    border-radius: 1em;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    margin-bottom: 15px;
+    margin-left: 5px;
   }
 
   header h2 {
     text-align: left;
-    width: 70%;
-    color: black;
-    font-family: "Mukta", sans-serif;
-    margin-left: 25%;
-    font-weight: 300;
-    font-size: 24px;
+    color: #f7f7ff;
     padding-bottom: 50px;
+    margin-left: 45px;
+    margin-right: 5px;
+  }
+
+  .medium-buttons a:link {
+    text-decoration: none;
+    font-size: 35px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    color: black;
+    padding: 5px;
+  }
+
+  .medium-buttons a:visited {
+    text-decoration: none;
+    font-size: 35px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    color: black;
+    padding: 5px;
+  }
+
+  .medium-buttons a:hover,
+  .flexy-row a:hover,
+  #designs a:hover {
+    background-color: #8eec3c;
+    border-radius: 0.2em;
+    opacity: 0.5;
+  }
+
+  .medium-buttons {
+    padding-bottom: 30px;
+    display: flex;
+  }
+
+  #mrw {
+    color: #f7f7ff;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    background-color: transparent;
+    text-decoration: none;
+    border: #8eec3c solid 2px;
+    padding: 9px;
+    border-radius: 1em;
+    box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
+    position: relative;
+    left: 25%;
+    margin-top: 100px;
+  }
+
+  .ux-show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    padding-bottom: 30px;
+  }
+
+  iframe {
+    height: 300px;
+  }
+
+  #designs p {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300;
+    color: #8eec3c;
+    width: 80%;
+  }
+
+  #rdji-botton p {
+    width: 30px;
+    font-size: 12px;
+    position: fixed;
+    left: 85.1%;
+    top: 8.5%;
+    font-family: "Roboto Mono", monospace;
+    margin: 0px;
+  }
+
+  #designs {
+    display: flex;
+    width: 110%;
+    flex-direction: column;
+    background-color: #495867;
+    margin-left: 10px;
+    margin-right: 20px;
+    border-radius: 1em;
+    height: auto;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  #rdji-botton {
+    border: black solid 2px;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    left: 84%;
+    top: 4%;
+    border-radius: 5em;
+    background-color: #8eec3c;
+    box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
+  }
+
+  a:visited {
+    color: black;
+  }
+
+  a:link {
+    color: black;
+  }
+
+  #rdji-home {
+    width: 45px;
+    position: fixed;
+    left: 84.65%;
+    top: 4%;
+  }
+
+  em {
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #f7f7ff;
+    margin: 0em;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .top-logo {
+    margin-top: 80px;
+  }
+
+  .top-logo img {
+    width: 100px;
+  }
+
+  div {
+    width: 100%;
+  }
+
+  header h1 {
+    text-align: left;
+    color: #8eec3c;
+    font-family: "Mukta", sans-serif;
+    margin-left: 40px;
+    font-size: 28px;
+  }
+
+  #profile {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #495867;
+    border-radius: 1em;
+    width: 95%;
+    height: auto;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    margin-bottom: 20px;
+  }
+
+  #profile_pic {
+    display: none;
+  }
+
+  #image-holder {
+    margin-left: 35%;
+  }
+
+  #profile_pic_bot {
+    width: 300px;
+    height: 340px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 1em;
+    margin-bottom: 30px;
+  }
+
+  #intro h1 {
+    font-family: "Roboto Mono", monospace;
+    color: #8eec3c;
+    padding-left: 40px;
+    margin-left: 10px;
+  }
+
+  #intro p {
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 20px;
+    color: #f7f7ff;
+    font-family: "Mukta", sans-serif;
+  }
+
+  #intro div {
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+  }
+
+  #intro div a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    border-radius: 1em;
+    padding: 10px;
+    border: #8eec3c solid 2px;
+  }
+
+  #exit-icon {
+    background-color: #f7f7ff;
+    border-radius: 10rem;
+    width: 20px;
+    padding: 10px;
+    position: relative;
+    left: 90%;
+    bottom: -4%;
+  }
+}
+
+header h1 {
+  font-size: 24px;
+  font-family: "Mukta", sans-serif;
+}
+
+header h2 {
+  font-size: 18px;
+  font-family: "Mukta", sans-serif;
+  width: auto;
+}
+
+#work div {
+  width: 100%;
+}
+#work div img {
+  width: 40%;
+}
+
+#skills ul li {
+  font-size: 15px;
+}
+
+#skills ul h1 {
+  font-size: 20px;
+}
+
+#skills {
+  margin-top: 10px;
+}
+
+@media (min-width: 360px) and (max-width: 500px) {
+  #content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #menu_links {
+    background-color: #000000e8;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #menu_links li {
+    color: #f7f7ff;
+    font-family: "Mukta", sans-serif;
+    font-size: 24px;
+    margin: 40px;
+    list-style: none;
+  }
+
+  #menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: fixed;
+    z-index: 1;
+    background-color: #000000e8;
+    height: 40px;
+    border-radius: 1em;
+    width: 98%;
+    margin-top: 3px;
+  }
+
+  #menu p {
+    width: auto;
+    color: #f7f7ff;
+    font-family: "Mukta", sans-serif;
+    font-size: 18px;
+  }
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  h3 {
+    font-family: "Mukta", sans-serif;
+    font-size: 24px;
+    width: 80%;
+    margin-left: 30px;
+    margin-top: 150px;
+    margin-bottom: 80px;
+  }
+
+  header {
+    margin-top: 40px;
+    background-color: #495867;
+    width: 95%;
+    border-radius: 1em;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    margin-bottom: 15px;
+    margin-left: 5px;
+  }
+
+  header h2 {
+    text-align: left;
+    color: #f7f7ff;
+    font-family: "Mukta", sans-serif;
+    font-size: 20px;
+    padding-bottom: 50px;
+    margin-left: 15px;
   }
 
   .medium-buttons a:link {
@@ -650,7 +820,7 @@ header h2 a:hover {
   }
 
   .top-logo {
-    margin-top: 40px;
+    margin-top: 80px;
   }
 
   .top-logo img {
@@ -663,13 +833,10 @@ header h2 a:hover {
 
   header h1 {
     text-align: left;
-    color: black;
+    color: #8eec3c;
     font-family: "Mukta", sans-serif;
     margin-left: 40px;
-  }
-
-  header {
-    width: 90%;
+    font-size: 28px;
   }
 
   #profile {
@@ -747,33 +914,30 @@ header h2 a:hover {
   }
 }
 
-header h1 {
-  font-size: 20px;
-}
-
-header h2 {
-  font-size: 15px;
-}
-
-#work div {
-  width: 100%;
-}
-#work div img {
-  width: 40%;
-}
-
-#skills ul li {
-  font-size: 15px;
-}
-
-#skills ul h1 {
-  font-size: 20px;
-}
-
-#skills {
-  margin-top: 10px;
-}
-
 .hidden {
   display: none;
+}
+
+.scrolled {
+  width: 100%;
+  height: 0;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  transition: all 0.5 ease 0s;
+}
+
+.unscrolled {
+  height: 100%;
+  transition: all 0.5 ease 0s;
+}
+
+li a:visited {
+  color: #f7f7ff;
+  text-decoration: none;
+}
+
+li a:link {
+  color: #f7f7ff;
+  text-decoration: none;
 }
