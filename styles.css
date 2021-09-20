@@ -700,6 +700,12 @@ header h2 a:hover {
     font-size: 24px;
     margin-bottom: 20px;
     padding-top: 20px;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    border-radius: 0.4em;
+    padding: 10px;
+    margin: 40px;
+    border: #202020 solid 2px;
+    background-color: #8eec3c;
   }
 
   .full-story-ctn div {
@@ -1248,6 +1254,12 @@ header h2 {
     font-size: 24px;
     margin-bottom: 20px;
     padding-top: 20px;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    border-radius: 0.4em;
+    padding: 10px;
+    margin: 40px;
+    border: #202020 solid 2px;
+    background-color: #8eec3c;
   }
 
   #am-img-ctn {
