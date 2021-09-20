@@ -56,7 +56,7 @@ header h1 {
   background-color: rgb(33, 33, 33);
   margin-left: 10px;
   margin-right: 20px;
-  border-radius: 1em;
+  border-radius: 0.4em;
   height: auto;
   box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.25);
   width: 60%;
@@ -76,7 +76,7 @@ header h1 {
 
 .small-img {
   width: 200px;
-  border-radius: 1em;
+  border-radius: 0.4em;
 }
 
 #show-case div {
@@ -84,7 +84,7 @@ header h1 {
   height: auto;
   display: flex;
   justify-content: center;
-  border-radius: 1em;
+  border-radius: 0.4em;
   background-color: #495867;
   margin: 15px;
 }
@@ -130,7 +130,7 @@ footer {
   background-color: #495867;
   margin-left: 10px;
   margin-right: 20px;
-  border-radius: 1em;
+  border-radius: 0.4em;
   height: auto;
   box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 20px;
@@ -138,7 +138,7 @@ footer {
 }
 
 iframe {
-  border-radius: 1em;
+  border-radius: 0.4em;
 }
 
 #blue-em {
@@ -196,6 +196,11 @@ li {
 #design-header h1 {
   align-self: flex-start;
   padding-right: 600px;
+  text-align: left;
+  color: black;
+  font-family: "Roboto Mono", monospace;
+  margin-left: 40px;
+  font-size: 24px;
 }
 
 #design-header {
@@ -204,7 +209,7 @@ li {
 
 .large-image {
   width: 90%;
-  border-radius: 1em;
+  border-radius: 0.4em;
 }
 
 .top-logo img {
@@ -279,6 +284,14 @@ header h2 a:hover {
 }
 
 @media (min-width: 700px) {
+  design-header h1 {
+    text-align: left;
+    color: black;
+    font-family: "Roboto Mono", monospace;
+    margin-left: 40px;
+    font-size: 24px;
+  }
+
   .showcase {
     display: flex;
     flex-direction: column;
@@ -389,7 +402,7 @@ header h2 a:hover {
     z-index: 1;
     background-color: #000000e8;
     height: 40px;
-    border-radius: 1em;
+    border-radius: 0.4em;
     width: 98%;
     margin-top: 3px;
   }
@@ -416,11 +429,11 @@ header h2 a:hover {
     margin-bottom: 80px;
   }
 
-  header {
+  #portfolio-intro {
     margin-top: 40px;
     background-color: #495867;
-    width: 95%;
-    border-radius: 1em;
+    width: 80%;
+    border-radius: 0.4em;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
     margin-bottom: 15px;
     margin-left: 5px;
@@ -473,7 +486,7 @@ header h2 a:hover {
     text-decoration: none;
     border: #8eec3c solid 2px;
     padding: 9px;
-    border-radius: 1em;
+    border-radius: 0.4em;
     box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
     position: relative;
     left: 25%;
@@ -511,12 +524,12 @@ header h2 a:hover {
 
   #designs {
     display: flex;
-    width: 110%;
+    width: 80%;
     flex-direction: column;
     background-color: #495867;
     margin-left: 10px;
     margin-right: 20px;
-    border-radius: 1em;
+    border-radius: 0.4em;
     height: auto;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
     margin-bottom: 20px;
@@ -578,10 +591,10 @@ header h2 a:hover {
     width: 100%;
   }
 
-  header h1 {
+  #portfolio-intro h1 {
     text-align: left;
     color: #8eec3c;
-    font-family: "Mukta", sans-serif;
+    font-family: "Roboto Mono", monospace;
     margin-left: 40px;
     font-size: 28px;
   }
@@ -590,8 +603,8 @@ header h2 a:hover {
     display: flex;
     flex-wrap: wrap;
     background-color: #495867;
-    border-radius: 1em;
-    width: 95%;
+    border-radius: 0.4em;
+    width: 80%;
     height: auto;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
     margin-bottom: 20px;
@@ -610,7 +623,7 @@ header h2 a:hover {
     height: 340px;
     object-fit: cover;
     object-position: top;
-    border-radius: 1em;
+    border-radius: 0.4em;
     margin-bottom: 30px;
   }
 
@@ -642,7 +655,7 @@ header h2 a:hover {
     margin-top: 10px;
     margin-bottom: 10px;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
-    border-radius: 1em;
+    border-radius: 0.4em;
     padding: 10px;
     border: #8eec3c solid 2px;
   }
@@ -656,11 +669,95 @@ header h2 a:hover {
     left: 90%;
     bottom: 15%;
   }
-}
 
-header h1 {
-  font-size: 24px;
-  font-family: "Roboto Mono", monospace;
+  /* About page */
+  .medium-size {
+    width: 600px;
+    border-radius: 0.4em;
+  }
+
+  .about-ctn h1 {
+    font-size: 30px;
+    font-family: "Roboto Mono", monospace;
+    margin-top: 40px;
+    align-self: baseline;
+    margin-left: 40px;
+  }
+
+  #am-img-ctn {
+    display: flex;
+    height: 600px;
+    background-color: #f7f7ff;
+    box-shadow: 0px 0px 0px rgb(0 0 0 / 25%);
+    width: 100%;
+    margin: 0px;
+  }
+
+  .about-ctn a:link,
+  .about-ctn a:visited {
+    font-family: "Mukta", sans-serif;
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .full-story-ctn div {
+    background-color: #495867;
+    width: 30%;
+    height: fit-content;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    margin: 10px;
+    border-radius: 0.4em;
+  }
+
+  .dialogue-size {
+    width: 20%;
+    height: 45%;
+    position: relative;
+    right: 105px;
+    z-index: 0;
+  }
+  .about-ctn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .full-story-ctn {
+    background-color: #8eec3c;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    border-radius: 0.4em;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+
+  .full-story-ctn h1 {
+    font-family: "Roboto Mono", monospace;
+    font-size: 24px;
+    position: static;
+    color: #8eec3c;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+  .about-ctn p {
+    font-family: "Mukta", sans-serif;
+    font-size: 18px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+    color: #f7f7ff;
+    padding-bottom: 40px;
+    padding-top: 30px;
+  }
 }
 
 header h2 {
@@ -721,7 +818,7 @@ header h2 {
     z-index: 1;
     background-color: #000000e8;
     height: 40px;
-    border-radius: 1em;
+    border-radius: 0.4em;
     width: 98%;
     margin-top: 3px;
   }
@@ -748,21 +845,25 @@ header h2 {
     margin-bottom: 80px;
   }
 
-  header {
+  #portfolio-intro {
     margin-top: 40px;
     background-color: #495867;
     width: 95%;
-    border-radius: 1em;
+    border-radius: 0.4em;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
     margin-bottom: 15px;
     margin-left: 5px;
+  }
+
+  #design-header {
+    margin-top: 40px;
   }
 
   header h2 {
     text-align: left;
     color: #f7f7ff;
     font-family: "Mukta", sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     padding-bottom: 50px;
     margin-left: 15px;
   }
@@ -805,7 +906,7 @@ header h2 {
     text-decoration: none;
     border: #8eec3c solid 2px;
     padding: 9px;
-    border-radius: 1em;
+    border-radius: 0.4em;
     box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
     position: relative;
     left: 25%;
@@ -843,12 +944,12 @@ header h2 {
 
   #designs {
     display: flex;
-    width: 110%;
+    width: 95%;
     flex-direction: column;
     background-color: #495867;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 20px;
-    border-radius: 1em;
+    border-radius: 0.4em;
     height: auto;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
     margin-bottom: 20px;
@@ -865,6 +966,7 @@ header h2 {
     border-radius: 5em;
     background-color: #8eec3c;
     box-shadow: 4px 5px 3px rgb(0 0 0 / 25%);
+    z-index: 1;
   }
 
   a:visited {
@@ -910,9 +1012,17 @@ header h2 {
     width: 100%;
   }
 
-  header h1 {
+  #portfolio-intro h1 {
     text-align: left;
     color: #8eec3c;
+    font-family: "Roboto Mono", monospace;
+    margin-left: 40px;
+    font-size: 24px;
+  }
+
+  #design-header h1 {
+    text-align: left;
+    color: black;
     font-family: "Roboto Mono", monospace;
     margin-left: 40px;
     font-size: 24px;
@@ -922,7 +1032,7 @@ header h2 {
     display: flex;
     flex-wrap: wrap;
     background-color: #495867;
-    border-radius: 1em;
+    border-radius: 0.4em;
     width: 95%;
     height: auto;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
@@ -934,7 +1044,7 @@ header h2 {
     height: 340px;
     object-fit: cover;
     object-position: top;
-    border-radius: 1em;
+    border-radius: 0.4em;
   }
 
   #image-holder {
@@ -946,7 +1056,7 @@ header h2 {
     height: 340px;
     object-fit: cover;
     object-position: bottom;
-    border-radius: 1em;
+    border-radius: 0.4em;
   }
 
   #intro h1 {
@@ -977,7 +1087,7 @@ header h2 {
     margin-top: 10px;
     margin-bottom: 10px;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
-    border-radius: 1em;
+    border-radius: 0.4em;
     padding: 10px;
     border: #8eec3c solid 2px;
   }
@@ -1003,7 +1113,7 @@ header h2 {
     width: 80%;
     height: 200px;
     margin-top: 10px;
-    border-radius: 0.3em;
+    border-radius: 0.4em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1045,6 +1155,14 @@ header h2 {
     background-color: #2867b2;
   }
 
+  .dialogue-size {
+    width: 55%;
+    height: 55%;
+    position: relative;
+    right: 105px;
+    z-index: 0;
+  }
+
   #gm {
     background: linear-gradient(
         to right,
@@ -1068,6 +1186,94 @@ header h2 {
 
   #ig {
     background-color: #495867;
+  }
+
+  .about-ctn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .about-ctn p {
+    font-family: "Mukta", sans-serif;
+    font-size: 18px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+    color: #f7f7ff;
+    padding-bottom: 40px;
+    padding-top: 30px;
+  }
+
+  .about-ctn h1,
+  #contact h1 {
+    color: black;
+    font-family: "Roboto Mono", monospace;
+    font-size: 24px;
+    align-self: baseline;
+    margin-left: 30px;
+    margin-top: 64px;
+  }
+
+  #dialogue-box {
+    position: relative;
+    left: 20%;
+    z-index: 1;
+    top: 100px;
+  }
+
+  .full-story-ctn h1 {
+    font-family: "Roboto Mono", monospace;
+    font-size: 24px;
+    position: static;
+    color: #8eec3c;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+
+  .about-ctn a:link,
+  .about-ctn a:visited {
+    font-family: "Mukta", sans-serif;
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  #am-img-ctn {
+    display: flex;
+    height: 300px;
+    background-color: #f7f7ff;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    margin: 0px;
+  }
+
+  .medium-size {
+    width: 300px;
+    border-radius: 0.4em;
+  }
+
+  .quote {
+    font-size: 24px;
+    font-style: italic;
+  }
+  .full-story-ctn {
+    background-color: #f7f7ff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .full-story-ctn div {
+    background-color: #495867;
+    width: 95%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
+    margin: 10px;
+    border-radius: 0.4em;
   }
 }
 
