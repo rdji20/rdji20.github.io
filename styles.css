@@ -110,7 +110,7 @@ header h1 {
 }
 
 #intro div p {
-  color: black;
+  color: #202020;
   font-weight: bolder;
   width: 40px;
   font-size: 35px;
@@ -166,13 +166,13 @@ li {
 #design-header p {
   font-size: 30px;
   font-family: "Roboto Mono", monospace;
-  color: black;
+  color: #202020;
 }
 .flexy-row a:visited,
 .flexy-row a:link {
   font-size: 30px;
   font-family: "Roboto Mono", monospace;
-  color: black;
+  color: #202020;
   padding-top: 60px;
   padding-left: 10px;
   padding-bottom: 20px;
@@ -197,7 +197,7 @@ li {
   align-self: flex-start;
   padding-right: 600px;
   text-align: left;
-  color: black;
+  color: #202020;
   font-family: "Roboto Mono", monospace;
   margin-left: 40px;
   font-size: 24px;
@@ -234,11 +234,11 @@ li {
 }
 
 header h2 a:link {
-  color: black;
+  color: #202020;
 }
 
 header h2 a:visited {
-  color: black;
+  color: #202020;
 }
 
 header h2 a:hover {
@@ -286,7 +286,7 @@ header h2 a:hover {
 @media (min-width: 700px) {
   design-header h1 {
     text-align: left;
-    color: black;
+    color: #202020;
     font-family: "Roboto Mono", monospace;
     margin-left: 40px;
     font-size: 24px;
@@ -333,7 +333,7 @@ header h2 a:hover {
     font-size: 24px;
     position: relative;
     bottom: 10px;
-    color: black;
+    color: #202020;
   }
 
   #fb {
@@ -452,7 +452,7 @@ header h2 a:hover {
     font-size: 35px;
     font-family: "Roboto Mono", monospace;
     font-weight: bold;
-    color: black;
+    color: #202020;
     padding: 5px;
   }
 
@@ -461,7 +461,7 @@ header h2 a:hover {
     font-size: 35px;
     font-family: "Roboto Mono", monospace;
     font-weight: bold;
-    color: black;
+    color: #202020;
     padding: 5px;
   }
 
@@ -537,7 +537,7 @@ header h2 a:hover {
   }
 
   #rdji-botton {
-    border: black solid 2px;
+    border: #202020 solid 2px;
     position: fixed;
     width: 50px;
     height: 50px;
@@ -549,11 +549,11 @@ header h2 a:hover {
   }
 
   a:visited {
-    color: black;
+    color: #202020;
   }
 
   a:link {
-    color: black;
+    color: #202020;
   }
 
   #rdji-home {
@@ -696,7 +696,7 @@ header h2 a:hover {
   .about-ctn a:link,
   .about-ctn a:visited {
     font-family: "Mukta", sans-serif;
-    color: black;
+    color: #202020;
     font-size: 24px;
     margin-bottom: 20px;
     padding-top: 20px;
@@ -887,7 +887,7 @@ header h2 {
     font-size: 35px;
     font-family: "Roboto Mono", monospace;
     font-weight: bold;
-    color: black;
+    color: #202020;
     padding: 5px;
   }
 
@@ -896,7 +896,7 @@ header h2 {
     font-size: 35px;
     font-family: "Roboto Mono", monospace;
     font-weight: bold;
-    color: black;
+    color: #202020;
     padding: 5px;
   }
 
@@ -971,7 +971,7 @@ header h2 {
   }
 
   #rdji-botton {
-    border: black solid 2px;
+    border: #202020 solid 2px;
     position: fixed;
     width: 50px;
     height: 50px;
@@ -984,11 +984,11 @@ header h2 {
   }
 
   a:visited {
-    color: black;
+    color: #202020;
   }
 
   a:link {
-    color: black;
+    color: #202020;
   }
 
   #rdji-home {
@@ -1036,7 +1036,7 @@ header h2 {
 
   #design-header h1 {
     text-align: left;
-    color: black;
+    color: #202020;
     font-family: "Roboto Mono", monospace;
     margin-left: 40px;
     font-size: 24px;
@@ -1157,7 +1157,7 @@ header h2 {
     font-size: 24px;
     position: relative;
     bottom: 10px;
-    color: black;
+    color: #202020;
   }
 
   #fb {
@@ -1222,7 +1222,7 @@ header h2 {
 
   .about-ctn h1,
   #contact h1 {
-    color: black;
+    color: #202020;
     font-family: "Roboto Mono", monospace;
     font-size: 24px;
     align-self: baseline;
@@ -1250,7 +1250,7 @@ header h2 {
   .about-ctn a:link,
   .about-ctn a:visited {
     font-family: "Mukta", sans-serif;
-    color: black;
+    color: #202020;
     font-size: 24px;
     margin-bottom: 20px;
     padding-top: 20px;
