@@ -85,7 +85,7 @@ header h1 {
   display: flex;
   justify-content: center;
   border-radius: 0.4em;
-  background-color: #495867;
+  background-color: #4285f4ff;
   margin: 15px;
 }
 
@@ -127,7 +127,7 @@ footer {
 #designs {
   display: flex;
   flex-direction: column;
-  background-color: #495867;
+  background-color: #4285f4ff;
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 0.4em;
@@ -308,7 +308,7 @@ header h2 a:hover {
     align-items: center;
     justify-content: center;
     box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.25);
-    background-color: #495867;
+    background-color: #4285f4ff;
   }
 
   .showcase div a:link {
@@ -367,7 +367,7 @@ header h2 a:hover {
   }
 
   #ig {
-    background-color: #495867;
+    background-color: #4285f4ff;
   }
 
   #content-container {
@@ -431,7 +431,7 @@ header h2 a:hover {
 
   #portfolio-intro {
     margin-top: 40px;
-    background-color: #495867;
+    background-color: #4285f4ff;
     width: 80%;
     border-radius: 0.4em;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
@@ -526,7 +526,7 @@ header h2 a:hover {
     display: flex;
     width: 80%;
     flex-direction: column;
-    background-color: #495867;
+    background-color: #4285f4ff;
     margin-left: 10px;
     margin-right: 20px;
     border-radius: 0.4em;
@@ -602,7 +602,7 @@ header h2 a:hover {
   #profile {
     display: flex;
     flex-wrap: wrap;
-    background-color: #495867;
+    background-color: #4285f4ff;
     border-radius: 0.4em;
     width: 80%;
     height: auto;
@@ -709,7 +709,7 @@ header h2 a:hover {
   }
 
   .full-story-ctn div {
-    background-color: #495867;
+    background-color: #4285f4ff;
     width: 30%;
     height: fit-content;
     margin-top: 40px;
@@ -861,7 +861,7 @@ header h2 {
 
   #portfolio-intro {
     margin-top: 40px;
-    background-color: #495867;
+    background-color: #4285f4ff;
     width: 95%;
     border-radius: 0.4em;
     box-shadow: 4px 10px 4px rgb(0 0 0 / 25%);
@@ -960,7 +960,7 @@ header h2 {
     display: flex;
     width: 95%;
     flex-direction: column;
-    background-color: #495867;
+    background-color: #4285f4ff;
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 0.4em;
@@ -1045,7 +1045,7 @@ header h2 {
   #profile {
     display: flex;
     flex-wrap: wrap;
-    background-color: #495867;
+    background-color: #4285f4ff;
     border-radius: 0.4em;
     width: 95%;
     height: auto;
@@ -1132,7 +1132,7 @@ header h2 {
     align-items: center;
     justify-content: center;
     box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.25);
-    background-color: #495867;
+    background-color: #4285f4ff;
   }
 
   .showcase div a:link {
@@ -1199,7 +1199,7 @@ header h2 {
   }
 
   #ig {
-    background-color: #495867;
+    background-color: #4285f4ff;
   }
 
   .about-ctn {
@@ -1287,7 +1287,7 @@ header h2 {
   }
 
   .full-story-ctn div {
-    background-color: #495867;
+    background-color: #4285f4ff;
     width: 95%;
     margin-top: 40px;
     margin-bottom: 10px;
