@@ -49,6 +49,18 @@ p { margin: 0 0 .9rem; }
 
 .links { font-size: .95rem; }
 
+.btn {
+  display: inline-block;
+  margin-top: .5rem;
+  padding: .35rem .9rem;
+  border: 1px solid #333;
+  border-radius: 3px;
+  color: #111;
+  text-decoration: none;
+  font-size: .9rem;
+}
+.btn:hover { background: #111; color: #fff; }
+
 ul { margin: 0 0 .9rem; padding-left: 1.25rem; }
 li { margin-bottom: .3rem; }
 
