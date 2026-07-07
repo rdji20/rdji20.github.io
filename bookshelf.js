@@ -27,19 +27,21 @@
       note: "The five tribes of machine learning and a unifying dream." },
 
     // --- up next (placeholders — replace with your real to-read list) ---
-    { shelf: "toread", title: "Surfing Uncertainty", author: "Andy Clark", year: 2016, color: "#3a5566",
+    { shelf: "toread", title: "Surfing Uncertainty", author: "Andy Clark", year: 2016, h: 180,
       note: "Prediction, action, and the embodied predictive mind." },
-    { shelf: "toread", title: "The Computational Brain", author: "Churchland & Sejnowski", year: 1992, color: "#5a4a2e",
+    { shelf: "toread", title: "The Computational Brain", author: "Churchland & Sejnowski", year: 1992, h: 168,
       note: "A foundational take on computational neuroscience." },
-    { shelf: "toread", title: "How to Build a Brain", author: "Chris Eliasmith", year: 2013, color: "#2e6b5c",
+    { shelf: "toread", title: "How to Build a Brain", author: "Chris Eliasmith", year: 2013, h: 176,
       note: "A unified architecture for biological cognition." }
   ];
 
   var shelf = document.getElementById("shelf");
   var track = document.getElementById("shelf-track");
-  var stack = document.getElementById("stack");
+  var track2 = document.getElementById("shelf2-track");
   var detail = document.getElementById("book-detail");
   if (!shelf || !track) return;
+
+  var GRAY = "#9a9aa2";   // up-next spines: unread
 
   var current = null;   // the currently pulled-out book element
 
@@ -78,24 +80,20 @@
     track.appendChild(s);
   });
 
-  // ---- shelf 2: flat stack ----
-  if (stack) {
-    var widths = [62, 54, 68, 58, 64];
+  // ---- shelf 2: up-next spines, grayed (unread) ----
+  if (track2) {
     BOOKS.forEach(function (b, i) {
       if (b.shelf !== "toread") return;
-      var idx = stack.children.length;
-      var f = document.createElement("button");
-      f.type = "button";
-      f.className = "flat-book";
-      f.style.setProperty("--c", b.color);
-      f.style.minWidth = "12rem";
-      f.style.width = widths[idx % widths.length] + "%";
-      f.style.marginLeft = ((idx % 3) * 5) + "px";
-      f.innerHTML =
-        '<span class="fb-title">' + b.title + '</span>' +
-        '<span class="fb-author">' + b.author + '</span>';
-      f.addEventListener("click", function () { openDetail(b, f, "lifted"); });
-      stack.appendChild(f);
+      var s = document.createElement("button");
+      s.type = "button";
+      s.className = "spine";
+      s.style.setProperty("--c", GRAY);
+      s.style.height = (b.h || 172) + "px";
+      s.innerHTML =
+        '<span class="spine-title">' + b.title + '</span>' +
+        '<span class="spine-author">' + b.author + '</span>';
+      s.addEventListener("click", function () { openDetail(b, s, "out"); });
+      track2.appendChild(s);
     });
   }
 
