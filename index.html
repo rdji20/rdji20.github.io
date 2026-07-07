@@ -54,19 +54,23 @@
         machine-generated to reduce overlap with any model's training data.
       </p>
 
-      <!-- quick play -->
-      <div class="game" aria-label="Clusterwords quick play">
+      <!-- quick play: the 2×2 probe -->
+      <div class="game" aria-label="Clusterwords 2×2 probe">
         <div class="game-bar">
-          <span class="game-hint">Pick four that go together.</span>
+          <span class="game-hint">Four words. Pick the two that belong together — then say why.</span>
           <span class="game-status" id="cw-status"></span>
         </div>
-        <div class="game-solved" id="cw-solved"></div>
-        <div class="game-grid" id="cw-grid"></div>
+        <div class="game-grid two" id="cw-grid"></div>
+        <label class="game-why" for="cw-why">
+          <span>Why these two?</span>
+          <input type="text" id="cw-why" placeholder="your reason" autocomplete="off" />
+        </label>
         <div class="game-actions">
-          <button type="button" id="cw-check" class="game-btn">Check</button>
-          <button type="button" id="cw-new" class="game-btn ghost">Shuffle</button>
+          <button type="button" id="cw-commit" class="game-btn">Commit</button>
+          <button type="button" id="cw-reset" class="game-btn ghost">Reset</button>
           <a class="game-link" href="https://www.hugmun.ai/clusterwords">Play the full game →</a>
         </div>
+        <div class="game-result" id="cw-result" hidden></div>
       </div>
     </section>
 
@@ -108,6 +112,20 @@
       </p>
     </section>
 
+    <!-- Reading -->
+    <section id="reading">
+      <h2>Reading</h2>
+      <p class="sub">
+        A shelf around cognition, computation, and decision-making. Drag the shelf to browse;
+        click a book to pull it out.
+      </p>
+      <div class="shelf" id="shelf">
+        <div class="shelf-track" id="shelf-track"></div>
+        <div class="shelf-ledge" aria-hidden="true"></div>
+      </div>
+      <div class="book-detail" id="book-detail" hidden></div>
+    </section>
+
     <!-- Background -->
     <section>
       <h2>Background</h2>
@@ -124,5 +142,6 @@
   </div>
 
   <script src="clusterwords.js"></script>
+  <script src="bookshelf.js"></script>
 </body>
 </html>

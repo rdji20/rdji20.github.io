@@ -103,44 +103,67 @@ footer a { color: #777; }
 .game-hint { color: #6b6580; }
 .game-status { color: var(--violet); text-align: right; }
 
-.game-solved { display: grid; gap: .4rem; margin-bottom: .4rem; }
-.game-solved:empty { margin-bottom: 0; }
-.solved-row {
-  background: #ede8fb;
-  border-radius: 5px;
-  padding: .45rem .6rem;
-  font-family: -apple-system, system-ui, sans-serif;
-  font-size: .8rem;
-  color: #3a2a6a;
-  text-transform: lowercase;
-}
-.solved-name { font-weight: 700; margin-right: .35rem; }
-
-.game-grid {
+.game-grid.two {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: .4rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5rem;
+  max-width: 20rem;
 }
 .tile {
-  min-height: 2.9rem;
+  min-height: 3.4rem;
   border: 1px solid #d9d3e8;
-  border-radius: 5px;
+  border-radius: 6px;
   background: #fff;
   cursor: pointer;
   font-family: -apple-system, system-ui, sans-serif;
-  font-size: .8rem;
+  font-size: .95rem;
   color: #2a2440;
   text-transform: lowercase;
   padding: 2px;
-  transition: background .12s ease, color .12s ease, transform .12s ease;
+  transition: background .14s ease, color .14s ease, transform .14s ease, border-color .14s ease;
 }
 .tile:hover { border-color: var(--violet); }
 .tile.sel {
   background: var(--violet);
   color: #fff;
   border-color: var(--violet);
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
+.tile.pairb { border-color: var(--violet); border-style: dashed; }
+
+.game-why {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: .8rem 0 0;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .82rem;
+  color: #6b6580;
+}
+.game-why input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  color: #2a2440;
+  padding: .35rem .55rem;
+  border: 1px solid #d9d3e8;
+  border-radius: 5px;
+  background: #fff;
+}
+.game-why input:focus { outline: 2px solid var(--violet); outline-offset: 1px; }
+
+.game-result {
+  margin-top: .9rem;
+  padding-top: .8rem;
+  border-top: 1px solid #e4e0ee;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .82rem;
+  color: #4a4560;
+}
+.game-result p { margin: 0 0 .5rem; }
+.game-result .res-line b { color: #2a2440; }
+.game-result .res-bar { color: #b3aac9; margin: 0 .2rem; }
+.game-result .res-note { color: #6b6580; }
 
 .game-actions {
   display: flex;
@@ -165,6 +188,114 @@ footer a { color: #777; }
   font-family: -apple-system, system-ui, sans-serif;
   font-size: .82rem;
 }
+
+/* ---------- Reading shelf ---------- */
+.shelf {
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 1.4rem 0 0;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.shelf.grabbing { cursor: grabbing; }
+
+.shelf-track {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 0 2px 14px;
+  width: max-content;
+  will-change: transform;
+}
+
+/* the wooden ledge the books stand on */
+.shelf-ledge {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 12px;
+  background: #d9cdb8;
+  border-radius: 2px;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.18), 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.spine {
+  position: relative;
+  flex: none;
+  width: 46px;
+  border: none;
+  border-radius: 2px 2px 0 0;
+  background: var(--c);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  padding: 10px 4px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: inset -3px 0 6px rgba(0, 0, 0, 0.28), inset 3px 0 4px rgba(255, 255, 255, 0.12);
+  transition: transform .22s cubic-bezier(.22,1,.36,1), box-shadow .22s ease;
+}
+.spine:hover { transform: translateY(-8px); }
+.spine.out {
+  transform: translateY(-26px) rotate(-3deg);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.28);
+  z-index: 2;
+}
+.spine-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: Georgia, serif;
+  font-size: .82rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .01em;
+  overflow: hidden;
+  max-height: 100%;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+.spine-author {
+  writing-mode: vertical-rl;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .58rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-height: 5.5em;
+  overflow: hidden;
+}
+
+/* pulled-book detail card */
+.book-detail[hidden] { display: none; }
+.book-detail {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #e6e2d8;
+  border-radius: 8px;
+  background: #faf9f6;
+}
+.bd-cover {
+  flex: none;
+  width: 58px;
+  height: 84px;
+  border-radius: 3px;
+  background: var(--c);
+  color: rgba(255, 255, 255, 0.94);
+  font-family: Georgia, serif;
+  font-size: .6rem;
+  font-weight: 600;
+  line-height: 1.15;
+  padding: 8px 6px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+}
+.bd-body { min-width: 0; }
+.bd-title { margin: 0 0 .15rem; font-weight: bold; }
+.bd-meta { margin: 0 0 .4rem; color: #777; font-size: .85rem; font-style: italic; }
+.bd-note { margin: 0; color: #444; font-size: .92rem; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 32rem) {
