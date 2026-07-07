@@ -126,6 +126,40 @@
       <div class="book-detail" id="book-detail" hidden></div>
     </section>
 
+    <!-- Papers -->
+    <section id="papers">
+      <h2>Papers</h2>
+      <p class="sub">
+        Cognitive-science and ML papers I'm working through. Pick one — it opens on the laptop.
+      </p>
+      <div class="laptop-stage" id="laptop">
+        <div class="paper-out" id="paper-out" aria-live="polite">
+          <button type="button" class="paper-close" id="paper-close" aria-label="Close">&times;</button>
+          <p class="po-title" id="po-title"></p>
+          <p class="po-meta" id="po-meta"></p>
+          <p class="po-note" id="po-note"></p>
+        </div>
+        <div class="laptop-3d">
+          <div class="screen">
+            <div class="screen-face">
+              <span class="screen-title" id="screen-title">select a paper</span>
+            </div>
+          </div>
+          <div class="deck"><span class="deck-pad" aria-hidden="true"></span></div>
+        </div>
+      </div>
+      <div class="paper-lists">
+        <div class="paper-col">
+          <p class="paper-col-h">Currently reading</p>
+          <ul class="paper-ul" id="papers-reading"></ul>
+        </div>
+        <div class="paper-col">
+          <p class="paper-col-h">Read</p>
+          <ul class="paper-ul" id="papers-read"></ul>
+        </div>
+      </div>
+    </section>
+
     <!-- Background -->
     <section>
       <h2>Background</h2>
@@ -143,5 +177,6 @@
 
   <script src="clusterwords.js"></script>
   <script src="bookshelf.js"></script>
+  <script src="papers.js"></script>
 </body>
 </html>

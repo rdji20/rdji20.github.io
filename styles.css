@@ -297,10 +297,158 @@ footer a { color: #777; }
 .bd-meta { margin: 0 0 .4rem; color: #777; font-size: .85rem; font-style: italic; }
 .bd-note { margin: 0; color: #444; font-size: .92rem; }
 
+/* ---------- Papers: the opening laptop ---------- */
+.laptop-stage {
+  position: relative;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 210px;
+  margin: 1.2rem 0 .4rem;
+  padding-top: 80px;   /* room for the paper to rise into */
+}
+.laptop-3d {
+  position: relative;
+  width: 300px;
+  transform-style: preserve-3d;
+  transform: rotateX(4deg);
+}
+
+/* the lid / screen — hinged at its bottom edge */
+.screen {
+  width: 300px;
+  height: 186px;
+  border-radius: 9px 9px 3px 3px;
+  background: #14141a;
+  border: 2px solid #2b2b34;
+  transform-origin: bottom center;
+  transform: rotateX(-88deg);            /* closed: folded down */
+  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+.laptop-stage.open .screen { transform: rotateX(0deg); }
+
+.screen-face {
+  position: absolute;
+  inset: 8px;
+  border-radius: 4px;
+  background: radial-gradient(120% 120% at 50% 0%, #2a2540 0%, #16131f 70%);
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  opacity: 0;
+  transition: opacity .3s ease .18s;
+}
+.laptop-stage.open .screen-face { opacity: 1; }
+.screen-title {
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .82rem;
+  line-height: 1.35;
+  color: #cbb8f0;
+  text-align: center;
+}
+
+/* the base / keyboard deck */
+.deck {
+  position: relative;
+  width: 340px;
+  height: 13px;
+  margin: -1px 0 0 -20px;
+  border-radius: 3px 3px 8px 8px;
+  background: linear-gradient(#cfcfd8, #a6a6b2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+}
+.deck-pad {
+  position: absolute;
+  top: 3px; left: 50%;
+  width: 66px; height: 4px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* the paper that lifts out of the laptop */
+.paper-out {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(430px, 94%);
+  transform: translate(-50%, 24px) scale(0.96);
+  opacity: 0;
+  pointer-events: none;
+  background: #fff;
+  border: 1px solid #e5e0f0;
+  border-radius: 8px;
+  padding: .9rem 1.1rem;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
+  z-index: 3;
+  transition: transform .45s cubic-bezier(.22, 1, .36, 1) .14s, opacity .35s ease .14s;
+}
+.laptop-stage.open .paper-out {
+  transform: translate(-50%, -20px) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.paper-close {
+  position: absolute;
+  top: .4rem; right: .5rem;
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #999;
+  cursor: pointer;
+}
+.paper-close:hover { color: var(--violet); }
+.po-title { margin: 0 1.2rem .2rem 0; font-weight: bold; font-size: 1rem; }
+.po-meta { margin: 0 0 .4rem; color: #777; font-size: .85rem; font-style: italic; }
+.po-note {
+  margin: 0;
+  color: #444;
+  font-size: .92rem;
+  font-family: -apple-system, system-ui, sans-serif;
+}
+
+/* the two lists */
+.paper-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-top: .6rem;
+}
+.paper-col-h {
+  margin: 0 0 .5rem;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #8a8497;
+}
+.paper-ul { list-style: none; margin: 0; padding: 0; }
+.paper-ul li { margin-bottom: .35rem; }
+.paper-item {
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  border-left: 2px solid #e0dbef;
+  background: none;
+  cursor: pointer;
+  padding: .35rem .5rem;
+  border-radius: 0 4px 4px 0;
+  display: block;
+}
+.paper-item:hover { background: #faf9fe; border-left-color: var(--violet); }
+.paper-item.active { background: #f3effc; border-left-color: var(--violet); }
+.pi-title { display: block; font-family: Georgia, serif; font-size: .95rem; color: #1a1a1a; line-height: 1.25; }
+.pi-authors { display: block; font-family: -apple-system, system-ui, sans-serif; font-size: .76rem; color: #888; margin-top: .1rem; }
+.paper-empty { color: #bbb; padding: .35rem .5rem; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 32rem) {
   .masthead { flex-direction: column-reverse; align-items: flex-start; }
   .avatar { width: 96px; height: 96px; }
   .entry-head { flex-direction: column; gap: .1rem; }
   .game-link { margin-left: 0; }
+  .paper-lists { grid-template-columns: 1fr; gap: 1rem; }
 }
