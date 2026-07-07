@@ -190,11 +190,22 @@ footer a { color: #777; }
 }
 
 /* ---------- Reading shelf ---------- */
+/* a scene = one ledge holding items (spines + laptop, or a flat stack) */
+.shelf-scene {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-top: 1rem;
+  padding: 1.4rem 0 12px;   /* bottom padding = ledge height */
+  perspective: 900px;
+}
+
 .shelf {
   position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
   overflow: hidden;
-  margin-top: 1rem;
-  padding: 1.4rem 0 0;
   cursor: grab;
   touch-action: pan-y;
   user-select: none;
@@ -206,12 +217,12 @@ footer a { color: #777; }
   display: flex;
   align-items: flex-end;
   gap: 6px;
-  padding: 0 2px 14px;
+  padding: 0 2px 2px;
   width: max-content;
   will-change: transform;
 }
 
-/* the wooden ledge the books stand on */
+/* the wooden ledge items stand on — spans the whole scene */
 .shelf-ledge {
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -297,127 +308,9 @@ footer a { color: #777; }
 .bd-meta { margin: 0 0 .4rem; color: #777; font-size: .85rem; font-style: italic; }
 .bd-note { margin: 0; color: #444; font-size: .92rem; }
 
-/* ---------- Papers: the opening laptop ---------- */
-.laptop-stage {
-  position: relative;
-  perspective: 1200px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  min-height: 210px;
-  margin: 1.2rem 0 .4rem;
-  padding-top: 80px;   /* room for the paper to rise into */
-}
-.laptop-3d {
-  position: relative;
-  width: 300px;
-  transform-style: preserve-3d;
-  transform: rotateX(4deg);
-}
-
-/* the lid / screen — hinged at its bottom edge */
-.screen {
-  width: 300px;
-  height: 186px;
-  border-radius: 9px 9px 3px 3px;
-  background: #14141a;
-  border: 2px solid #2b2b34;
-  transform-origin: bottom center;
-  transform: rotateX(-88deg);            /* closed: folded down */
-  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
-}
-.laptop-stage.open .screen { transform: rotateX(0deg); }
-
-.screen-face {
-  position: absolute;
-  inset: 8px;
-  border-radius: 4px;
-  background: radial-gradient(120% 120% at 50% 0%, #2a2540 0%, #16131f 70%);
-  display: grid;
-  place-items: center;
-  padding: 12px;
-  opacity: 0;
-  transition: opacity .3s ease .18s;
-}
-.laptop-stage.open .screen-face { opacity: 1; }
-.screen-title {
-  font-family: -apple-system, system-ui, sans-serif;
-  font-size: .82rem;
-  line-height: 1.35;
-  color: #cbb8f0;
-  text-align: center;
-}
-
-/* the base / keyboard deck */
-.deck {
-  position: relative;
-  width: 340px;
-  height: 13px;
-  margin: -1px 0 0 -20px;
-  border-radius: 3px 3px 8px 8px;
-  background: linear-gradient(#cfcfd8, #a6a6b2);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
-}
-.deck-pad {
-  position: absolute;
-  top: 3px; left: 50%;
-  width: 66px; height: 4px;
-  transform: translateX(-50%);
-  border-radius: 2px;
-  background: rgba(0, 0, 0, 0.12);
-}
-
-/* the paper that lifts out of the laptop */
-.paper-out {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: min(430px, 94%);
-  transform: translate(-50%, 24px) scale(0.96);
-  opacity: 0;
-  pointer-events: none;
-  background: #fff;
-  border: 1px solid #e5e0f0;
-  border-radius: 8px;
-  padding: .9rem 1.1rem;
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
-  z-index: 3;
-  transition: transform .45s cubic-bezier(.22, 1, .36, 1) .14s, opacity .35s ease .14s;
-}
-.laptop-stage.open .paper-out {
-  transform: translate(-50%, -20px) scale(1);
-  opacity: 1;
-  pointer-events: auto;
-}
-.paper-close {
-  position: absolute;
-  top: .4rem; right: .5rem;
-  border: none;
-  background: none;
-  font-size: 1.1rem;
-  line-height: 1;
-  color: #999;
-  cursor: pointer;
-}
-.paper-close:hover { color: var(--violet); }
-.po-title { margin: 0 1.2rem .2rem 0; font-weight: bold; font-size: 1rem; }
-.po-meta { margin: 0 0 .4rem; color: #777; font-size: .85rem; font-style: italic; }
-.po-note {
-  margin: 0;
-  color: #444;
-  font-size: .92rem;
-  font-family: -apple-system, system-ui, sans-serif;
-}
-
-/* the two lists */
-.paper-lists {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.4rem;
-  margin-top: .6rem;
-}
-.paper-col-h {
-  margin: 0 0 .5rem;
+/* small section subheadings inside Reading */
+.mini-h {
+  margin: 1.6rem 0 .5rem;
   font-family: -apple-system, system-ui, sans-serif;
   font-size: .72rem;
   font-weight: 700;
@@ -425,24 +318,180 @@ footer a { color: #777; }
   text-transform: uppercase;
   color: #8a8497;
 }
-.paper-ul { list-style: none; margin: 0; padding: 0; }
-.paper-ul li { margin-bottom: .35rem; }
-.paper-item {
-  width: 100%;
-  text-align: left;
-  border: 1px solid transparent;
-  border-left: 2px solid #e0dbef;
-  background: none;
-  cursor: pointer;
-  padding: .35rem .5rem;
-  border-radius: 0 4px 4px 0;
-  display: block;
+.mini-hint { font-weight: 400; text-transform: none; letter-spacing: 0; color: #b0aabb; }
+
+/* ---------- the papers laptop, sitting on the shelf ---------- */
+.shelf-laptop {
+  flex: none;
+  position: relative;
+  align-self: flex-end;
 }
-.paper-item:hover { background: #faf9fe; border-left-color: var(--violet); }
-.paper-item.active { background: #f3effc; border-left-color: var(--violet); }
-.pi-title { display: block; font-family: Georgia, serif; font-size: .95rem; color: #1a1a1a; line-height: 1.25; }
-.pi-authors { display: block; font-family: -apple-system, system-ui, sans-serif; font-size: .76rem; color: #888; margin-top: .1rem; }
-.paper-empty { color: #bbb; padding: .35rem .5rem; }
+.laptop-3d {
+  position: relative;
+  width: 184px;
+  transform-style: preserve-3d;
+  transform: rotateX(4deg);
+}
+/* the lid / screen — hinged at its bottom edge; the whole lid is the link */
+.screen {
+  display: block;
+  width: 184px;
+  height: 116px;
+  padding: 0;
+  border-radius: 8px 8px 2px 2px;
+  background: #14141a;
+  border: 2px solid #2b2b34;
+  transform-origin: bottom center;
+  transform: rotateX(-90deg);            /* closed: folded flat on the deck */
+  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+  cursor: default;
+}
+.shelf-laptop.open .screen { transform: rotateX(0deg); cursor: pointer; }
+.shelf-laptop.open .screen:hover { border-color: var(--violet); }
+
+.screen-face {
+  position: absolute;
+  inset: 6px;
+  border-radius: 4px;
+  background: radial-gradient(130% 130% at 50% 0%, #2a2540 0%, #14111d 72%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .18rem;
+  padding: 8px 10px;
+  text-align: left;
+  opacity: 0;
+  transition: opacity .3s ease .2s;
+}
+.shelf-laptop.open .screen-face { opacity: 1; }
+.screen-status {
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .5rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #8f7fbf;
+}
+.screen-ptitle {
+  font-family: Georgia, serif;
+  font-size: .72rem;
+  line-height: 1.2;
+  color: #f2ecff;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.screen-authors {
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .54rem;
+  color: #9d95b3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.screen-open {
+  margin-top: .1rem;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .56rem;
+  font-weight: 600;
+  color: #c3aef0;
+}
+
+/* the base / keyboard deck */
+.deck {
+  position: relative;
+  width: 206px;
+  height: 11px;
+  margin: -1px 0 0 -11px;
+  border-radius: 2px 2px 7px 7px;
+  background: linear-gradient(#cfcfd8, #a6a6b2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+}
+.deck-pad {
+  position: absolute;
+  top: 2px; left: 50%;
+  width: 46px; height: 4px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- papers: horizontal showcase ---------- */
+.papers-strip {
+  display: flex;
+  gap: .7rem;
+  overflow-x: auto;
+  padding: .2rem .1rem 1rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+.paper-card {
+  flex: none;
+  width: 212px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: .22rem;
+  text-align: left;
+  background: #fff;
+  border: 1px solid #e6e2ef;
+  border-left: 3px solid #ccc;
+  border-radius: 6px;
+  padding: .6rem .7rem;
+  cursor: pointer;
+  transition: box-shadow .14s ease, transform .14s ease;
+}
+.paper-card:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); }
+.paper-card.active { box-shadow: 0 0 0 2px var(--violet); }
+.paper-card.status-reading { border-left-color: var(--violet); }
+.paper-card.status-queue   { border-left-color: #b8860b; }
+.paper-card.status-read    { border-left-color: #3f7d5a; }
+.pc-tag {
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .56rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #999;
+}
+.status-reading .pc-tag { color: var(--violet); }
+.status-queue .pc-tag   { color: #b8860b; }
+.status-read .pc-tag    { color: #3f7d5a; }
+.pc-title { font-family: Georgia, serif; font-size: .92rem; line-height: 1.22; color: #1a1a1a; }
+.pc-authors { font-family: -apple-system, system-ui, sans-serif; font-size: .74rem; color: #777; }
+.pc-venue { font-family: -apple-system, system-ui, sans-serif; font-size: .68rem; color: #aaa; }
+
+/* ---------- up-next: books lying flat in a stack ---------- */
+.stack-scene { align-items: stretch; }
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+.flat-book {
+  width: 100%;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 14px;
+  border: none;
+  border-radius: 3px;
+  background: var(--c);
+  color: rgba(255, 255, 255, 0.94);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+  transition: transform .18s cubic-bezier(.22, 1, .36, 1), box-shadow .18s ease;
+}
+.flat-book:hover { transform: translateX(6px); }
+.flat-book.lifted { transform: translateX(16px); box-shadow: 0 7px 16px rgba(0, 0, 0, 0.26); }
+.fb-title { font-family: Georgia, serif; font-weight: 600; font-size: .86rem; }
+.fb-author { font-family: -apple-system, system-ui, sans-serif; font-size: .66rem; color: rgba(255, 255, 255, 0.72); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 32rem) {
@@ -450,5 +499,7 @@ footer a { color: #777; }
   .avatar { width: 96px; height: 96px; }
   .entry-head { flex-direction: column; gap: .1rem; }
   .game-link { margin-left: 0; }
-  .paper-lists { grid-template-columns: 1fr; gap: 1rem; }
+  .laptop-3d { width: 150px; }
+  .screen { width: 150px; height: 96px; }
+  .deck { width: 168px; margin-left: -9px; }
 }

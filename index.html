@@ -116,47 +116,41 @@
     <section id="reading">
       <h2>Reading</h2>
       <p class="sub">
-        A shelf around cognition, computation, and decision-making. Drag the shelf to browse;
-        click a book to pull it out.
+        A shelf around cognition, computation, and decision-making. Drag the shelf; click a
+        book to pull it out. The laptop on the right holds the papers.
       </p>
-      <div class="shelf" id="shelf">
-        <div class="shelf-track" id="shelf-track"></div>
+
+      <!-- Shelf 1: book spines + the papers laptop on the right end -->
+      <div class="shelf-scene">
+        <div class="shelf" id="shelf">
+          <div class="shelf-track" id="shelf-track"></div>
+        </div>
+        <div class="shelf-laptop" id="laptop">
+          <div class="laptop-3d">
+            <button type="button" class="screen" id="screen" aria-label="Open the selected paper">
+              <div class="screen-face">
+                <span class="screen-status" id="screen-status"></span>
+                <span class="screen-ptitle" id="screen-title">pick a paper →</span>
+                <span class="screen-authors" id="screen-authors"></span>
+                <span class="screen-open" id="screen-open"></span>
+              </div>
+            </button>
+            <div class="deck"><span class="deck-pad" aria-hidden="true"></span></div>
+          </div>
+        </div>
         <div class="shelf-ledge" aria-hidden="true"></div>
       </div>
       <div class="book-detail" id="book-detail" hidden></div>
-    </section>
 
-    <!-- Papers -->
-    <section id="papers">
-      <h2>Papers</h2>
-      <p class="sub">
-        Cognitive-science and ML papers I'm working through. Pick one — it opens on the laptop.
-      </p>
-      <div class="laptop-stage" id="laptop">
-        <div class="paper-out" id="paper-out" aria-live="polite">
-          <button type="button" class="paper-close" id="paper-close" aria-label="Close">&times;</button>
-          <p class="po-title" id="po-title"></p>
-          <p class="po-meta" id="po-meta"></p>
-          <p class="po-note" id="po-note"></p>
-        </div>
-        <div class="laptop-3d">
-          <div class="screen">
-            <div class="screen-face">
-              <span class="screen-title" id="screen-title">select a paper</span>
-            </div>
-          </div>
-          <div class="deck"><span class="deck-pad" aria-hidden="true"></span></div>
-        </div>
-      </div>
-      <div class="paper-lists">
-        <div class="paper-col">
-          <p class="paper-col-h">Currently reading</p>
-          <ul class="paper-ul" id="papers-reading"></ul>
-        </div>
-        <div class="paper-col">
-          <p class="paper-col-h">Read</p>
-          <ul class="paper-ul" id="papers-read"></ul>
-        </div>
+      <!-- Papers: horizontal scrollable showcase -->
+      <p class="mini-h">Papers <span class="mini-hint">— pick one to open it on the laptop</span></p>
+      <div class="papers-strip" id="papers-strip"></div>
+
+      <!-- Shelf 2: up next, stacked flat -->
+      <p class="mini-h">Up next</p>
+      <div class="shelf-scene stack-scene">
+        <div class="stack" id="stack"></div>
+        <div class="shelf-ledge" aria-hidden="true"></div>
       </div>
     </section>
 

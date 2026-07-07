@@ -1,96 +1,108 @@
-/* Papers — a laptop that opens and lifts the selected paper out.
-   Edit this list: set status to "reading" or "read". The two columns and
-   the laptop are driven entirely from PAPERS below.
+/* Papers — a laptop that opens to show the selected paper on its screen.
+   Click a paper in a list to open the laptop; click the laptop to go to the
+   paper's link.
 
-   NOTE: this is a starter set pulled from Roberto's Lake-lab application —
-   replace/split it with the real "read" vs "currently reading" lists. */
+   Edit this list. status ∈ "reading" | "queue" | "read", and every paper
+   needs a url. NOTE: starter set from Roberto's Lake-lab application —
+   replace/split it with the real lists and links. */
 (function () {
+  var LABELS = { reading: "Currently reading", queue: "In the queue", read: "Read" };
+
   var PAPERS = [
     {
       status: "reading",
-      title: "Whither Symbols in the Era of Advanced Neural Networks?",
-      authors: "Griffiths, Lake, McCoy, Pavlick & Webb",
-      venue: "2024",
-      note: "Symbols still describe the problems a mind must solve, even if the process underneath isn't symbolic — so the question shifts to how each system reaches its answer."
+      title: "On the Measure of Intelligence",
+      authors: "François Chollet",
+      venue: "arXiv, 2019",
+      url: "https://arxiv.org/abs/1911.01547"
     },
     {
-      status: "reading",
-      title: "A Distributed Representation of Temporal Context",
-      authors: "Howard & Kahana",
-      venue: "J. Math. Psychology, 2002",
-      note: "Retrieved-context account of memory — temporal contiguity in serial and free recall."
+      status: "queue",
+      title: "Are They Human? Detecting Large Language Models by Probing Human Memory Constraints",
+      authors: "Simon Schug & Brenden M. Lake",
+      venue: "arXiv, 2026",
+      url: "https://arxiv.org/abs/2604.00016"
+    },
+    {
+      status: "queue",
+      title: "Building Machines That Learn and Think Like People",
+      authors: "Lake, Ullman, Tenenbaum & Gershman",
+      venue: "Behavioral and Brain Sciences, 2017",
+      url: "https://arxiv.org/abs/1604.00289"
+    },
+    {
+      status: "queue",
+      title: "Using Probabilistic Programs to Train Inductive Reasoning in Large Language Models",
+      authors: "Zhang, Jagadish, Lake & Griffiths",
+      venue: "arXiv, 2026",
+      url: "https://arxiv.org/abs/2606.09856"
     },
     {
       status: "read",
-      title: "The Unity and Diversity of Executive Functions",
-      authors: "Miyake, Friedman, Emerson, Witzki, Howerter & Wager",
-      venue: "Cognitive Psychology, 2000",
-      note: "Shifting, updating, and inhibition as separable-but-related executive functions."
+      title: "Serial Position Effects of Large Language Models",
+      authors: "Xiaobo Guo & Soroush Vosoughi",
+      venue: "ACL Findings, 2025",
+      url: "https://arxiv.org/abs/2406.15981"
     },
     {
       status: "read",
-      title: "Executive Functions",
-      authors: "Adele Diamond",
-      venue: "Annual Review of Psychology, 2013",
-      note: "Working memory, inhibitory control, and cognitive flexibility as the core of self-regulation."
+      title: "A Retrieved Context Model of Serial Recall and Free Recall",
+      authors: "Lynn J. Lohnas",
+      venue: "Computational Brain & Behavior, 2024",
+      url: "https://link.springer.com/article/10.1007/s42113-024-00221-9"
     }
   ];
 
+  var STATUS_ORDER = { reading: 0, queue: 1, read: 2 };
+
   var stage = document.getElementById("laptop");
-  var screenTitle = document.getElementById("screen-title");
-  var poTitle = document.getElementById("po-title");
-  var poMeta = document.getElementById("po-meta");
-  var poNote = document.getElementById("po-note");
-  var closeBtn = document.getElementById("paper-close");
-  var readingUl = document.getElementById("papers-reading");
-  var readUl = document.getElementById("papers-read");
-  if (!stage || !readingUl || !readUl) return;
+  var screen = document.getElementById("screen");
+  var elStatus = document.getElementById("screen-status");
+  var elTitle = document.getElementById("screen-title");
+  var elAuthors = document.getElementById("screen-authors");
+  var elOpen = document.getElementById("screen-open");
+  var strip = document.getElementById("papers-strip");
+  if (!stage || !screen || !strip) return;
 
   var current = null;
 
-  function buildList(ul, status) {
-    ul.innerHTML = "";
-    var any = false;
-    PAPERS.forEach(function (p, i) {
-      if (p.status !== status) return;
-      any = true;
-      var li = document.createElement("li");
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "paper-item";
-      btn.dataset.i = String(i);
-      btn.innerHTML = '<span class="pi-title">' + p.title + '</span>' +
-                      '<span class="pi-authors">' + p.authors + '</span>';
-      btn.addEventListener("click", function () { select(i, btn); });
-      li.appendChild(btn);
-      ul.appendChild(li);
-    });
-    if (!any) {
-      var empty = document.createElement("li");
-      empty.className = "paper-empty";
-      empty.textContent = "—";
-      ul.appendChild(empty);
-    }
+  function buildStrip() {
+    strip.innerHTML = "";
+    PAPERS
+      .map(function (p, i) { return { p: p, i: i }; })
+      .sort(function (a, b) { return STATUS_ORDER[a.p.status] - STATUS_ORDER[b.p.status]; })
+      .forEach(function (row) {
+        var p = row.p, i = row.i;
+        var card = document.createElement("button");
+        card.type = "button";
+        card.className = "paper-card status-" + p.status;
+        card.dataset.i = String(i);
+        card.innerHTML =
+          '<span class="pc-tag">' + LABELS[p.status] + '</span>' +
+          '<span class="pc-title">' + p.title + '</span>' +
+          '<span class="pc-authors">' + p.authors + '</span>' +
+          '<span class="pc-venue">' + p.venue + '</span>';
+        card.addEventListener("click", function () { select(i, card); });
+        strip.appendChild(card);
+      });
   }
 
-  function markActive(btn) {
-    Array.prototype.forEach.call(document.querySelectorAll(".paper-item.active"),
-      function (b) { b.classList.remove("active"); });
-    if (btn) btn.classList.add("active");
+  function markActive(card) {
+    Array.prototype.forEach.call(strip.querySelectorAll(".paper-card.active"),
+      function (c) { c.classList.remove("active"); });
+    if (card) card.classList.add("active");
   }
 
-  function select(i, btn) {
+  function select(i, card) {
     if (current === i) { close(); return; }
     var p = PAPERS[i];
     current = i;
-    // stage the open: if already open, briefly reset so the lift replays
     stage.classList.remove("open");
-    screenTitle.textContent = p.title;
-    poTitle.textContent = p.title;
-    poMeta.textContent = p.authors + " · " + p.venue;
-    poNote.textContent = p.note;
-    markActive(btn);
-    // next frame -> trigger the transition
+    elStatus.textContent = LABELS[p.status] || "";
+    elTitle.textContent = p.title;
+    elAuthors.textContent = p.authors;
+    elOpen.textContent = "Open paper ↗";
+    markActive(card);
     requestAnimationFrame(function () {
       requestAnimationFrame(function () { stage.classList.add("open"); });
     });
@@ -100,11 +112,18 @@
     current = null;
     stage.classList.remove("open");
     markActive(null);
-    screenTitle.textContent = "select a paper";
+    elStatus.textContent = "";
+    elTitle.textContent = "pick a paper →";
+    elAuthors.textContent = "";
+    elOpen.textContent = "";
   }
 
-  if (closeBtn) closeBtn.addEventListener("click", close);
+  // click the laptop -> open the paper's link
+  screen.addEventListener("click", function () {
+    if (current == null) return;
+    var url = PAPERS[current].url;
+    if (url) window.open(url, "_blank", "noopener");
+  });
 
-  buildList(readingUl, "reading");
-  buildList(readUl, "read");
+  buildStrip();
 })();
