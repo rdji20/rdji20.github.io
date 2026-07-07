@@ -54,6 +54,22 @@ li { margin-bottom: .3rem; }
 
 .pub { margin-bottom: 1rem; }
 
+.entry { margin-bottom: 1.4rem; }
+.entry-head {
+  margin-bottom: .25rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+}
+.date {
+  flex: none;
+  color: #666;
+  font-size: .85rem;
+  font-style: italic;
+  white-space: nowrap;
+}
+
 a { color: #0645ad; }
 a:visited { color: #0645ad; }
 
@@ -68,4 +84,5 @@ footer a { color: #666; }
 
 @media (max-width: 30rem) {
   header { flex-direction: column; }
+  .entry-head { flex-direction: column; gap: .1rem; }
 }

@@ -1,7 +1,6 @@
 # rdji20.github.io — personal site
 
-Personal website for Roberto Infante — cognitive computing / language-based AI research.
-Static, no build step. Plain single-page layout.
+Personal website for Roberto Infante. Static, no build step. Plain single-page layout.
 
 ## Structure
 ```
@@ -9,13 +8,12 @@ index.html      # the whole page
 styles.css      # styles
 assets/
   roberto.jpg           # profile photo
-  gentags-preprint.pdf  # working paper draft
+  gentags-preprint.pdf  # Gentags preprint
   cv.pdf                # ← ADD THIS (your CV) — index.html links to it
 ```
 
-## Before it's fully live — fill these in
+## Before it's fully live
 - **`assets/cv.pdf`** — drop your CV PDF here (the "CV" link points to it).
-- **Scholar link** — replace `https://scholar.google.com/` in `index.html` with your profile URL.
 
 ## Local preview
 ```

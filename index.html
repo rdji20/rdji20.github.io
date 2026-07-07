@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Roberto Infante</title>
-  <meta name="description" content="Roberto Infante — researcher in cognitive computing and language-based AI systems." />
+  <meta name="description" content="Roberto Infante — engineer and technical founder moving into research on human and machine decision-making." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,57 +14,149 @@
       <img class="avatar" src="assets/roberto.jpg" alt="Roberto Infante" width="120" height="120" />
       <div>
         <h1>Roberto Infante</h1>
-        <p class="role">Cognitive computing &middot; language-based AI systems</p>
-        <p>
-          I study how AI systems can build explicit, updatable internal state —
-          representation, memory, and belief — to make reliable and controllable decisions.
-        </p>
+        <p class="role">Engineer and technical founder moving into research on human and machine decision-making</p>
         <p class="links">
-          <a href="mailto:roberto.infante@voraa.io">Email</a> &middot;
+          <a href="mailto:roberto.infante03@gmail.com">Email</a> &middot;
           <a href="assets/cv.pdf">CV</a> &middot;
-          <a href="https://scholar.google.com/">Google Scholar</a> &middot;
-          <a href="https://github.com/rdji20">GitHub</a>
+          <a href="https://github.com/rdji20">GitHub</a> &middot;
+          <a href="https://linkedin.com/in/rjil20">LinkedIn</a>
         </p>
       </div>
     </header>
 
-    <!-- Research -->
+    <!-- About -->
     <section>
-      <h2>Research</h2>
       <p>
-        I work at the boundary between computational cognitive science and machine
-        intelligence. Language-based AI systems generate fluent text but do not maintain a
-        stable internal state, so their decisions can be plausible yet inconsistent. My
-        research asks whether making semantic representation, memory dynamics, and belief
-        explicit and updatable lets these systems decide more like reasoning agents and less
-        like fluent guessers.
+        I spent five years building and shipping data-driven products end to end, and I am
+        now moving into research on how humans and language models move from uncertainty to
+        commitment. My first paper, Gentags, studies how the structure of intermediate
+        representations affects the reliability of LLM decisions. I am building controlled
+        environments to study decision-making directly, and I am seeking research experience
+        in computational cognition.
       </p>
-      <p>
-        The through-line is state: making decision-relevant information explicit and
-        addressable, then studying how it supports revision, aggregation, and uncertainty over
-        time. I care about work that is both cognitively motivated and empirically testable.
-      </p>
-      <ul>
-        <li>Structured, discrete semantic state for language models</li>
-        <li>Context and memory dynamics during inference</li>
-        <li>Uncertainty, revision, and decision consistency</li>
-        <li>Cognitive models of mind as testable machine architectures</li>
-      </ul>
     </section>
 
-    <!-- Working papers -->
+    <!-- Research & projects -->
     <section>
-      <h2>Working papers</h2>
-      <p class="pub">
-        <a href="assets/gentags-preprint.pdf">Gentags: Discrete Semantic State for Constraint-Sensitive Decision Pipelines</a><br />
-        Roberto Infante. Draft.
-        [<a href="assets/gentags-preprint.pdf">PDF</a>]
+      <h2>Research &amp; projects</h2>
+
+      <div class="entry">
+        <p class="entry-head">
+          <a href="https://clusterwords.hugmun.ai">Clusterwords</a>
+          <span class="date">2026 – Present</span>
+        </p>
+        <p>
+          A controlled semantic-partition game (Connections-style) to study how humans and
+          LLMs decide when they know enough to commit to an answer under ambiguity. The board
+          generator treats difficulty as a manipulated variable (structure, semantic margin,
+          distractor type), separating combinatorial from semantic difficulty. The live
+          platform now collects matched human and AI play for process-level comparison —
+          candidate sets, confidence, and commitment.
+        </p>
+      </div>
+
+      <div class="entry">
+        <p class="entry-head">
+          <a href="assets/gentags-preprint.pdf">Gentags: Discrete Semantic State for Constraint-Sensitive Decision Pipelines</a>
+          <span class="date">2025 – 2026</span>
+        </p>
+        <p>
+          First-author preprint introducing Gentags, a representation that compresses source
+          text into short, evidence-grounded semantic units (1–4 words, each isolating one
+          identifiable condition) used as inspectable, structured intermediate state in LLM
+          decision pipelines. In a controlled study isolating representation structure (fixed
+          evidence, task, and judge), Gentags raised agreement with full-evidence decisions to
+          79.5% (vs. 52.3–61.6% for RAKE/YAKE/TF-IDF) and hard-constraint satisfaction to 97.3%
+          (vs. 84.7–89.3%), with high cross-run stability. [<a href="assets/gentags-preprint.pdf">PDF</a>]
+        </p>
+      </div>
+
+      <div class="entry">
+        <p class="entry-head">
+          Recommendation System &amp; Smart Filters — UW MSIM Capstone (sponsor &amp; lead)
+          <span class="date">2025 – 2026</span>
+        </p>
+        <p>
+          Sponsored and directed two MSIM capstone teams applying the Gentags approach to a
+          live product — scoping the problem, setting success metrics, and guiding delivery to
+          production. The teams shipped a recommendation system and categorical/nudging filters
+          now live in the app.
+        </p>
+      </div>
+
+      <div class="entry">
+        <p class="entry-head">
+          <a href="https://github.com/rdji20/dynamic-information">Dynamic Information</a>
+          <span class="date">2024</span>
+        </p>
+        <p>
+          An LLM agent that constructs and self-updates a knowledge/decision graph, with an
+          explicit hypothesis structure (probabilities over hypotheses) and a controlled
+          decision space for Bayesian-style reasoning (Python, Flask, D3.js). Used
+          Connections-style puzzles as a testbed for whether explicit, external uncertainty
+          improves an agent's decisions; the low performance here motivated the shift to
+          studying commitment under uncertainty directly.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <p class="entry-head">
+          Co-founder, Software Engineering — <a href="https://voraa.io">Voraa</a>
+          <span class="date">2025 – 2026</span>
+        </p>
+        <p>
+          Sole technical founder. Built a B2C mobile app (Flutter) from zero to 500+ paying
+          users, owning product, engineering, and data systems end to end — in-app analytics
+          instrumentation, success metrics and automated dashboards, and scalable backend
+          services for bookings, payments, and near-real-time usage analytics. Shipped a growth
+          flow that increased weekly free trials 2.5x.
+        </p>
+      </div>
+
+      <div class="entry">
+        <p class="entry-head">
+          Python Engineer (Freelance) — Saba
+          <span class="date">2024</span>
+        </p>
+        <p>
+          Led migration of an end-to-end analytics platform from SPSS/R to Python, unifying
+          phone-survey ingestion, statistical quality control (control charts), and
+          public-opinion analytics into one automated pipeline. Replaced manual two-day
+          reporting checks with real-time interactive dashboards.
+        </p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2>Education</h2>
+      <p class="entry-head">
+        M.S. Information Management, Artificial Intelligence — University of Washington
+        <span class="date">2023 – Present (on leave)</span>
       </p>
+      <p class="entry-head">
+        B.S. Information Sciences, Data Science — University of Washington
+        <span class="date">2018 – 2022</span>
+      </p>
+    </section>
+
+    <!-- Recognition -->
+    <section>
+      <h2>Recognition</h2>
+      <ul>
+        <li>Top 100 Startups in Mexico — 2025</li>
+        <li>Systems Thinking — MIT, 2023</li>
+      </ul>
     </section>
 
     <!-- Footer -->
     <footer>
-      <p>Monterrey, NL, Mexico &middot; <a href="mailto:roberto.infante@voraa.io">roberto.infante@voraa.io</a></p>
+      <p>Monterrey, Nuevo León, Mexico &middot; <a href="mailto:roberto.infante03@gmail.com">roberto.infante03@gmail.com</a></p>
     </footer>
   </div>
 </body>
