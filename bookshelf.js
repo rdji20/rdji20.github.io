@@ -80,7 +80,7 @@
 
   // ---- shelf 2: flat stack ----
   if (stack) {
-    var widths = [100, 94, 97, 92, 99];
+    var widths = [62, 54, 68, 58, 64];
     BOOKS.forEach(function (b, i) {
       if (b.shelf !== "toread") return;
       var idx = stack.children.length;
@@ -88,8 +88,9 @@
       f.type = "button";
       f.className = "flat-book";
       f.style.setProperty("--c", b.color);
+      f.style.minWidth = "12rem";
       f.style.width = widths[idx % widths.length] + "%";
-      f.style.marginLeft = ((idx % 3) * 6) + "px";
+      f.style.marginLeft = ((idx % 3) * 5) + "px";
       f.innerHTML =
         '<span class="fb-title">' + b.title + '</span>' +
         '<span class="fb-author">' + b.author + '</span>';

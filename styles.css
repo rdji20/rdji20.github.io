@@ -330,7 +330,6 @@ footer a { color: #777; }
   position: relative;
   width: 184px;
   transform-style: preserve-3d;
-  transform: rotateX(4deg);
 }
 /* the lid / screen — hinged at its bottom edge; the whole lid is the link */
 .screen {
@@ -342,7 +341,7 @@ footer a { color: #777; }
   background: #14141a;
   border: 2px solid #2b2b34;
   transform-origin: bottom center;
-  transform: rotateX(-90deg);            /* closed: folded flat on the deck */
+  transform: rotateX(90deg);             /* closed: lid folded down over the deck */
   transition: transform .5s cubic-bezier(.22, 1, .36, 1);
   cursor: default;
 }
@@ -418,50 +417,40 @@ footer a { color: #777; }
   background: rgba(0, 0, 0, 0.12);
 }
 
-/* ---------- papers: horizontal showcase ---------- */
+/* ---------- papers: plain horizontal scroll ---------- */
 .papers-strip {
   display: flex;
-  gap: .7rem;
   overflow-x: auto;
-  padding: .2rem .1rem 1rem;
-  scroll-snap-type: x proximity;
+  padding: .2rem 0 1rem;
   scrollbar-width: thin;
 }
 .paper-card {
   flex: none;
-  width: 212px;
-  scroll-snap-align: start;
+  width: 208px;
   display: flex;
   flex-direction: column;
   gap: .22rem;
   text-align: left;
-  background: #fff;
-  border: 1px solid #e6e2ef;
-  border-left: 3px solid #ccc;
-  border-radius: 6px;
-  padding: .6rem .7rem;
+  background: none;
+  border: none;
+  border-left: 1px solid #ececec;
+  padding: .1rem 1.1rem;
   cursor: pointer;
-  transition: box-shadow .14s ease, transform .14s ease;
 }
-.paper-card:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); }
-.paper-card.active { box-shadow: 0 0 0 2px var(--violet); }
-.paper-card.status-reading { border-left-color: var(--violet); }
-.paper-card.status-queue   { border-left-color: #b8860b; }
-.paper-card.status-read    { border-left-color: #3f7d5a; }
+.paper-card:first-child { border-left: none; padding-left: 0; }
+.paper-card:hover .pc-title,
+.paper-card.active .pc-title { text-decoration: underline; text-underline-offset: .15em; }
 .pc-tag {
   font-family: -apple-system, system-ui, sans-serif;
   font-size: .56rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: #999;
+  color: #aaa;
 }
-.status-reading .pc-tag { color: var(--violet); }
-.status-queue .pc-tag   { color: #b8860b; }
-.status-read .pc-tag    { color: #3f7d5a; }
 .pc-title { font-family: Georgia, serif; font-size: .92rem; line-height: 1.22; color: #1a1a1a; }
-.pc-authors { font-family: -apple-system, system-ui, sans-serif; font-size: .74rem; color: #777; }
-.pc-venue { font-family: -apple-system, system-ui, sans-serif; font-size: .68rem; color: #aaa; }
+.pc-authors { font-family: -apple-system, system-ui, sans-serif; font-size: .74rem; color: #888; }
+.pc-venue { font-family: -apple-system, system-ui, sans-serif; font-size: .68rem; color: #b3b3b3; }
 
 /* ---------- up-next: books lying flat in a stack ---------- */
 .stack-scene { align-items: stretch; }
@@ -469,29 +458,28 @@ footer a { color: #777; }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 3px;
   width: 100%;
 }
 .flat-book {
-  width: 100%;
-  min-height: 30px;
+  min-height: 21px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0 14px;
+  gap: .8rem;
+  padding: 0 10px;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   background: var(--c);
   color: rgba(255, 255, 255, 0.94);
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
   transition: transform .18s cubic-bezier(.22, 1, .36, 1), box-shadow .18s ease;
 }
-.flat-book:hover { transform: translateX(6px); }
-.flat-book.lifted { transform: translateX(16px); box-shadow: 0 7px 16px rgba(0, 0, 0, 0.26); }
-.fb-title { font-family: Georgia, serif; font-weight: 600; font-size: .86rem; }
-.fb-author { font-family: -apple-system, system-ui, sans-serif; font-size: .66rem; color: rgba(255, 255, 255, 0.72); }
+.flat-book:hover { transform: translateX(5px); }
+.flat-book.lifted { transform: translateX(12px); box-shadow: 0 5px 12px rgba(0, 0, 0, 0.24); }
+.fb-title { font-family: Georgia, serif; font-weight: 600; font-size: .72rem; }
+.fb-author { font-family: -apple-system, system-ui, sans-serif; font-size: .56rem; color: rgba(255, 255, 255, 0.72); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 32rem) {
