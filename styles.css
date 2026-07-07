@@ -1,100 +1,175 @@
-/* Roberto Infante — plain personal page */
+/* Roberto Infante — plain personal page.
+   Inspired by clean academic homepages: content first, little ornament. */
+
+:root {
+  --violet: #6d28d9;   /* Clusterwords accent, used sparingly */
+}
 
 body {
-  max-width: 40rem;
-  margin: 3rem auto;
+  max-width: 42rem;
+  margin: 3.5rem auto;
   padding: 0 1.25rem;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 17px;
   line-height: 1.6;
-  color: #111;
+  color: #1a1a1a;
   background: #fff;
 }
 
-.wrap { }
-
-header {
+/* ---------- Intro: text left, photo right ---------- */
+.masthead {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.75rem;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
 }
-
+.masthead-text { min-width: 0; }
 .avatar {
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
   flex: none;
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 h1 {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   font-weight: normal;
-  margin: 0 0 .25rem;
+  margin: 0 0 .3rem;
+  letter-spacing: -0.01em;
 }
+.role { color: #555; font-style: italic; margin: 0 0 .7rem; }
+.contact { font-size: .95rem; margin: 0; }
+
+/* ---------- Text ---------- */
+p { margin: 0 0 .9rem; }
+.lede { font-size: 1.12rem; }
+.sub { color: #555; }
 
 h2 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  margin: 2rem 0 .5rem;
+  margin: 2.2rem 0 .6rem;
 }
 
-p { margin: 0 0 .9rem; }
+a { color: #0b5cc4; }
+a:visited { color: #0b5cc4; }
 
-.role {
-  color: #555;
-  font-style: italic;
-  margin-bottom: .8rem;
-}
-
-.links { font-size: .95rem; }
-
-.btn {
-  display: inline-block;
-  margin-top: .5rem;
-  padding: .35rem .9rem;
-  border: 1px solid #333;
-  border-radius: 3px;
-  color: #111;
-  text-decoration: none;
-  font-size: .9rem;
-}
-.btn:hover { background: #111; color: #fff; }
-
-ul { margin: 0 0 .9rem; padding-left: 1.25rem; }
-li { margin-bottom: .3rem; }
-
-.pub { margin-bottom: 1rem; }
-
-.entry { margin-bottom: 1.4rem; }
 .entry-head {
-  margin-bottom: .25rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   align-items: baseline;
+  margin-bottom: .25rem;
 }
-.date {
-  flex: none;
-  color: #666;
-  font-size: .85rem;
-  font-style: italic;
-  white-space: nowrap;
-}
+.date { flex: none; color: #777; font-size: .85rem; font-style: italic; white-space: nowrap; }
 
-a { color: #0645ad; }
-a:visited { color: #0645ad; }
+ul.bg { margin: 0; padding-left: 1.15rem; }
+ul.bg li { margin-bottom: .5rem; color: #333; }
+ul.bg strong { color: #1a1a1a; }
 
 footer {
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   padding-top: 1rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #e2e2e2;
   font-size: .85rem;
-  color: #666;
+  color: #777;
 }
-footer a { color: #666; }
+footer a { color: #777; }
 
-@media (max-width: 30rem) {
-  header { flex-direction: column; }
+/* ---------- Clusterwords block ---------- */
+.cw-head { display: flex; align-items: center; gap: .6rem; margin: 2.2rem 0 .6rem; }
+.cw-head h2 { margin: 0; }
+.cw-logo { width: 38px; height: 38px; flex: none; }
+
+/* ---------- quick play (minimal) ---------- */
+.game {
+  border: 1px solid #e4e0ee;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: #faf9fe;
+}
+.game-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: .7rem;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .82rem;
+}
+.game-hint { color: #6b6580; }
+.game-status { color: var(--violet); text-align: right; }
+
+.game-solved { display: grid; gap: .4rem; margin-bottom: .4rem; }
+.game-solved:empty { margin-bottom: 0; }
+.solved-row {
+  background: #ede8fb;
+  border-radius: 5px;
+  padding: .45rem .6rem;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .8rem;
+  color: #3a2a6a;
+  text-transform: lowercase;
+}
+.solved-name { font-weight: 700; margin-right: .35rem; }
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .4rem;
+}
+.tile {
+  aspect-ratio: 1.5;
+  border: 1px solid #d9d3e8;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .8rem;
+  color: #2a2440;
+  text-transform: lowercase;
+  padding: 2px;
+  transition: background .12s ease, color .12s ease, transform .12s ease;
+}
+.tile:hover { border-color: var(--violet); }
+.tile.sel {
+  background: var(--violet);
+  color: #fff;
+  border-color: var(--violet);
+  transform: scale(0.96);
+}
+
+.game-actions {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-top: .8rem;
+  flex-wrap: wrap;
+}
+.game-btn {
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .82rem;
+  padding: .35rem .9rem;
+  border: 1px solid var(--violet);
+  border-radius: 5px;
+  background: var(--violet);
+  color: #fff;
+  cursor: pointer;
+}
+.game-btn.ghost { background: #fff; color: var(--violet); }
+.game-link {
+  margin-left: auto;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .82rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 32rem) {
+  .masthead { flex-direction: column-reverse; align-items: flex-start; }
+  .avatar { width: 96px; height: 96px; }
   .entry-head { flex-direction: column; gap: .1rem; }
+  .game-link { margin-left: 0; }
 }

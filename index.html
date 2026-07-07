@@ -4,166 +4,125 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Roberto Infante</title>
-  <meta name="description" content="Roberto Infante — engineer and technical founder moving into research on human and machine decision-making." />
+  <meta name="description" content="Roberto Infante — studying how humans and machines move from uncertainty to committed decisions." />
+  <link rel="icon" type="image/png" href="assets/clusterwords-icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="wrap">
-    <!-- Header -->
-    <header>
-      <img class="avatar" src="assets/roberto.jpg" alt="Roberto Infante" width="120" height="120" />
-      <div>
+    <!-- Intro: text left, photo right -->
+    <header class="masthead">
+      <div class="masthead-text">
         <h1>Roberto Infante</h1>
-        <p class="role">Engineer and technical founder moving into research on human and machine decision-making</p>
-        <p class="links">
-          <a href="mailto:rdji@uw.edu">Email</a> &middot;
-          <a href="https://github.com/rdji20">GitHub</a> &middot;
+        <p class="role">Cognitive computing &middot; decision-making in humans and machines</p>
+        <p class="contact">
+          <a href="mailto:rdji@uw.edu">rdji@uw.edu</a> ·
+          <a href="https://docs.google.com/document/d/14ZUA7clhQm-UvDToK0B_F-zHUPts_UuFKo95fY5Ca1g/edit?tab=t.0">CV</a> ·
+          <a href="https://github.com/rdji20">GitHub</a> ·
           <a href="https://linkedin.com/in/rjil20">LinkedIn</a>
         </p>
-        <p><a class="btn" href="https://docs.google.com/document/d/14ZUA7clhQm-UvDToK0B_F-zHUPts_UuFKo95fY5Ca1g/edit?tab=t.0">View CV</a></p>
       </div>
+      <img class="avatar" src="assets/roberto.jpg" alt="Roberto Infante" width="130" height="130" />
     </header>
 
-    <!-- About -->
+    <!-- Research statement -->
     <section>
+      <p class="lede">
+        I study how humans and machines move from uncertain information to a committed decision.
+        When does a system know it has enough evidence to commit? What makes that commitment
+        reliable? I build controlled environments to measure it, and I care about the semantic
+        structure and memory that sit between evidence and a decision.
+      </p>
+      <p class="sub">
+        Previously I built and shipped data-driven products end to end as a technical founder.
+        I am now moving into research in computational cognition.
+      </p>
+    </section>
+
+    <!-- Clusterwords -->
+    <section id="clusterwords">
+      <div class="cw-head">
+        <img class="cw-logo" src="assets/clusterwords-icon.png" alt="" width="40" height="40" />
+        <h2>Clusterwords</h2>
+      </div>
       <p>
-        I spent five years building and shipping data-driven products end to end, and I am
-        now moving into research on how humans and language models move from uncertainty to
-        commitment. My first paper, Gentags, studies how the structure of intermediate
-        representations affects the reliability of LLM decisions. I am building controlled
-        environments to study decision-making directly, and I am seeking research experience
-        in computational cognition.
+        A controlled environment for studying decision-making under uncertainty. A grid of words
+        hides several secret groups; humans and AI agents play the exact same boards, so every
+        match becomes a process-level comparison of how a mind moves from ambiguous information to
+        a committed answer. Difficulty is manipulated along two independent axes — combinatorial
+        (board size) and semantic (structure, margin, distractors) — and boards are
+        machine-generated to reduce overlap with any model's training data.
+      </p>
+
+      <!-- quick play -->
+      <div class="game" aria-label="Clusterwords quick play">
+        <div class="game-bar">
+          <span class="game-hint">Pick four that go together.</span>
+          <span class="game-status" id="cw-status"></span>
+        </div>
+        <div class="game-solved" id="cw-solved"></div>
+        <div class="game-grid" id="cw-grid"></div>
+        <div class="game-actions">
+          <button type="button" id="cw-check" class="game-btn">Check</button>
+          <button type="button" id="cw-new" class="game-btn ghost">Shuffle</button>
+          <a class="game-link" href="https://www.hugmun.ai/clusterwords">Play the full game →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working papers -->
+    <section>
+      <h2>Working papers</h2>
+      <p class="entry-head">
+        <a href="assets/gentags-preprint.pdf">Gentags: Discrete Semantic State for Constraint-Sensitive Decision Pipelines</a>
+        <span class="date">2025 – 2026</span>
+      </p>
+      <p>
+        First-author preprint introducing Gentags, a representation that compresses source text into
+        short, evidence-grounded semantic units used as inspectable intermediate state in LLM
+        decision pipelines. In a controlled study isolating representation structure, Gentags raised
+        agreement with full-evidence decisions to 79.5% (vs. 52.3–61.6% for RAKE/YAKE/TF-IDF) and
+        hard-constraint satisfaction to 97.3% (vs. 84.7–89.3%). [<a href="assets/gentags-preprint.pdf">PDF</a>]
       </p>
     </section>
 
-    <!-- Research & projects -->
+    <!-- Other projects -->
     <section>
-      <h2>Research &amp; projects</h2>
-
-      <div class="entry">
-        <p class="entry-head">
-          <a href="https://www.hugmun.ai/clusterwords">Clusterwords</a>
-          <span class="date">2026 – Present</span>
-        </p>
-        <p>
-          A controlled environment for studying decision-making under uncertainty, built around
-          a Connections-style puzzle: a grid of words hides several secret groups, and the task
-          is to find them all before running out of lives. Humans and AI agents play the exact
-          same boards, so each match becomes a process-level comparison of how a mind moves from
-          ambiguous information to a committed answer — candidate sets, confidence, and the
-          moment of commitment. Board difficulty is manipulated along two independent axes,
-          separating combinatorial difficulty (board size, from a 2×2 probe up to 5×5) from
-          semantic difficulty (structure, semantic margin, distractor type). Boards are
-          machine-generated to reduce the chance a given puzzle already appeared in a model's
-          training data. The underlying interest is the cognitive control behind any hard call:
-          surfacing options, holding them in working memory, inhibiting the obvious-but-wrong
-          group, and knowing when you are actually sure.
-        </p>
-      </div>
-
-      <div class="entry">
-        <p class="entry-head">
-          <a href="assets/gentags-preprint.pdf">Gentags: Discrete Semantic State for Constraint-Sensitive Decision Pipelines</a>
-          <span class="date">2025 – 2026</span>
-        </p>
-        <p>
-          First-author preprint introducing Gentags, a representation that compresses source
-          text into short, evidence-grounded semantic units (1–4 words, each isolating one
-          identifiable condition) used as inspectable, structured intermediate state in LLM
-          decision pipelines. In a controlled study isolating representation structure (fixed
-          evidence, task, and judge), Gentags raised agreement with full-evidence decisions to
-          79.5% (vs. 52.3–61.6% for RAKE/YAKE/TF-IDF) and hard-constraint satisfaction to 97.3%
-          (vs. 84.7–89.3%), with high cross-run stability. [<a href="assets/gentags-preprint.pdf">PDF</a>]
-        </p>
-      </div>
-
-      <div class="entry">
-        <p class="entry-head">
-          Recommendation System &amp; Smart Filters — UW MSIM Capstone (sponsor &amp; lead)
-          <span class="date">2025 – 2026</span>
-        </p>
-        <p>
-          Sponsored and directed two MSIM capstone teams applying the Gentags approach to a
-          live product — scoping the problem, setting success metrics, and guiding delivery to
-          production. The teams shipped a recommendation system and categorical/nudging filters
-          now live in the app.
-        </p>
-      </div>
-
-      <div class="entry">
-        <p class="entry-head">
-          <a href="https://github.com/rdji20/dynamic-information">Dynamic Information</a>
-          <span class="date">2024</span>
-        </p>
-        <p>
-          An LLM agent that constructs and self-updates a knowledge/decision graph, with an
-          explicit hypothesis structure (probabilities over hypotheses) and a controlled
-          decision space for Bayesian-style reasoning (Python, Flask, D3.js). Used
-          Connections-style puzzles as a testbed for whether explicit, external uncertainty
-          improves an agent's decisions; the low performance here motivated the shift to
-          studying commitment under uncertainty directly.
-        </p>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section>
-      <h2>Experience</h2>
-
-      <div class="entry">
-        <p class="entry-head">
-          Co-founder, Software Engineering — <a href="https://voraa.io">Voraa</a>
-          <span class="date">2025 – 2026</span>
-        </p>
-        <p>
-          Sole technical founder. Built a B2C mobile app (Flutter) from zero to 500+ paying
-          users, owning product, engineering, and data systems end to end — in-app analytics
-          instrumentation, success metrics and automated dashboards, and scalable backend
-          services for bookings, payments, and near-real-time usage analytics. Shipped a growth
-          flow that increased weekly free trials 2.5x.
-        </p>
-      </div>
-
-      <div class="entry">
-        <p class="entry-head">
-          Python Engineer (Freelance) — Saba
-          <span class="date">2024</span>
-        </p>
-        <p>
-          Led migration of an end-to-end analytics platform from SPSS/R to Python, unifying
-          phone-survey ingestion, statistical quality control (control charts), and
-          public-opinion analytics into one automated pipeline. Replaced manual two-day
-          reporting checks with real-time interactive dashboards.
-        </p>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section>
-      <h2>Education</h2>
+      <h2>Other projects</h2>
       <p class="entry-head">
-        M.S. Information Management, Artificial Intelligence — University of Washington
-        <span class="date">2023 – Present (on leave)</span>
+        <a href="https://github.com/rdji20/dynamic-information">Dynamic Information</a>
+        <span class="date">2024</span>
+      </p>
+      <p>
+        An LLM agent that builds and self-updates a knowledge/decision graph with an explicit
+        hypothesis structure for Bayesian-style reasoning. Its limits motivated the shift to
+        studying commitment under uncertainty directly.
       </p>
       <p class="entry-head">
-        B.S. Information Sciences, Data Science — University of Washington
-        <span class="date">2018 – 2022</span>
+        Recommendation System &amp; Smart Filters — UW MSIM Capstone (sponsor &amp; lead)
+        <span class="date">2025 – 2026</span>
+      </p>
+      <p>
+        Directed two capstone teams applying the Gentags approach to a live product, shipping a
+        recommendation system and categorical/nudging filters now in production.
       </p>
     </section>
 
-    <!-- Recognition -->
+    <!-- Background -->
     <section>
-      <h2>Recognition</h2>
-      <ul>
-        <li>Top 100 Startups in Mexico — 2025</li>
-        <li>Systems Thinking — MIT, 2023</li>
+      <h2>Background</h2>
+      <ul class="bg">
+        <li><strong>Co-founder, Software Engineering — Voraa.</strong> Sole technical founder of a B2C mobile app (Flutter), built from zero with product, engineering, and data systems owned end to end.</li>
+        <li><strong>Python Engineer (freelance) — Saba.</strong> Migrated a public-opinion analytics platform from SPSS/R to Python with automated, real-time reporting.</li>
+        <li><strong>University of Washington.</strong> M.S. Information Management, AI (on leave) · B.S. Information Sciences, Data Science.</li>
       </ul>
     </section>
 
-    <!-- Footer -->
     <footer>
       <p>Monterrey, Nuevo León, Mexico &middot; <a href="mailto:rdji@uw.edu">rdji@uw.edu</a></p>
     </footer>
   </div>
+
+  <script src="clusterwords.js"></script>
 </body>
 </html>
