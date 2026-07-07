@@ -32,7 +32,9 @@
     { shelf: "toread", title: "The Computational Brain", author: "Churchland & Sejnowski", year: 1992, h: 168,
       note: "A foundational take on computational neuroscience." },
     { shelf: "toread", title: "How to Build a Brain", author: "Chris Eliasmith", year: 2013, h: 176,
-      note: "A unified architecture for biological cognition." }
+      note: "A unified architecture for biological cognition." },
+    { shelf: "toread", title: "Vision", author: "David Marr", year: 1982, h: 184,
+      note: "A computational investigation into human visual information processing — the three levels of analysis." }
   ];
 
   var shelf = document.getElementById("shelf");
