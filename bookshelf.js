@@ -82,19 +82,17 @@
     track.appendChild(s);
   });
 
-  // ---- shelf 2: up-next spines, grayed (unread) ----
+  // ---- shelf 2: up-next spines, grayed (unread) — decorative, not clickable ----
   if (track2) {
     BOOKS.forEach(function (b, i) {
       if (b.shelf !== "toread") return;
-      var s = document.createElement("button");
-      s.type = "button";
-      s.className = "spine";
+      var s = document.createElement("div");
+      s.className = "spine spine-static";
       s.style.setProperty("--c", GRAY);
       s.style.height = (b.h || 172) + "px";
       s.innerHTML =
         '<span class="spine-title">' + b.title + '</span>' +
         '<span class="spine-author">' + b.author + '</span>';
-      s.addEventListener("click", function () { openDetail(b, s, "out"); });
       track2.appendChild(s);
     });
   }

@@ -448,6 +448,9 @@ footer a { color: #777; }
   cursor: default;
   scrollbar-width: thin;
 }
+/* decorative spines — no hover lift, no click, no focus ring */
+.spine-static { cursor: default; }
+.spine-static:hover { transform: none; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 32rem) {
