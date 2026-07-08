@@ -197,7 +197,7 @@ footer a { color: #777; }
   align-items: flex-end;
   gap: 10px;
   margin-top: 1rem;
-  padding: 1.4rem 0 12px;   /* bottom padding = ledge height */
+  padding: 0.3rem 0 12px;   /* bottom padding = ledge height */
   perspective: 900px;
 }
 
@@ -206,6 +206,7 @@ footer a { color: #777; }
   flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
+  padding-top: 32px;        /* headroom so a hovered/pulled book isn't clipped */
   cursor: grab;
   touch-action: pan-y;
   user-select: none;
@@ -234,6 +235,7 @@ footer a { color: #777; }
 
 .spine {
   position: relative;
+  box-sizing: border-box;   /* match button (border-box) so div spines aren't larger */
   flex: none;
   width: 46px;
   border: none;
