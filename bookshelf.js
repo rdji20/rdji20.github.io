@@ -7,7 +7,7 @@
    placeholder; swap in the real up-next titles. */
 (function () {
   var BOOKS = [
-    { shelf: "reading", title: "A Brief History of Intelligence", author: "Max Bennett", year: 2023, color: "#3a5566", h: 182,
+    { shelf: "reading", fav: true, title: "A Brief History of Intelligence", author: "Max Bennett", year: 2023, color: "#3a5566", h: 182,
       note: "How evolution built minds, one breakthrough at a time." },
     { shelf: "reading", title: "Overloaded", author: "Ginny Smith", year: 2021, color: "#6b3b4a", h: 168,
       note: "How brain chemistry shapes everyday thought and feeling." },
@@ -23,7 +23,7 @@
       note: "Stocks, flows, and feedback as a way of seeing." },
     { shelf: "reading", title: "Nexus", author: "Yuval Noah Harari", year: 2024, color: "#6a3a2e", h: 184,
       note: "A history of information networks, from myth to AI." },
-    { shelf: "reading", title: "The Master Algorithm", author: "Pedro Domingos", year: 2015, color: "#5a2e5a", h: 174,
+    { shelf: "reading", fav: true, title: "The Master Algorithm", author: "Pedro Domingos", year: 2015, color: "#5a2e5a", h: 174,
       note: "The five tribes of machine learning and a unifying dream." },
 
     // --- up next (placeholders — replace with your real to-read list) ---
@@ -76,6 +76,7 @@
       s.style.setProperty("--c", b.color);
       s.style.height = b.h + "px";
       s.innerHTML =
+        (b.fav ? '<span class="spine-fav">★</span>' : '') +
         '<span class="spine-title">' + b.title + '</span>' +
         '<span class="spine-author">' + b.author + '</span>';
       s._book = b;

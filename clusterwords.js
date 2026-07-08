@@ -1,48 +1,60 @@
 /* Clusterwords — the 2×2 probe.
    Four words, three possible pairings. There isn't one right answer:
    the point is which split you commit to, and whether you can say why.
-   Board: fire · house · work · place — two of the three splits form real
-   compound words, so more than one answer is genuinely defensible. */
+   Several boards to try — each has more than one defensible split. */
 (function () {
-  var WORDS = ["fire", "house", "work", "place"];
-
-  // sorted-pair -> compound reading (when one exists)
-  var COMPOUND = {
-    "fire+place": "fireplace",
-    "house+work": "housework",
-    "fire+house": "firehouse",
-    "place+work": "workplace",
-    "fire+work":  "fireworks"
-  };
+  var BOARDS = [
+    {
+      words: ["fire", "house", "work", "place"],
+      note: "Two of the three splits are real compounds — <i>fireplace / housework</i> and <i>firehouse / workplace</i> — so more than one answer is defensible."
+    },
+    {
+      words: ["foot", "ball", "base", "board"],
+      note: "Both <i>football / baseboard</i> and <i>footboard / baseball</i> are real compound pairs — two equally defensible splits."
+    },
+    {
+      words: ["key", "board", "black", "white"],
+      note: "<i>Keyboard</i> pairs key + board; but <i>blackboard</i> and <i>whiteboard</i> also work, with key going to the other piano-key colour. Several defensible cuts."
+    },
+    {
+      words: ["bat", "ball", "cave", "vampire"],
+      note: "“Bat” is the hinge: bat + ball (sport), bat + cave (where bats live), or bat + vampire (both nocturnal). Which sense you commit to is the data."
+    },
+    {
+      words: ["spring", "bank", "note", "draft"],
+      note: "Every word is a pun — spring (season / coil / water), bank (money / river), note (music / memo), draft (beer / breeze / plan). Almost any pairing can be argued."
+    }
+  ];
 
   var grid = document.getElementById("cw-grid");
   var statusEl = document.getElementById("cw-status");
   var whyEl = document.getElementById("cw-why");
   var commitBtn = document.getElementById("cw-commit");
   var resetBtn = document.getElementById("cw-reset");
+  var nextBtn = document.getElementById("cw-next");
   var resultEl = document.getElementById("cw-result");
   if (!grid) return;
 
+  var boardIdx = 0;
   var selected = [];
 
-  function key(a, b) { return [a, b].slice().sort().join("+"); }
-  function reading(a, b) { return COMPOUND[key(a, b)] || null; }
+  function words() { return BOARDS[boardIdx].words; }
 
   function render() {
     grid.innerHTML = "";
-    WORDS.forEach(function (w) {
+    words().forEach(function (w) {
       var b = document.createElement("button");
       b.type = "button";
       b.className = "tile";
       b.textContent = w;
       b.setAttribute("aria-pressed", "false");
-      b.addEventListener("click", function () { toggle(b, w); });
+      b.addEventListener("click", function () { toggle(w); });
       grid.appendChild(b);
     });
     paint();
   }
 
-  function toggle(btn, word) {
+  function toggle(word) {
     var i = selected.indexOf(word);
     if (i !== -1) selected.splice(i, 1);
     else if (selected.length < 2) selected.push(word);
@@ -56,7 +68,6 @@
     Array.prototype.forEach.call(tiles, function (t) {
       var on = selected.indexOf(t.textContent) !== -1;
       t.classList.toggle("sel", on);
-      // when two are chosen, mark the other two as the counterpart pair
       t.classList.toggle("pairb", selected.length === 2 && !on);
       t.setAttribute("aria-pressed", on ? "true" : "false");
     });
@@ -66,25 +77,14 @@
     if (selected.length !== 2) { statusEl.textContent = "Pick two."; return; }
     var reason = (whyEl.value || "").trim();
     var pairA = selected.slice();
-    var pairB = WORDS.filter(function (w) { return selected.indexOf(w) === -1; });
-
-    var readA = reading(pairA[0], pairA[1]);
-    var readB = reading(pairB[0], pairB[1]);
+    var pairB = words().filter(function (w) { return selected.indexOf(w) === -1; });
 
     var html = "";
     html += "<p class=\"res-line\">You committed to <b>" + pairA.join(" · ") +
             "</b> <span class=\"res-bar\">|</span> <b>" + pairB.join(" · ") + "</b>.</p>";
     if (reason) html += "<p class=\"res-why\">Because: &ldquo;" + escapeHtml(reason) + "&rdquo;</p>";
-    if (readA && readB) {
-      html += "<p class=\"res-read\">Both sides read as compounds: <i>" + readA +
-              "</i> and <i>" + readB + "</i>.</p>";
-    } else if (readA) {
-      html += "<p class=\"res-read\"><i>" + readA + "</i> works; the other pair doesn't form one.</p>";
-    }
-    html += "<p class=\"res-note\">Two of the three possible splits here are real compound words — " +
-            "<i>fireplace / housework</i> and <i>firehouse / workplace</i> — so more than one answer " +
-            "is defensible. Which one you commit to, and the reason you give, is exactly what the " +
-            "2×2 probe records.</p>";
+    html += "<p class=\"res-note\">" + BOARDS[boardIdx].note +
+            " Which one you commit to, and the reason you give, is exactly what the 2×2 probe records.</p>";
 
     resultEl.innerHTML = html;
     resultEl.hidden = false;
@@ -98,6 +98,11 @@
     resultEl.innerHTML = "";
     statusEl.textContent = "";
     render();
+  }
+
+  function nextBoard() {
+    boardIdx = (boardIdx + 1) % BOARDS.length;
+    reset();
     whyEl.focus();
   }
 
@@ -109,6 +114,7 @@
 
   commitBtn.addEventListener("click", commit);
   resetBtn.addEventListener("click", reset);
+  if (nextBtn) nextBtn.addEventListener("click", nextBoard);
   whyEl.addEventListener("keydown", function (e) { if (e.key === "Enter") commit(); });
   render();
 })();

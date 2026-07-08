@@ -38,6 +38,29 @@
       url: "https://arxiv.org/abs/2606.09856"
     },
     {
+      status: "queue",
+      title: "The Notorious Difficulty of Comparing Human and Machine Perception",
+      authors: "Funke, Borowski, Stosio, Brendel, Wallis & Bethge",
+      venue: "arXiv, 2020",
+      url: "https://arxiv.org/abs/2004.09406"
+    },
+    {
+      status: "read",
+      fav: true,
+      title: "Whither Symbols in the Era of Advanced Neural Networks?",
+      authors: "Griffiths, Lake, McCoy, Pavlick & Webb",
+      venue: "Trends in Cognitive Sciences, 2026",
+      url: "https://arxiv.org/abs/2508.05776"
+    },
+    {
+      status: "read",
+      fav: true,
+      title: "Performance vs. Competence in Human–Machine Comparisons",
+      authors: "Chaz Firestone",
+      venue: "PNAS, 2020",
+      url: "https://doi.org/10.1073/pnas.1905334117"
+    },
+    {
       status: "read",
       title: "Serial Position Effects of Large Language Models",
       authors: "Xiaobo Guo & Soroush Vosoughi",
@@ -53,7 +76,7 @@
     }
   ];
 
-  var STATUS_ORDER = { reading: 0, queue: 1, read: 2 };
+  var STATUS_ORDER = { read: 0, reading: 1, queue: 2 };   // read first
 
   var stage = document.getElementById("laptop");
   var screen = document.getElementById("screen");
@@ -79,7 +102,7 @@
         card.dataset.i = String(i);
         card.innerHTML =
           '<span class="pc-tag">' + LABELS[p.status] + '</span>' +
-          '<span class="pc-title">' + p.title + '</span>' +
+          '<span class="pc-title">' + (p.fav ? '<span class="fav">★</span> ' : '') + p.title + '</span>' +
           '<span class="pc-authors">' + p.authors + '</span>' +
           '<span class="pc-venue">' + p.venue + '</span>';
         card.addEventListener("click", function () { select(i, card); });
@@ -99,7 +122,7 @@
     current = i;
     stage.classList.remove("open");
     elStatus.textContent = LABELS[p.status] || "";
-    elTitle.textContent = p.title;
+    elTitle.textContent = (p.fav ? "★ " : "") + p.title;
     elAuthors.textContent = p.authors;
     elOpen.textContent = "Open paper ↗";
     screen.classList.toggle("unread", p.status === "queue");   // gray if not read

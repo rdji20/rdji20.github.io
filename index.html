@@ -19,7 +19,8 @@
           <a href="mailto:rdji@uw.edu">rdji@uw.edu</a> ·
           <a href="https://docs.google.com/document/d/14ZUA7clhQm-UvDToK0B_F-zHUPts_UuFKo95fY5Ca1g/edit?tab=t.0">CV</a> ·
           <a href="https://github.com/rdji20">GitHub</a> ·
-          <a href="https://linkedin.com/in/rjil20">LinkedIn</a>
+          <a href="https://linkedin.com/in/rjil20">LinkedIn</a> ·
+          <a href="https://x.com/robinfa10">Twitter</a>
         </p>
       </div>
       <img class="avatar" src="assets/roberto.jpg" alt="Roberto Infante" width="130" height="130" />
@@ -49,12 +50,9 @@
         A controlled environment for studying decision-making under uncertainty. A grid of words
         hides several secret groups; humans and AI agents play the exact same boards, so every
         match becomes a process-level comparison of how a mind moves from ambiguous information to
-        a committed answer. Difficulty is manipulated along two independent axes — combinatorial
-        (board size) and semantic (structure, margin, distractors) — and boards are
-        machine-generated to reduce overlap with any model's training data.
-      </p>
-
-      <!-- quick play: the 2×2 probe -->
+        a committed answer. <br> 
+</p>
+         <!-- quick play: the 2×2 probe -->
       <div class="game" aria-label="Clusterwords 2×2 probe">
         <div class="game-bar">
           <span class="game-hint">Four words. Pick the two that belong together — then say why.</span>
@@ -68,11 +66,19 @@
         <div class="game-actions">
           <button type="button" id="cw-commit" class="game-btn">Commit</button>
           <button type="button" id="cw-reset" class="game-btn ghost">Reset</button>
+          <button type="button" id="cw-next" class="game-btn ghost">New board →</button>
           <a class="game-link" href="https://clusterwords.hugmun.ai/">Play the full game →</a>
         </div>
         <div class="game-result" id="cw-result" hidden></div>
       </div>
     </section>
+<br>
+<p>
+        Difficulty is manipulated along two independent axes; combinatorial
+        (board size) and semantic (structure, margin, distractors). Boards are
+        machine-generated to reduce overlap with any model's training data. Currently working to enhance this tool through constraining them similarly. Performance might differ but process could be similar.
+      </p>
+      <p>This comes to question: <em>How can we evaluate the similarity of the process of answering this task by LLM systems and humans in a species-fair way?</em></p>
 
     <!-- Working papers -->
     <section>
@@ -142,7 +148,7 @@
       <div class="book-detail" id="book-detail" hidden></div>
 
       <!-- Papers: horizontal scrollable showcase -->
-      <p class="mini-h">Papers <span class="mini-hint">— pick one to open it on the laptop; grayed = not read yet</span></p>
+      <p class="mini-h">Papers <span class="mini-hint">— pick one to open it on the laptop</span></p>
       <div class="papers-strip" id="papers-strip"></div>
     </section>
 
@@ -162,6 +168,7 @@
   </div>
 
   <script src="clusterwords.js"></script>
+  <script src="boards.js"></script>
   <script src="bookshelf.js"></script>
   <script src="papers.js"></script>
 </body>
