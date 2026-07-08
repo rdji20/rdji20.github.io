@@ -39,11 +39,10 @@
 
   var shelf = document.getElementById("shelf");
   var track = document.getElementById("shelf-track");
-  var track2 = document.getElementById("shelf2-track");
   var detail = document.getElementById("book-detail");
   if (!shelf || !track) return;
 
-  var GRAY = "#9a9aa2";   // up-next spines: unread
+  var GRAY = "#9a9aa2";   // not-read spines
 
   var current = null;   // the currently pulled-out book element
 
@@ -67,35 +66,31 @@
     detail.innerHTML = "";
   }
 
-  // ---- shelf 1: spines ----
-  BOOKS.forEach(function (b, i) {
-    if (b.shelf !== "reading") return;
-    var s = document.createElement("button");
-    s.type = "button";
-    s.className = "spine";
-    s.style.setProperty("--c", b.color);
-    s.style.height = b.h + "px";
-    s.innerHTML =
-      '<span class="spine-title">' + b.title + '</span>' +
-      '<span class="spine-author">' + b.author + '</span>';
-    s._book = b;
-    track.appendChild(s);
-  });
-
-  // ---- shelf 2: up-next spines, grayed (unread) — decorative, not clickable ----
-  if (track2) {
-    BOOKS.forEach(function (b, i) {
-      if (b.shelf !== "toread") return;
-      var s = document.createElement("div");
-      s.className = "spine spine-static";
-      s.style.setProperty("--c", GRAY);
-      s.style.height = (b.h || 172) + "px";
+  // ---- one shelf: read/reading spines (colored, clickable) then
+  //      not-read spines (gray, decorative) ----
+  BOOKS.forEach(function (b) {
+    if (b.shelf === "reading") {
+      var s = document.createElement("button");
+      s.type = "button";
+      s.className = "spine";
+      s.style.setProperty("--c", b.color);
+      s.style.height = b.h + "px";
       s.innerHTML =
         '<span class="spine-title">' + b.title + '</span>' +
         '<span class="spine-author">' + b.author + '</span>';
-      track2.appendChild(s);
-    });
-  }
+      s._book = b;
+      track.appendChild(s);
+    } else if (b.shelf === "toread") {
+      var d = document.createElement("div");
+      d.className = "spine spine-static";
+      d.style.setProperty("--c", GRAY);
+      d.style.height = (b.h || 172) + "px";
+      d.innerHTML =
+        '<span class="spine-title">' + b.title + '</span>' +
+        '<span class="spine-author">' + b.author + '</span>';
+      track.appendChild(d);
+    }
+  });
 
   // ---- motion engine (spine shelf) ----
   var offset = 0, vel = 0, min = 0, max = 0;

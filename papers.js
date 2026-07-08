@@ -102,6 +102,7 @@
     elTitle.textContent = p.title;
     elAuthors.textContent = p.authors;
     elOpen.textContent = "Open paper ↗";
+    screen.classList.toggle("unread", p.status === "queue");   // gray if not read
     markActive(card);
     requestAnimationFrame(function () {
       requestAnimationFrame(function () { stage.classList.add("open"); });
@@ -111,6 +112,7 @@
   function close() {
     current = null;
     stage.classList.remove("open");
+    screen.classList.remove("unread");
     markActive(null);
     elStatus.textContent = "";
     elTitle.textContent = "pick a paper →";

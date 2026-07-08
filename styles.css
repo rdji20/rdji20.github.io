@@ -440,15 +440,15 @@ footer a { color: #777; }
 .pc-title { font-family: Georgia, serif; font-size: .95rem; line-height: 1.24; color: #1a1a1a; }
 .pc-authors { font-family: Georgia, serif; font-size: .82rem; color: #777; }
 .pc-venue { font-family: Georgia, serif; font-style: italic; font-size: .76rem; color: #aaa; }
+/* not-read papers: grayed */
+.paper-card.status-queue .pc-title { color: #9a9a9a; }
+.paper-card.status-queue .pc-authors { color: #b0b0b0; }
+.screen.unread .screen-ptitle { color: #a9a9b2; }
+.screen.unread .screen-authors { color: #86828f; }
+.screen.unread .screen-status { color: #8a8a92; }
+.screen.unread .screen-open { color: #9a95a5; }
 
-/* ---------- up-next: a second, static shelf (grayed spines) ---------- */
-.shelf-static {
-  overflow-x: auto;
-  overflow-y: hidden;
-  cursor: default;
-  scrollbar-width: thin;
-}
-/* decorative spines — no hover lift, no click, no focus ring */
+/* not-read spines — grayed, decorative (no hover lift, no click) */
 .spine-static { cursor: default; }
 .spine-static:hover { transform: none; }
 
