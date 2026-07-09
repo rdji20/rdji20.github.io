@@ -2,7 +2,7 @@
    Inspired by clean academic homepages: content first, little ornament. */
 
 :root {
-  --violet: #6d28d9;   /* Clusterwords accent, used sparingly */
+  --violet: #4B2E83;   /* Clusterwords accent, used sparingly */
 }
 
 body {
@@ -42,6 +42,29 @@ h1 {
 .role { color: #555; font-style: italic; margin: 0 0 .7rem; }
 .contact { font-size: .95rem; margin: 0; }
 
+/* ---------- Tabs ---------- */
+.tabs {
+  display: flex;
+  gap: 1.4rem;
+  margin: 0 0 2rem;
+  border-bottom: 1px solid #e2e2e2;
+}
+.tab {
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .9rem;
+  color: #777;
+  text-decoration: none;
+  padding: .35rem .1rem .6rem;
+  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+}
+.tab:visited { color: #777; }
+.tab:hover { color: #1a1a1a; }
+.tab.active {
+  color: #1a1a1a;
+  border-bottom-color: var(--violet);
+}
+
 /* ---------- Text ---------- */
 p { margin: 0 0 .9rem; }
 .lede { font-size: 1.12rem; }
@@ -77,6 +100,14 @@ footer {
   color: #777;
 }
 footer a { color: #777; }
+
+/* ---------- Essay (Why a PhD?) ---------- */
+/* this page uses the full horizontal width instead of the narrow reading column */
+body.essay-page { max-width: none; }
+.essay { max-width: none; }
+.essay-title { margin-top: .5rem; }
+.essay-list { margin: 0 0 .9rem; padding-left: 1.4rem; }
+.essay-list li { margin-bottom: .35rem; }
 
 /* ---------- Clusterwords block ---------- */
 .cw-head { display: flex; align-items: center; gap: .6rem; margin: 2.2rem 0 .6rem; }
