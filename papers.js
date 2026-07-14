@@ -91,6 +91,7 @@
 
   function buildStrip() {
     strip.innerHTML = "";
+    var firstCard = null, firstIndex = null;
     PAPERS
       .map(function (p, i) { return { p: p, i: i }; })
       .sort(function (a, b) { return STATUS_ORDER[a.p.status] - STATUS_ORDER[b.p.status]; })
@@ -107,7 +108,10 @@
           '<span class="pc-venue">' + p.venue + '</span>';
         card.addEventListener("click", function () { select(i, card); });
         strip.appendChild(card);
+        if (firstCard === null) { firstCard = card; firstIndex = i; }
       });
+    // open the laptop on the first paper so it starts selected
+    if (firstCard !== null) select(firstIndex, firstCard);
   }
 
   function markActive(card) {

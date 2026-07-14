@@ -109,6 +109,10 @@ body.essay-page { max-width: none; }
 .essay-list { margin: 0 0 .9rem; padding-left: 1.4rem; }
 .essay-list li { margin-bottom: .35rem; }
 
+.tldr-label { font-weight: 600; }
+.essay-more { margin-top: 1.5rem; }
+.essay-more > summary { cursor: pointer; text-decoration: underline; text-underline-offset: .15em; }
+
 /* ---------- Clusterwords block ---------- */
 .cw-head { display: flex; align-items: center; gap: .6rem; margin: 2.2rem 0 .6rem; }
 .cw-head h2 { margin: 0; }
@@ -477,6 +481,11 @@ body.essay-page { max-width: none; }
 .paper-card:first-child { border-left: none; padding-left: 0; }
 .paper-card:hover .pc-title,
 .paper-card.active .pc-title { text-decoration: underline; text-underline-offset: .15em; }
+.paper-card.active { opacity: 1; }
+.paper-card.active .pc-title { font-weight: 600; }
+.paper-card.active .pc-tag { color: #1a1a1a; font-style: normal; }
+.paper-card:not(.active) { opacity: .6; }
+.paper-card:not(.active):hover { opacity: 1; }
 .pc-tag { font-family: Georgia, serif; font-style: italic; font-size: .76rem; color: #9a9a9a; }
 .pc-title { font-family: Georgia, serif; font-size: .95rem; line-height: 1.24; color: #1a1a1a; }
 .pc-authors { font-family: Georgia, serif; font-size: .82rem; color: #777; }
