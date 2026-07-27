@@ -380,16 +380,31 @@ body.essay-page { max-width: none; }
   width: 184px;
   height: 116px;
   padding: 0;
-  border-radius: 8px 8px 2px 2px;
-  background: #14141a;
-  border: 2px solid #2b2b34;
+  border-radius: 9px 9px 3px 3px;
+  background: linear-gradient(#1c1c24, #0f0f14);
+  border: 2px solid #34343f;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.35), 0 10px 22px rgba(0,0,0,.22);
   transform-origin: bottom center;
   transform: rotateX(90deg);             /* closed: lid folded down over the deck */
-  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+  transition: transform .5s cubic-bezier(.22, 1, .36, 1), border-color .25s ease, box-shadow .25s ease;
   cursor: default;
 }
+/* camera notch on the top bezel */
+.screen::before {
+  content: "";
+  position: absolute;
+  top: 2px; left: 50%;
+  width: 4px; height: 4px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #3a3a46;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.5);
+}
 .shelf-laptop.open .screen { transform: rotateX(0deg); cursor: pointer; }
-.shelf-laptop.open .screen:hover { border-color: var(--violet); }
+.shelf-laptop.open .screen:hover {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.35), 0 10px 26px rgba(124,92,220,.28);
+}
 
 .screen-face {
   position: absolute;
@@ -403,7 +418,16 @@ body.essay-page { max-width: none; }
   padding: 8px 10px;
   text-align: left;
   opacity: 0;
+  overflow: hidden;
   transition: opacity .3s ease .2s;
+}
+/* soft glare sweeping across the glass */
+.screen-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(122deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 38%);
+  pointer-events: none;
 }
 .shelf-laptop.open .screen-face { opacity: 1; }
 .screen-status {
@@ -418,18 +442,19 @@ body.essay-page { max-width: none; }
   line-height: 1.2;
   color: #f2ecff;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.screen-authors {
-  font-family: Georgia, serif;
-  font-size: .58rem;
-  color: #9d95b3;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+.screen-type {
+  display: block;
+  color: #c3aef0;
+  margin: .12rem 0;
+}
+.screen-type svg {
+  display: block;
+  width: 15px;
+  height: 15px;
 }
 .screen-open {
   margin-top: .1rem;
@@ -443,11 +468,21 @@ body.essay-page { max-width: none; }
 .deck {
   position: relative;
   width: 206px;
-  height: 11px;
+  height: 12px;
   margin: -1px 0 0 -11px;
-  border-radius: 2px 2px 7px 7px;
-  background: linear-gradient(#cfcfd8, #a6a6b2);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+  border-radius: 2px 2px 8px 8px;
+  background: linear-gradient(#e0e0e7, #b0b0bc 55%, #9a9aa6);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,.5);
+}
+/* front-edge notch (where you'd open the lid) */
+.deck::before {
+  content: "";
+  position: absolute;
+  bottom: 1px; left: 50%;
+  width: 40px; height: 3px;
+  transform: translateX(-50%);
+  border-radius: 0 0 4px 4px;
+  background: rgba(0, 0, 0, 0.14);
 }
 .deck-pad {
   position: absolute;
@@ -458,46 +493,74 @@ body.essay-page { max-width: none; }
   background: rgba(0, 0, 0, 0.12);
 }
 
-/* ---------- papers: plain horizontal scroll ---------- */
-.papers-strip {
-  display: flex;
-  overflow-x: auto;
-  padding: .2rem 0 1rem;
-  scrollbar-width: thin;
+/* ---------- papers: simple paginated table ---------- */
+.papers-list { padding: .2rem 0 1rem; }
+.papers-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: Georgia, serif;
+  border: 1px solid #e2e2e2;
 }
-.paper-card {
-  flex: none;
-  width: 208px;
+.papers-table tr { cursor: pointer; }
+.papers-table td {
+  padding: .5rem .7rem;
+  vertical-align: middle;
+  border: 1px solid #e2e2e2;
+}
+.pt-title {
+  font-size: .95rem;
+  line-height: 1.3;
+  color: #1a1a1a;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.pt-type {
+  width: 4.5rem;
+  text-align: center;
+  font-size: .82rem;
+  color: #8a8a8a;
+  white-space: nowrap;
+}
+.pt-status {
+  width: 5.5rem;
+  text-align: right;
+  font-style: italic;
+  font-size: .82rem;
+  color: #9a9a9a;
+  white-space: nowrap;
+}
+.papers-table tr:hover .pt-title,
+.papers-table tr.active .pt-title { text-decoration: underline; text-underline-offset: .15em; }
+.papers-table tr.active .pt-title { font-weight: 600; }
+/* read: green · reading: default · queue: grayed */
+.papers-table tr.status-read .pt-title { color: #2f6b4a; }
+.papers-table tr.status-queue .pt-title { color: #9a9a9a; }
+
+/* pagination */
+.papers-pager {
   display: flex;
-  flex-direction: column;
-  gap: .22rem;
-  text-align: left;
+  align-items: center;
+  gap: 1rem;
+  padding: .7rem .2rem 0;
+}
+.pager-btn {
+  font-family: Georgia, serif;
+  font-size: .85rem;
+  color: #1a1a1a;
   background: none;
   border: none;
-  border-left: 1px solid #ececec;
-  padding: .1rem 1.1rem;
+  padding: 0;
   cursor: pointer;
 }
-.paper-card:first-child { border-left: none; padding-left: 0; }
-.paper-card:hover .pc-title,
-.paper-card.active .pc-title { text-decoration: underline; text-underline-offset: .15em; }
-.paper-card.active { opacity: 1; }
-.paper-card.active .pc-title { font-weight: 600; }
-.paper-card.active .pc-tag { color: #1a1a1a; font-style: normal; }
-.paper-card:not(.active) { opacity: .6; }
-.paper-card:not(.active):hover { opacity: 1; }
-.pc-tag { font-family: Georgia, serif; font-style: italic; font-size: .76rem; color: #9a9a9a; }
-.pc-title { font-family: Georgia, serif; font-size: .95rem; line-height: 1.24; color: #1a1a1a; }
-.pc-authors { font-family: Georgia, serif; font-size: .82rem; color: #777; }
-.pc-venue { font-family: Georgia, serif; font-style: italic; font-size: .76rem; color: #aaa; }
-/* already-read papers: green · not-read: grayed */
-.paper-card.status-read .pc-title { color: #2f6b4a; }
-.paper-card.status-queue .pc-title { color: #9a9a9a; }
-.paper-card.status-queue .pc-authors { color: #b0b0b0; }
+.pager-btn:hover:not(:disabled) { text-decoration: underline; }
+.pager-btn:disabled { color: #c0c0c0; cursor: default; }
+.pager-info { font-family: Georgia, serif; font-size: .82rem; color: #999; }
+
 /* favorite star */
 .fav { color: #c79a36; font-style: normal; }
 .screen.unread .screen-ptitle { color: #a9a9b2; }
-.screen.unread .screen-authors { color: #86828f; }
+.screen.unread .screen-type { color: #a7a2b5; }
 .screen.unread .screen-status { color: #8a8a92; }
 .screen.unread .screen-open { color: #9a95a5; }
 

@@ -73,64 +73,201 @@
       authors: "Lynn J. Lohnas",
       venue: "Computational Brain & Behavior, 2024",
       url: "https://link.springer.com/article/10.1007/s42113-024-00221-9"
+    },
+
+    /* --- From the "To Read" list --- */
+    {
+      status: "queue",
+      title: "Choices, Values, and Frames",
+      authors: "Daniel Kahneman & Amos Tversky",
+      venue: "American Psychologist, 1984",
+      url: "https://www.psy.miami.edu/_assets/pdf/rpo-articles/kahneman-and-tversky-1984.pdf"
+    },
+    {
+      status: "queue",
+      title: "Decision Making Under Deep Uncertainty for Pandemic Policy Planning",
+      authors: "",
+      venue: "PMC, 2023",
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10156381/"
+    },
+    {
+      status: "queue",
+      title: "Rats and Humans Can Optimally Accumulate Evidence for Decision Making",
+      authors: "Brunton, Botvinick & Brody",
+      venue: "Science, 2013",
+      url: "https://web.archive.org/web/20160305005810/http://www.princeton.edu/~matthewb/Publications/Science-2013-Brunton-95-8.pdf"
+    },
+    {
+      status: "queue",
+      type: "book",
+      title: "Descartes' Error",
+      authors: "Antonio Damasio",
+      venue: "1994",
+      url: "https://archive.org/details/descarteserrorem00dama/page/n5/mode/2up"
+    },
+    {
+      status: "reading",
+      type: "page",
+      title: "Decision Theory",
+      authors: "Stanford Encyclopedia of Philosophy",
+      venue: "",
+      url: "https://plato.stanford.edu/entries/decision-theory/"
+    },
+    {
+      status: "queue",
+      type: "book",
+      title: "The Foundations of Statistics",
+      authors: "Leonard J. Savage",
+      venue: "1954",
+      url: "https://ia801702.us.archive.org/0/items/in.ernet.dli.2015.228997/2015.228997.Fundamrntal-Of.pdf"
+    },
+    {
+      status: "queue",
+      title: "Rational Metareasoning for Language Models",
+      authors: "",
+      venue: "arXiv, 2024",
+      url: "https://arxiv.org/pdf/2410.05563"
+    },
+    {
+      status: "queue",
+      type: "book",
+      title: "Architectural Intelligence",
+      authors: "Molly Wright Steenson",
+      venue: "MIT Press, 2017",
+      url: "https://direct.mit.edu/books/book/3643/Architectural-IntelligenceHow-Designers-and"
+    },
+    {
+      status: "queue",
+      type: "resource",
+      title: "The Unawareness Bibliography",
+      authors: "Burkhard C. Schipper (ed.)",
+      venue: "UC Davis",
+      url: "https://faculty.econ.ucdavis.edu/faculty/schipper/unaw.htm"
     }
   ];
 
   var STATUS_ORDER = { read: 0, reading: 1, queue: 2 };   // read first
+  var SHORT = { reading: "Reading", queue: "Queue", read: "Read" };
+  var TYPE = { book: "Book", page: "Page", resource: "Resource" };   // default: "Article"
+  var OPEN_LABEL = { book: "Open book ↗", page: "Open page ↗", resource: "Open resource ↗" };   // default: "Open article ↗"
+
+  // small line icons per type (default = article)
+  var IC = {
+    article: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="14" y2="17"/></svg>',
+    page: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>',
+    book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h14v15H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 1 2-2h14"/></svg>',
+    resource: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/><circle cx="2.5" cy="7" r=".6" fill="currentColor" stroke="none"/><circle cx="2.5" cy="12" r=".6" fill="currentColor" stroke="none"/><circle cx="2.5" cy="17" r=".6" fill="currentColor" stroke="none"/></svg>'
+  };
+  var TYPE_ALT = { book: "Book", page: "Web page", article: "Article", resource: "Resource" };
+  var PER_PAGE = 5;
 
   var stage = document.getElementById("laptop");
   var screen = document.getElementById("screen");
   var elStatus = document.getElementById("screen-status");
   var elTitle = document.getElementById("screen-title");
-  var elAuthors = document.getElementById("screen-authors");
+  var elType = document.getElementById("screen-type");
   var elOpen = document.getElementById("screen-open");
-  var strip = document.getElementById("papers-strip");
-  if (!stage || !screen || !strip) return;
+  var list = document.getElementById("papers-list");
+  if (!stage || !screen || !list) return;
 
   var current = null;
+  var page = 0;
 
-  function buildStrip() {
-    strip.innerHTML = "";
-    var firstCard = null, firstIndex = null;
-    PAPERS
-      .map(function (p, i) { return { p: p, i: i }; })
-      .sort(function (a, b) { return STATUS_ORDER[a.p.status] - STATUS_ORDER[b.p.status]; })
-      .forEach(function (row) {
-        var p = row.p, i = row.i;
-        var card = document.createElement("button");
-        card.type = "button";
-        card.className = "paper-card status-" + p.status;
-        card.dataset.i = String(i);
-        card.innerHTML =
-          '<span class="pc-tag">' + LABELS[p.status] + '</span>' +
-          '<span class="pc-title">' + (p.fav ? '<span class="fav">★</span> ' : '') + p.title + '</span>' +
-          '<span class="pc-authors">' + p.authors + '</span>' +
-          '<span class="pc-venue">' + p.venue + '</span>';
-        card.addEventListener("click", function () { select(i, card); });
-        strip.appendChild(card);
-        if (firstCard === null) { firstCard = card; firstIndex = i; }
-      });
-    // open the laptop on the first paper so it starts selected
-    if (firstCard !== null) select(firstIndex, firstCard);
+  // papers in display order: read first, then reading, then queue
+  var ORDERED = PAPERS
+    .map(function (p, i) { return { p: p, i: i }; })
+    .sort(function (a, b) { return STATUS_ORDER[a.p.status] - STATUS_ORDER[b.p.status]; });
+
+  function buildList() {
+    list.innerHTML = "";
+    var pages = Math.max(1, Math.ceil(ORDERED.length / PER_PAGE));
+    if (page > pages - 1) page = pages - 1;
+    var start = page * PER_PAGE;
+    var rows = ORDERED.slice(start, start + PER_PAGE);
+
+    var table = document.createElement("table");
+    table.className = "papers-table";
+    var tbody = document.createElement("tbody");
+
+    rows.forEach(function (row) {
+      var p = row.p, i = row.i;
+      var tr = document.createElement("tr");
+      tr.className = "status-" + p.status + (current === i ? " active" : "");
+      tr.dataset.i = String(i);
+
+      var tdTitle = document.createElement("td");
+      tdTitle.className = "pt-title";
+      tdTitle.innerHTML = (p.fav ? '<span class="fav">★</span> ' : '') + p.title;
+
+      var tdType = document.createElement("td");
+      tdType.className = "pt-type";
+      tdType.textContent = TYPE[p.type] || "Article";
+
+      var tdStatus = document.createElement("td");
+      tdStatus.className = "pt-status";
+      tdStatus.textContent = SHORT[p.status] || "";
+
+      tr.appendChild(tdTitle);
+      tr.appendChild(tdType);
+      tr.appendChild(tdStatus);
+      tr.addEventListener("click", function () { select(i); });
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    list.appendChild(table);
+
+    if (pages > 1) {
+      var nav = document.createElement("div");
+      nav.className = "papers-pager";
+
+      var prev = document.createElement("button");
+      prev.type = "button";
+      prev.className = "pager-btn";
+      prev.textContent = "Prev";
+      prev.disabled = page === 0;
+      prev.addEventListener("click", function () { page--; buildList(); });
+
+      var info = document.createElement("span");
+      info.className = "pager-info";
+      info.textContent = (page + 1) + " / " + pages;
+
+      var next = document.createElement("button");
+      next.type = "button";
+      next.className = "pager-btn";
+      next.textContent = "Next";
+      next.disabled = page >= pages - 1;
+      next.addEventListener("click", function () { page++; buildList(); });
+
+      nav.appendChild(prev);
+      nav.appendChild(info);
+      nav.appendChild(next);
+      list.appendChild(nav);
+    }
   }
 
-  function markActive(card) {
-    Array.prototype.forEach.call(strip.querySelectorAll(".paper-card.active"),
-      function (c) { c.classList.remove("active"); });
-    if (card) card.classList.add("active");
+  function markActive() {
+    Array.prototype.forEach.call(list.querySelectorAll("tr.active"),
+      function (r) { r.classList.remove("active"); });
+    if (current != null) {
+      var r = list.querySelector('tr[data-i="' + current + '"]');
+      if (r) r.classList.add("active");
+    }
   }
 
-  function select(i, card) {
+  function select(i) {
     if (current === i) { close(); return; }
     var p = PAPERS[i];
     current = i;
     stage.classList.remove("open");
     elStatus.textContent = LABELS[p.status] || "";
     elTitle.textContent = (p.fav ? "★ " : "") + p.title;
-    elAuthors.textContent = p.authors;
-    elOpen.textContent = "Open paper ↗";
+    var ty = p.type || "article";
+    elType.innerHTML = IC[ty] || IC.article;
+    elType.title = TYPE_ALT[ty] || "Article";
+    elOpen.textContent = OPEN_LABEL[p.type] || "Open article ↗";
     screen.classList.toggle("unread", p.status === "queue");   // gray if not read
-    markActive(card);
+    markActive();
     requestAnimationFrame(function () {
       requestAnimationFrame(function () { stage.classList.add("open"); });
     });
@@ -140,10 +277,10 @@
     current = null;
     stage.classList.remove("open");
     screen.classList.remove("unread");
-    markActive(null);
+    markActive();
     elStatus.textContent = "";
     elTitle.textContent = "pick a paper →";
-    elAuthors.textContent = "";
+    elType.innerHTML = "";
     elOpen.textContent = "";
   }
 
@@ -154,5 +291,7 @@
     if (url) window.open(url, "_blank", "noopener");
   });
 
-  buildStrip();
+  buildList();
+  // start with the first paper selected on the laptop
+  if (ORDERED.length) select(ORDERED[0].i);
 })();
