@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My PhD — Roberto Infante</title>
+    <meta
+      name="description"
+      content="Roberto Infante — my PhD: what I'm working on in cognitive computing and decision-making under uncertainty."
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="essay-page">
+    <div class="wrap">
+      <!-- Intro: text left, photo right -->
+      <header class="masthead">
+        <div class="masthead-text">
+          <h1>Roberto Infante</h1>
+          <p class="role">
+            Cognitive computing &middot; decision-making in humans and machines
+          </p>
+          <p class="contact">
+            <a href="mailto:rdji@uw.edu">rdji@uw.edu</a> ·
+            <a
+              href="https://docs.google.com/document/d/14ZUA7clhQm-UvDToK0B_F-zHUPts_UuFKo95fY5Ca1g/edit?tab=t.0"
+              >CV</a
+            >
+            · <a href="https://github.com/rdji20">GitHub</a> ·
+            <a href="https://linkedin.com/in/rjil20">LinkedIn</a> ·
+            <a href="https://x.com/robinfa10">Twitter</a>
+          </p>
+        </div>
+        <img
+          class="avatar"
+          src="assets/roberto.jpg"
+          alt="Roberto Infante"
+          width="130"
+          height="130"
+        />
+      </header>
+
+      <!-- Tabs -->
+      <nav class="tabs" aria-label="Sections">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="why-phd.html">Why a PhD?</a>
+        <a class="tab active" href="my-phd.html" aria-current="page">My PhD</a>
+      </nav>
+
+      <!-- My PhD -->
+      <article class="essay">
+        <h2>Awareness of unawareness</h2>
+
+        <p>
+          <strong>Uncertainty</strong>: exploring the current hypotheses inside
+          your hypothesis set.
+        </p>
+        <p class="formula">
+          &#8459;<sub>t</sub> = {h&#8321;, h&#8322;, h&#8323;}
+        </p>
+        <p>
+          <strong>Unawareness</strong>: the feeling that the correct hypothesis
+          h<sup>*</sup> is not in the set at all.
+        </p>
+        <p class="formula">
+          P(h<sup>*</sup> &#8713; &#8459;<sub>t</sub>) &gt; 0
+        </p>
+
+        <figure class="figure">
+          <svg
+            viewBox="0 0 700 270"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Two sketches: uncertainty is picking among hypotheses inside your set; unawareness is sensing the correct hypothesis lies outside the set."
+          >
+            <g font-family="Georgia, 'Times New Roman', serif">
+              <!-- Panel 1: uncertainty -->
+              <text
+                x="170"
+                y="24"
+                text-anchor="middle"
+                font-size="16"
+                font-style="italic"
+                fill="#1a1a1a"
+              >
+                uncertainty
+              </text>
+              <ellipse
+                cx="170"
+                cy="130"
+                rx="130"
+                ry="85"
+                fill="none"
+                stroke="#1a1a1a"
+                stroke-width="1.5"
+              />
+              <text
+                x="170"
+                y="228"
+                text-anchor="middle"
+                font-size="13"
+                fill="#777"
+              >
+                your hypothesis set
+              </text>
+
+              <circle cx="115" cy="105" r="5" fill="#1a1a1a" />
+              <text
+                x="115"
+                y="90"
+                text-anchor="middle"
+                font-size="13"
+                fill="#1a1a1a"
+              >
+                h&#8321;
+              </text>
+              <circle cx="215" cy="100" r="5" fill="#1a1a1a" />
+              <text
+                x="215"
+                y="85"
+                text-anchor="middle"
+                font-size="13"
+                fill="#1a1a1a"
+              >
+                h&#8322;
+              </text>
+              <circle cx="150" cy="170" r="5" fill="#1a1a1a" />
+              <text
+                x="150"
+                y="192"
+                text-anchor="middle"
+                font-size="13"
+                fill="#1a1a1a"
+              >
+                h&#8323;
+              </text>
+
+              <text
+                x="163"
+                y="142"
+                text-anchor="middle"
+                font-size="20"
+                fill="#4B2E83"
+              >
+                ?
+              </text>
+              <text
+                x="170"
+                y="255"
+                text-anchor="middle"
+                font-size="13"
+                fill="#555"
+              >
+                "which one of these is right?"
+              </text>
+
+              <!-- Panel 2: unawareness -->
+              <text
+                x="500"
+                y="24"
+                text-anchor="middle"
+                font-size="16"
+                font-style="italic"
+                fill="#1a1a1a"
+              >
+                unawareness
+              </text>
+              <ellipse
+                cx="480"
+                cy="140"
+                rx="115"
+                ry="75"
+                fill="none"
+                stroke="#1a1a1a"
+                stroke-width="1.5"
+              />
+              <text
+                x="480"
+                y="228"
+                text-anchor="middle"
+                font-size="13"
+                fill="#777"
+              >
+                your hypothesis set
+              </text>
+
+              <circle cx="435" cy="120" r="5" fill="#999" />
+              <text
+                x="435"
+                y="105"
+                text-anchor="middle"
+                font-size="13"
+                fill="#999"
+              >
+                h&#8321;
+              </text>
+              <circle cx="520" cy="115" r="5" fill="#999" />
+              <text
+                x="520"
+                y="100"
+                text-anchor="middle"
+                font-size="13"
+                fill="#999"
+              >
+                h&#8322;
+              </text>
+              <circle cx="470" cy="175" r="5" fill="#999" />
+              <text
+                x="470"
+                y="197"
+                text-anchor="middle"
+                font-size="13"
+                fill="#999"
+              >
+                h&#8323;
+              </text>
+
+              <!-- the correct hypothesis, outside the set -->
+              <circle cx="650" cy="60" r="6" fill="#4B2E83" />
+              <text
+                x="650"
+                y="43"
+                text-anchor="middle"
+                font-size="13"
+                fill="#4B2E83"
+              >
+                h* (the right one)
+              </text>
+              <path
+                d="M 575 95 Q 610 70 640 62"
+                fill="none"
+                stroke="#4B2E83"
+                stroke-width="1.2"
+                stroke-dasharray="4 4"
+              />
+
+              <text
+                x="500"
+                y="255"
+                text-anchor="middle"
+                font-size="13"
+                fill="#555"
+              >
+                "...I feel like it's not even in here"
+              </text>
+            </g>
+          </svg>
+        </figure>
+
+        <h3>What does the agent do next?</h3>
+
+        <p>
+          We frame this not as search but as an
+          <strong>information need</strong>: keep seeking information vs commit.
+        </p>
+
+        <figure class="figure">
+          <svg
+            viewBox="0 0 700 330"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Decision tree: the information need splits into commit vs search; search splits into within-space search when the set seems adequate, and space-expanding search when it seems inadequate."
+          >
+            <defs>
+              <marker
+                id="arr"
+                markerWidth="8"
+                markerHeight="8"
+                refX="7"
+                refY="4"
+                orient="auto"
+              >
+                <path
+                  d="M0,0 L8,4 L0,8"
+                  fill="none"
+                  stroke="#1a1a1a"
+                  stroke-width="1.2"
+                />
+              </marker>
+              <marker
+                id="arrv"
+                markerWidth="8"
+                markerHeight="8"
+                refX="7"
+                refY="4"
+                orient="auto"
+              >
+                <path
+                  d="M0,0 L8,4 L0,8"
+                  fill="none"
+                  stroke="#4B2E83"
+                  stroke-width="1.2"
+                />
+              </marker>
+            </defs>
+            <g font-family="Georgia, 'Times New Roman', serif">
+              <!-- root -->
+              <text
+                x="350"
+                y="26"
+                text-anchor="middle"
+                font-size="16"
+                font-style="italic"
+                fill="#1a1a1a"
+              >
+                information need
+              </text>
+
+              <!-- branch: commit -->
+              <line
+                x1="320"
+                y1="36"
+                x2="150"
+                y2="102"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-end="url(#arr)"
+              />
+              <text
+                x="205"
+                y="60"
+                text-anchor="middle"
+                font-size="12"
+                font-style="italic"
+                fill="#777"
+              >
+                confident
+              </text>
+              <text
+                x="135"
+                y="125"
+                text-anchor="middle"
+                font-size="15"
+                fill="#1a1a1a"
+              >
+                commit
+              </text>
+              <text
+                x="135"
+                y="144"
+                text-anchor="middle"
+                font-size="12"
+                fill="#777"
+              >
+                act on the best h
+              </text>
+
+              <!-- branch: search -->
+              <line
+                x1="380"
+                y1="36"
+                x2="490"
+                y2="102"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-end="url(#arr)"
+              />
+              <text
+                x="475"
+                y="60"
+                text-anchor="middle"
+                font-size="12"
+                font-style="italic"
+                fill="#777"
+              >
+                still not confident
+              </text>
+              <text
+                x="500"
+                y="125"
+                text-anchor="middle"
+                font-size="15"
+                fill="#1a1a1a"
+              >
+                information seeking
+              </text>
+
+              <!-- search splits -->
+              <line
+                x1="470"
+                y1="133"
+                x2="350"
+                y2="185"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-end="url(#arr)"
+              />
+              <text
+                x="370"
+                y="152"
+                text-anchor="middle"
+                font-size="12"
+                font-style="italic"
+                fill="#777"
+              >
+                &#8459;&#8348; seems adequate
+              </text>
+              <line
+                x1="525"
+                y1="133"
+                x2="565"
+                y2="180"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-end="url(#arr)"
+              />
+              <text
+                x="588"
+                y="150"
+                text-anchor="middle"
+                font-size="12"
+                font-style="italic"
+                fill="#777"
+              >
+                &#8459;&#8348; seems inadequate
+              </text>
+
+              <!-- within-space search -->
+              <ellipse
+                cx="320"
+                cy="240"
+                rx="78"
+                ry="48"
+                fill="none"
+                stroke="#1a1a1a"
+                stroke-width="1.5"
+              />
+              <circle cx="290" cy="228" r="4.5" fill="#1a1a1a" />
+              <circle cx="348" cy="222" r="4.5" fill="#1a1a1a" />
+              <circle cx="320" cy="262" r="4.5" fill="#1a1a1a" />
+              <path
+                d="M 299 225 Q 318 214 339 220"
+                fill="none"
+                stroke="#4B2E83"
+                stroke-width="1.2"
+                marker-end="url(#arrv)"
+              />
+              <path
+                d="M 344 231 Q 338 248 328 256"
+                fill="none"
+                stroke="#4B2E83"
+                stroke-width="1.2"
+                marker-end="url(#arrv)"
+              />
+              <text
+                x="320"
+                y="315"
+                text-anchor="middle"
+                font-size="13"
+                fill="#1a1a1a"
+              >
+                within-space seeking
+              </text>
+
+              <!-- space-expanding search -->
+              <ellipse
+                cx="575"
+                cy="240"
+                rx="78"
+                ry="48"
+                fill="none"
+                stroke="#1a1a1a"
+                stroke-width="1.5"
+              />
+              <circle cx="545" cy="228" r="4.5" fill="#999" />
+              <circle cx="603" cy="222" r="4.5" fill="#999" />
+              <circle cx="575" cy="262" r="4.5" fill="#999" />
+              <path
+                d="M 575 240 Q 620 215 662 185"
+                fill="none"
+                stroke="#4B2E83"
+                stroke-width="1.2"
+                stroke-dasharray="4 4"
+                marker-end="url(#arrv)"
+              />
+              <circle cx="668" cy="181" r="5.5" fill="#4B2E83" />
+              <text
+                x="668"
+                y="166"
+                text-anchor="middle"
+                font-size="13"
+                fill="#4B2E83"
+              >
+                h*?
+              </text>
+              <text
+                x="575"
+                y="315"
+                text-anchor="middle"
+                font-size="13"
+                fill="#1a1a1a"
+              >
+                space-expanding seeking
+              </text>
+            </g>
+          </svg>
+          <figcaption>
+            I don't know if we should condition on type of seeking or leave it
+            general.
+          </figcaption>
+        </figure>
+
+        <h3>What alternative explanations matter?</h3>
+
+        <p>
+          Anything else that could cause the
+          <em>same information-seeking behavior</em> without awareness of
+          unawareness: <em>ordinary uncertainty</em>, <em>low confidence</em>,
+          <em>noise</em>, <em>missing evidence</em>, <em>misunderstanding</em>,
+          <em>random exploration</em>, a generic <em>"always reconsider"
+          strategy</em>, <em>search-cost differences</em>.
+        </p>
+
+        <h2>Sequential decision-making</h2>
+
+        <p>
+          A decision problem is <strong>sequential</strong> when the agent does
+          not choose only once; the agent faces later decision points whose
+          circumstances may depend on earlier choices, information, or changes
+          in preference.
+        </p>
+        <p class="formula">
+          b<sub>t</sub>
+          <span class="rel"><span class="rel-label">action</span>&#10230;</span>
+          new evidence
+          <span class="rel"><span class="rel-label">update</span>&#10230;</span>
+          b<sub>t+1</sub>
+        </p>
+      </article>
+
+      <footer>
+        <p>
+          Monterrey, Nuevo León, Mexico &middot;
+          <a href="mailto:rdji@uw.edu">rdji@uw.edu</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

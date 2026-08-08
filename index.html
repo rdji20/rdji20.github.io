@@ -1,188 +1,295 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Roberto Infante</title>
-  <meta name="description" content="Roberto Infante — studying how humans and machines move from uncertainty to committed decisions." />
-  <link rel="icon" href="data:," />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="wrap">
-    <!-- Intro: text left, photo right -->
-    <header class="masthead">
-      <div class="masthead-text">
-        <h1>Roberto Infante</h1>
-        <p class="role">Cognitive computing &middot; decision-making in humans and machines</p>
-        <p class="contact">
-          <a href="mailto:rdji@uw.edu">rdji@uw.edu</a> ·
-          <a href="https://docs.google.com/document/d/14ZUA7clhQm-UvDToK0B_F-zHUPts_UuFKo95fY5Ca1g/edit?tab=t.0">CV</a> ·
-          <a href="https://github.com/rdji20">GitHub</a> ·
-          <a href="https://linkedin.com/in/rjil20">LinkedIn</a> ·
-          <a href="https://x.com/robinfa10">Twitter</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Roberto Infante</title>
+    <meta
+      name="description"
+      content="Roberto Infante — studying how humans and machines move from uncertainty to committed decisions."
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- Intro: text left, photo right -->
+      <header class="masthead">
+        <div class="masthead-text">
+          <h1>Roberto Infante</h1>
+          <p class="role">
+            Cognitive computing &middot; decision-making in humans and machines
+          </p>
+          <p class="contact">
+            <a href="mailto:rdji@uw.edu">rdji@uw.edu</a> ·
+            <a
+              href="https://docs.google.com/document/d/14ZUA7clhQm-UvDToK0B_F-zHUPts_UuFKo95fY5Ca1g/edit?tab=t.0"
+              >CV</a
+            >
+            · <a href="https://github.com/rdji20">GitHub</a> ·
+            <a href="https://linkedin.com/in/rjil20">LinkedIn</a> ·
+            <a href="https://x.com/robinfa10">Twitter</a>
+          </p>
+        </div>
+        <img
+          class="avatar"
+          src="assets/roberto.jpg"
+          alt="Roberto Infante"
+          width="130"
+          height="130"
+        />
+      </header>
+
+      <!-- Tabs -->
+      <nav class="tabs" aria-label="Sections">
+        <a class="tab active" href="index.html" aria-current="page">Home</a>
+        <a class="tab" href="why-phd.html">Why a PhD?</a>
+        <a class="tab" href="my-phd.html">My PhD</a>
+      </nav>
+
+      <!-- Research statement -->
+      <section>
+        <p class="lede">
+          <strong
+            >I study how humans and machines move from uncertain information to
+            a committed decision.</strong
+          >
+          When does an agent know it has enough evidence to commit? I am
+          interested in how agents make se quential decisions when they suspect
+          that their current hypothesis space may be incomplete (awareness of
+          unawareness). I build <strong>controlled, species-fair tasks</strong>
+          that go beyond final accuracy to compare how these agents reach an
+          answer.
         </p>
-      </div>
-      <img class="avatar" src="assets/roberto.jpg" alt="Roberto Infante" width="130" height="130" />
-    </header>
+      </section>
+      <section>
+        <br />
+        <br />
+      </section>
 
-    <!-- Tabs -->
-    <nav class="tabs" aria-label="Sections">
-      <a class="tab active" href="index.html" aria-current="page">Home</a>
-      <a class="tab" href="why-phd.html">Why a PhD?</a>
-    </nav>
-
-    <!-- Research statement -->
-    <section>
-      <p class="lede">
-        <strong>I study how humans and machines move from uncertain information to a committed decision.</strong> 
-        When does an agent know it has enough evidence to commit? I am interested in how agents make sequential decisions when they suspect that their current hypothesis space may be incomplete. I build <strong>controlled, species-fair tasks</strong> 
-        that go beyond final accuracy to compare how these agents reach an answer.
-      </p>
-    </section>
-    <section>
-      <br>
-      <br>
-    </section>
-
-    <!-- Clusterwords -->
-    <section id="clusterwords">
-      <div class="cw-head">
-        <img class="cw-logo" src="assets/clusterwords-icon.png" alt="" width="40" height="40" />
-        <h2><a href="https://clusterwords.hugmun.ai/" target="_blank" rel="noopener">Clusterwords</a></h2>
-      </div>
-      <p>
-        Clusterwords is a controlled semantic reasoning task in which humans and machines identify groups of words linked by a common relation (NYT connections). It lets us manipulate which hypotheses or hints are available and measure how agents commit over time
-      </p>
-      <p>
-        Using Clusterwords, I want to study how different forms of information affect awareness, subsequent search, confidence, and commitment. <br> 
-
-</p>
-         <!-- quick play: the 2×2 probe -->
-      <div class="game" aria-label="Clusterwords 2×2 probe">
-        <div class="game-bar">
-          <span class="game-hint">Four words. Pick the two that belong together — then say why.</span>
-          <span class="game-status" id="cw-status"></span>
+      <!-- Clusterwords -->
+      <section id="clusterwords">
+        <div class="cw-head">
+          <img
+            class="cw-logo"
+            src="assets/clusterwords-icon.png"
+            alt=""
+            width="40"
+            height="40"
+          />
+          <h2>
+            <a
+              href="https://clusterwords.hugmun.ai/"
+              target="_blank"
+              rel="noopener"
+              >Clusterwords</a
+            >
+          </h2>
         </div>
-        <div class="game-grid two" id="cw-grid"></div>
-        <label class="game-why" for="cw-why">
-          <span>Why these two?</span>
-          <input type="text" id="cw-why" placeholder="your reason" autocomplete="off" />
-        </label>
-        <div class="game-actions">
-          <button type="button" id="cw-commit" class="game-btn">Commit</button>
-          <button type="button" id="cw-reset" class="game-btn ghost">Reset</button>
-          <button type="button" id="cw-next" class="game-btn ghost">New board →</button>
-          <a class="game-link" href="https://clusterwords.hugmun.ai/">Play the full game →</a>
-        </div>
-        <div class="game-result" id="cw-result" hidden></div>
-      </div>
-    </section>
-<br>
-<p>
-       This is one of the tasks of clusterwords: Difficulty is manipulated along two independent axes; combinatorial
-        (board size) and semantic (structure, margin, distractors). Boards are
-        machine-generated to reduce overlap with any model's training data.
-      </p>
-      <p>
-        Through these tasks, I aim to develop new forms of diagnosis that go beyond final accuracy and provide evidence about how each system reaches its answer. To compare their behavior without assuming that differences in performance necessarily reflect differences in competence.
-      </p>
-      <p><em>How can we evaluate the similarity of the process of answering this task by LLM systems and humans in a species-fair way?</em></p>
-
-    <!-- Working papers -->
-    <section>
-      <h2>Working papers</h2>
-      <p class="entry-head">
-        <a href="assets/gentags-preprint.pdf">Gentags: Discrete Semantic State for Constraint-Sensitive Decision Pipelines</a>
-        <span class="date">2025 – 2026</span>
-      </p>
-      <p>
-        First-author preprint introducing Gentags, a representation that compresses source text into
-        short, evidence-grounded semantic units used as inspectable intermediate state in LLM
-        decision pipelines. In a controlled study isolating representation structure, Gentags raised
-        agreement with full-evidence decisions to 79.5% (vs. 52.3–61.6% for RAKE/YAKE/TF-IDF) and
-        hard-constraint satisfaction to 97.3% (vs. 84.7–89.3%). [<a href="assets/gentags-preprint.pdf">PDF</a>]
-      </p>
-    </section>
-
-    <!-- Other projects -->
-    <section>
-      <h2>Other projects</h2>
-      <p class="entry-head">
-        <a href="https://github.com/rdji20/dynamic-information">Dynamic Information</a>
-        <span class="date">2024</span>
-      </p>
-      <p>
-        An LLM agent that builds and self-updates a knowledge/decision graph with an explicit
-        hypothesis structure for Bayesian-style reasoning. Its limits motivated the shift to
-        studying commitment under uncertainty directly.
-      </p>
-      <p class="entry-head">
-        Recommendation System &amp; Smart Filters — UW MSIM Capstone (sponsor &amp; lead)
-        <span class="date">2025 – 2026</span>
-      </p>
-      <p>
-        Directed two capstone teams applying the Gentags approach to a live product, shipping a
-        recommendation system and categorical/nudging filters now in production.
-      </p>
-    </section>
-
-    <!-- Reading -->
-    <section id="reading">
-      <h2>Reading</h2>
-      <p class="sub">
-        A shelf around cognition, computation, and decision-making. Drag the shelf; the laptop on the right holds the papers. Read and the next on the line.
-      </p>
-
-      <!-- Shelf 1: book spines + the papers laptop on the right end -->
-      <div class="shelf-scene">
-        <div class="shelf" id="shelf">
-          <div class="shelf-track" id="shelf-track"></div>
-        </div>
-        <div class="shelf-laptop" id="laptop">
-          <div class="laptop-3d">
-            <button type="button" class="screen" id="screen" aria-label="Open the selected paper">
-              <div class="screen-face">
-                <span class="screen-status" id="screen-status"></span>
-                <span class="screen-ptitle" id="screen-title">pick a paper →</span>
-                <span class="screen-type" id="screen-type"></span>
-                <span class="screen-open" id="screen-open"></span>
-              </div>
-            </button>
-            <div class="deck"><span class="deck-pad" aria-hidden="true"></span></div>
+        <p>
+          Clusterwords is a controlled semantic reasoning task in which humans
+          and machines identify groups of words linked by a common relation (NYT
+          connections). It lets us manipulate which hypotheses or hints are
+          available and measure how agents commit over time
+        </p>
+        <p>
+          Using Clusterwords, I want to study how different forms of information
+          affect awareness, subsequent search, confidence, and commitment.
+          <br />
+        </p>
+        <!-- quick play: the 2×2 probe -->
+        <div class="game" aria-label="Clusterwords 2×2 probe">
+          <div class="game-bar">
+            <span class="game-hint"
+              >Four words. Pick the two that belong together — then say
+              why.</span
+            >
+            <span class="game-status" id="cw-status"></span>
           </div>
+          <div class="game-grid two" id="cw-grid"></div>
+          <label class="game-why" for="cw-why">
+            <span>Why these two?</span>
+            <input
+              type="text"
+              id="cw-why"
+              placeholder="your reason"
+              autocomplete="off"
+            />
+          </label>
+          <div class="game-actions">
+            <button type="button" id="cw-commit" class="game-btn">
+              Commit
+            </button>
+            <button type="button" id="cw-reset" class="game-btn ghost">
+              Reset
+            </button>
+            <button type="button" id="cw-next" class="game-btn ghost">
+              New board →
+            </button>
+            <a class="game-link" href="https://clusterwords.hugmun.ai/"
+              >Play the full game →</a
+            >
+          </div>
+          <div class="game-result" id="cw-result" hidden></div>
         </div>
-        <div class="shelf-ledge" aria-hidden="true"></div>
-      </div>
-      <div class="book-detail" id="book-detail" hidden></div>
-
-      <!-- Papers: simple paginated list -->
-      <p class="mini-h">Papers <span class="mini-hint">— pick one to open it on the laptop</span></p>
-      <div class="papers-list" id="papers-list"></div>
-    </section>
-
-    <!-- Background -->
-    <section>
-      <h2>Background</h2>
-      <p class="sub">
-        Previously I built and shipped data-driven products end to end as a technical founder.
-        I am now moving into research in computational cognition.
+      </section>
+      <br />
+      <p>
+        This is one of the tasks of clusterwords: Difficulty is manipulated
+        along two independent axes; combinatorial (board size) and semantic
+        (structure, margin, distractors). Boards are machine-generated to reduce
+        overlap with any model's training data.
       </p>
-      <ul class="bg">
-        <li><strong>Co-founder, Software Engineering — Voraa.</strong> Founder and sole developer of a B2B2C mobile app for Restaurant discounts subscription. Leading user experience data analysis and user interviews for experience enhancement.</li>
-        <li><strong>Python Engineer (freelance) — Saba.</strong> Migrated a public-opinion analytics platform from SPSS/R to Python with automated, real-time reporting.</li>
-        <li><strong>University of Washington. B.S. Information Sciences, Data Science. - </strong> M.S. Information Management, AI (on leave) ·</li>
-      </ul>
-    </section>
+      <p>
+        Through these tasks, I aim to develop new forms of diagnosis that go
+        beyond final accuracy and provide evidence about how each system reaches
+        its answer. To compare their behavior without assuming that differences
+        in performance necessarily reflect differences in competence.
+      </p>
+      <p>
+        <em
+          >How can we evaluate the similarity of the process of answering this
+          task by LLM systems and humans in a species-fair way?</em
+        >
+      </p>
 
-    <footer>
-      <p>Monterrey, Nuevo León, Mexico &middot; <a href="mailto:rdji@uw.edu">rdji@uw.edu</a></p>
-    </footer>
-  </div>
+      <!-- Working papers -->
+      <section>
+        <h2>Working papers</h2>
+        <p class="entry-head">
+          <a href="assets/gentags-preprint.pdf"
+            >Gentags: Discrete Semantic State for Constraint-Sensitive Decision
+            Pipelines</a
+          >
+          <span class="date">2025 – 2026</span>
+        </p>
+        <p>
+          First-author preprint introducing Gentags, a representation that
+          compresses source text into short, evidence-grounded semantic units
+          used as inspectable intermediate state in LLM decision pipelines. In a
+          controlled study isolating representation structure, Gentags raised
+          agreement with full-evidence decisions to 79.5% (vs. 52.3–61.6% for
+          RAKE/YAKE/TF-IDF) and hard-constraint satisfaction to 97.3% (vs.
+          84.7–89.3%). [<a href="assets/gentags-preprint.pdf">PDF</a>]
+        </p>
+      </section>
 
-  <script src="clusterwords.js"></script>
-  <script src="boards.js"></script>
-  <script src="bookshelf.js"></script>
-  <script src="papers.js"></script>
-</body>
+      <!-- Other projects -->
+      <section>
+        <h2>Other projects</h2>
+        <p class="entry-head">
+          <a href="https://github.com/rdji20/dynamic-information"
+            >Dynamic Information</a
+          >
+          <span class="date">2024</span>
+        </p>
+        <p>
+          An LLM agent that builds and self-updates a knowledge/decision graph
+          with an explicit hypothesis structure for Bayesian-style reasoning.
+          Its limits motivated the shift to studying commitment under
+          uncertainty directly.
+        </p>
+        <p class="entry-head">
+          Recommendation System &amp; Smart Filters — UW MSIM Capstone (sponsor
+          &amp; lead)
+          <span class="date">2025 – 2026</span>
+        </p>
+        <p>
+          Directed two capstone teams applying the Gentags approach to a live
+          product, shipping a recommendation system and categorical/nudging
+          filters now in production.
+        </p>
+      </section>
+
+      <!-- Reading -->
+      <section id="reading">
+        <h2>Reading</h2>
+        <p class="sub">
+          A shelf around cognition, computation, and decision-making. Drag the
+          shelf; the laptop on the right holds the papers. Read and the next on
+          the line.
+        </p>
+
+        <!-- Shelf 1: book spines + the papers laptop on the right end -->
+        <div class="shelf-scene">
+          <div class="shelf" id="shelf">
+            <div class="shelf-track" id="shelf-track"></div>
+          </div>
+          <div class="shelf-laptop" id="laptop">
+            <div class="laptop-3d">
+              <button
+                type="button"
+                class="screen"
+                id="screen"
+                aria-label="Open the selected paper"
+              >
+                <div class="screen-face">
+                  <span class="screen-status" id="screen-status"></span>
+                  <span class="screen-ptitle" id="screen-title"
+                    >pick a paper →</span
+                  >
+                  <span class="screen-type" id="screen-type"></span>
+                  <span class="screen-open" id="screen-open"></span>
+                </div>
+              </button>
+              <div class="deck">
+                <span class="deck-pad" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+          <div class="shelf-ledge" aria-hidden="true"></div>
+        </div>
+        <div class="book-detail" id="book-detail" hidden></div>
+
+        <!-- Papers: simple paginated list -->
+        <p class="mini-h">
+          Papers
+          <span class="mini-hint">— pick one to open it on the laptop</span>
+        </p>
+        <div class="papers-list" id="papers-list"></div>
+      </section>
+
+      <!-- Background -->
+      <section>
+        <h2>Background</h2>
+        <p class="sub">
+          Previously I built and shipped data-driven products end to end as a
+          technical founder. I am now moving into research in computational
+          cognition.
+        </p>
+        <ul class="bg">
+          <li>
+            <strong>Co-founder, Software Engineering — Voraa.</strong> Founder
+            and sole developer of a B2B2C mobile app for Restaurant discounts
+            subscription. Leading user experience data analysis and user
+            interviews for experience enhancement.
+          </li>
+          <li>
+            <strong>Python Engineer (freelance) — Saba.</strong> Migrated a
+            public-opinion analytics platform from SPSS/R to Python with
+            automated, real-time reporting.
+          </li>
+          <li>
+            <strong
+              >University of Washington. B.S. Information Sciences, Data
+              Science. -
+            </strong>
+            M.S. Information Management, AI (on leave) ·
+          </li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>
+          Monterrey, Nuevo León, Mexico &middot;
+          <a href="mailto:rdji@uw.edu">rdji@uw.edu</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="clusterwords.js"></script>
+    <script src="boards.js"></script>
+    <script src="bookshelf.js"></script>
+    <script src="papers.js"></script>
+  </body>
 </html>

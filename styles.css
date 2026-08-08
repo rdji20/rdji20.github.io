@@ -76,6 +76,12 @@ h2 {
   margin: 2.2rem 0 .6rem;
 }
 
+h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin: 1.8rem 0 .5rem;
+}
+
 a { color: #0b5cc4; }
 a:visited { color: #0b5cc4; }
 
@@ -102,10 +108,36 @@ footer {
 footer a { color: #777; }
 
 /* ---------- Essay (Why a PhD?) ---------- */
-/* this page uses the full horizontal width instead of the narrow reading column */
-body.essay-page { max-width: none; }
-.essay { max-width: none; }
 .essay-title { margin-top: .5rem; }
+
+/* ---------- Simple figures (My PhD) ---------- */
+.formula {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: .4rem auto 1.2rem;
+  padding: .55rem 1.4rem;
+  width: fit-content;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  background: #fafafa;
+}
+.formula .rel {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 .3rem;
+  line-height: 1.1;
+}
+.formula .rel-label {
+  font-size: .7rem;
+  color: #777;
+}
+.figure { margin: 1.5rem 0; }
+.figure svg { width: 100%; height: auto; display: block; }
+.figure figcaption { font-size: .85rem; color: #777; font-style: italic; margin-top: .4rem; text-align: center; }
 .essay-list { margin: 0 0 .9rem; padding-left: 1.4rem; }
 .essay-list li { margin-bottom: .35rem; }
 
