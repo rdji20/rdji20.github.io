@@ -110,6 +110,33 @@ footer a { color: #777; }
 /* ---------- Essay (Why a PhD?) ---------- */
 .essay-title { margin-top: .5rem; }
 
+/* ---------- Dividers, big headings, tags (My PhD) ---------- */
+.divider {
+  border: none;
+  border-top: 1px solid #e2e2e2;
+  margin: 2.5rem 0 1.8rem;
+}
+.big-heading { font-size: 1.6rem; }
+.tag {
+  display: inline-block;
+  background: #FCFFE5;
+  color: #BFD1DE;
+  font-weight: bold;
+  font-size: .85rem;
+  padding: .08rem .5rem;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: .4rem;
+}
+.wip-alert {
+  background: #FCFFE5;
+  border: 1px solid #e6e3c2;
+  border-radius: 6px;
+  padding: .6rem 1rem;
+  font-style: italic;
+  color: #555;
+}
+
 /* ---------- Simple figures (My PhD) ---------- */
 .formula {
   font-family: Georgia, 'Times New Roman', serif;
