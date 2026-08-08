@@ -162,6 +162,7 @@ footer a { color: #777; }
   font-size: .7rem;
   color: #777;
 }
+.formula .dim { color: #999; }
 .figure { margin: 1.5rem 0; }
 .figure svg { width: 100%; height: auto; display: block; }
 .figure figcaption { font-size: .85rem; color: #777; font-style: italic; margin-top: .4rem; text-align: center; }
