@@ -143,6 +143,58 @@
       authors: "Burkhard C. Schipper (ed.)",
       venue: "UC Davis",
       url: "https://faculty.econ.ucdavis.edu/faculty/schipper/unaw.htm"
+    },
+    {
+      status: "queue",
+      fav: true,
+      title: "People Construct Simplified Mental Representations to Plan",
+      authors: "Ho, Abel, Correa, Littman, Cohen & Griffiths",
+      venue: "Nature, 2022",
+      url: "https://arxiv.org/pdf/2105.06948"
+    },
+    {
+      status: "queue",
+      title: "Differential Diagnosis Checklists Reduce Diagnostic Error Differentially: A Randomised Experiment",
+      authors: "Kämmer, Schauber, Hautz, Stroben & Hautz",
+      venue: "Medical Education, 2021",
+      url: "https://pubmed.ncbi.nlm.nih.gov/34291481/"
+    },
+    {
+      status: "queue",
+      title: "Similar Failures of Consideration Arise in Human and Machine Planning",
+      authors: "Zhang, Langenkamp, Kleiman-Weiner, Oikarinen & Cushman",
+      venue: "Cognition, 2025",
+      url: "https://www.sciencedirect.com/science/article/pii/S0010027725000484"
+    },
+    {
+      status: "queue",
+      type: "book",
+      title: "Decision Making: Descriptive, Normative, and Prescriptive Interactions",
+      authors: "Bell, Raiffa & Tversky (eds.)",
+      venue: "Cambridge University Press, 1988",
+      url: "https://www.amazon.com/dp/0521368510"
+    },
+    {
+      status: "queue",
+      title: "Decision Theory, Reinforcement Learning, and the Brain",
+      authors: "Peter Dayan & Nathaniel D. Daw",
+      venue: "Cognitive, Affective, & Behavioral Neuroscience, 2008",
+      url: "https://www.princeton.edu/~ndaw/dd08.pdf"
+    },
+    {
+      status: "queue",
+      type: "book",
+      title: "Money-Pump Arguments",
+      authors: "Johan E. Gustafsson",
+      venue: "Cambridge Elements, 2022",
+      url: "https://www.cambridge.org/core/elements/moneypump-arguments/1515273BD710F308151F5BEC3695FEE6"
+    },
+    {
+      status: "queue",
+      title: "Prospect Theory: An Analysis of Decision under Risk",
+      authors: "Daniel Kahneman & Amos Tversky",
+      venue: "Econometrica, 1979",
+      url: "https://courses.washington.edu/pbafhall/514/514%20Readings/ProspectTheory.pdf"
     }
   ];
 
