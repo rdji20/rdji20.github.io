@@ -160,7 +160,7 @@
       url: "https://pubmed.ncbi.nlm.nih.gov/34291481/"
     },
     {
-      status: "queue",
+      status: "reading",
       title: "Similar Failures of Consideration Arise in Human and Machine Planning",
       authors: "Zhang, Langenkamp, Kleiman-Weiner, Oikarinen & Cushman",
       venue: "Cognition, 2025",
@@ -195,6 +195,48 @@
       authors: "Daniel Kahneman & Amos Tversky",
       venue: "Econometrica, 1979",
       url: "https://courses.washington.edu/pbafhall/514/514%20Readings/ProspectTheory.pdf"
+    },
+    {
+      status: "reading",
+      title: "A New Intuitionism: Meaning, Memory, and Development in Fuzzy-Trace Theory",
+      authors: "Valerie F. Reyna",
+      venue: "Judgment and Decision Making, 2012",
+      url: "https://journal.sjdm.org/11/111031/jdm111031.pdf"
+    },
+    {
+      status: "reading",
+      title: "Algorithms of Adaptation in Inductive Inference",
+      authors: "Fränken, Theodoropoulos & Bramley",
+      venue: "Cognitive Psychology, 2022",
+      url: "https://doi.org/10.1016/j.cogpsych.2022.101506"
+    },
+    {
+      status: "reading",
+      title: "Formalizing Neurath's Ship: Approximate Algorithms for Online Causal Learning",
+      authors: "Bramley, Dayan, Griffiths & Lagnado",
+      venue: "Psychological Review, 2017",
+      url: "https://doi.org/10.1037/rev0000061"
+    },
+    {
+      status: "reading",
+      title: "Hypothesis Testing Governs Strategic Motor Learning",
+      authors: "Ding, Niyogi, Taylor & Tsay",
+      venue: "npj Science of Learning, 2026",
+      url: "https://www.nature.com/articles/s41539-026-00428-4"
+    },
+    {
+      status: "reading",
+      title: "Generative Behaviors as Key Targets for Cognitive Models",
+      authors: "Judith E. Fan",
+      venue: "Current Directions in Psychological Science, 2026",
+      url: "https://journals.sagepub.com/doi/10.1177/09637214261416790"
+    },
+    {
+      status: "reading",
+      title: "Meta-Learned Models of Cognition",
+      authors: "Binz, Dasgupta, Jagadish, Botvinick, Wang & Schulz",
+      venue: "Behavioral and Brain Sciences, 2024",
+      url: "https://arxiv.org/abs/2304.06729"
     }
   ];
 

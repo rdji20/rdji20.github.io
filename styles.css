@@ -128,6 +128,18 @@ footer a { color: #777; }
   vertical-align: middle;
   margin-left: .4rem;
 }
+.refs {
+  margin-top: 2rem;
+  padding-top: .8rem;
+  border-top: 1px solid #e2e2e2;
+  font-size: .85rem;
+  color: #777;
+}
+.refs-label { font-weight: 600; margin-bottom: .4rem; }
+.refs ol { margin: 0; padding-left: 1.3rem; }
+.refs li { margin-bottom: .3rem; }
+.refs a { color: #0b5cc4; }
+
 .wip-alert {
   background: #FCFFE5;
   border: 1px solid #e6e3c2;
