@@ -6,7 +6,7 @@
     <title>My PhD — Roberto Infante</title>
     <meta
       name="description"
-      content="Roberto Infante — my PhD: what I'm working on in cognitive computing and decision-making under uncertainty."
+      content="Roberto Infante — my PhD: recognition of insufficiency during generative reasoning, in humans and machines."
     />
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="styles.css" />
@@ -49,21 +49,259 @@
 
       <!-- My PhD -->
       <article class="essay">
-        <h2>Awareness of unawareness</h2>
+        <p class="wip-alert">Currently working on this (August 13, 2026)</p>
+
+        <h2>Recognition of insufficiency</h2>
 
         <p>
-          <strong>Uncertainty</strong>: exploring the current hypotheses inside
-          your hypothesis set.
+          The broader phenomenon is <strong>awareness of unawareness</strong>:
+          an agent can become sensitive that something relevant may be missing
+          before it knows what is missing. The current target is narrower:
         </p>
+
         <p class="formula">
-          &#8459;<sub>t</sub> = {h&#8321;, h&#8322;, h&#8323;}
+          What signals during ongoing reasoning lead an agent to recognize that
+          the possibilities currently available may be insufficient?
+        </p>
+
+        <p>Three working objects (abstractions, not brain modules):</p>
+
+        <p>
+          <strong>G<sub>t</sub></strong> (generative reasoning): the processes
+          that determine which candidate possibilities become available and how
+          they change during reasoning.
         </p>
         <p>
-          <strong>Unawareness</strong>: the feeling that the correct hypothesis
-          h<sup>*</sup> is not in the set at all.
+          <strong>C<sub>t</sub></strong> (currently available possibilities):
+          what is on the table right now. A possibility can be fully specified,
+          partial, vague, or weakly activated. C<sub>t</sub> is not assumed to
+          be a literal discrete set.
         </p>
+        <p>
+          <strong>A<sub>t</sub></strong> (recognition of insufficiency): the
+          metacognitive sensitivity that what is currently available may not be
+          enough. This is the central target.
+        </p>
+
         <p class="formula">
-          P(h<sup>*</sup> &#8713; &#8459;<sub>t</sub>) &gt; 0
+          A<sub>t</sub> &#8655; c<sup>*</sup> &#8712; C<sub>t</sub>
+        </p>
+        <p class="sub">
+          Recognition can happen before the missing possibility is known.
+        </p>
+
+        <figure class="figure">
+          <svg
+            viewBox="0 0 700 230"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Working loop: problem state feeds generative reasoning, which exchanges with currently available possibilities and evaluation; monitoring signals feed recognition of insufficiency, which feeds cognitive control back into generation."
+          >
+            <defs>
+              <marker
+                id="la"
+                markerWidth="8"
+                markerHeight="8"
+                refX="7"
+                refY="4"
+                orient="auto"
+              >
+                <path
+                  d="M0,0 L8,4 L0,8"
+                  fill="none"
+                  stroke="#1a1a1a"
+                  stroke-width="1.2"
+                />
+              </marker>
+              <marker
+                id="lb"
+                markerWidth="8"
+                markerHeight="8"
+                refX="1"
+                refY="4"
+                orient="auto"
+              >
+                <path
+                  d="M8,0 L0,4 L8,8"
+                  fill="none"
+                  stroke="#1a1a1a"
+                  stroke-width="1.2"
+                />
+              </marker>
+              <marker
+                id="lv"
+                markerWidth="8"
+                markerHeight="8"
+                refX="7"
+                refY="4"
+                orient="auto"
+              >
+                <path
+                  d="M0,0 L8,4 L0,8"
+                  fill="none"
+                  stroke="#4B2E83"
+                  stroke-width="1.2"
+                />
+              </marker>
+            </defs>
+            <g font-family="Georgia, 'Times New Roman', serif" font-size="14">
+              <text
+                x="55"
+                y="80"
+                text-anchor="middle"
+                fill="#777"
+                font-size="13"
+              >
+                problem state
+              </text>
+              <line
+                x1="102"
+                y1="75"
+                x2="128"
+                y2="75"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-end="url(#la)"
+              />
+              <text x="150" y="80" text-anchor="middle" fill="#1a1a1a">
+                G
+                <tspan font-size="10" dy="3">t</tspan>
+              </text>
+              <line
+                x1="170"
+                y1="75"
+                x2="205"
+                y2="75"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-start="url(#lb)"
+                marker-end="url(#la)"
+              />
+              <text x="228" y="80" text-anchor="middle" fill="#1a1a1a">
+                C
+                <tspan font-size="10" dy="3">t</tspan>
+              </text>
+              <line
+                x1="248"
+                y1="75"
+                x2="283"
+                y2="75"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-start="url(#lb)"
+                marker-end="url(#la)"
+              />
+              <text
+                x="330"
+                y="80"
+                text-anchor="middle"
+                fill="#1a1a1a"
+                font-size="13"
+              >
+                evaluation
+              </text>
+              <line
+                x1="378"
+                y1="75"
+                x2="404"
+                y2="75"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-end="url(#la)"
+              />
+              <text
+                x="478"
+                y="80"
+                text-anchor="middle"
+                fill="#777"
+                font-size="13"
+              >
+                monitoring signals
+              </text>
+              <text
+                x="478"
+                y="97"
+                text-anchor="middle"
+                fill="#999"
+                font-size="11"
+              >
+                confidence &middot; error &middot; progress &middot; impasse
+              </text>
+              <line
+                x1="552"
+                y1="75"
+                x2="578"
+                y2="75"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-end="url(#la)"
+              />
+              <text x="612" y="80" text-anchor="middle" fill="#4B2E83">
+                A
+                <tspan font-size="10" dy="3">t</tspan>
+              </text>
+              <text
+                x="612"
+                y="99"
+                text-anchor="middle"
+                fill="#4B2E83"
+                font-size="11"
+              >
+                recognition
+              </text>
+
+              <path
+                d="M 612 105 Q 600 175 460 185"
+                fill="none"
+                stroke="#4B2E83"
+                stroke-width="1.2"
+                marker-end="url(#lv)"
+              />
+              <text
+                x="330"
+                y="190"
+                text-anchor="middle"
+                fill="#1a1a1a"
+                font-size="13"
+              >
+                cognitive control
+              </text>
+              <text
+                x="330"
+                y="208"
+                text-anchor="middle"
+                fill="#999"
+                font-size="11"
+              >
+                continue &middot; retrieve &middot; generate alternatives
+                &middot; reframe &middot; search differently
+              </text>
+              <path
+                d="M 255 183 Q 140 170 148 92"
+                fill="none"
+                stroke="#1a1a1a"
+                stroke-width="1.2"
+                marker-end="url(#la)"
+              />
+            </g>
+          </svg>
+          <figcaption>
+            A working loop, not a literal pipeline. Recognition may build up
+            gradually from accumulating signals.
+          </figcaption>
+        </figure>
+
+        <h3>Uncertainty vs insufficiency</h3>
+
+        <p>
+          <strong>Uncertainty</strong>: I have plausible alternatives, but I do
+          not know which is correct. This calls for more evidence
+          <em>within</em> what is already available.
+        </p>
+        <p>
+          <strong>Recognition of insufficiency</strong>: what is currently
+          available may not contain what I need. This calls for additional or
+          altered generation, search, or reframing.
         </p>
 
         <figure class="figure">
@@ -71,7 +309,7 @@
             viewBox="0 0 700 270"
             xmlns="http://www.w3.org/2000/svg"
             role="img"
-            aria-label="Two sketches: uncertainty is picking among hypotheses inside your set; unawareness is sensing the correct hypothesis lies outside the set."
+            aria-label="Two sketches: uncertainty is weighing alternatives already on the table; insufficiency is sensing that what is on the table, some of it partial or vague, may not be enough, before knowing what is missing."
           >
             <g font-family="Georgia, 'Times New Roman', serif">
               <!-- Panel 1: uncertainty -->
@@ -101,7 +339,9 @@
                 font-size="13"
                 fill="#777"
               >
-                your hypothesis set
+                alternatives on the table (C
+                <tspan font-size="10" dy="2">t</tspan>
+                )
               </text>
 
               <circle cx="115" cy="105" r="5" fill="#1a1a1a" />
@@ -112,7 +352,7 @@
                 font-size="13"
                 fill="#1a1a1a"
               >
-                h&#8321;
+                c&#8321;
               </text>
               <circle cx="215" cy="100" r="5" fill="#1a1a1a" />
               <text
@@ -122,7 +362,7 @@
                 font-size="13"
                 fill="#1a1a1a"
               >
-                h&#8322;
+                c&#8322;
               </text>
               <circle cx="150" cy="170" r="5" fill="#1a1a1a" />
               <text
@@ -132,7 +372,7 @@
                 font-size="13"
                 fill="#1a1a1a"
               >
-                h&#8323;
+                c&#8323;
               </text>
 
               <text
@@ -154,7 +394,7 @@
                 "which one of these is right?"
               </text>
 
-              <!-- Panel 2: unawareness -->
+              <!-- Panel 2: insufficiency -->
               <text
                 x="500"
                 y="24"
@@ -163,7 +403,7 @@
                 font-style="italic"
                 fill="#1a1a1a"
               >
-                unawareness
+                insufficiency
               </text>
               <ellipse
                 cx="480"
@@ -181,53 +421,68 @@
                 font-size="13"
                 fill="#777"
               >
-                your hypothesis set
+                some of it partial or vague
               </text>
 
-              <circle cx="435" cy="120" r="5" fill="#999" />
+              <circle cx="435" cy="120" r="5" fill="#1a1a1a" />
               <text
                 x="435"
                 y="105"
                 text-anchor="middle"
                 font-size="13"
-                fill="#999"
+                fill="#1a1a1a"
               >
-                h&#8321;
+                c&#8321;
               </text>
-              <circle cx="520" cy="115" r="5" fill="#999" />
+              <circle cx="525" cy="115" r="5" fill="#999" />
               <text
-                x="520"
+                x="525"
                 y="100"
                 text-anchor="middle"
                 font-size="13"
                 fill="#999"
               >
-                h&#8322;
+                c&#8322; (vague)
               </text>
-              <circle cx="470" cy="175" r="5" fill="#999" />
+              <circle
+                cx="470"
+                cy="175"
+                r="6"
+                fill="none"
+                stroke="#999"
+                stroke-width="1.4"
+                stroke-dasharray="3 3"
+              />
               <text
                 x="470"
-                y="197"
+                y="199"
                 text-anchor="middle"
                 font-size="13"
                 fill="#999"
               >
-                h&#8323;
+                c&#8323; (partial)
               </text>
 
-              <!-- the correct hypothesis, outside the set -->
-              <circle cx="650" cy="60" r="6" fill="#4B2E83" />
               <text
-                x="650"
-                y="43"
+                x="648"
+                y="62"
                 text-anchor="middle"
-                font-size="13"
+                font-size="20"
                 fill="#4B2E83"
               >
-                h* (the right one)
+                ?
+              </text>
+              <text
+                x="622"
+                y="42"
+                text-anchor="middle"
+                font-size="12"
+                fill="#4B2E83"
+              >
+                missing? not sure what
               </text>
               <path
-                d="M 575 95 Q 610 70 640 62"
+                d="M 575 95 Q 610 75 638 64"
                 fill="none"
                 stroke="#4B2E83"
                 stroke-width="1.2"
@@ -241,305 +496,82 @@
                 font-size="13"
                 fill="#555"
               >
-                "...I feel like it's not even in here"
-              </text>
-            </g>
-          </svg>
-        </figure>
-
-        <h3>What does the agent do next?</h3>
-
-        <p>
-          We frame this not as search but as an
-          <strong>information need</strong>: keep seeking information vs commit.
-        </p>
-
-        <figure class="figure">
-          <svg
-            viewBox="0 0 700 330"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Decision tree: the information need splits into commit vs search; search splits into within-space search when the set seems adequate, and space-expanding search when it seems inadequate."
-          >
-            <defs>
-              <marker
-                id="arr"
-                markerWidth="8"
-                markerHeight="8"
-                refX="7"
-                refY="4"
-                orient="auto"
-              >
-                <path
-                  d="M0,0 L8,4 L0,8"
-                  fill="none"
-                  stroke="#1a1a1a"
-                  stroke-width="1.2"
-                />
-              </marker>
-              <marker
-                id="arrv"
-                markerWidth="8"
-                markerHeight="8"
-                refX="7"
-                refY="4"
-                orient="auto"
-              >
-                <path
-                  d="M0,0 L8,4 L0,8"
-                  fill="none"
-                  stroke="#4B2E83"
-                  stroke-width="1.2"
-                />
-              </marker>
-            </defs>
-            <g font-family="Georgia, 'Times New Roman', serif">
-              <!-- root -->
-              <text
-                x="350"
-                y="26"
-                text-anchor="middle"
-                font-size="16"
-                font-style="italic"
-                fill="#1a1a1a"
-              >
-                information need
-              </text>
-
-              <!-- branch: commit -->
-              <line
-                x1="320"
-                y1="36"
-                x2="150"
-                y2="102"
-                stroke="#1a1a1a"
-                stroke-width="1.2"
-                marker-end="url(#arr)"
-              />
-              <text
-                x="205"
-                y="60"
-                text-anchor="middle"
-                font-size="12"
-                font-style="italic"
-                fill="#777"
-              >
-                confident
-              </text>
-              <text
-                x="135"
-                y="125"
-                text-anchor="middle"
-                font-size="15"
-                fill="#1a1a1a"
-              >
-                commit
-              </text>
-              <text
-                x="135"
-                y="144"
-                text-anchor="middle"
-                font-size="12"
-                fill="#777"
-              >
-                act on the best h
-              </text>
-
-              <!-- branch: search -->
-              <line
-                x1="380"
-                y1="36"
-                x2="490"
-                y2="102"
-                stroke="#1a1a1a"
-                stroke-width="1.2"
-                marker-end="url(#arr)"
-              />
-              <text
-                x="475"
-                y="60"
-                text-anchor="middle"
-                font-size="12"
-                font-style="italic"
-                fill="#777"
-              >
-                still not confident
-              </text>
-              <text
-                x="500"
-                y="125"
-                text-anchor="middle"
-                font-size="15"
-                fill="#1a1a1a"
-              >
-                information seeking
-              </text>
-
-              <!-- search splits -->
-              <line
-                x1="470"
-                y1="133"
-                x2="350"
-                y2="185"
-                stroke="#1a1a1a"
-                stroke-width="1.2"
-                marker-end="url(#arr)"
-              />
-              <text
-                x="370"
-                y="152"
-                text-anchor="middle"
-                font-size="12"
-                font-style="italic"
-                fill="#777"
-              >
-                &#8459;&#8348; seems adequate
-              </text>
-              <line
-                x1="525"
-                y1="133"
-                x2="565"
-                y2="180"
-                stroke="#1a1a1a"
-                stroke-width="1.2"
-                marker-end="url(#arr)"
-              />
-              <text
-                x="588"
-                y="150"
-                text-anchor="middle"
-                font-size="12"
-                font-style="italic"
-                fill="#777"
-              >
-                &#8459;&#8348; seems inadequate
-              </text>
-
-              <!-- within-space search -->
-              <ellipse
-                cx="320"
-                cy="240"
-                rx="78"
-                ry="48"
-                fill="none"
-                stroke="#1a1a1a"
-                stroke-width="1.5"
-              />
-              <circle cx="290" cy="228" r="4.5" fill="#1a1a1a" />
-              <circle cx="348" cy="222" r="4.5" fill="#1a1a1a" />
-              <circle cx="320" cy="262" r="4.5" fill="#1a1a1a" />
-              <path
-                d="M 299 225 Q 318 214 339 220"
-                fill="none"
-                stroke="#4B2E83"
-                stroke-width="1.2"
-                marker-end="url(#arrv)"
-              />
-              <path
-                d="M 344 231 Q 338 248 328 256"
-                fill="none"
-                stroke="#4B2E83"
-                stroke-width="1.2"
-                marker-end="url(#arrv)"
-              />
-              <text
-                x="320"
-                y="315"
-                text-anchor="middle"
-                font-size="13"
-                fill="#1a1a1a"
-              >
-                within-space seeking
-              </text>
-
-              <!-- space-expanding search -->
-              <ellipse
-                cx="575"
-                cy="240"
-                rx="78"
-                ry="48"
-                fill="none"
-                stroke="#1a1a1a"
-                stroke-width="1.5"
-              />
-              <circle cx="545" cy="228" r="4.5" fill="#999" />
-              <circle cx="603" cy="222" r="4.5" fill="#999" />
-              <circle cx="575" cy="262" r="4.5" fill="#999" />
-              <path
-                d="M 575 240 Q 620 215 662 185"
-                fill="none"
-                stroke="#4B2E83"
-                stroke-width="1.2"
-                stroke-dasharray="4 4"
-                marker-end="url(#arrv)"
-              />
-              <circle cx="668" cy="181" r="5.5" fill="#4B2E83" />
-              <text
-                x="668"
-                y="166"
-                text-anchor="middle"
-                font-size="13"
-                fill="#4B2E83"
-              >
-                h*?
-              </text>
-              <text
-                x="575"
-                y="315"
-                text-anchor="middle"
-                font-size="13"
-                fill="#1a1a1a"
-              >
-                space-expanding seeking
+                "...what I have may not be enough"
               </text>
             </g>
           </svg>
           <figcaption>
-            I don't know if we should condition on type of seeking or leave it
-            general.
+            The old picture (a specific h<sup>*</sup> sitting outside a neat
+            set) is one special case of insufficiency, not the definition.
           </figcaption>
         </figure>
 
-        <h3>What alternative explanations matter?</h3>
+        <h3>What A<sub>t</sub> is not</h3>
 
         <p>
-          Anything else that could cause the
-          <em>same information-seeking behavior</em> without awareness of
-          unawareness: <em>ordinary uncertainty</em>, <em>low confidence</em>,
-          <em>noise</em>, <em>missing evidence</em>, <em>misunderstanding</em>,
-          <em>random exploration</em>, a generic
-          <em>"always reconsider" strategy</em>,
-          <em>search-cost differences</em>.
+          Recognition of insufficiency is different from
+          <em>simply making an error</em>, <em>low confidence</em>,
+          <em>uncertainty between two represented alternatives</em>,
+          <em>being stuck</em>,
+          <em>already knowing the missing alternative</em>, and
+          <em>an automatic strategy switch</em>. Those can be signals,
+          correlates, causes, or consequences of A<sub>t</sub>, but they are not
+          the thing itself.
         </p>
 
-        <h2>Sequential decision-making</h2>
+        <h3>Recognition vs control response</h3>
 
         <p>
-          A decision problem is <strong>sequential</strong> when the agent does
-          not choose only once; the agent faces later decision points whose
-          circumstances may depend on earlier choices, information, or changes
-          in preference.
+          A<sub>t</sub> is not defined by what it triggers. Given recognition,
+          the control response can vary:
         </p>
         <p class="formula">
-          b<sub>t</sub>
-          <span class="rel"><span class="rel-label">action</span>&#10230;</span>
-          new evidence
-          <span class="rel"><span class="rel-label">update</span>&#10230;</span>
-          b<sub>t+1</sub>
-          &#8943;
-          <span class="rel"><span class="rel-label">commit</span>&#10230;</span>
-          final choice
-          <span class="dim">
-            <span class="rel"
-              ><span class="rel-label">after the end</span>&#8674;</span
-            >
-            learning
-          </span>
+          A<sub>t</sub>
+          <span class="rel">&#10230;</span>
+          continue &middot; retrieve &middot; generate alternatives &middot;
+          reframe &middot; search externally &middot; nothing
+        </p>
+        <p class="sub">
+          Which response wins (including committing anyway) is a downstream
+          question about costs and task demands, not the definition of
+          A<sub>t</sub>.
         </p>
 
-        <p class="sub">
-          The final choice may or may not prompt action. The learning that
-          happens after the end is outside our span (for now).
+        <h2>The reasoning trajectory (Clusterwords)</h2>
+
+        <p>
+          Clusterwords (the game on the home page) lets us observe something
+          richer than commit-versus-don't-commit:
+        </p>
+        <p class="formula">
+          C<sub>0</sub>
+          <span class="rel">&#10230;</span>
+          C<sub>1</sub>
+          <span class="rel">&#10230;</span>
+          C<sub>2</sub>
+          <span class="rel">&#10230;</span>
+          &#8943;
+        </p>
+        <p>
+          Possibilities are generated, partially formed, refined, abandoned,
+          recombined, and sometimes recognized as inadequate. Suppose the board
+          hides EAGLE, BIRDIE, BOGEY, PAR:
+        </p>
+        <p class="formula">
+          "these feel related"
+          <span class="rel">&#10230;</span>
+          "these four belong together somehow"
+          <span class="rel">&#10230;</span>
+          "golf-related"
+          <span class="rel">&#10230;</span>
+          "golf scoring terms"
+        </p>
+        <p>
+          The question is no longer where exactly this becomes a hypothesis. It
+          is: how does this possibility evolve inside C<sub>t</sub>, and what
+          does its evolution tell the reasoner about whether what is currently
+          available is adequate? The guesses give observable anchors in that
+          trajectory; the trajectory is the gold.
         </p>
 
         <details class="essay-more">
@@ -555,197 +587,263 @@
           <hr class="divider" />
 
           <h2 class="big-heading">
-            What is h? <span class="tag">tentative</span>
+            How the framing evolved <span class="tag">history</span>
           </h2>
 
-          <p class="wip-alert">
-            Currently working on this (August 8, 2026)
-          </p>
-
-          <p>
-            To determine what H is (the hypothesis space), we first need to
-            determine what a single h is. Right now we have two models.
-          </p>
-
-          <h3>Model 1: stricter hypothesis boundary (Dougherty)</h3>
-
-          <p>
-            The intuition is a precursor. An h only exists once there is an
-            explanatory candidate:
-          </p>
+          <p><strong>Version A</strong>: a literal hypothesis set.</p>
           <p class="formula">
-            coherence signal
-            <span class="rel"
-              ><span class="rel-label">generates</span>&#10230;</span
+            &#8459;<sub>t</sub> = {h&#8321;, h&#8322;, h&#8323;}, &nbsp;P(h<sup
+              >*</sup
             >
-            h = golf terms
+            &#8713; &#8459;<sub>t</sub>) &gt; 0
           </p>
-          <p>"These four feel connected" is not yet h.</p>
-
-          <h3>Model 2: partial hypotheses (our proposal)</h3>
+          <p>"How do I know h<sup>*</sup> isn't in my set?"</p>
 
           <p>
-            Once the person can deliberately represent "these four share some
-            unknown relation", that already counts as a hypothesis, even though
-            part of its content remains unspecified:
+            <strong>Version B</strong>: but what even counts as h? Can
+            hypotheses be partial?
           </p>
           <p class="formula">h = these four share r, &nbsp;r = ?</p>
-          <p>Then later the content gets filled in:</p>
+
+          <p>
+            <strong>Current</strong>: don't require a literal hypothesis set.
+          </p>
           <p class="formula">
-            r = ?
+            G<sub>t</sub>
+            <span class="rel">&#10231;</span>
+            C<sub>t</sub>
             <span class="rel">&#10230;</span>
-            r = golf-related
-            <span class="rel">&#10230;</span>
-            r = golf scoring
+            A<sub>t</sub>
+          </p>
+          <p>
+            Possibilities of different degrees of specification become available
+            during generative reasoning. The project studies what signals tell
+            the reasoner that what is currently available may be insufficient,
+            without first solving where a hypothesis begins.
           </p>
 
-          <h3>While reading, extract answers to these questions</h3>
+          <h3>
+            Questions we still need to answer (C<sub>t</sub>: what's on the
+            table)
+          </h3>
 
           <ul class="essay-list">
             <li>
               What is the representational object? Is it a rule, causal model,
               gist, category, explanation, structured relation?
-             
             </li>
             <li>
               Can it be incomplete or coarse? Can the person have "something
               about these belongs together" without the full explanation?
-             
             </li>
             <li>
               Can that partial representation guide a deliberate decision?
-             
             </li>
-            <li>
-              Can it later be refined while preserving earlier content?
-             
-            </li>
+            <li>Can it later be refined while preserving earlier content?</li>
             <li>
               When does the literature treat it as the same representation
               becoming more specific versus a new hypothesis replacing the old
               one?
             </li>
             <li>
-              What behavioral evidence shows that the representation is
-              actually available to the person?
+              What behavioral evidence shows that the representation is actually
+              available to the person?
             </li>
           </ul>
 
-          <h3>The Clusterwords example</h3>
+          <h3>Open questions (A<sub>t</sub>: recognizing insufficiency)</h3>
 
-          <p>
-            Clusterwords (the game on the home page) is a sequential
-            decision-making environment: at every guess you either commit a
-            group or keep seeking. Suppose the board hides EAGLE, BIRDIE,
-            BOGEY, PAR. The diagnostic sequence is:
-          </p>
-          <p class="formula">
-            "these feel related"
-            <span class="rel">&#10230;</span>
-            "these four belong together somehow"
-            <span class="rel">&#10230;</span>
-            "golf-related"
-            <span class="rel">&#10230;</span>
-            "golf scoring terms"
-          </p>
-
-          <p>We are trying to determine where h begins. Is it here?</p>
-          <p class="formula">h = "these four belong together somehow"</p>
-          <p>Or only here?</p>
-          <p class="formula">h = "golf-related"</p>
-          <p>Or only with the fully explanatory:</p>
-          <p class="formula">h = "golf scoring terms"</p>
-
-          <p>
-            The reason this matters is still the same: until we know that
-            boundary, we cannot distinguish an
-            <em>underspecified hypothesis</em> from a
-            <em>missing hypothesis</em>, which is necessary for defining
-            awareness of unawareness.
-          </p>
+          <ul class="essay-list">
+            <li>
+              How do humans recognize that the possibilities currently available
+              during reasoning may be insufficient?
+            </li>
+            <li>
+              What information in the dynamics of ongoing reasoning provides
+              evidence that the currently available possibilities may not be
+              enough?
+            </li>
+            <li>
+              How does a reasoner distinguish "I have not solved this yet" from
+              "what I currently have may itself be insufficient"?
+            </li>
+            <li>
+              Can recognition of insufficiency occur before a reasoner can
+              identify what possibility is missing?
+            </li>
+            <li>
+              Does recognition of insufficiency depend on a single diagnostic
+              signal, or on the integration of multiple signals over time?
+            </li>
+            <li>
+              How do failure, confidence, progress, retrieval, and changes in
+              candidate possibilities contribute to recognition of
+              insufficiency?
+            </li>
+            <li>
+              Does the history of reasoning matter (repeated failure, repeated
+              return to the same possibilities), or is the current reasoning
+              state sufficient?
+            </li>
+            <li>
+              How does the partial development of a possibility affect judgments
+              of insufficiency? Does a vague but promising possibility feel
+              different from no promising possibility at all?
+            </li>
+            <li>
+              When a useful possibility has failed to enter consideration, are
+              there detectable signatures in the reasoning process before that
+              possibility is eventually discovered?
+            </li>
+            <li>
+              Can a computational model predict when a person will conclude that
+              their currently available possibilities may be insufficient?
+            </li>
+            <li>
+              Can that model distinguish recognition of insufficiency from low
+              confidence, difficulty, retrieval failure, conflict, or simply
+              needing more time?
+            </li>
+            <li>
+              What causes recognition of insufficiency to change subsequent
+              reasoning? Does it lead to more search, different search,
+              refinement of partial possibilities, retrieval, or
+              representational change?
+            </li>
+            <li>
+              When does additional search reflect recognition of insufficiency
+              rather than ordinary persistence?
+            </li>
+            <li>
+              Do people differ systematically in their ability to recognize
+              insufficiency, and do those differences predict successful
+              discovery of previously unconsidered possibilities?
+            </li>
+            <li>
+              Does experience with a task change recognition of insufficiency by
+              changing which possibilities become available, by changing how
+              their adequacy is monitored, or both?
+            </li>
+            <li>
+              Do contemporary machine reasoners recognize when their currently
+              available possibilities may be insufficient, or do they primarily
+              continue evaluating and elaborating what they have already
+              generated?
+            </li>
+            <li>
+              When humans and machines fail because a useful possibility never
+              entered consideration, do they show different signatures before
+              the failure?
+            </li>
+            <li>
+              Do machines use signals analogous to those that predict
+              recognition of insufficiency in humans?
+            </li>
+            <li>
+              Can a computational mechanism derived from human recognition of
+              insufficiency predict machine failures that confidence alone
+              cannot?
+            </li>
+            <li>
+              Can introducing such a mechanism improve a machine reasoner's
+              ability to change its search when its currently available
+              possibilities are inadequate?
+            </li>
+          </ul>
 
           <div class="refs">
-            <p class="refs-label">What we're reading for this</p>
+            <p class="refs-label">Papers closest to the center right now</p>
             <ol>
               <li>
-                Reyna,
-                <a href="https://journal.sjdm.org/11/111031/jdm111031.pdf"
-                  >A new intuitionism: Meaning, memory, and development in
-                  Fuzzy-Trace Theory</a
-                >. Judgment and Decision Making, 2012.
+                Thomas, Dougherty, Sprenger &amp; Harbison,
+                <a href="https://pubmed.ncbi.nlm.nih.gov/18211189/"
+                  >Diagnostic hypothesis generation and human judgment</a
+                >. Psychological Review, 2008.
               </li>
               <li>
-                Fr&auml;nken, Theodoropoulos &amp; Bramley,
-                <a href="https://doi.org/10.1016/j.cogpsych.2022.101506"
-                  >Algorithms of adaptation in inductive inference</a
-                >. Cognitive Psychology, 2022.
-              </li>
-              <li>
-                Bramley, Dayan, Griffiths &amp; Lagnado,
-                <a href="https://doi.org/10.1037/rev0000061"
-                  >Formalizing Neurath's ship: Approximate algorithms for
-                  online causal learning</a
-                >. Psychological Review, 2017.
+                Dasgupta, Schulz &amp; Gershman,
+                <a
+                  href="https://www.sciencedirect.com/science/article/abs/pii/S0010028516302766"
+                  >Where do hypotheses come from?</a
+                >. Cognitive Psychology, 2017.
               </li>
               <li>
                 Zhang, Langenkamp, Kleiman-Weiner, Oikarinen &amp; Cushman,
-                <a
-                  href="https://www.sciencedirect.com/science/article/pii/S0010027725000484"
+                <a href="https://compminds.uw.edu/pdfs/zhang2025similar.pdf"
                   >Similar failures of consideration arise in human and machine
                   planning</a
                 >. Cognition, 2025.
               </li>
               <li>
-                Ding, Niyogi, Taylor &amp; Tsay,
-                <a href="https://www.nature.com/articles/s41539-026-00428-4"
-                  >Hypothesis testing governs strategic motor learning</a
-                >. npj Science of Learning, 2026.
+                Ackerman &amp; Thompson,
+                <a
+                  href="https://www.cell.com/trends/cognitive-sciences/abstract/S1364-6613%2817%2930105-5"
+                  >Meta-reasoning: Monitoring and control of thinking and
+                  reasoning</a
+                >. Trends in Cognitive Sciences, 2017.
               </li>
               <li>
-                Fan,
-                <a href="https://journals.sagepub.com/doi/10.1177/09637214261416790"
-                  >Generative behaviors as key targets for cognitive models</a
-                >. Current Directions in Psychological Science, 2026.
+                Schulz, Fleming &amp; Dayan,
+                <a href="https://pubmed.ncbi.nlm.nih.gov/36757948/"
+                  >Metacognitive computations for information search: Confidence
+                  in control</a
+                >. 2023.
               </li>
               <li>
-                Binz, Dasgupta, Jagadish, Botvinick, Wang &amp; Schulz,
-                <a href="https://arxiv.org/abs/2304.06729"
-                  >Meta-learned models of cognition</a
-                >. Behavioral and Brain Sciences, 2024.
+                Gronau, Steyvers &amp; Brown,
+                <a
+                  href="https://www.sciencedirect.com/science/article/pii/S1389041724000263"
+                  >How do you know that you don't know?</a
+                >. Cognitive Systems Research, 2024.
+              </li>
+              <li>
+                Glucksberg &amp; McCloskey, Decisions about ignorance: Knowing
+                that you don't know. 1981.
+              </li>
+              <li>
+                Knoblich, Ohlsson, Haider &amp; Rhenius,
+                <a
+                  href="https://somby.ceu.edu/sites/somby.ceu.edu/files/attachment/basicpage/6/1999knoblich.pdf"
+                  >Constraint relaxation and chunk decomposition in insight
+                  problem solving</a
+                >. 1999.
+              </li>
+              <li>
+                Ross &amp; Arfini,
+                <a href="https://pubmed.ncbi.nlm.nih.gov/38394973/"
+                  >Impasse-driven problem solving: The multidimensional nature
+                  of feeling stuck</a
+                >. 2024.
+              </li>
+              <li>
+                LeGris, Lake &amp; Gureckis,
+                <a href="https://escholarship.org/uc/item/1rn5v7pj"
+                  >Predicting insight during physical reasoning</a
+                >. 2024.
+              </li>
+              <li>
+                Halpern &amp; R&ecirc;go,
+                <a href="https://arxiv.org/abs/cs/0603020"
+                  >Reasoning about knowledge of unawareness</a
+                >. 2009.
+              </li>
+              <li>
+                Kang, Agranov, Nielsen &amp; Sarnoff,
+                <a
+                  href="https://agranov.caltech.edu/documents/34691/KANS_Manuscript.pdf"
+                  >Do individuals treat their posterior beliefs as sufficient
+                  statistics?</a
+                >. 2026.
+              </li>
+              <li>
+                Qin et al.,
+                <a href="https://arxiv.org/abs/2605.24528"
+                  >Hypothesis generation and inductive inference in children and
+                  language models</a
+                >. 2026.
               </li>
             </ol>
           </div>
-
-          <!--
-          <p>
-            <strong>Latent hypothesis</strong> (h): what the agent thinks the
-            structure is.
-          </p>
-          <p>
-            <strong>Observable decision</strong> (a): what the agent actually
-            chooses or submits.
-          </p>
-          <p>
-            <strong>Verbal explanation</strong> (r): what the agent can
-            explicitly articulate about the reasoning.
-          </p>
-
-          <ol class="essay-list">
-            <li>
-              <strong>Criterion 1</strong>: Does incompleteness mean something
-              interesting?
-            </li>
-            <li><strong>Criterion 2</strong>: Does it explain behavior?</li>
-            <li>
-              <strong>Criterion 3</strong>: Can humans and machines both
-              instantiate it?
-            </li>
-            <li>
-              <strong>Criterion 4</strong>: Can competence be separated from
-              performance?
-            </li>
-          </ol>
-          -->
         </details>
       </article>
 
