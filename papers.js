@@ -25,6 +25,7 @@
     },
     {
       status: "queue",
+      fav: true,
       title: "Building Machines That Learn and Think Like People",
       authors: "Lake, Ullman, Tenenbaum & Gershman",
       venue: "Behavioral and Brain Sciences, 2017",
@@ -73,6 +74,30 @@
       authors: "Lynn J. Lohnas",
       venue: "Computational Brain & Behavior, 2024",
       url: "https://link.springer.com/article/10.1007/s42113-024-00221-9"
+    },
+    {
+      status: "read",
+      fav: true,
+      title: "Nothing from Something: Can a Language Model Discover 0?",
+      authors: "Phoebe Zeng, Thomas L. Griffiths & Brenden M. Lake",
+      venue: "arXiv, 2026",
+      url: "https://arxiv.org/pdf/2606.17289"
+    },
+    {
+      status: "read",
+      fav: true,
+      title: "SAGE-Eval: Evaluating LLMs for Systematic Generalizations of Safety Facts",
+      authors: "Yueh-Han Chen, Guy Davidson & Brenden M. Lake",
+      venue: "arXiv, 2025",
+      url: "https://arxiv.org/pdf/2505.21828"
+    },
+    {
+      status: "queue",
+      fav: true,
+      title: "Human-like Systematic Generalization through a Meta-learning Neural Network",
+      authors: "Brenden M. Lake & Marco Baroni",
+      venue: "Nature, 2023",
+      url: "https://www.nature.com/articles/s41586-023-06668-3"
     },
 
     /* --- From the "To Read" list --- */
