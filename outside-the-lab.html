@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Outside the lab · Roberto Infante</title>
+  <meta name="description" content="Roberto Infante. The non-research half: football, Monterrey, and other things I lose time to." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="essay-page">
+  <div class="wrap">
+    <!-- Intro: text left, photo right -->
+    <header class="masthead">
+      <div class="masthead-text">
+        <h1>Roberto Infante</h1>
+        <p class="role">Cognitive computing &middot; decision-making in humans and machines</p>
+        <p class="contact">
+          <a href="mailto:rdji@uw.edu">rdji@uw.edu</a> ·
+          <a href="https://docs.google.com/document/d/14ZUA7clhQm-UvDToK0B_F-zHUPts_UuFKo95fY5Ca1g/edit?tab=t.0">CV</a> ·
+          <a href="https://github.com/rdji20">GitHub</a> ·
+          <a href="https://linkedin.com/in/rjil20">LinkedIn</a> ·
+          <a href="https://x.com/robinfa10">Twitter</a>
+        </p>
+      </div>
+      <img class="avatar" src="assets/roberto.jpg" alt="Roberto Infante" width="130" height="130" />
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs" aria-label="Sections">
+      <a class="tab" href="index.html">Home</a>
+      <a class="tab" href="why-phd.html">Why a PhD?</a>
+      <a class="tab" href="my-phd.html">My PhD</a>
+      <a class="tab active" href="outside-the-lab.html" aria-current="page">Outside the lab</a>
+    </nav>
+
+    <!-- ============================================================
+         HERO: the husky doing keepie-uppies.
+         Click it to make it kick harder. Pure CSS animation + one line of JS.
+         ============================================================ -->
+    <figure class="pitch">
+      <svg class="pitch-svg" viewBox="48 52 348 150" role="img"
+           aria-label="A blocky husky juggling a football beside the Arsenal cannon"
+           shape-rendering="crispEdges">
+
+        <!-- the line everything stands on -->
+        <path class="pitch-line" d="M48 194 C 150 186, 310 186, 396 194"
+              fill="none" stroke="#dbd7e0" stroke-width="2"
+              shape-rendering="geometricPrecision" />
+
+        <!-- the cannon -->
+        <g class="cannon">
+          <rect x="60" y="127" width="12" height="24" fill="#3f3b4a" />
+          <rect x="60" y="133" width="6" height="10" fill="#EF0107" />
+          <rect x="70" y="130" width="62" height="18" fill="#3f3b4a" />
+          <rect x="100" y="130" width="8" height="18" fill="#9C824A" />
+          <rect x="126" y="125" width="12" height="28" fill="#3f3b4a" />
+          <rect x="78" y="148" width="20" height="10" fill="#9C824A" />
+          <!-- wheel -->
+          <rect x="66" y="162" width="40" height="20" fill="#3f3b4a" />
+          <rect x="76" y="152" width="20" height="40" fill="#3f3b4a" />
+          <rect x="81" y="167" width="10" height="10" fill="#9C824A" />
+        </g>
+
+        <g class="hk hk1">
+          <!-- tail: a stepped curl down and out to the left -->
+          <g class="hk-tail">
+            <rect x="182" y="132" width="14" height="14" fill="#7d7789" />
+            <rect x="170" y="142" width="14" height="14" fill="#7d7789" />
+            <rect x="158" y="152" width="14" height="14" fill="#7d7789" />
+            <rect x="148" y="162" width="14" height="14" fill="#aca6b8" />
+          </g>
+
+          <!-- ears -->
+          <g class="hk-ear-l">
+            <rect x="196" y="58" width="26" height="18" fill="#67626f" />
+            <rect x="203" y="64" width="12" height="12" fill="#c98b98" />
+          </g>
+          <g class="hk-ear-r">
+            <rect x="268" y="58" width="26" height="18" fill="#67626f" />
+            <rect x="275" y="64" width="12" height="12" fill="#c98b98" />
+          </g>
+
+          <!-- arms -->
+          <rect class="hk-arm-l" x="170" y="100" width="26" height="16" fill="#67626f" />
+          <rect class="hk-arm-r" x="294" y="100" width="26" height="16" fill="#67626f" />
+
+          <!-- head + body, one block -->
+          <rect x="196" y="76" width="98" height="76" fill="#67626f" />
+
+          <!-- husky mask: cheeks, muzzle, blaze -->
+          <rect x="206" y="114" width="78" height="24" fill="#f4f2f7" />
+          <rect x="238" y="84" width="14" height="30" fill="#f4f2f7" />
+          <rect x="206" y="104" width="14" height="10" fill="#f4f2f7" />
+          <rect x="270" y="104" width="14" height="10" fill="#f4f2f7" />
+
+          <!-- eyes -->
+          <rect x="212" y="92" width="18" height="16" fill="#3f7fb5" />
+          <rect x="260" y="92" width="18" height="16" fill="#3f7fb5" />
+          <rect x="212" y="92" width="6" height="6" fill="#cfe4f5" />
+          <rect x="260" y="92" width="6" height="6" fill="#cfe4f5" />
+          <g class="hk-blink">
+            <rect x="212" y="92" width="18" height="16" fill="#67626f" />
+            <rect x="260" y="92" width="18" height="16" fill="#67626f" />
+          </g>
+
+          <!-- nose -->
+          <rect x="238" y="114" width="14" height="12" fill="#2f2b39" />
+
+          <!-- the red-and-white kit -->
+          <rect x="196" y="142" width="98" height="10" fill="#EF0107" />
+
+          <!-- legs -->
+          <rect class="hk-leg-l" x="210" y="152" width="22" height="40" fill="#67626f" />
+          <g class="hk-leg-r">
+            <rect x="258" y="152" width="22" height="40" fill="#7d7789" />
+          </g>
+        </g>
+
+        <!-- contact pips -->
+        <g class="hk-spark" fill="#EF0107">
+          <rect x="286" y="176" width="8" height="8" />
+          <rect x="280" y="186" width="6" height="6" />
+          <rect x="288" y="160" width="6" height="6" />
+        </g>
+
+        <!-- the football: dark rim, white panels, black patches -->
+        <g class="ball-x">
+          <g class="ball-y">
+            <g class="ball">
+              <rect x="298" y="156" width="44" height="28" fill="#2f2b39" />
+              <rect x="306" y="148" width="28" height="44" fill="#2f2b39" />
+              <rect x="301" y="159" width="38" height="22" fill="#fff" />
+              <rect x="309" y="151" width="22" height="38" fill="#fff" />
+              <g class="ball-pips" fill="#2f2b39">
+                <rect x="313" y="163" width="14" height="13" />
+                <rect x="316" y="159" width="8" height="4" />
+                <rect x="316" y="151" width="8" height="4" />
+                <rect x="301" y="166" width="5" height="8" />
+                <rect x="334" y="166" width="5" height="8" />
+                <rect x="305" y="180" width="8" height="7" />
+                <rect x="327" y="180" width="8" height="7" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+
+      <figcaption class="pitch-cap">
+        <strong>Fun fact:</strong> before any of this, I was trying to play football
+        professionally. I even played professionally when I was younger.
+        <br class="cap-br" />Still Arsenal. Still weekly. Still convinced this is our year.
+        <span class="pitch-nudge">Tap the husky.</span>
+      </figcaption>
+    </figure>
+
+    <!-- ============================================================
+         SCENE 2: coffee, between the two skylines.
+         ============================================================ -->
+    <figure class="pitch flip">
+      <svg class="pitch-svg" viewBox="48 44 384 158" role="img"
+           aria-label="A blocky husky with a coffee, between the Space Needle and Cerro de la Silla"
+           shape-rendering="crispEdges">
+
+        <path class="pitch-line" d="M48 194 C 150 186, 330 186, 432 194"
+              fill="none" stroke="#dbd7e0" stroke-width="2"
+              shape-rendering="geometricPrecision" />
+
+        <!-- Space Needle: University Village, Seattle -->
+        <g class="needle">
+          <rect class="needle-light" x="85" y="44" width="6" height="18" fill="#EF0107" />
+          <rect x="72" y="62" width="32" height="6" fill="#b6b0c2" />
+          <rect x="62" y="68" width="52" height="12" fill="#4B2E83" />
+          <rect x="70" y="80" width="36" height="6" fill="#b6b0c2" />
+          <rect x="82" y="86" width="12" height="58" fill="#a49eb0" />
+          <rect x="76" y="144" width="24" height="26" fill="#a49eb0" />
+          <rect x="66" y="170" width="44" height="12" fill="#a49eb0" />
+          <rect x="70" y="182" width="10" height="10" fill="#a49eb0" />
+          <rect x="96" y="182" width="10" height="10" fill="#a49eb0" />
+        </g>
+
+        <!-- Cerro de la Silla: the saddle, from San Pedro -->
+        <g class="cerro">
+          <rect x="356" y="80"  width="14" height="8" fill="#cfcad8" />
+          <rect x="353" y="88"  width="20" height="8" fill="#cfcad8" />
+          <rect x="350" y="96"  width="26" height="8" fill="#cac5d4" />
+          <rect x="348" y="104" width="30" height="8" fill="#cac5d4" />
+          <rect x="346" y="112" width="34" height="8" fill="#c2bccd" />
+          <rect x="400" y="112" width="14" height="8" fill="#c2bccd" />
+          <rect x="344" y="120" width="38" height="8" fill="#c2bccd" />
+          <rect x="396" y="120" width="22" height="8" fill="#c2bccd" />
+          <rect x="343" y="128" width="41" height="8" fill="#b6b0c2" />
+          <rect x="393" y="128" width="28" height="8" fill="#b6b0c2" />
+          <rect x="341" y="136" width="45" height="8" fill="#b6b0c2" />
+          <rect x="391" y="136" width="32" height="8" fill="#b6b0c2" />
+          <rect x="339" y="144" width="86" height="8" fill="#aca6b8" />
+          <rect x="338" y="152" width="88" height="8" fill="#aca6b8" />
+          <rect x="336" y="160" width="90" height="32" fill="#a49eb0" />
+        </g>
+        </g>
+
+        <g class="hk hk2">
+          <!-- tail -->
+          <g class="hk-tail">
+            <rect x="182" y="132" width="14" height="14" fill="#7d7789" />
+            <rect x="170" y="142" width="14" height="14" fill="#7d7789" />
+            <rect x="158" y="152" width="14" height="14" fill="#7d7789" />
+            <rect x="148" y="162" width="14" height="14" fill="#aca6b8" />
+          </g>
+
+          <!-- ears -->
+          <g class="hk-ear-l">
+            <rect x="196" y="58" width="26" height="18" fill="#67626f" />
+            <rect x="203" y="64" width="12" height="12" fill="#c98b98" />
+          </g>
+          <g class="hk-ear-r">
+            <rect x="268" y="58" width="26" height="18" fill="#67626f" />
+            <rect x="275" y="64" width="12" height="12" fill="#c98b98" />
+          </g>
+
+          <!-- arms -->
+          <rect class="hk-arm-l" x="170" y="100" width="26" height="16" fill="#67626f" />
+          <rect x="294" y="104" width="26" height="16" fill="#67626f" />
+
+          <!-- head + body -->
+          <rect x="196" y="76" width="98" height="76" fill="#67626f" />
+
+          <!-- husky mask -->
+          <rect x="206" y="114" width="78" height="24" fill="#f4f2f7" />
+          <rect x="238" y="84" width="14" height="30" fill="#f4f2f7" />
+          <rect x="206" y="104" width="14" height="10" fill="#f4f2f7" />
+          <rect x="270" y="104" width="14" height="10" fill="#f4f2f7" />
+
+          <!-- eyes, contentedly half shut -->
+          <rect x="212" y="98" width="18" height="8" fill="#3f7fb5" />
+          <rect x="260" y="98" width="18" height="8" fill="#3f7fb5" />
+          <rect x="212" y="92" width="18" height="6" fill="#67626f" />
+          <rect x="260" y="92" width="18" height="6" fill="#67626f" />
+
+          <!-- nose + a small smile -->
+          <rect x="238" y="114" width="14" height="12" fill="#2f2b39" />
+          <rect x="232" y="127" width="6" height="5" fill="#2f2b39" />
+          <rect x="238" y="131" width="14" height="5" fill="#2f2b39" />
+          <rect x="252" y="127" width="6" height="5" fill="#2f2b39" />
+
+          <!-- collar -->
+          <rect x="196" y="142" width="98" height="10" fill="#4B2E83" />
+
+          <!-- legs -->
+          <rect x="210" y="152" width="22" height="40" fill="#67626f" />
+          <rect x="258" y="152" width="22" height="40" fill="#67626f" />
+        </g>
+
+        <!-- the cup -->
+        <g class="cup">
+          <rect x="306" y="114" width="8" height="6" fill="#3f3b4a" />
+          <rect x="296" y="120" width="28" height="7" fill="#3f3b4a" />
+          <rect x="298" y="127" width="24" height="28" fill="#f7f6fb" />
+          <rect x="298" y="135" width="24" height="9" fill="#9C824A" />
+          <rect x="301" y="155" width="18" height="5" fill="#cfcad8" />
+        </g>
+        <g class="steam" fill="#c9c4d4">
+          <rect class="steam-a" x="302" y="100" width="7" height="7" />
+          <rect class="steam-b" x="312" y="92" width="7" height="7" />
+          <rect class="steam-c" x="304" y="84" width="7" height="7" />
+        </g>
+      </svg>
+
+      <figcaption class="pitch-cap">
+        <strong>Also true:</strong> I do my best thinking in coffee shops.
+        <br class="cap-br" />Kali on Gómez Morín in San Pedro, and Mr. West at
+        University Village in Seattle.
+      </figcaption>
+    </figure>
+
+    <!-- ============================================================
+         SCENE 3: the games. The screen changes channel on a loop.
+         ============================================================ -->
+    <figure class="pitch">
+      <svg class="pitch-svg" viewBox="96 44 350 158" role="img"
+           aria-label="A blocky husky with a controller in front of a TV cycling between a Pokeball, a basketball and an American football"
+           shape-rendering="crispEdges">
+
+        <path class="pitch-line" d="M96 194 C 190 186, 360 186, 446 194"
+              fill="none" stroke="#dbd7e0" stroke-width="2"
+              shape-rendering="geometricPrecision" />
+
+        <g class="hk hk3">
+          <!-- tail -->
+          <g class="hk-tail hk-tail3">
+            <rect x="136" y="132" width="14" height="14" fill="#7d7789" />
+            <rect x="124" y="142" width="14" height="14" fill="#7d7789" />
+            <rect x="112" y="152" width="14" height="14" fill="#7d7789" />
+            <rect x="102" y="162" width="14" height="14" fill="#aca6b8" />
+          </g>
+
+          <!-- ears -->
+          <g class="hk-ear-l">
+            <rect x="150" y="58" width="26" height="18" fill="#67626f" />
+            <rect x="157" y="64" width="12" height="12" fill="#c98b98" />
+          </g>
+          <g class="hk-ear-r">
+            <rect x="222" y="58" width="26" height="18" fill="#67626f" />
+            <rect x="229" y="64" width="12" height="12" fill="#c98b98" />
+          </g>
+
+          <!-- arms -->
+          <rect x="124" y="100" width="26" height="16" fill="#67626f" />
+          <rect x="248" y="100" width="26" height="16" fill="#67626f" />
+
+          <!-- head + body -->
+          <rect x="150" y="76" width="98" height="76" fill="#67626f" />
+
+          <!-- husky mask -->
+          <rect x="160" y="114" width="78" height="24" fill="#f4f2f7" />
+          <rect x="192" y="84" width="14" height="30" fill="#f4f2f7" />
+          <rect x="160" y="104" width="14" height="10" fill="#f4f2f7" />
+          <rect x="224" y="104" width="14" height="10" fill="#f4f2f7" />
+
+          <!-- eyes, locked on the screen -->
+          <rect x="166" y="92" width="18" height="16" fill="#3f7fb5" />
+          <rect x="214" y="92" width="18" height="16" fill="#3f7fb5" />
+          <rect x="178" y="92" width="6" height="6" fill="#cfe4f5" />
+          <rect x="226" y="92" width="6" height="6" fill="#cfe4f5" />
+          <g class="hk-blink">
+            <rect x="166" y="92" width="18" height="16" fill="#67626f" />
+            <rect x="214" y="92" width="18" height="16" fill="#67626f" />
+          </g>
+
+          <!-- nose + a tongue-out concentration face -->
+          <rect x="192" y="114" width="14" height="12" fill="#2f2b39" />
+          <rect x="196" y="128" width="10" height="7" fill="#e0899b" />
+
+          <!-- collar -->
+          <rect x="150" y="142" width="98" height="10" fill="#4B2E83" />
+
+          <!-- legs -->
+          <rect x="164" y="152" width="22" height="40" fill="#67626f" />
+          <rect x="212" y="152" width="22" height="40" fill="#67626f" />
+        </g>
+
+        <!-- the controller -->
+        <g class="pad">
+          <rect x="262" y="124" width="8" height="14" fill="#3f3b4a" />
+          <rect x="308" y="124" width="8" height="14" fill="#3f3b4a" />
+          <rect x="266" y="116" width="46" height="16" fill="#3f3b4a" />
+          <rect x="270" y="120" width="7" height="7" fill="#b6b0c2" />
+          <rect x="298" y="119" width="5" height="5" fill="#EF0107" />
+          <rect x="303" y="125" width="5" height="5" fill="#4B2E83" />
+        </g>
+
+        <!-- the television -->
+        <g class="telly">
+          <rect x="354" y="88" width="6" height="8" fill="#a49eb0" />
+          <rect x="348" y="80" width="6" height="8" fill="#a49eb0" />
+          <rect x="342" y="72" width="6" height="8" fill="#a49eb0" />
+          <rect x="404" y="88" width="6" height="8" fill="#a49eb0" />
+          <rect x="410" y="80" width="6" height="8" fill="#a49eb0" />
+          <rect x="416" y="72" width="6" height="8" fill="#a49eb0" />
+
+          <rect x="326" y="96" width="112" height="80" fill="#3f3b4a" />
+          <rect x="334" y="104" width="80" height="60" fill="#16141c" />
+          <rect x="420" y="112" width="10" height="10" fill="#9C824A" />
+          <rect x="420" y="128" width="10" height="10" fill="#9C824A" />
+          <rect class="tv-light" x="422" y="150" width="6" height="6" fill="#EF0107" />
+
+          <rect x="366" y="176" width="32" height="10" fill="#3f3b4a" />
+          <rect x="354" y="186" width="20" height="6" fill="#3f3b4a" />
+          <rect x="390" y="186" width="20" height="6" fill="#3f3b4a" />
+
+          <!-- channel 1: a Pokeball -->
+          <g class="tv-a">
+            <rect x="364" y="118" width="20" height="6" fill="#EF0107" />
+            <rect x="358" y="124" width="32" height="10" fill="#EF0107" />
+            <rect x="358" y="134" width="32" height="4" fill="#16141c" />
+            <rect x="358" y="138" width="32" height="10" fill="#f7f6fb" />
+            <rect x="364" y="148" width="20" height="6" fill="#f7f6fb" />
+            <rect x="368" y="130" width="12" height="12" fill="#f7f6fb" />
+            <rect x="371" y="133" width="6" height="6" fill="#16141c" />
+          </g>
+
+          <!-- channel 2: a basketball -->
+          <g class="tv-b">
+            <rect x="358" y="124" width="32" height="20" fill="#cf7736" />
+            <rect x="364" y="118" width="20" height="32" fill="#cf7736" />
+            <rect x="372" y="118" width="4" height="32" fill="#16141c" />
+            <rect x="358" y="132" width="32" height="4" fill="#16141c" />
+          </g>
+
+          <!-- channel 3: an American football -->
+          <g class="tv-c">
+            <rect x="364" y="124" width="20" height="20" fill="#8a5a3c" />
+            <rect x="358" y="130" width="32" height="8" fill="#8a5a3c" />
+            <rect x="370" y="132" width="8" height="3" fill="#f7f6fb" />
+            <rect x="372" y="127" width="3" height="3" fill="#f7f6fb" />
+            <rect x="372" y="137" width="3" height="3" fill="#f7f6fb" />
+          </g>
+
+          <rect class="tv-scan" x="334" y="104" width="80" height="4" fill="#fff" opacity=".07" />
+        </g>
+      </svg>
+
+      <figcaption class="pitch-cap">
+        <strong>On a screen:</strong> most of the Pokémon games, FIFA, 2K.
+        <br class="cap-br" />I will watch any sport, in any format, and I take fantasy
+        football more seriously than is reasonable.
+      </figcaption>
+    </figure>
+
+    <!-- ============================================================
+         SCENE 4: space, the degree I almost did.
+         ============================================================ -->
+    <figure class="pitch flip">
+      <svg class="pitch-svg" viewBox="52 40 380 162" role="img"
+           aria-label="A blocky husky in a space helmet, with a rocket and a ringed planet"
+           shape-rendering="crispEdges">
+
+        <path class="pitch-line" d="M52 194 C 150 186, 340 186, 432 194"
+              fill="none" stroke="#dbd7e0" stroke-width="2"
+              shape-rendering="geometricPrecision" />
+
+        <!-- stars -->
+        <g fill="#c2bccd">
+          <rect class="star-a" x="62"  y="58"  width="5" height="5" />
+          <rect class="star-b" x="136" y="48"  width="5" height="5" />
+          <rect class="star-c" x="322" y="46"  width="5" height="5" />
+          <rect class="star-b" x="414" y="124" width="5" height="5" />
+          <rect class="star-a" x="344" y="136" width="5" height="5" />
+        </g>
+
+        <!-- ringed planet -->
+        <g class="planet">
+          <rect x="336" y="84" width="72" height="6" fill="#c2bccd" />
+          <rect x="352" y="74" width="40" height="24" fill="#8b7fb8" />
+          <rect x="360" y="64" width="24" height="40" fill="#8b7fb8" />
+          <rect x="360" y="78" width="10" height="6" fill="#786ca6" />
+          <rect x="376" y="90" width="10" height="6" fill="#786ca6" />
+          <rect x="336" y="88" width="22" height="5" fill="#d3cedd" />
+          <rect x="386" y="88" width="22" height="5" fill="#d3cedd" />
+        </g>
+
+        <!-- rocket -->
+        <g class="rocket">
+          <rect x="88"  y="96"  width="16" height="12" fill="#EF0107" />
+          <rect x="84"  y="108" width="24" height="54" fill="#f4f2f7" />
+          <rect x="90"  y="113" width="12" height="10" fill="#3f7fb5" />
+          <rect x="90"  y="113" width="4"  height="4"  fill="#cfe4f5" />
+          <rect x="84"  y="140" width="24" height="10" fill="#EF0107" />
+          <rect x="74"  y="150" width="10" height="24" fill="#EF0107" />
+          <rect x="108" y="150" width="10" height="24" fill="#EF0107" />
+          <rect x="88"  y="162" width="16" height="12" fill="#a49eb0" />
+          <g class="flame">
+            <rect class="flame-a" x="90" y="174" width="12" height="10" fill="#f0a132" />
+            <rect class="flame-b" x="93" y="184" width="6"  height="8"  fill="#EF0107" />
+          </g>
+        </g>
+
+        <g class="hk hk4">
+          <!-- tail -->
+          <g class="hk-tail">
+            <rect x="182" y="132" width="14" height="14" fill="#7d7789" />
+            <rect x="170" y="142" width="14" height="14" fill="#7d7789" />
+            <rect x="158" y="152" width="14" height="14" fill="#7d7789" />
+            <rect x="148" y="162" width="14" height="14" fill="#aca6b8" />
+          </g>
+
+          <!-- ears -->
+          <g class="hk-ear-l">
+            <rect x="196" y="58" width="26" height="18" fill="#67626f" />
+            <rect x="203" y="64" width="12" height="12" fill="#c98b98" />
+          </g>
+          <g class="hk-ear-r">
+            <rect x="268" y="58" width="26" height="18" fill="#67626f" />
+            <rect x="275" y="64" width="12" height="12" fill="#c98b98" />
+          </g>
+
+          <!-- arms -->
+          <rect class="hk-arm-l" x="170" y="100" width="26" height="16" fill="#c2bccd" />
+          <rect class="hk-arm-r" x="294" y="100" width="26" height="16" fill="#c2bccd" />
+
+          <!-- head + body -->
+          <rect x="196" y="76" width="98" height="76" fill="#67626f" />
+
+          <!-- husky mask -->
+          <rect x="206" y="114" width="78" height="24" fill="#f4f2f7" />
+          <rect x="238" y="84" width="14" height="30" fill="#f4f2f7" />
+          <rect x="206" y="104" width="14" height="10" fill="#f4f2f7" />
+          <rect x="270" y="104" width="14" height="10" fill="#f4f2f7" />
+
+          <!-- eyes, up at the sky -->
+          <rect x="212" y="90" width="18" height="16" fill="#3f7fb5" />
+          <rect x="260" y="90" width="18" height="16" fill="#3f7fb5" />
+          <rect x="212" y="90" width="6" height="6" fill="#cfe4f5" />
+          <rect x="260" y="90" width="6" height="6" fill="#cfe4f5" />
+          <g class="hk-blink">
+            <rect x="212" y="90" width="18" height="16" fill="#67626f" />
+            <rect x="260" y="90" width="18" height="16" fill="#67626f" />
+          </g>
+
+          <rect x="238" y="114" width="14" height="12" fill="#2f2b39" />
+
+          <!-- suit -->
+          <rect x="196" y="142" width="98" height="10" fill="#c2bccd" />
+          <rect x="210" y="152" width="22" height="40" fill="#8f8a9b" />
+          <rect x="258" y="152" width="22" height="40" fill="#8f8a9b" />
+        </g>
+
+        <!-- the helmet goes over the top of everything -->
+        <g class="helmet">
+          <rect x="188" y="52" width="114" height="88" fill="#cfe4f5" opacity=".3" />
+          <rect x="188" y="46" width="114" height="6" fill="#d8d4de" />
+          <rect x="182" y="52" width="6" height="88" fill="#d8d4de" />
+          <rect x="302" y="52" width="6" height="88" fill="#d8d4de" />
+          <rect x="182" y="140" width="126" height="10" fill="#a49eb0" />
+          <rect x="196" y="58" width="8" height="22" fill="#fff" opacity=".55" />
+          <rect x="208" y="58" width="5" height="12" fill="#fff" opacity=".55" />
+        </g>
+      </svg>
+
+      <figcaption class="pitch-cap">
+        <strong>Almost a different degree:</strong> I started college aiming at aerospace,
+        and nearly double-majored in electrical engineering before the iSchool won.
+        <br class="cap-br" />Space stories still get me, every time.
+      </figcaption>
+    </figure>
+
+    <!-- ============================================================
+         The one link at the bottom.
+         ============================================================ -->
+    <aside class="shout">
+      <div class="shout-tiles" aria-hidden="true">
+        <span style="--t:#F9DF6D"></span><span style="--t:#A0C35A"></span
+        ><span style="--t:#B0C4EF"></span><span style="--t:#BA81C5"></span>
+      </div>
+      <p class="shout-lead">
+        Go play
+        <a href="https://www.nytimes.com/games/connections" target="_blank" rel="noopener"
+          >NYT Connections</a>.
+      </p>
+      <p class="shout-sub">
+        It is the best four minutes of my day and the reason
+        <a href="https://clusterwords.hugmun.ai/" target="_blank" rel="noopener">Clusterwords</a>
+        exists. Play it, and subscribe if you can, so the people who make it keep getting paid
+        to make it.
+      </p>
+    </aside>
+
+    <footer>
+      <p>Monterrey, Nuevo León, Mexico &middot; <a href="mailto:rdji@uw.edu">rdji@uw.edu</a></p>
+    </footer>
+  </div>
+
+  <script>
+    /* husky: a tap winds up a harder kick for one cycle */
+    (function () {
+      var pitch = document.querySelector(".pitch");
+      if (!pitch) return;
+      pitch.addEventListener("click", function () {
+        pitch.classList.remove("boot");
+        void pitch.offsetWidth;               // restart the animation
+        pitch.classList.add("boot");
+      });
+      pitch.addEventListener("animationend", function (e) {
+        if (e.animationName === "ball-boot") pitch.classList.remove("boot");
+      });
+    })();
+
+  </script>
+</body>
+</html>
