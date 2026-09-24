@@ -17,6 +17,9 @@
   var box = wrap.querySelector(".cell-panels");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var canAnimate = !reduce && typeof Element.prototype.animate === "function";
+  // phones / touch: no idle ripple, the liquid only moves during a switch (keeps scrolling smooth)
+  var lite = window.matchMedia && window.matchMedia("(max-width: 34rem), (pointer: coarse)").matches;
+  var busyUntil = 0;
   var active = 0;
 
   function panelOf(t) { return document.getElementById(t.getAttribute("aria-controls")); }
@@ -98,6 +101,12 @@
     hill.v += a * dt;
     hill.x += hill.v * dt;
     draw();
+    // lite: stop once the switch has settled; the next switch starts it again
+    if (lite && performance.now() > busyUntil &&
+        Math.abs(hill.v) < 1 && Math.abs(hill.target - hill.x) < 0.5) {
+      running = false;
+      return;
+    }
     requestAnimationFrame(frame);
   }
 
@@ -132,6 +141,7 @@
     });
     active = i;
     moveHill(x1, opts.quiet);
+    if (!opts.quiet) { busyUntil = performance.now() + 1200; start(); }
     if (opts.focus) tabs[i].focus();
     if (!animate) return;
 
