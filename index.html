@@ -9,6 +9,9 @@
       content="Roberto Infante — studying how humans and machines move from uncertainty to committed decisions."
     />
     <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -43,28 +46,34 @@
       <!-- Tabs -->
       <nav class="tabs" aria-label="Sections">
         <a class="tab active" href="index.html" aria-current="page">Home</a>
-        <a class="tab" href="why-phd.html">Why a PhD?</a>
         <a class="tab" href="my-phd.html">My PhD</a>
         <a class="tab" href="outside-the-lab.html">Outside the lab</a>
+        <a class="tab" href="why-phd.html">Why a PhD?</a>
       </nav>
 
       <!-- Research statement -->
       <section>
-        <p class="lede">
-          <strong
-            >I study awareness of unawareness in sequential decision making,
-            with a focus on recognition of insufficiency: how humans and
-            machines recognize that their currently available possibilities may
-            be insufficient before necessarily knowing what is missing.</strong
-          >
-          I am interested in what cues from ongoing reasoning support this
-          recognition, how it affects cognitive control, and whether similar
-          mechanisms exist in language models. I build
-          <strong>controlled, species-fair tasks</strong> that go beyond final
-          accuracy to compare how humans and machines reach an answer.
+        <p class="lede lede-big">
+          I study <strong>awareness of unawareness</strong> in human and machine
+          reasoning, with a focus on <strong>recognition of insufficiency</strong>:
+          <strong>how a reasoner recognizes that the information available may
+          not be enough for the task, even before it can identify what is
+          missing.</strong>
+        </p>
+        <p class="lede lede-big">
+          I am interested in whether this recognition can be distinguished from
+          uncertainty, what cues support it during ongoing reasoning, and how
+          it develops into a control signal for sequential decisions about
+          whether to continue searching or act.
+        </p>
+        <p class="lede lede-big">
+          I build <strong>controlled, matched tasks</strong> that go beyond
+          final accuracy to compare how humans and language models monitor and
+          regulate their reasoning.
         </p>
       </section>
       <section>
+        <br />
         <br />
         <br />
       </section>
@@ -89,20 +98,14 @@
           </h2>
         </div>
         <p>
-          Clusterwords is a controlled semantic reasoning task in which humans
-          and machines identify groups of words linked by a common relation (NYT
-          Connections). It lets us manipulate the information and structure of
-          the problem while measuring how possibilities are generated, revised,
-          and committed to over time.
-        </p>
-        <p>
-          Using Clusterwords, I want to study how information from ongoing
-          reasoning affects recognition of insufficiency, cognitive control,
-          confidence, search, and commitment.
-          <br />
+          Clusterwords is a controlled semantic reasoning task based on
+          Connections, designed for species-fair comparison of human and machine
+          reasoning. Humans and language models receive matched problems and
+          controlled word meanings, allowing us to manipulate information
+          sufficiency and answer uncertainty separately.
         </p>
         <!-- quick play: the 2×2 probe -->
-        <div class="game" aria-label="Clusterwords 2×2 probe">
+        <div class="game drawn" aria-label="Clusterwords 2×2 probe">
           <div class="game-bar">
             <span class="game-hint"
               >Four words. Pick the two that belong together — then say
@@ -110,7 +113,15 @@
             >
             <span class="game-status" id="cw-status"></span>
           </div>
-          <div class="game-grid two" id="cw-grid"></div>
+          <!-- the board, drawn like tic-tac-toe: words in the four squares,
+               two hand-drawn strokes between them -->
+          <div class="ttt">
+            <div class="game-grid two" id="cw-grid"></div>
+            <svg class="ttt-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M50.8 2 C 49.2 28, 51.6 70, 49.6 98" />
+              <path d="M2 49.4 C 28 51.4, 72 47.8, 98 50.8" />
+            </svg>
+          </div>
           <label class="game-why" for="cw-why">
             <span>Why these two?</span>
             <input
@@ -139,64 +150,127 @@
       </section>
       <br />
       <p>
-        Currently engineering an automatic board-generation pipeline for
-        Clusterwords to create novel Connections-like problems at scale and
-        collect reasoning and decision-making data from humans and language
-        models.
+        I am building an automatic board-generation pipeline to create novel,
+        controlled problems at scale. Later experiments extend the task to
+        sequential reasoning and information seeking.
       </p>
-      <p>
-        Difficulty is manipulated along two independent axes: combinatorial
-        (board size) and semantic (structure, margin, distractors). Boards are
-        machine-generated to reduce overlap with any model's training data.
-      </p>
-      <p></p>
 
-      <!-- Working papers -->
-      <section>
-        <h2>Working papers</h2>
-        <p class="entry-head">
-          <a href="assets/gentags-preprint.pdf"
-            >Gentags: Discrete Semantic State for Constraint-Sensitive Decision
-            Pipelines</a
-          >
-          <span class="date">2025 – 2026</span>
-        </p>
-        <p>
-          First-author preprint introducing Gentags, a representation that
-          compresses source text into short, evidence-grounded semantic units
-          used as inspectable intermediate state in LLM decision pipelines. In a
-          controlled study isolating representation structure, Gentags raised
-          agreement with full-evidence decisions to 79.5% (vs. 52.3–61.6% for
-          RAKE/YAKE/TF-IDF) and hard-constraint satisfaction to 97.3% (vs.
-          84.7–89.3%). [<a href="assets/gentags-preprint.pdf">PDF</a>]
-        </p>
-      </section>
+      <!-- Working papers / Other projects / Background as three "cells".
+           One is always open; picking another makes it swell, the others
+           shrink, and its content buds out underneath. Logic: cells.js -->
+      <section class="cells-block">
+        <svg class="goo-defs" width="0" height="0" aria-hidden="true" focusable="false">
+          <filter id="goo" x="-20%" y="-60%" width="140%" height="220%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          </filter>
+        </svg>
 
-      <!-- Other projects -->
-      <section>
-        <h2>Other projects</h2>
-        <p class="entry-head">
-          <a href="https://github.com/rdji20/dynamic-information"
-            >Dynamic Information</a
-          >
-          <span class="date">2024</span>
-        </p>
-        <p>
-          An LLM agent that builds and self-updates a knowledge/decision graph
-          with an explicit hypothesis structure for Bayesian-style reasoning.
-          Its limits motivated the shift to studying commitment under
-          uncertainty directly.
-        </p>
-        <p class="entry-head">
-          Recommendation System &amp; Smart Filters — UW MSIM Capstone (sponsor
-          &amp; lead)
-          <span class="date">2025 – 2026</span>
-        </p>
-        <p>
-          Directed two capstone teams applying the Gentags approach to a live
-          product, shipping a recommendation system and categorical/nudging
-          filters now in production.
-        </p>
+        <div class="cells" id="cells">
+          <!-- everything in here is fused by the goo filter -->
+          <div class="cells-goo" aria-hidden="true">
+            <div class="cell-shapes">
+              <span class="cell-shape active" data-for="papers"></span>
+              <span class="cell-shape" data-for="projects"></span>
+              <span class="cell-shape" data-for="background"></span>
+            </div>
+            <span class="cell-drop"></span>
+            <svg class="panel-wave" preserveAspectRatio="none"><path /></svg>
+          </div>
+          <div class="cells-row" role="tablist" aria-label="More about my work">
+            <button type="button" class="cell active" role="tab" id="cell-papers" data-key="papers" aria-controls="panel-papers" aria-selected="true">Working papers</button>
+            <button type="button" class="cell" role="tab" id="cell-projects" data-key="projects" aria-controls="panel-projects" aria-selected="false">Other projects</button>
+            <button type="button" class="cell" role="tab" id="cell-background" data-key="background" aria-controls="panel-background" aria-selected="false">Background</button>
+          </div>
+
+          <div class="cell-panels">
+            <div class="cell-panel" role="tabpanel" id="panel-papers" aria-labelledby="cell-papers">
+              <p class="entry-head">
+                <a href="assets/gentags-preprint.pdf"
+                  >Gentags: Discrete Semantic State for Constraint-Sensitive Decision
+                  Pipelines</a
+                >
+                <span class="date">2025 – 2026</span>
+              </p>
+              <p>
+                First-author preprint introducing Gentags, a representation that
+                compresses source text into short, evidence-grounded semantic units
+                used as inspectable intermediate state in LLM decision pipelines. In a
+                controlled study isolating representation structure, Gentags raised
+                agreement with full-evidence decisions to 79.5% (vs. 52.3–61.6% for
+                RAKE/YAKE/TF-IDF) and hard-constraint satisfaction to 97.3% (vs.
+                84.7–89.3%). [<a href="assets/gentags-preprint.pdf">PDF</a>]
+              </p>
+            </div>
+
+            <div class="cell-panel" role="tabpanel" id="panel-projects" aria-labelledby="cell-projects" hidden>
+              <p class="entry-head">
+                <a href="https://github.com/rdji20/dynamic-information"
+                  >Dynamic Information</a
+                >
+                <span class="date">2024</span>
+              </p>
+              <p>
+                An LLM agent that builds and self-updates a knowledge/decision graph
+                with an explicit hypothesis structure for Bayesian-style reasoning.
+                Its limits motivated the shift to studying commitment under
+                uncertainty directly.
+              </p>
+              <p class="entry-head">
+                Recommendation System &amp; Smart Filters — UW MSIM Capstone (sponsor
+                &amp; lead)
+                <span class="date">2025 – 2026</span>
+              </p>
+              <p>
+                Directed two capstone teams applying the Gentags approach to a live
+                product, shipping a recommendation system and categorical/nudging
+                filters now in production.
+              </p>
+            </div>
+
+            <div class="cell-panel" role="tabpanel" id="panel-background" aria-labelledby="cell-background" hidden>
+              <p class="sub">
+                Previously I built and shipped data-driven products end to end as a
+                technical founder. I am now moving into research in computational
+                cognition.
+              </p>
+              <ul class="bg">
+                <li>
+                  <strong
+                    >Principal PM (Consultant) — Kerma Games — Monterrey, MX &amp;
+                    Boston, MA</strong
+                  >
+                  <span class="date">Jun 2026 – Current</span><br />
+                  Lead the end-to-end product development and release of live casino
+                  games, launching a live Blackjack product for Rebet Casino that
+                  generated 250K dlls in turnover during its first week. Own the full
+                  live-gaming product ecosystem, spanning physical casino tables,
+                  cameras, sensors, card/deck tracking, video streaming, dealer
+                  controls, player-facing UX/UI, and correct game statistics.
+                </li>
+                <li>
+                  <strong>Co-founder, Software Engineering — Voraa.</strong> Founder
+                  and sole developer of a B2B2C mobile app for Restaurant discounts
+                  subscription. Leading user experience data analysis and user
+                  interviews for experience enhancement.
+                </li>
+                <li>
+                  <strong>Python Engineer (freelance) — Saba.</strong> Migrated a
+                  public-opinion analytics platform from SPSS/R to Python with
+                  automated, real-time reporting.
+                </li>
+                <li>
+                  <strong
+                    >University of Washington. B.S. Information Sciences, Data
+                    Science. -
+                  </strong>
+                  M.S. Information Management, AI (on leave) ·
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- Reading -->
@@ -234,60 +308,31 @@
                 <span class="deck-pad" aria-hidden="true"></span>
               </div>
             </div>
+            <!-- a cartoon hand (lab-coat sleeve) that closes / opens the lid -->
+            <button type="button" class="lab-hand" id="lab-hand" aria-label="Close the laptop">
+              <svg viewBox="0 0 60 160" aria-hidden="true">
+                <path class="lh-sleeve" d="M14 0 L14 97 C 22 100, 38 100, 46 97 L46 0 Z" />
+                <path class="lh-fold" d="M30 8 C 31 38, 28.5 66, 31 92" />
+                <path class="lh-line" d="M14 0 L14 97 M46 0 L46 97" />
+                <rect class="lh-cuff" x="12.5" y="93" width="35" height="14" rx="4" />
+                <path class="lh-skin" d="M20 107 C 19 113, 18 117, 17 120 C 12 124, 8 131, 9 137 C 10 142, 14 142, 17 138 C 19 134, 20 132, 21 133 L 21 147 C 21 153, 26 153, 26 147.5 L 26.5 149.5 C 27 156, 32 156, 32 150 L 32.5 150 C 33 155, 38 155, 38 149 L 38.5 147 C 39 151, 43.5 151, 43.5 145.5 C 44.5 137, 45 121, 42 107 Z" />
+                <path class="lh-crease" d="M26.3 147.5 L26 138 M32.3 150 L32 139 M38.3 148 L38 139 M24 125 C 28 127, 34 127, 38 124" />
+              </svg>
+            </button>
           </div>
           <div class="shelf-ledge" aria-hidden="true"></div>
         </div>
         <div class="book-detail" id="book-detail" hidden></div>
 
-        <!-- Papers: simple paginated list -->
-        <p class="mini-h">
-          Papers
-          <span class="mini-hint">— pick one to open it on the laptop</span>
-        </p>
-        <div class="papers-list" id="papers-list"></div>
-      </section>
-
-      <!-- Background -->
-      <section>
-        <h2>Background</h2>
-        <p class="sub">
-          Previously I built and shipped data-driven products end to end as a
-          technical founder. I am now moving into research in computational
-          cognition.
-        </p>
-        <ul class="bg">
-          <li>
-            <strong
-              >Principal PM (Consultant) — Kerma Games — Monterrey, MX &amp;
-              Boston, MA</strong
-            >
-            <span class="date">Jun 2026 – Current</span><br />
-            Lead the end-to-end product development and release of live casino
-            games, launching a live Blackjack product for Rebet Casino that
-            generated 250K dlls in turnover during its first week. Own the full
-            live-gaming product ecosystem, spanning physical casino tables,
-            cameras, sensors, card/deck tracking, video streaming, dealer
-            controls, player-facing UX/UI, and correct game statistics.
-          </li>
-          <li>
-            <strong>Co-founder, Software Engineering — Voraa.</strong> Founder
-            and sole developer of a B2B2C mobile app for Restaurant discounts
-            subscription. Leading user experience data analysis and user
-            interviews for experience enhancement.
-          </li>
-          <li>
-            <strong>Python Engineer (freelance) — Saba.</strong> Migrated a
-            public-opinion analytics platform from SPSS/R to Python with
-            automated, real-time reporting.
-          </li>
-          <li>
-            <strong
-              >University of Washington. B.S. Information Sciences, Data
-              Science. -
-            </strong>
-            M.S. Information Management, AI (on leave) ·
-          </li>
-        </ul>
+        <!-- Papers: flip through them on the laptop with the arrow keys -->
+        <div class="key-hint" id="key-hint">
+          <span class="key-caps">
+            <button type="button" class="kbd" id="key-prev" aria-label="Previous paper">&#8592;</button>
+            <button type="button" class="kbd" id="key-next" aria-label="Next paper">&#8594;</button>
+          </span>
+          <span class="key-count" id="key-count" aria-live="polite"></span>
+          <span class="key-text">press the arrow keys to change the paper on the laptop, click the screen to open it</span>
+        </div>
       </section>
 
       <footer>
@@ -302,5 +347,6 @@
     <script src="boards.js"></script>
     <script src="bookshelf.js"></script>
     <script src="papers.js"></script>
+    <script src="cells.js"></script>
   </body>
 </html>

@@ -3,16 +3,19 @@
 
 :root {
   --violet: #4B2E83;   /* Clusterwords accent, used sparingly */
+  --orange: #E77500;   /* Princeton orange, the cells on the home page */
   --cyc: 1.75s;        /* one juggle cycle — everything in scene 1 shares it */
+  --sans: 'Roboto', -apple-system, system-ui, sans-serif;   /* reading text + UI */
+  --serif: Georgia, 'Times New Roman', serif;                /* formulas, figures, props */
 }
 
 body {
   max-width: 42rem;
   margin: 3.5rem auto;
   padding: 0 1.25rem;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 17px;
-  line-height: 1.6;
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.75;
   color: #1a1a1a;
   background: #fff;
 }
@@ -23,7 +26,7 @@ body {
   gap: 1.75rem;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 1.75rem;
+  margin-bottom: 3rem;
 }
 .masthead-text { min-width: 0; }
 .avatar {
@@ -51,7 +54,7 @@ h1 {
   border-bottom: 1px solid #e2e2e2;
 }
 .tab {
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: .9rem;
   color: #777;
   text-decoration: none;
@@ -67,8 +70,9 @@ h1 {
 }
 
 /* ---------- Text ---------- */
-p { margin: 0 0 .9rem; }
+p { margin: 0 0 1.1rem; }
 .lede { font-size: 1.12rem; }
+.lede-big { font-size: 24px; line-height: 1.45; margin-bottom: 1.3rem; }
 .sub { color: #555; }
 
 h2 {
@@ -152,7 +156,7 @@ footer a { color: #777; }
 
 /* ---------- Simple figures (My PhD) ---------- */
 .formula {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--serif);
   font-style: italic;
   font-size: 1.1rem;
   text-align: center;
@@ -205,7 +209,7 @@ footer a { color: #777; }
   gap: 1rem;
   align-items: baseline;
   margin-bottom: .7rem;
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: .82rem;
 }
 .game-hint { color: #6b6580; }
@@ -223,7 +227,7 @@ footer a { color: #777; }
   border-radius: 6px;
   background: #fff;
   cursor: pointer;
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: .95rem;
   color: #2a2440;
   text-transform: lowercase;
@@ -244,7 +248,7 @@ footer a { color: #777; }
   align-items: center;
   gap: .6rem;
   margin: .8rem 0 0;
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: .82rem;
   color: #6b6580;
 }
@@ -264,7 +268,7 @@ footer a { color: #777; }
   margin-top: .9rem;
   padding-top: .8rem;
   border-top: 1px solid #e4e0ee;
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: .82rem;
   color: #4a4560;
 }
@@ -282,7 +286,7 @@ footer a { color: #777; }
   flex-wrap: wrap;
 }
 .game-btn {
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: .82rem;
   padding: .35rem .9rem;
   border: 1px solid var(--violet);
@@ -294,7 +298,7 @@ footer a { color: #777; }
 .game-btn.ghost { background: #fff; color: var(--violet); }
 .game-link {
   margin-left: auto;
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: .82rem;
 }
 
@@ -305,7 +309,7 @@ footer a { color: #777; }
   display: flex;
   align-items: flex-end;
   gap: 10px;
-  margin-top: 1rem;
+  margin-top: 3rem;          /* headroom for the hand that hangs over the laptop */
   padding: 0.3rem 0 12px;   /* bottom padding = ledge height */
   perspective: 900px;
 }
@@ -429,7 +433,7 @@ footer a { color: #777; }
 /* small section subheadings inside Reading */
 .mini-h {
   margin: 1.9rem 0 .6rem;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--sans);
   font-size: 1.05rem;
   font-style: italic;
   color: #444;
@@ -566,69 +570,51 @@ footer a { color: #777; }
   background: rgba(0, 0, 0, 0.12);
 }
 
-/* ---------- papers: simple paginated table ---------- */
-.papers-list { padding: .2rem 0 1rem; }
-.papers-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  font-family: Georgia, serif;
-  border: 1px solid #e2e2e2;
-}
-.papers-table tr { cursor: pointer; }
-.papers-table td {
-  padding: .5rem .7rem;
-  vertical-align: middle;
-  border: 1px solid #e2e2e2;
-}
-.pt-title {
-  font-size: .95rem;
-  line-height: 1.3;
-  color: #1a1a1a;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
-.pt-type {
-  width: 4.5rem;
-  text-align: center;
-  font-size: .82rem;
-  color: #8a8a8a;
-  white-space: nowrap;
-}
-.pt-status {
-  width: 5.5rem;
-  text-align: right;
-  font-style: italic;
-  font-size: .82rem;
-  color: #9a9a9a;
-  white-space: nowrap;
-}
-.papers-table tr:hover .pt-title,
-.papers-table tr.active .pt-title { text-decoration: underline; text-underline-offset: .15em; }
-.papers-table tr.active .pt-title { font-weight: 600; }
-/* read: green · reading: default · queue: grayed */
-.papers-table tr.status-read .pt-title { color: #2f6b4a; }
-.papers-table tr.status-queue .pt-title { color: #9a9a9a; }
-
-/* pagination */
-.papers-pager {
+/* ---------- papers: flip with the arrow keys ---------- */
+.key-hint {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: .7rem .2rem 0;
-}
-.pager-btn {
-  font-family: Georgia, serif;
+  gap: .7rem;
+  flex-wrap: wrap;
+  margin: 1.1rem 0 .4rem;
+  font-family: var(--sans);
   font-size: .85rem;
-  color: #1a1a1a;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+  color: #6b6580;
 }
-.pager-btn:hover:not(:disabled) { text-decoration: underline; }
-.pager-btn:disabled { color: #c0c0c0; cursor: default; }
-.pager-info { font-family: Georgia, serif; font-size: .82rem; color: #999; }
+.key-caps { display: inline-flex; gap: .3rem; }
+.kbd {
+  font: inherit;
+  font-size: .95rem;
+  line-height: 1;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #2a2440;
+  background: linear-gradient(#fff, #f1eff7);
+  border: 1px solid #cfc8e0;
+  border-radius: 6px;
+  box-shadow: 0 2px 0 #cfc8e0;
+  cursor: pointer;
+  padding: 0;
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.kbd:hover { border-color: var(--violet); }
+.kbd:active, .kbd.down { transform: translateY(2px); box-shadow: 0 0 0 #cfc8e0; }
+/* idle nudge: the two caps take turns tapping until the user uses them */
+.key-hint:not(.used) #key-prev { animation: key-tap 3.6s ease-in-out infinite; }
+.key-hint:not(.used) #key-next { animation: key-tap 3.6s ease-in-out infinite 1.8s; }
+@keyframes key-tap {
+  0%, 7%, 100% { transform: none; box-shadow: 0 2px 0 #cfc8e0; }
+  2.5%, 4.5% { transform: translateY(2px); box-shadow: 0 0 0 #cfc8e0; }
+}
+.key-count { color: #999; font-variant-numeric: tabular-nums; min-width: 3.2rem; }
+@media (prefers-reduced-motion: reduce) {
+  .key-hint #key-prev, .key-hint #key-next { animation: none; }
+}
+/* the screen blinks while the paper changes */
+.screen-face.swap { opacity: 0; transition: opacity .1s ease; }
 
 /* favorite star */
 .fav { color: #c79a36; font-style: normal; }
@@ -658,10 +644,11 @@ footer a { color: #777; }
 /* husky on the left, the line about it on the right — no card, no background */
 .pitch {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  --art: 170px;            /* width of each animated scene */
+  grid-template-columns: var(--art) minmax(0, 1fr);
   align-items: center;
-  gap: 1.4rem;
-  margin: .4rem 0 1.2rem;
+  gap: 1.6rem;
+  margin: .4rem 0 1.6rem;
   cursor: pointer;
 }
 .pitch-svg {
@@ -674,7 +661,7 @@ footer a { color: #777; }
 .pitch-cap strong { color: #1a1a1a; }
 .pitch-nudge {
   display: block;
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: .76rem;
   color: #a29cb3;
   margin-top: .5rem;
@@ -818,7 +805,7 @@ footer a { color: #777; }
 .hk4 .hk-blink { animation-duration: 8.7s; animation-delay: -3.1s; }
 
 /* ---------- scene 2: coffee ---------- */
-.pitch.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); cursor: default; }
+.pitch.flip { grid-template-columns: minmax(0, 1fr) var(--art); cursor: default; }
 .pitch.flip .pitch-svg { order: 2; }
 .pitch.flip .pitch-cap { order: 1; }
 
@@ -933,6 +920,7 @@ footer a { color: #777; }
   .tabs { flex-wrap: wrap; gap: .5rem 1rem; }
   .tab { white-space: nowrap; }
   .pitch, .pitch.flip { grid-template-columns: 1fr; gap: .5rem; }
+  .pitch-svg { width: 150px; }
   .pitch.flip .pitch-svg { order: 1; }
   .pitch.flip .pitch-cap { order: 2; }
   .cap-br { display: none; }
@@ -953,4 +941,297 @@ footer a { color: #777; }
   /* with the cut frozen, show one channel rather than all three stacked */
   .tv-b, .tv-c { opacity: 0; }
   .steam { opacity: .5; }
+}
+
+/* ---------- small matrices / tables (My PhD) ---------- */
+.mtx {
+  width: 100%;
+  border-collapse: collapse;
+  margin: .6rem 0 1rem;
+  font-size: .92rem;
+  line-height: 1.4;
+}
+.mtx th, .mtx td {
+  border: 1px solid #e2e2e2;
+  padding: .45rem .6rem;
+  vertical-align: top;
+  text-align: left;
+}
+.mtx thead th { font-weight: 600; background: #fafafa; }
+.mtx tbody th { font-weight: 600; white-space: nowrap; color: #333; }
+
+/* ---------- cells: working papers / other projects / background ----------
+   One liquid body: the three cells, a stem, and the panel are all drawn in
+   .cells-goo, which the #goo filter (blur + alpha threshold) fuses together.
+   The real buttons and text sit on top, unfiltered. Motion lives in cells.js. */
+.cells-block { margin: 150px 0 4.5rem; }   /* same gap above as the intro -> Clusterwords gap; room for Reading below */
+.goo-defs { position: absolute; width: 0; height: 0; }
+
+.cells {
+  --grow-on: 2.4;          /* how much the open cell swells (cells.js reads this) */
+  --row-h: 52px;
+  --gap-y: 16px;           /* cells -> panel; only the stem bridges it */
+  --cell-tint: #fbe4cc;
+  --panel-tint: #fff5eb;
+  --jelly: cubic-bezier(.4, 1.6, .4, 1);
+  position: relative;
+  padding-top: calc(var(--row-h) + var(--gap-y));   /* room for the cells row */
+}
+.cells-goo {
+  position: absolute;
+  inset: 0;
+  filter: url(#goo);
+  pointer-events: none;
+}
+.cell-shapes,
+.cells-row {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--row-h);
+  display: flex;
+  gap: 4px;                /* close enough for neighbours to fuse */
+}
+.cells-row { z-index: 1; }
+
+.cell-shape,
+.cell {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0 .8rem;        /* same on both layers so blob and label widths match */
+}
+.cell-shape.active,
+.cell.active { flex-grow: var(--grow-on); }
+
+/* the blobs: breathe on their own, each at its own pace */
+.cell-shape {
+  display: block;
+  border-radius: 999px;
+  background: var(--cell-tint);
+  transition: flex-grow .85s var(--jelly), background .35s ease;
+  animation: cell-breathe 3.4s ease-in-out infinite;
+}
+.cell-shape:nth-child(2) { animation-duration: 3.9s; animation-delay: -1.3s; }
+.cell-shape:nth-child(3) { animation-duration: 4.5s; animation-delay: -2.6s; }
+.cell-shape.hover { background: #f8d2ab; }
+.cell-shape.active {
+  background: var(--orange);
+  transition-delay: 0s, .3s;   /* the colour arrives with the drop */
+}
+@keyframes cell-breathe {
+  0%, 100% { scale: 1 1;         translate: 0 0; }
+  50%      { scale: 1.012 1.08;  translate: 0 -1px; }
+}
+
+/* a drop of orange that flows from the old cell to the new one */
+.cell-drop {
+  position: absolute;
+  top: 8px; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--orange);
+  opacity: 0;
+}
+
+/* the panel's body: a liquid surface drawn in cells.js. Its top edge
+   ripples and rises into a hill under the open cell, which the goo
+   filter fuses into a smooth neck. */
+.panel-wave {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  top: calc(var(--row-h) - 12px);   /* reaches up so the hill can touch the cell */
+  width: 100%;
+  height: calc(100% - var(--row-h) + 12px);
+  overflow: visible;
+}
+.panel-wave path { fill: var(--panel-tint); }
+
+/* labels */
+.cell {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: .95rem;
+  font-weight: 500;
+  color: #8f4700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: flex-grow .85s var(--jelly), color .3s ease;
+}
+.cell.active {
+  color: #1a1a1a;             /* black on Princeton orange, like their own branding */
+  font-weight: 600;
+  cursor: default;
+  transition-delay: 0s, .3s;
+}
+.cell:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 3px; }
+
+/* panels sit on the blob; their box sloshes to each new height */
+.cell-panels {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: height .65s cubic-bezier(.4, 1.35, .5, 1);
+}
+.cell-panel { padding: 1.3rem 1.4rem .4rem; }
+.cell-panel[hidden] { display: none; }
+.cell-panel.enter { animation: cell-bud .65s cubic-bezier(.3, 1, .4, 1); }
+@keyframes cell-bud {
+  from { clip-path: circle(0 at var(--ox, 50%) 0); opacity: .3; transform: translateY(6px); }
+  to   { clip-path: circle(150% at var(--ox, 50%) 0); opacity: 1; transform: none; }
+}
+.cell-panel ul.bg { margin-bottom: 1rem; }
+
+@media (max-width: 32rem) {
+  .cells { --grow-on: 1.7; }
+  .cell-shape, .cell { padding: 0 .45rem; }
+  .cell { font-size: .8rem; white-space: normal; line-height: 1.15; }
+  .cell-panel { padding: 1.1rem 1rem .3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cell-shape, .cell, .cell-panels { transition: none; }
+  .cell-shape, .cell-panel.enter { animation: none; }
+}
+
+/* ---------- the 2x2 probe, drawn: black strokes, no fill, centred ---------- */
+.game.drawn {
+  background: none;
+  border: 0;
+  padding: .4rem 0 0;
+  text-align: center;
+}
+.game.drawn .game-bar {
+  flex-direction: column;
+  align-items: center;
+  gap: .2rem;
+  margin-bottom: 1rem;
+}
+.game.drawn .game-hint { color: #555; font-size: .9rem; }
+.game.drawn .game-status { color: #1a1a1a; text-align: center; min-height: 1.2em; }
+
+.ttt {
+  position: relative;
+  width: min(20rem, 100%);
+  margin: 0 auto;
+}
+.game.drawn .game-grid.two { max-width: none; gap: 0; }
+.ttt-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+.ttt-lines path {
+  fill: none;
+  stroke: #1a1a1a;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.game.drawn .tile {
+  position: relative;
+  min-height: 4.6rem;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: #1a1a1a;
+  font-size: 1.15rem;
+  transform: none;
+}
+.game.drawn .tile:hover { color: #000; text-decoration: underline; text-underline-offset: .2em; }
+.game.drawn .tile:focus-visible { outline: 2px dashed #1a1a1a; outline-offset: -8px; }
+/* picked: a hand-drawn O around the word */
+.game.drawn .tile.sel { background: none; color: #1a1a1a; font-weight: 600; transform: none; }
+.game.drawn .tile.sel::after,
+.game.drawn .tile.pairb::after {
+  content: "";
+  position: absolute;
+  inset: 16% 14%;
+  border: 2.2px solid #1a1a1a;
+  border-radius: 48% 52% 44% 56% / 56% 44% 54% 46%;
+  transform: rotate(-4deg);
+  pointer-events: none;
+}
+/* the leftover pair once two are picked: a lighter, dashed O */
+.game.drawn .tile.pairb { color: #777; }
+.game.drawn .tile.pairb::after { border: 1.6px dashed #9a9a9a; transform: rotate(3deg); }
+
+.game.drawn .game-why {
+  justify-content: center;
+  margin-top: 1.2rem;
+  color: #555;
+}
+.game.drawn .game-why input {
+  flex: 0 1 16rem;
+  border: 0;
+  border-bottom: 1.6px solid #1a1a1a;
+  border-radius: 0;
+  background: none;
+  padding: .2rem .1rem;
+  text-align: center;
+}
+.game.drawn .game-why input:focus { outline: none; border-bottom-width: 2.4px; }
+
+.game.drawn .game-actions { justify-content: center; margin-top: 1.1rem; }
+.game.drawn .game-btn,
+.game.drawn .game-btn.ghost {
+  background: none;
+  color: #1a1a1a;
+  border: 1.6px solid #1a1a1a;
+  border-radius: 6px;
+}
+.game.drawn .game-btn:not(.ghost) { font-weight: 600; }
+.game.drawn .game-btn:hover { background: #1a1a1a; color: #fff; }
+.game.drawn .game-link { margin-left: 0; flex-basis: 100%; margin-top: .3rem; }
+
+.game.drawn .game-result {
+  border-top: 1.6px solid #1a1a1a;
+  color: #333;
+  max-width: 30rem;
+  margin: 1.2rem auto 0;
+  text-align: left;
+}
+.game.drawn .game-result .res-bar { color: #1a1a1a; }
+.game.drawn .game-result .res-note { color: #555; }
+
+/* ---------- the hand next to the laptop ---------- */
+.lab-hand {
+  position: absolute;
+  right: 18px;
+  bottom: calc(100% + 6px);      /* hangs just above the lid */
+  width: 44px;
+  height: 117px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transform-origin: 50% 0;
+  z-index: 3;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 34px);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 34px);   /* the sleeve fades in from above */
+}
+.lab-hand svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.lab-hand:focus-visible { outline: 2px dashed #1a1a1a; outline-offset: 2px; }
+.lab-hand:hover svg { transform: translateY(3px); transition: transform .2s ease; }
+.lh-sleeve { fill: #f4f5f7; }
+.lh-fold   { fill: none; stroke: #c9ccd3; stroke-width: 1.6; stroke-linecap: round; }
+.lh-line, .lh-cuff, .lh-skin {
+  stroke: #262626;
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.lh-line   { fill: none; }
+.lh-cuff   { fill: #a9d8ea; }
+.lh-skin   { fill: #ecd8c2; }
+.lh-crease { fill: none; stroke: #8f7a66; stroke-width: 1.3; stroke-linecap: round; }
+@media (max-width: 32rem) {
+  .lab-hand { right: 12px; width: 36px; height: 96px; }
 }

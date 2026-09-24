@@ -7,6 +7,8 @@
    placeholder; swap in the real up-next titles. */
 (function () {
   var BOOKS = [
+    { shelf: "reading", title: "Metacognition", author: "John Dunlosky & Janet Metcalfe", year: 2009, color: "#8a5a2b", h: 180,
+      note: "How people monitor and control their own thinking, memory, and learning." },
     { shelf: "reading", fav: true, title: "A Brief History of Intelligence", author: "Max Bennett", year: 2023, color: "#3a5566", h: 182,
       note: "How evolution built minds, one breakthrough at a time." },
     { shelf: "reading", title: "Overloaded", author: "Ginny Smith", year: 2021, color: "#6b3b4a", h: 168,

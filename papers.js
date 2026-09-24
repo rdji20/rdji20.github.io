@@ -1,6 +1,11 @@
-/* Papers — a laptop that opens to show the selected paper on its screen.
-   Click a paper in a list to open the laptop; click the laptop to go to the
-   paper's link.
+/* Papers — a laptop that shows one paper on its screen.
+   It flips to the next paper on its own every AUTO_MS, like a slideshow.
+   Left / right arrow keys (or the on-screen key caps) flip through the
+   papers; click the laptop to go to the paper's link. The slideshow pauses
+   while the pointer is on the laptop, for a while after the user flips a
+   paper, while the laptop is off screen, and while the lid is shut.
+   A cartoon hand hangs beside the laptop: click it and it pushes the lid
+   shut; click it again (or the closed laptop) and it lifts the lid open.
 
    Edit this list. status ∈ "reading" | "queue" | "read", and every paper
    needs a url. NOTE: starter set from Roberto's Lake-lab application —
@@ -278,107 +283,29 @@
     resource: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/><circle cx="2.5" cy="7" r=".6" fill="currentColor" stroke="none"/><circle cx="2.5" cy="12" r=".6" fill="currentColor" stroke="none"/><circle cx="2.5" cy="17" r=".6" fill="currentColor" stroke="none"/></svg>'
   };
   var TYPE_ALT = { book: "Book", page: "Web page", article: "Article", resource: "Resource" };
-  var PER_PAGE = 5;
-
   var stage = document.getElementById("laptop");
   var screen = document.getElementById("screen");
+  var face = screen && screen.querySelector(".screen-face");
   var elStatus = document.getElementById("screen-status");
   var elTitle = document.getElementById("screen-title");
   var elType = document.getElementById("screen-type");
   var elOpen = document.getElementById("screen-open");
-  var list = document.getElementById("papers-list");
-  if (!stage || !screen || !list) return;
-
-  var current = null;
-  var page = 0;
+  var hint = document.getElementById("key-hint");
+  var keyPrev = document.getElementById("key-prev");
+  var keyNext = document.getElementById("key-next");
+  var keyCount = document.getElementById("key-count");
+  if (!stage || !screen) return;
 
   // papers in display order: read first, then reading, then queue
   var ORDERED = PAPERS
     .map(function (p, i) { return { p: p, i: i }; })
     .sort(function (a, b) { return STATUS_ORDER[a.p.status] - STATUS_ORDER[b.p.status]; });
 
-  function buildList() {
-    list.innerHTML = "";
-    var pages = Math.max(1, Math.ceil(ORDERED.length / PER_PAGE));
-    if (page > pages - 1) page = pages - 1;
-    var start = page * PER_PAGE;
-    var rows = ORDERED.slice(start, start + PER_PAGE);
+  var pos = 0;          // index into ORDERED
+  var opened = false;   // lid already up?
 
-    var table = document.createElement("table");
-    table.className = "papers-table";
-    var tbody = document.createElement("tbody");
-
-    rows.forEach(function (row) {
-      var p = row.p, i = row.i;
-      var tr = document.createElement("tr");
-      tr.className = "status-" + p.status + (current === i ? " active" : "");
-      tr.dataset.i = String(i);
-
-      var tdTitle = document.createElement("td");
-      tdTitle.className = "pt-title";
-      tdTitle.innerHTML = (p.fav ? '<span class="fav">★</span> ' : '') + p.title;
-
-      var tdType = document.createElement("td");
-      tdType.className = "pt-type";
-      tdType.textContent = TYPE[p.type] || "Article";
-
-      var tdStatus = document.createElement("td");
-      tdStatus.className = "pt-status";
-      tdStatus.textContent = SHORT[p.status] || "";
-
-      tr.appendChild(tdTitle);
-      tr.appendChild(tdType);
-      tr.appendChild(tdStatus);
-      tr.addEventListener("click", function () { select(i); });
-      tbody.appendChild(tr);
-    });
-
-    table.appendChild(tbody);
-    list.appendChild(table);
-
-    if (pages > 1) {
-      var nav = document.createElement("div");
-      nav.className = "papers-pager";
-
-      var prev = document.createElement("button");
-      prev.type = "button";
-      prev.className = "pager-btn";
-      prev.textContent = "Prev";
-      prev.disabled = page === 0;
-      prev.addEventListener("click", function () { page--; buildList(); });
-
-      var info = document.createElement("span");
-      info.className = "pager-info";
-      info.textContent = (page + 1) + " / " + pages;
-
-      var next = document.createElement("button");
-      next.type = "button";
-      next.className = "pager-btn";
-      next.textContent = "Next";
-      next.disabled = page >= pages - 1;
-      next.addEventListener("click", function () { page++; buildList(); });
-
-      nav.appendChild(prev);
-      nav.appendChild(info);
-      nav.appendChild(next);
-      list.appendChild(nav);
-    }
-  }
-
-  function markActive() {
-    Array.prototype.forEach.call(list.querySelectorAll("tr.active"),
-      function (r) { r.classList.remove("active"); });
-    if (current != null) {
-      var r = list.querySelector('tr[data-i="' + current + '"]');
-      if (r) r.classList.add("active");
-    }
-  }
-
-  function select(i) {
-    if (current === i) { close(); return; }
-    var p = PAPERS[i];
-    current = i;
-    stage.classList.remove("open");
+  function render() {
+    var p = ORDERED[pos].p;
     elStatus.textContent = LABELS[p.status] || "";
     elTitle.textContent = (p.fav ? "★ " : "") + p.title;
     var ty = p.type || "article";
@@ -386,31 +313,142 @@
     elType.title = TYPE_ALT[ty] || "Article";
     elOpen.textContent = OPEN_LABEL[p.type] || "Open article ↗";
     screen.classList.toggle("unread", p.status === "queue");   // gray if not read
-    markActive();
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () { stage.classList.add("open"); });
-    });
+    if (keyCount) keyCount.textContent = (pos + 1) + " / " + ORDERED.length;
   }
 
-  function close() {
-    current = null;
-    stage.classList.remove("open");
-    screen.classList.remove("unread");
-    markActive();
-    elStatus.textContent = "";
-    elTitle.textContent = "pick a paper →";
-    elType.innerHTML = "";
-    elOpen.textContent = "";
+  function show(i) {
+    pos = (i + ORDERED.length) % ORDERED.length;
+    if (!opened) {
+      // first time: render, then lift the lid
+      render();
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { stage.classList.add("open"); opened = true; });
+      });
+      return;
+    }
+    // afterwards: quick blink of the screen while the paper changes
+    if (face) face.classList.add("swap");
+    setTimeout(function () {
+      render();
+      if (face) face.classList.remove("swap");
+    }, 110);
   }
+
+  function step(d, tapKey) {
+    if (lidClosed) openLid();
+    show(pos + d);
+    holdUntil = Date.now() + HOLD_MS;   // the user is driving; let them read
+    schedule();
+    if (hint) hint.classList.add("used");   // stop the idle key-tap animation
+    if (tapKey) {
+      tapKey.classList.add("down");
+      setTimeout(function () { tapKey.classList.remove("down"); }, 120);
+    }
+  }
+
+  // arrow keys, unless the user is typing somewhere
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    var t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    e.preventDefault();
+    if (e.key === "ArrowLeft") step(-1, keyPrev); else step(1, keyNext);
+  });
+
+  // the on-screen key caps work too (touch / mouse)
+  if (keyPrev) keyPrev.addEventListener("click", function () { step(-1, keyPrev); });
+  if (keyNext) keyNext.addEventListener("click", function () { step(1, keyNext); });
 
   // click the laptop -> open the paper's link
   screen.addEventListener("click", function () {
-    if (current == null) return;
-    var url = PAPERS[current].url;
+    if (lidClosed) return;
+    var url = ORDERED[pos].p.url;
     if (url) window.open(url, "_blank", "noopener");
   });
 
-  buildList();
-  // start with the first paper selected on the laptop
-  if (ORDERED.length) select(ORDERED[0].i);
+  /* ---- slideshow ---- */
+  var AUTO_MS = 5000;            // time on each paper
+  var HOLD_MS = 15000;           // after the user flips, wait this long before resuming
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var timer = null, hovering = false, onScreen = true, holdUntil = 0;
+
+  function schedule() {
+    clearTimeout(timer);
+    if (reduce || hovering || !onScreen || document.hidden || lidClosed) return;
+    var wait = Math.max(AUTO_MS, holdUntil - Date.now());
+    timer = setTimeout(function () { show(pos + 1); schedule(); }, wait);
+  }
+
+  stage.addEventListener("mouseenter", function () { hovering = true; schedule(); });
+  stage.addEventListener("mouseleave", function () { hovering = false; schedule(); });
+  document.addEventListener("visibilitychange", schedule);
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function (es) {
+      onScreen = es[0].isIntersecting;
+      schedule();
+    }).observe(stage);
+  }
+
+  /* ---- the hand: pushes the lid shut, lifts it open ---- */
+  var hand = document.getElementById("lab-hand");
+  var lidClosed = false, busy = false;
+  var HAND_MS = 1400;
+
+  function moveHand(frames) {
+    if (!hand || reduce || typeof hand.animate !== "function") return false;
+    hand.animate(frames, { duration: HAND_MS, easing: "cubic-bezier(.45, 0, .3, 1)" });
+    return true;
+  }
+
+  function closeLid() {
+    if (lidClosed || busy) return;
+    busy = true;
+    lidClosed = true;
+    schedule();
+    var H = screen.offsetHeight;
+    var moving = moveHand([
+      { transform: "none" },
+      { transform: "translate(-6px, 14px) rotate(4deg)", offset: 0.3 },               // reach the top of the lid
+      { transform: "translate(-6px, " + (H + 4) + "px) rotate(8deg)", offset: 0.72 },  // push it down
+      { transform: "none" }                                                          // let go
+    ]);
+    setTimeout(function () { stage.classList.remove("open"); }, moving ? HAND_MS * 0.3 : 0);
+    setTimeout(function () {
+      busy = false;
+      if (hand) hand.setAttribute("aria-label", "Open the laptop");
+    }, moving ? HAND_MS : 0);
+  }
+
+  function openLid() {
+    if (!lidClosed || busy) return;
+    busy = true;
+    var H = screen.offsetHeight;
+    var moving = moveHand([
+      { transform: "none" },
+      { transform: "translate(-6px, " + (H + 6) + "px) rotate(8deg)", offset: 0.35 },  // down to the shut lid
+      { transform: "translate(-6px, 14px) rotate(4deg)", offset: 0.72 },               // lift it up
+      { transform: "none" }
+    ]);
+    setTimeout(function () { stage.classList.add("open"); }, moving ? HAND_MS * 0.35 : 0);
+    setTimeout(function () {
+      busy = false;
+      lidClosed = false;
+      if (hand) hand.setAttribute("aria-label", "Close the laptop");
+      schedule();
+    }, moving ? HAND_MS : 0);
+  }
+
+  if (hand) {
+    hand.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (lidClosed) openLid(); else closeLid();
+    });
+  }
+  // clicking the shut laptop opens it too
+  stage.addEventListener("click", function () { if (lidClosed) openLid(); });
+
+  // start on the first paper
+  show(0);
+  schedule();
 })();
