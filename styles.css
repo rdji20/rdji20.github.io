@@ -1550,3 +1550,14 @@ footer a { color: #777; }
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone; /* each wrapped line gets its own rounded highlight */
 }
+
+/* narrow phones: long source chips may wrap instead of widening the page */
+@media (max-width: 34rem) {
+  .src { max-width: 100%; }
+  .src-multi { white-space: normal; line-height: 1.3; }
+}
+@media (max-width: 34rem) {
+  .cxb-hud { gap: .6rem; flex-wrap: nowrap; }
+  .cxb-meter { width: 58px; }
+  .cxb-who span { display: none; }
+}
