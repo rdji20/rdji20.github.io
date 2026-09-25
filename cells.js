@@ -6,8 +6,9 @@
    ripple, and its top rises into a hill that fuses with the open cell and
    flows to the next one on a spring. Arrow keys are left to the laptop. */
 (function () {
-  var wrap = document.getElementById("cells");
-  if (!wrap) return;
+  Array.prototype.forEach.call(document.querySelectorAll(".cells"), init);
+
+  function init(wrap) {
   var row = wrap.querySelector(".cells-row");
   var tabs = Array.prototype.slice.call(row.querySelectorAll(".cell"));
   var shapes = Array.prototype.slice.call(wrap.querySelectorAll(".cell-shape"));
@@ -229,4 +230,5 @@
   measure();
   open(0, { quiet: true });
   start();
+  }
 })();

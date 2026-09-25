@@ -974,6 +974,10 @@ footer a { color: #777; }
   --gap-y: 16px;           /* cells -> panel; only the stem bridges it */
   --cell-tint: #fbe4cc;
   --panel-tint: #fff5eb;
+  --cell-on: var(--orange);      /* open cell + the travelling drop */
+  --cell-hover: #f8d2ab;
+  --cell-label: #8f4700;
+  --cell-label-on: #1a1a1a;
   --jelly: cubic-bezier(.4, 1.6, .4, 1);
   position: relative;
   padding-top: calc(var(--row-h) + var(--gap-y));   /* room for the cells row */
@@ -1014,9 +1018,9 @@ footer a { color: #777; }
 }
 .cell-shape:nth-child(2) { animation-duration: 3.9s; animation-delay: -1.3s; }
 .cell-shape:nth-child(3) { animation-duration: 4.5s; animation-delay: -2.6s; }
-.cell-shape.hover { background: #f8d2ab; }
+.cell-shape.hover { background: var(--cell-hover); }
 .cell-shape.active {
-  background: var(--orange);
+  background: var(--cell-on);
   transition-delay: 0s, .3s;   /* the colour arrives with the drop */
 }
 @keyframes cell-breathe {
@@ -1030,7 +1034,7 @@ footer a { color: #777; }
   top: 8px; left: 0;
   width: 36px; height: 36px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--cell-on);
   opacity: 0;
 }
 
@@ -1056,7 +1060,7 @@ footer a { color: #777; }
   font-family: var(--sans);
   font-size: .95rem;
   font-weight: 500;
-  color: #8f4700;
+  color: var(--cell-label);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1064,7 +1068,7 @@ footer a { color: #777; }
   transition: flex-grow .85s var(--jelly), color .3s ease;
 }
 .cell.active {
-  color: #1a1a1a;             /* black on Princeton orange, like their own branding */
+  color: var(--cell-label-on);   /* black on Princeton orange, like their own branding */
   font-weight: 600;
   cursor: default;
   transition-delay: 0s, .3s;
@@ -1278,4 +1282,262 @@ footer a { color: #777; }
 /* phones / touch: keep the cells' liquid still unless something is moving */
 @media (max-width: 34rem), (pointer: coarse) {
   .cell-shape { animation: none; }
+}
+
+/* ---------- source chips after a statement (My PhD): logo + source name ---------- */
+.src {
+  display: inline-flex;
+  align-items: center;
+  gap: .38em;
+  margin-left: .15em;
+  padding: .12em .6em .12em .42em;
+  border-radius: 999px;
+  background: #f1f1f3;
+  color: #6b6b6b;
+  font-size: .78em;
+  font-weight: 400;
+  letter-spacing: .01em;
+  line-height: 1.4;
+  text-decoration: none;
+  vertical-align: .08em;
+  white-space: nowrap;
+  transition: background .15s ease, color .15s ease;
+}
+.src img { width: 14px; height: 14px; border-radius: 3px; display: block; }
+.src:hover { background: #e6e6ea; color: #1a1a1a; }
+.src:visited { color: #6b6b6b; }
+
+/* the questions: a soft cream blob, same body as the Working papers panel */
+.q {
+  margin: 1.4rem 0 1.9rem;
+  padding: 1.05rem 1.4rem;
+  background: #fff5eb;
+  border-radius: 22px 30px 20px 28px / 26px 20px 30px 22px;   /* slightly uneven, like the liquid panel */
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+/* ---------- essay pages: more air between blocks ---------- */
+.essay p { margin-bottom: 1.45rem; }
+.essay .sub { margin-top: -.7rem; }
+.essay h2 { margin: 2.8rem 0 1.1rem; }
+.essay h3 { margin: 3.2rem 0 1.1rem; font-size: 1.12rem; }
+.essay .formula {
+  margin: 1.1rem auto 1.7rem;
+  padding: .9rem 1.6rem;
+  line-height: 1.5;
+}
+.essay .wip-alert { margin-bottom: 2.4rem; }
+.essay .essay-list li { margin-bottom: .7rem; }
+
+/* ---------- page meta: label + date pill (My PhD) ---------- */
+.page-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: 0 0 2.4rem;
+  font-family: var(--sans);
+  font-size: .88rem;
+  color: #777;
+}
+.date-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .18rem .7rem .18rem .55rem;
+  border-radius: 999px;
+  background: #fbe4cc;
+  color: #8f4700;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.date-chip svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- purple cells (My PhD: open questions / past work) ---------- */
+.cells.purple {
+  --cell-on: var(--violet);
+  --cell-tint: #e6dff3;
+  --cell-hover: #d8cdee;
+  --panel-tint: #f3effa;
+  --cell-label: var(--violet);
+  --cell-label-on: #fff;
+}
+.cells-block.more-cells { margin: 150px 0 1rem; }   /* same breathing room as on the home page */
+
+/* chip with several logos (e.g. DeepMind + Princeton + Nature) */
+.src-logos { display: inline-flex; }
+.src-logos img { border: 1.5px solid #f1f1f3; border-radius: 50%; background: #fff; }
+.src-logos img + img { margin-left: -5px; }
+
+/* key term, bold in Princeton orange */
+.hl { color: var(--orange); font-weight: 700; }
+
+/* thick orange underline for key phrases */
+.uline {
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 3px;
+  text-underline-offset: .22em;
+  text-decoration-skip-ink: none;
+}
+
+/* a key line inside a paragraph: bigger and bold */
+.big-line { font-size: 1.2em; font-weight: 700; color: #1a1a1a; }
+
+/* ---------- the questions, gathered at the end (My PhD) ---------- */
+.qlist {
+  list-style: none;
+  counter-reset: q;
+  margin: 1.2rem 0 1.8rem;
+  padding: 0;
+}
+.qlist li {
+  counter-increment: q;
+  position: relative;
+  margin-bottom: .8rem;
+  padding: 1rem 1.3rem 1rem 3.4rem;
+  background: #fff5eb;
+  border-radius: 22px 30px 20px 28px / 26px 20px 30px 22px;
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+.qlist li::before {
+  content: counter(q);
+  position: absolute;
+  left: 1.1rem;
+  top: 1rem;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #1a1a1a;
+  font-size: .85rem;
+  font-weight: 700;
+  line-height: 1.55rem;
+  text-align: center;
+}
+
+/* ================= Codex board replay (My PhD) ================= */
+.cxb {
+  margin: 1.8rem 0 2.2rem;
+  padding: 1rem 1rem 1.1rem;
+  background: #fcfaf7;
+  border: 1px solid #efe6db;
+  border-radius: 22px 30px 20px 28px / 26px 20px 30px 22px;
+  font-family: var(--sans);
+}
+.cxb figcaption { margin-top: .8rem; font-size: .75rem; color: #999; text-align: center; font-style: normal; }
+
+.cxb-hud { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: .6rem; }
+.cxb-who { font-size: .85rem; font-weight: 700; color: #1a1a1a; margin-right: auto; }
+.cxb-who span { font-weight: 500; color: #999; margin-left: .35rem; font-size: .78rem; }
+.cxb-energy, .cxb-apples { display: inline-flex; align-items: center; gap: .4rem; transition: opacity .8s ease; }
+.cxb-energy svg { width: 15px; height: 15px; fill: var(--orange); }
+.cxb-meter { width: 110px; height: 9px; border-radius: 999px; background: #efe6db; overflow: hidden; }
+.cxb-fill { display: block; height: 100%; width: 75%; border-radius: 999px; background: var(--orange); transition: width .4s ease; }
+.cxb-num { font-size: .85rem; font-variant-numeric: tabular-nums; min-width: 1.4rem; transition: transform .25s ease, color .25s ease; }
+.cxb-num.tick { transform: scale(1.3); color: #c0392b; }
+.cxb-apples i {
+  display: block; width: 13px; height: 13px; border-radius: 50% 50% 45% 45%;
+  background: #d94c3d; position: relative; box-shadow: inset -2px -2px 0 rgba(0,0,0,.12);
+}
+.cxb-apples i::after { content: ""; position: absolute; left: 6px; top: -4px; width: 2px; height: 5px; border-radius: 2px; background: #6b4a2b; }
+.cxb.stopped .cxb-energy, .cxb.stopped .cxb-apples { opacity: .15; }
+
+/* notices float over the board as a pill (entrance only; removed after a timer) */
+.cxb-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.cxb-pill {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  transform: translate(-50%, 0);
+  z-index: 40;
+  padding: 7px 13px;
+  border: 1px solid rgba(216, 205, 238, 0.8);
+  border-radius: 999px;
+  background: rgba(75, 46, 131, 0.96);            /* site purple */
+  box-shadow: 0 8px 24px rgba(40, 22, 80, 0.38), 0 0 12px rgba(142, 108, 196, 0.35);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: cxb-pill-in 160ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.cxb-pill.stop {                         /* STOP: the same red as the wrong tries */
+  background: rgba(192, 57, 43, 0.96);
+  border-color: rgba(246, 207, 201, 0.85);
+  box-shadow: 0 8px 24px rgba(90, 20, 12, 0.38), 0 0 12px rgba(192, 57, 43, 0.35);
+}
+@keyframes cxb-pill-in {
+  from { transform: translate(-50%, 8px) scale(0.96); opacity: 0; }
+  to   { transform: translate(-50%, 0) scale(1); opacity: 1; }
+}
+@media (max-width: 34rem) { .cxb-pill { white-space: normal; width: max-content; max-width: 88%; text-align: center; } }
+
+.cxb-board { position: relative; }
+.cxb-tile, .cxb-bar {
+  position: absolute; left: 0; top: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform .55s cubic-bezier(.3, 1.2, .5, 1), opacity .3s ease, background .25s ease, box-shadow .25s ease;
+}
+.cxb-tile {
+  padding: 0 3px;
+  background: #f1ece5;
+  color: #2a2a2a;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  line-height: 1.12;
+  text-transform: uppercase;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.cxb-tile, .cxb-bar { box-sizing: border-box; }
+.cxb-tile.long { font-size: 8.3px; letter-spacing: 0; }   /* one long word (MARSHMALLOW) stays on one line */
+.cxb-tile.pick  { background: #fbe4cc; box-shadow: 0 0 0 2px var(--orange) inset; }
+.cxb-tile.wrong { background: #f6cfc9; box-shadow: 0 0 0 2px #c0392b inset; animation: cxb-shake .45s ease; }
+.cxb-tile.gone  { opacity: 0; }
+.cxb-tile.unused { box-shadow: 0 0 0 2px #8e6cc4 inset, 0 0 14px 2px rgba(142,108,196,.55); animation: cxb-glow 1.4s ease-in-out infinite; }
+@keyframes cxb-shake {
+  0%, 100% { translate: 0 0; } 20% { translate: -4px 0; } 40% { translate: 4px 0; } 60% { translate: -3px 0; } 80% { translate: 3px 0; }
+}
+@keyframes cxb-glow { 50% { box-shadow: 0 0 0 2px #8e6cc4 inset, 0 0 4px 0 rgba(142,108,196,.2); } }
+
+.cxb-bar {
+  flex-direction: column; gap: 1px;
+  opacity: 0; scale: .96;
+  color: #1a1a1a;
+  transition: opacity .35s ease, scale .35s ease;
+}
+.cxb-bar.on { opacity: 1; scale: 1; }
+.cxb-bar b { font-size: 10.5px; letter-spacing: .03em; text-transform: uppercase; }
+.cxb-bar small { font-size: 8.5px; color: rgba(0,0,0,.6); letter-spacing: .02em; text-transform: uppercase; }
+.cxb-bar.missed {                       /* never found: one shared orange look, clearly not a solved group */
+  background: #fff5eb;
+  box-shadow: 0 0 0 2px var(--orange) inset;
+  outline: 2px dashed rgba(231, 117, 0, .0);
+  color: #8f4700;
+  background-image: repeating-linear-gradient(135deg, rgba(231,117,0,.10) 0 6px, transparent 6px 12px);
+}
+.cxb-bar.missed small { color: #a4652c; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cxb-tile, .cxb-bar { transition: none; animation: none !important; }
 }

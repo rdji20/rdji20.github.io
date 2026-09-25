@@ -53,1019 +53,1104 @@
 
       <!-- My PhD -->
       <article class="essay">
-        <p class="wip-alert">Currently working on this (September 23, 2026)</p>
+        <p class="page-meta">
+          <span class="date-chip">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            <time datetime="2026-09-24">September 24, 2026</time>
+          </span>
+        </p>
 
         <h2>Recognition of insufficiency during generative reasoning</h2>
 
         <p>
           The broader phenomenon is <strong>awareness of unawareness</strong>:
-          an agent can sense that something relevant may be missing before it
-          knows what is missing.
+          a reasoning system may become sensitive that its current basis is
+          inadequate before it knows what is missing or how to repair it.
         </p>
 
-        <p class="formula">
-          What is insufficiency, how is it different from uncertainty, and can
-          an agent recognize it?
+        <p class="q">
+          How does a reasoning system recognize that its current basis is
+          inadequate, and how does that recognition control what it does next?
+        </p>
+        <p>
+          This means that the system detects a problem before it knows the
+          repair, which we call <strong class="hl">recognition before
+          identification</strong>.
         </p>
 
-        <p>Three objects:</p>
-        <ul class="essay-list">
-          <li>
-            <strong>I</strong>: is the information actually enough for the task?
-            Set by the experiment: I = 0 sufficient, I = 1 insufficient.
-            Insufficient is not the same as difficult.
-          </li>
-          <li>
-            <strong>&Icirc;</strong>: does the agent judge that it is not
-            enough? Comes from the human or model.
-          </li>
-          <li>
-            <strong>&#119984; = (U<sub>&theta;</sub>, U<sub>c</sub>, U<sub>&omega;</sub>)</strong>:
-            uncertainty about knowledge/model, relevant context, and what
-            state or outcome will occur.
-          </li>
-        </ul>
+        <h3>Why would we need such a thing?</h3>
+        <p>
+          Solving the object-level problem is only half of what an autonomous
+          reasoner has to do. It also has to decide whether to commit, continue
+          thinking, retrieve information, ask for help, try another approach,
+          use a tool, or stop.
+        </p>
+        <p>Something has to control that allocation.</p>
+        <p>
+          Confidence already does some of this. Recent work from Google DeepMind
+          and Princeton showed that internal confidence is not merely something
+          models report: manipulating confidence representations changes whether
+          a model answers or abstains. <a class="src src-multi" href="https://www.nature.com/articles/s42256-026-01293-x" target="_blank" rel="noopener" title="Kumaran, Daw et al. (2026). Causal evidence that language models use confidence to drive behaviour. Nature Machine Intelligence. Google DeepMind + Princeton."><span class="src-logos"><img src="https://www.google.com/s2/favicons?domain=deepmind.google&sz=64" alt="" width="14" height="14" loading="lazy" /><img src="https://www.google.com/s2/favicons?domain=princeton.edu&sz=64" alt="" width="14" height="14" loading="lazy" /><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=64" alt="" width="14" height="14" loading="lazy" /></span>Google DeepMind · Princeton · Nature</a>
+        </p>
+        <p>
+          Now, confidence answers questions like <span class="uline">how likely
+          is my current answer to be correct?</span> But there are other
+          questions, such as <span class="uline">is the reasoning process I am
+          currently using capable of resolving this yet?</span>
+        </p>
+        <p>
+          A system can have substantial compute available and still repeatedly
+          pursue the same bad interpretation. More computation is not
+          necessarily what it needs. It may need some signal that the current
+          reasoning is failing to capture something necessary.
+        </p>
 
-        <figure class="figure">
-          <svg
-            viewBox="0 0 700 210"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="The experimental task sets the actual sufficiency state I. Uncertainty and I both feed recognition, which feeds the answer or behavior."
-          >
-            <defs>
-              <marker id="ib" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8" fill="none" stroke="#1a1a1a" stroke-width="1.2" />
-              </marker>
-            </defs>
-            <g font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#1a1a1a">
-              <rect x="30" y="30" width="180" height="44" rx="6" fill="#fafafa" stroke="#1a1a1a" />
-              <text x="120" y="57" text-anchor="middle">experimental task</text>
+        <h3>Recognition before identification</h3>
+        <p>
+          Suppose a language model is solving a semantic problem and repeatedly
+          uses an obvious meaning of a word.
+        </p>
+        <p>
+          The relevant alternative meaning may already exist in the model's
+          parameters but has not become available in the current reasoning.
+        </p>
+        <p>
+          The interesting case is not simply that the model eventually generates
+          another meaning. It is whether, before identifying that meaning, there
+          is evidence that the model has become sensitive to the inadequacy of
+          what it currently has.
+        </p>
+        <p>
+          The model does not yet know that BANK also means X. It may only have
+          something weaker:
+          <strong class="big-line">something about what I am doing is failing
+          to account for the problem.</strong>
+          That is the phenomenon I want to study.
+        </p>
+        <p>
+          Humans have related metacognitive phenomena. Koriat's work on feeling
+          of knowing shows that people can make judgments about unavailable
+          memories before retrieving the target, potentially from partial or
+          accessible information. <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/8255951/" target="_blank" rel="noopener" title="Koriat (1993). How Do We Know That We Know? The Accessibility Model of the Feeling of Knowing. Psychological Review"><img src="https://www.google.com/s2/favicons?domain=pubmed.ncbi.nlm.nih.gov&sz=64" alt="" width="14" height="14" loading="lazy" />PubMed</a> Ackerman &amp; Thompson's work on
+          metareasoning studies how monitoring ongoing reasoning affects
+          cognitive control. <a class="src" href="https://doi.org/10.1016/j.tics.2017.05.004" target="_blank" rel="noopener" title="Ackerman & Thompson (2017). Meta-Reasoning: Monitoring and Control of Thinking and Reasoning. Trends in Cognitive Sciences"><img src="https://www.google.com/s2/favicons?domain=cell.com&sz=64" alt="" width="14" height="14" loading="lazy" />Trends in Cognitive Sciences</a>
+        </p>
 
-              <rect x="30" y="136" width="180" height="44" rx="6" fill="#fafafa" stroke="#1a1a1a" />
-              <text x="120" y="155" text-anchor="middle">actual sufficiency state</text>
-              <text x="120" y="172" text-anchor="middle" font-style="italic" font-size="13">I &#8712; {0, 1}</text>
+        <h3>And there is a real gap around that question</h3>
+        <p>
+          Internal confidence causally influences whether a model answers or
+          abstains. <a class="src src-multi" href="https://www.nature.com/articles/s42256-026-01293-x" target="_blank" rel="noopener" title="Kumaran, Daw et al. (2026). Causal evidence that language models use confidence to drive behaviour. Nature Machine Intelligence. Google DeepMind + Princeton."><span class="src-logos"><img src="https://www.google.com/s2/favicons?domain=deepmind.google&sz=64" alt="" width="14" height="14" loading="lazy" /><img src="https://www.google.com/s2/favicons?domain=princeton.edu&sz=64" alt="" width="14" height="14" loading="lazy" /><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=64" alt="" width="14" height="14" loading="lazy" /></span>Google DeepMind · Princeton · Nature</a>
+        </p>
+        <p>
+          There is now work on <strong>thought sufficiency</strong>: deciding
+          when an LLM has reasoned enough and can stop. <a class="src" href="https://arxiv.org/abs/2604.06787" target="_blank" rel="noopener" title="Xiang et al. (2026). When Is Thinking Enough? Early Exit via Sufficiency Assessment for Efficient Reasoning"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=64" alt="" width="14" height="14" loading="lazy" />arXiv</a>
+        </p>
+        <p>
+          There is work on <strong>inferential boundary awareness</strong>:
+          detecting that necessary premises are missing instead of fabricating
+          them. <a class="src" href="https://arxiv.org/abs/2604.19656" target="_blank" rel="noopener" title="Qiu et al. (2026). Pause or Fabricate? Training Language Models for Grounded Reasoning"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=64" alt="" width="14" height="14" loading="lazy" />arXiv</a>
+        </p>
+        <p>
+          There is work explicitly called <strong>Knowing What's Missing</strong>,
+          but their method asks the model to first hypothesize <em>what specific
+          information is missing</em> and then verify its absence. <a class="src" href="https://arxiv.org/abs/2512.06476" target="_blank" rel="noopener" title="Jain & Garimella (2025). Knowing What's Missing: Assessing Information Sufficiency in Question Answering"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=64" alt="" width="14" height="14" loading="lazy" />arXiv</a>
+        </p>
+        <p>
+          There is internal metacognitive monitoring for <strong>whether tools
+          are necessary</strong>. <a class="src" href="https://arxiv.org/abs/2502.12961" target="_blank" rel="noopener" title="Li et al. (2025). Adaptive Tool Use in Large Language Models with Meta-Cognition Trigger"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=64" alt="" width="14" height="14" loading="lazy" />arXiv</a>
+        </p>
+        <p>
+          Decision-theoretic work asks whether agents should act or request more
+          information. <a class="src" href="https://arxiv.org/abs/2510.20886" target="_blank" rel="noopener" title="Grand, Pepe, Tenenbaum & Andreas (ICLR 2026). Shoot First, Ask Questions Later? Building Rational Agents that Explore and Act Like People"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=64" alt="" width="14" height="14" loading="lazy" />arXiv</a>
+        </p>
+        <p>
+          And reasoning behaviors such as uncertainty, backtracking, and
+          hypothesis testing correspond to steerable directions inside reasoning
+          models. <a class="src" href="https://arxiv.org/abs/2506.18167" target="_blank" rel="noopener" title="Venhoff et al. (2025). Understanding Reasoning in Thinking Language Models via Steering Vectors"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=64" alt="" width="14" height="14" loading="lazy" />arXiv</a>
+        </p>
+        <p>
+          So this is not an isolated idea. <strong>The field is converging on the
+          broader problem of knowing when reasoning is adequate.</strong>
+        </p>
+        <p>
+          These are close, but the question I care about comes earlier, and I
+          have not found work that cleanly answers it for ongoing generative
+          reasoning.
+        </p>
 
-              <rect x="300" y="30" width="140" height="44" rx="6" fill="#fafafa" stroke="#1a1a1a" />
-              <text x="370" y="50" text-anchor="middle">uncertainty</text>
-              <text x="370" y="67" text-anchor="middle" font-style="italic" font-size="13">&#119984;</text>
+        <h3>Why it could matter</h3>
+        <p>If such monitoring exists, it could support several forms of adaptive control.</p>
+        <p>
+          A coding agent may recognize that its current hypothesis does not
+          explain the observations before knowing the bug. A medical reasoner
+          may recognize that its current explanation leaves findings unexplained
+          before identifying the omitted diagnosis. A research agent may
+          recognize that its current evidence cannot support a conclusion before
+          knowing which source it needs. A planning agent may recognize that its
+          plan has failed to account for something before knowing exactly what
+          that thing is.
+        </p>
+        <p>
+          The same monitoring process could therefore matter for adaptive
+          computation, information seeking, reframing, tool use, and abstention,
+          rather than treating each as an unrelated heuristic.
+        </p>
 
-              <rect x="300" y="136" width="140" height="44" rx="6" fill="#fafafa" stroke="#1a1a1a" />
-              <text x="370" y="155" text-anchor="middle">recognition</text>
-              <text x="370" y="172" text-anchor="middle" font-style="italic" font-size="13">&Icirc;</text>
+        <h3>What I am testing now</h3>
+        <p>
+          Clusterwords gives me a controlled environment for creating situations
+          where a competent reasoner becomes trapped by a plausible
+          interpretation while another relevant meaning or structure has not yet
+          been identified.
+        </p>
+        <p>
+          The current experiments have already produced such cases. On
+          engineered 32-word boards, Codex can repeatedly commit to the same
+          wrong residual split despite having substantial resources remaining.
+          Fable currently solves these boards almost perfectly, while Haiku
+          often fails for broader competence reasons.
+        </p>
 
-              <rect x="520" y="136" width="150" height="44" rx="6" fill="#fafafa" stroke="#1a1a1a" />
-              <text x="595" y="163" text-anchor="middle">answer / behavior</text>
-
-              <line x1="120" y1="74" x2="120" y2="134" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#ib)" />
-              <line x1="210" y1="158" x2="298" y2="158" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#ib)" />
-              <line x1="370" y1="74" x2="370" y2="134" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#ib)" />
-              <line x1="440" y1="158" x2="518" y2="158" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#ib)" />
-            </g>
-          </svg>
-          <figcaption>
-            I is set by construction; &#119984; and &Icirc; come from the human
-            or model.
-          </figcaption>
+        <!-- Codex replaying one 32-word board (Pilot 0E, interference). Driven by codex.js -->
+        <figure class="cxb" id="codex" aria-label="Animation: Codex solves six groups on a 32-word board, fails the last eight words three times, and stops with 27 energy and 4 apples unused.">
+          <div class="cxb-hud">
+            <span class="cxb-who">Codex <span>board 1 of 5</span></span>
+            <span class="cxb-energy" title="energy">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+              <span class="cxb-meter"><span class="cxb-fill"></span></span>
+              <b class="cxb-num">36</b>
+            </span>
+            <span class="cxb-apples" title="apples">
+              <i></i><i></i><i></i><i></i>
+            </span>
+          </div>
+          <div class="cxb-sr" role="status" aria-live="polite"></div>
+          <div class="cxb-board"></div>
+          <figcaption>Codex on one 32-word board (Pilot 0E, interference boards).</figcaption>
         </figure>
-
-        <p>The point is that they can come apart:</p>
-        <p class="formula">
-          U&#8593;, I = 0
-          <span class="dim">uncertain, but nothing necessary is missing</span>
-        </p>
-        <p class="formula">
-          U&#8595;, I = 1
-          <span class="dim">confident, but something necessary is missing</span>
-        </p>
-        <p class="formula">
-          I = 1, &Icirc; = 0
-          <span class="dim">unrecognized insufficiency</span>
-        </p>
-
-
-        <h3>Three task regimes</h3>
         <p>
-          Sufficiency and uncertainty may relate differently depending on what
-          the task is determining:
+          The interesting question is therefore not merely why a model makes an
+          error, but what makes a competent model decide not to act, and why.
         </p>
-        <table class="mtx">
-          <thead>
-            <tr>
-              <th>Regime</th>
-              <th>What is being determined?</th>
-              <th>Working uncertainty</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="mtx-title">Factual</td>
-              <td data-label="What is being determined?">What is true?</td>
-              <td data-label="Working uncertainty">primarily U<sub>&theta;</sub></td>
-            </tr>
-            <tr>
-              <td class="mtx-title">Context-conditioned</td>
-              <td data-label="What is being determined?">What is appropriate/correct given c?</td>
-              <td data-label="Working uncertainty">U<sub>&theta;</sub>, U<sub>c</sub></td>
-            </tr>
-            <tr>
-              <td class="mtx-title">Prospective/decision</td>
-              <td data-label="What is being determined?">What should be done given uncertain future states?</td>
-              <td data-label="Working uncertainty">U<sub>&theta;</sub>, U<sub>c</sub>, U<sub>&omega;</sub></td>
-            </tr>
-          </tbody>
-        </table>
         <p>
-          Prospective decisions give the clean case: U<sub>&omega;</sub> high
-          while I = 0. Everything needed to decide is there, but the future is
-          still uncertain. That is why insufficiency is not defined as high
-          uncertainty.
+          A model can refrain because it is uncertain, because it is following a
+          conservative policy, because it is stuck, or because it has actually
+          detected something inadequate about its reasoning. Those possibilities
+          need to be separated experimentally.
+        </p>
+        <p>
+          The first behavioral experiments can therefore reduce the control
+          decision to ACT versus NOT ACT, while manipulating the reasoning
+          situation around that decision. Later experiments can examine the
+          reasoning trajectory, hidden representations, and whether recognition
+          can be induced or suppressed without providing the missing solution.
         </p>
 
-        <h3>First experiment</h3>
+        <h3>What uncertainty is doing here</h3>
+        <p>Uncertainty is not the main research question.</p>
         <p>
-          One-shot and closed: everything is given at the start, with no
-          search, tools, or retrieval, so a result can't come from retrieving
-          something or simply reasoning longer. The task is a Connections-style
-          puzzle where the word definitions are supplied. Remove one critical
-          definition and the puzzle becomes insufficient (I = 1). Uncertainty
-          of the solution is varied separately:
+          Confidence, semantic uncertainty, self-consistency, internal
+          confidence representations, and related measures are useful controls
+          because they provide simpler explanations for behavior.
         </p>
-        <table class="mtx">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Sufficient, I = 0</th>
-              <th>Insufficient, I = 1</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Low uncertainty</th>
-              <td data-label="Sufficient, I = 0">clear solution and everything necessary is present</td>
-              <td data-label="Insufficient, I = 1">apparently clear solution but a critical meaning/relation is missing</td>
-            </tr>
-            <tr>
-              <th>High uncertainty</th>
-              <td data-label="Sufficient, I = 0">all required information is present, but several plausible groupings compete</td>
-              <td data-label="Insufficient, I = 1">critical information is missing and several possibilities remain</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>What we measure</h3>
+        <p>The goal is not to prove that "insufficiency is different from uncertainty."</p>
         <p>
-          Each trial asks for the answer, confidence in it (&Ucirc;), whether
-          information is missing (&Icirc;, yes/no), and how likely that is
-          (P(I = 1), 0 to 100%). Because I is known:
-        </p>
-        <p class="formula">
-          Sensitivity = P(&Icirc; = 1 | I = 1)
-          <span class="dim">is missing information detected?</span>
-        </p>
-        <p class="formula">
-          Specificity = P(&Icirc; = 0 | I = 0)
-          <span class="dim">is sufficiency recognized when it holds?</span>
-        </p>
-        <p>and whether sufficiency explains judgments beyond uncertainty:</p>
-        <p class="formula">
-          &Icirc; = f(U)
-          <span class="dim">versus</span>
-          &Icirc; = f(U, I, task structure)
+          The goal is to determine what allows a reasoner to detect the limits
+          of its ongoing reasoning before it has found the missing solution, and
+          whether that detection changes subsequent control.
         </p>
 
-        <h3>What would count as evidence</h3>
-        <ul class="essay-list">
+        <h3>What could turn out to be true</h3>
+        <p>
+          There may be no special representation of insufficiency. What looks
+          like recognition could be completely explained by confidence,
+          conflict, error signals, progress monitoring, search heuristics, or
+          some combination of them.
+        </p>
+        <p>
+          Models may also never recognize inadequacy before identification; they
+          may simply continue generating possibilities until something works.
+        </p>
+        <p>
+          Or recognition may exist behaviorally without corresponding to one
+          clean internal variable.
+        </p>
+        <p>Those are all informative outcomes.</p>
+        <p>
+          The project therefore does not assume that I have discovered a new
+          cognitive variable and need to prove that it exists.
+        </p>
+        <h3>The questions</h3>
+        <ol class="qlist">
           <li>
-            <strong>Uncertainty and insufficiency behave almost identically.</strong>
-            Whenever uncertainty rises participants judge information
-            insufficient, and vice versa; P(&Icirc; | U) explains nearly
-            everything. That weakens the case for insufficiency as a distinct
-            construct, and is still a meaningful result.
+            Can monitoring detect inadequacy before the missing content becomes
+            available?
           </li>
           <li>
-            <strong>Clear dissociation.</strong> High uncertainty + sufficient is
-            recognized as different from low uncertainty + insufficient. Then
-            uncertainty and information insufficiency are not psychologically
-            or computationally interchangeable, at least in this task
-            environment. This is the major result being looked for.
+            Can there be a useful monitoring signal before the system knows what
+            is missing?
           </li>
           <li>
-            <strong>Unrecognized insufficiency.</strong> I = 1 but &Icirc; = 0,
-            particularly when the model is confident. The information
-            objectively does not warrant a solution, but the system behaves as
-            though it does. This connects directly to awareness of unawareness.
+            What would make a competent model decide not to act when its current
+            reasoning is inadequate?
           </li>
+          <li>Why did it decide not to act?</li>
           <li>
-            <strong>Humans and LLMs differ.</strong> P(&Icirc; = 1 | I = 1)
-            compared across systems. The first goal is not who is better but how
-            &#119984;, I and &Icirc; relate in each system.
+            What allows a reasoning system to detect that its ongoing reasoning
+            is inadequate before it has found the missing content, and how, if
+            at all, is that information used to control what it does next?
           </li>
-        </ul>
+        </ol>
+        <p>That is the computational problem I am currently studying.</p>
 
-        <h3>Where it goes</h3>
-        <p class="formula">
-          Experiment 1: State
-          <span class="rel">&#10230;</span>
-          Experiment 2: Monitoring
-          <span class="rel">&#10230;</span>
-          Experiment 3: Control
-        </p>
-        <p class="sub">
-          Is insufficiency distinguishable from uncertainty? Can humans and LLMs
-          recognize insufficiency? Can that recognition regulate information
-          seeking versus acting?
-        </p>
+        <!-- Open questions / Past work: the same liquid cells as the home page, in purple -->
+        <section class="cells-block more-cells">
+          <svg class="goo-defs" width="0" height="0" aria-hidden="true" focusable="false">
+            <filter id="goo" x="-20%" y="-60%" width="140%" height="220%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="goo" />
+              <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+          </svg>
 
-        <details class="essay-more">
-          <summary>See more</summary>
-          <h2>A possible mechanism: generative reasoning</h2>
+          <div class="cells purple" id="cells-more">
+            <div class="cells-goo" aria-hidden="true">
+              <div class="cell-shapes">
+                <span class="cell-shape active" data-for="questions"></span>
+                <span class="cell-shape" data-for="past"></span>
+              </div>
+              <span class="cell-drop"></span>
+              <svg class="panel-wave" preserveAspectRatio="none"><path /></svg>
+            </div>
+            <div class="cells-row" role="tablist" aria-label="More on the PhD">
+              <button type="button" class="cell active" role="tab" id="cell-questions" data-key="questions" aria-controls="panel-questions" aria-selected="true">Open questions</button>
+              <button type="button" class="cell" role="tab" id="cell-past" data-key="past" aria-controls="panel-past" aria-selected="false">Past work</button>
+            </div>
 
-          <p>
-            G<sub>t</sub> and C<sub>t</sub> are the proposed generative mechanism
-            through which &Icirc;<sub>t</sub> may arise. They are one possible
-            mechanistic account of what happens, especially in sequential
-            reasoning; they are no longer the definition of the phenomenon itself.
-            The question they address:
-          </p>
+            <div class="cell-panels">
+              <div class="cell-panel" role="tabpanel" id="panel-questions" aria-labelledby="cell-questions">
+                <ul class="essay-list">
+                  <li>
+                    How do humans recognize that the possibilities currently available
+                    during reasoning may be insufficient?
+                  </li>
+                  <li>
+                    What information in the dynamics of ongoing reasoning provides
+                    evidence that the currently available possibilities may not be
+                    enough?
+                  </li>
+                  <li>
+                    How does a reasoner distinguish "I have not solved this yet" from
+                    "what I currently have may itself be insufficient"?
+                  </li>
+                  <li>
+                    Can recognition of insufficiency occur before a reasoner can
+                    identify what possibility is missing?
+                  </li>
+                  <li>
+                    Does recognition of insufficiency depend on a single diagnostic
+                    signal, or on the integration of multiple signals over time?
+                  </li>
+                  <li>
+                    How do failure, confidence, progress, retrieval, and changes in
+                    candidate possibilities contribute to recognition of
+                    insufficiency?
+                  </li>
+                  <li>
+                    Does the history of reasoning matter (repeated failure, repeated
+                    return to the same possibilities), or is the current reasoning
+                    state sufficient?
+                  </li>
+                  <li>
+                    How does the partial development of a possibility affect judgments
+                    of insufficiency? Does a vague but promising possibility feel
+                    different from no promising possibility at all?
+                  </li>
+                  <li>
+                    When a useful possibility has failed to enter consideration, are
+                    there detectable signatures in the reasoning process before that
+                    possibility is eventually discovered?
+                  </li>
+                  <li>
+                    Can a computational model predict when a person will conclude that
+                    their currently available possibilities may be insufficient?
+                  </li>
+                  <li>
+                    Can that model distinguish recognition of insufficiency from low
+                    confidence, difficulty, retrieval failure, conflict, or simply
+                    needing more time?
+                  </li>
+                  <li>
+                    What causes recognition of insufficiency to change subsequent
+                    reasoning? Does it lead to more search, different search,
+                    refinement of partial possibilities, retrieval, or
+                    representational change?
+                  </li>
+                  <li>
+                    When does additional search reflect recognition of insufficiency
+                    rather than ordinary persistence?
+                  </li>
+                  <li>
+                    Do people differ systematically in their ability to recognize
+                    insufficiency, and do those differences predict successful
+                    discovery of previously unconsidered possibilities?
+                  </li>
+                  <li>
+                    Does experience with a task change recognition of insufficiency by
+                    changing which possibilities become available, by changing how
+                    their adequacy is monitored, or both?
+                  </li>
+                  <li>
+                    Do contemporary machine reasoners recognize when their currently
+                    available possibilities may be insufficient, or do they primarily
+                    continue evaluating and elaborating what they have already
+                    generated?
+                  </li>
+                  <li>
+                    When humans and machines fail because a useful possibility never
+                    entered consideration, do they show different signatures before
+                    the failure?
+                  </li>
+                  <li>
+                    Do machines use signals analogous to those that predict
+                    recognition of insufficiency in humans?
+                  </li>
+                  <li>
+                    Can a computational mechanism derived from human recognition of
+                    insufficiency predict machine failures that confidence alone
+                    cannot?
+                  </li>
+                  <li>
+                    Can introducing such a mechanism improve a machine reasoner's
+                    ability to change its search when its currently available
+                    possibilities are inadequate?
+                  </li>
+                </ul>
+              </div>
 
-          <p class="formula">
-            What signals during ongoing reasoning lead an agent to recognize that
-            the possibilities currently available may be insufficient?
-          </p>
+              <div class="cell-panel" role="tabpanel" id="panel-past" aria-labelledby="cell-past" hidden>
+                <h2>A possible mechanism: generative reasoning</h2>
 
-          <p>Three working objects (abstractions, not brain modules):</p>
+                <p>
+                  G<sub>t</sub> and C<sub>t</sub> are the proposed generative mechanism
+                  through which &Icirc;<sub>t</sub> may arise. They are one possible
+                  mechanistic account of what happens, especially in sequential
+                  reasoning; they are no longer the definition of the phenomenon itself.
+                  The question they address:
+                </p>
 
-          <p>
-            <strong>G<sub>t</sub></strong> (generative reasoning): the processes
-            that determine which candidate possibilities become available and how
-            they change during reasoning.
-          </p>
-          <p>
-            <strong>C<sub>t</sub></strong> (currently available possibilities):
-            what is on the table right now. A possibility can be fully specified,
-            partial, vague, or weakly activated. C<sub>t</sub> is not assumed to
-            be a literal discrete set.
-          </p>
-          <p>
-            <strong>A<sub>t</sub></strong> (recognition of insufficiency): the
-            metacognitive sensitivity that what is currently available may not be
-            enough. In the notation above this is &Icirc;<sub>t</sub>:
-          </p>
-          <p class="formula">
-            A<sub>t</sub>
-            <span class="rel">&#10230;</span>
-            &Icirc;<sub>t</sub>
-          </p>
-          <p>
-            &Icirc; is a working target rather than an assumed cognitive module or
-            established distinct state. Whether recognition of insufficiency can
-            be distinguished from uncertainty, low confidence, impasse, and
-            related states is the first empirical question, not an assumption.
-          </p>
+                <p class="formula">
+                  What signals during ongoing reasoning lead an agent to recognize that
+                  the possibilities currently available may be insufficient?
+                </p>
 
-          <p class="formula">
-            A<sub>t</sub> &#8655; c<sup>*</sup> &#8712; C<sub>t</sub>
-          </p>
-          <p class="sub">
-            Recognition can happen before the missing possibility is known.
-          </p>
+                <p>Three working objects (abstractions, not brain modules):</p>
 
-          <figure class="figure">
-            <svg
-              viewBox="0 0 700 230"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Working loop: problem state feeds generative reasoning, which exchanges with currently available possibilities and evaluation; monitoring signals feed recognition of insufficiency, which feeds cognitive control back into generation."
-            >
-              <defs>
-                <marker
-                  id="la"
-                  markerWidth="8"
-                  markerHeight="8"
-                  refX="7"
-                  refY="4"
-                  orient="auto"
-                >
-                  <path
-                    d="M0,0 L8,4 L0,8"
-                    fill="none"
-                    stroke="#1a1a1a"
-                    stroke-width="1.2"
-                  />
-                </marker>
-                <marker
-                  id="lb"
-                  markerWidth="8"
-                  markerHeight="8"
-                  refX="1"
-                  refY="4"
-                  orient="auto"
-                >
-                  <path
-                    d="M8,0 L0,4 L8,8"
-                    fill="none"
-                    stroke="#1a1a1a"
-                    stroke-width="1.2"
-                  />
-                </marker>
-                <marker
-                  id="lv"
-                  markerWidth="8"
-                  markerHeight="8"
-                  refX="7"
-                  refY="4"
-                  orient="auto"
-                >
-                  <path
-                    d="M0,0 L8,4 L0,8"
-                    fill="none"
-                    stroke="#4B2E83"
-                    stroke-width="1.2"
-                  />
-                </marker>
-              </defs>
-              <g font-family="Georgia, 'Times New Roman', serif" font-size="14">
-                <text
-                  x="55"
-                  y="80"
-                  text-anchor="middle"
-                  fill="#777"
-                  font-size="13"
-                >
-                  problem state
-                </text>
-                <line
-                  x1="102"
-                  y1="75"
-                  x2="128"
-                  y2="75"
-                  stroke="#1a1a1a"
-                  stroke-width="1.2"
-                  marker-end="url(#la)"
-                />
-                <text x="150" y="80" text-anchor="middle" fill="#1a1a1a">
-                  G
-                  <tspan font-size="10" dy="3">t</tspan>
-                </text>
-                <line
-                  x1="170"
-                  y1="75"
-                  x2="205"
-                  y2="75"
-                  stroke="#1a1a1a"
-                  stroke-width="1.2"
-                  marker-start="url(#lb)"
-                  marker-end="url(#la)"
-                />
-                <text x="228" y="80" text-anchor="middle" fill="#1a1a1a">
-                  C
-                  <tspan font-size="10" dy="3">t</tspan>
-                </text>
-                <line
-                  x1="248"
-                  y1="75"
-                  x2="283"
-                  y2="75"
-                  stroke="#1a1a1a"
-                  stroke-width="1.2"
-                  marker-start="url(#lb)"
-                  marker-end="url(#la)"
-                />
-                <text
-                  x="330"
-                  y="80"
-                  text-anchor="middle"
-                  fill="#1a1a1a"
-                  font-size="13"
-                >
-                  evaluation
-                </text>
-                <line
-                  x1="378"
-                  y1="75"
-                  x2="404"
-                  y2="75"
-                  stroke="#1a1a1a"
-                  stroke-width="1.2"
-                  marker-end="url(#la)"
-                />
-                <text
-                  x="478"
-                  y="80"
-                  text-anchor="middle"
-                  fill="#777"
-                  font-size="13"
-                >
-                  monitoring signals
-                </text>
-                <text
-                  x="478"
-                  y="97"
-                  text-anchor="middle"
-                  fill="#999"
-                  font-size="11"
-                >
-                  confidence &middot; error &middot; progress &middot; impasse
-                </text>
-                <line
-                  x1="552"
-                  y1="75"
-                  x2="578"
-                  y2="75"
-                  stroke="#1a1a1a"
-                  stroke-width="1.2"
-                  marker-end="url(#la)"
-                />
-                <text x="612" y="80" text-anchor="middle" fill="#4B2E83">
-                  A
-                  <tspan font-size="10" dy="3">t</tspan>
-                </text>
-                <text
-                  x="612"
-                  y="99"
-                  text-anchor="middle"
-                  fill="#4B2E83"
-                  font-size="11"
-                >
-                  recognition
-                </text>
+                <p>
+                  <strong>G<sub>t</sub></strong> (generative reasoning): the processes
+                  that determine which candidate possibilities become available and how
+                  they change during reasoning.
+                </p>
+                <p>
+                  <strong>C<sub>t</sub></strong> (currently available possibilities):
+                  what is on the table right now. A possibility can be fully specified,
+                  partial, vague, or weakly activated. C<sub>t</sub> is not assumed to
+                  be a literal discrete set.
+                </p>
+                <p>
+                  <strong>A<sub>t</sub></strong> (recognition of insufficiency): the
+                  metacognitive sensitivity that what is currently available may not be
+                  enough. In the notation above this is &Icirc;<sub>t</sub>:
+                </p>
+                <p class="formula">
+                  A<sub>t</sub>
+                  <span class="rel">&#10230;</span>
+                  &Icirc;<sub>t</sub>
+                </p>
+                <p>
+                  &Icirc; is a working target rather than an assumed cognitive module or
+                  established distinct state. Whether recognition of insufficiency can
+                  be distinguished from uncertainty, low confidence, impasse, and
+                  related states is the first empirical question, not an assumption.
+                </p>
 
-                <path
-                  d="M 612 105 Q 600 175 460 185"
-                  fill="none"
-                  stroke="#4B2E83"
-                  stroke-width="1.2"
-                  marker-end="url(#lv)"
-                />
-                <text
-                  x="330"
-                  y="190"
-                  text-anchor="middle"
-                  fill="#1a1a1a"
-                  font-size="13"
-                >
-                  cognitive control
-                </text>
-                <text
-                  x="330"
-                  y="208"
-                  text-anchor="middle"
-                  fill="#999"
-                  font-size="11"
-                >
-                  continue &middot; retrieve &middot; generate alternatives
-                  &middot; reframe &middot; search differently
-                </text>
-                <path
-                  d="M 255 183 Q 140 170 148 92"
-                  fill="none"
-                  stroke="#1a1a1a"
-                  stroke-width="1.2"
-                  marker-end="url(#la)"
-                />
-              </g>
-            </svg>
-            <figcaption>
-              A working loop, not a literal pipeline. Recognition may build up
-              gradually from accumulating signals.
-            </figcaption>
-          </figure>
+                <p class="formula">
+                  A<sub>t</sub> &#8655; c<sup>*</sup> &#8712; C<sub>t</sub>
+                </p>
+                <p class="sub">
+                  Recognition can happen before the missing possibility is known.
+                </p>
 
-          <hr class="divider" />
+                <figure class="figure">
+                  <svg
+                    viewBox="0 0 700 230"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Working loop: problem state feeds generative reasoning, which exchanges with currently available possibilities and evaluation; monitoring signals feed recognition of insufficiency, which feeds cognitive control back into generation."
+                  >
+                    <defs>
+                      <marker
+                        id="la"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="7"
+                        refY="4"
+                        orient="auto"
+                      >
+                        <path
+                          d="M0,0 L8,4 L0,8"
+                          fill="none"
+                          stroke="#1a1a1a"
+                          stroke-width="1.2"
+                        />
+                      </marker>
+                      <marker
+                        id="lb"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="1"
+                        refY="4"
+                        orient="auto"
+                      >
+                        <path
+                          d="M8,0 L0,4 L8,8"
+                          fill="none"
+                          stroke="#1a1a1a"
+                          stroke-width="1.2"
+                        />
+                      </marker>
+                      <marker
+                        id="lv"
+                        markerWidth="8"
+                        markerHeight="8"
+                        refX="7"
+                        refY="4"
+                        orient="auto"
+                      >
+                        <path
+                          d="M0,0 L8,4 L0,8"
+                          fill="none"
+                          stroke="#4B2E83"
+                          stroke-width="1.2"
+                        />
+                      </marker>
+                    </defs>
+                    <g font-family="Georgia, 'Times New Roman', serif" font-size="14">
+                      <text
+                        x="55"
+                        y="80"
+                        text-anchor="middle"
+                        fill="#777"
+                        font-size="13"
+                      >
+                        problem state
+                      </text>
+                      <line
+                        x1="102"
+                        y1="75"
+                        x2="128"
+                        y2="75"
+                        stroke="#1a1a1a"
+                        stroke-width="1.2"
+                        marker-end="url(#la)"
+                      />
+                      <text x="150" y="80" text-anchor="middle" fill="#1a1a1a">
+                        G
+                        <tspan font-size="10" dy="3">t</tspan>
+                      </text>
+                      <line
+                        x1="170"
+                        y1="75"
+                        x2="205"
+                        y2="75"
+                        stroke="#1a1a1a"
+                        stroke-width="1.2"
+                        marker-start="url(#lb)"
+                        marker-end="url(#la)"
+                      />
+                      <text x="228" y="80" text-anchor="middle" fill="#1a1a1a">
+                        C
+                        <tspan font-size="10" dy="3">t</tspan>
+                      </text>
+                      <line
+                        x1="248"
+                        y1="75"
+                        x2="283"
+                        y2="75"
+                        stroke="#1a1a1a"
+                        stroke-width="1.2"
+                        marker-start="url(#lb)"
+                        marker-end="url(#la)"
+                      />
+                      <text
+                        x="330"
+                        y="80"
+                        text-anchor="middle"
+                        fill="#1a1a1a"
+                        font-size="13"
+                      >
+                        evaluation
+                      </text>
+                      <line
+                        x1="378"
+                        y1="75"
+                        x2="404"
+                        y2="75"
+                        stroke="#1a1a1a"
+                        stroke-width="1.2"
+                        marker-end="url(#la)"
+                      />
+                      <text
+                        x="478"
+                        y="80"
+                        text-anchor="middle"
+                        fill="#777"
+                        font-size="13"
+                      >
+                        monitoring signals
+                      </text>
+                      <text
+                        x="478"
+                        y="97"
+                        text-anchor="middle"
+                        fill="#999"
+                        font-size="11"
+                      >
+                        confidence &middot; error &middot; progress &middot; impasse
+                      </text>
+                      <line
+                        x1="552"
+                        y1="75"
+                        x2="578"
+                        y2="75"
+                        stroke="#1a1a1a"
+                        stroke-width="1.2"
+                        marker-end="url(#la)"
+                      />
+                      <text x="612" y="80" text-anchor="middle" fill="#4B2E83">
+                        A
+                        <tspan font-size="10" dy="3">t</tspan>
+                      </text>
+                      <text
+                        x="612"
+                        y="99"
+                        text-anchor="middle"
+                        fill="#4B2E83"
+                        font-size="11"
+                      >
+                        recognition
+                      </text>
 
-          <h2>Uncertainty vs insufficiency, intuitively</h2>
+                      <path
+                        d="M 612 105 Q 600 175 460 185"
+                        fill="none"
+                        stroke="#4B2E83"
+                        stroke-width="1.2"
+                        marker-end="url(#lv)"
+                      />
+                      <text
+                        x="330"
+                        y="190"
+                        text-anchor="middle"
+                        fill="#1a1a1a"
+                        font-size="13"
+                      >
+                        cognitive control
+                      </text>
+                      <text
+                        x="330"
+                        y="208"
+                        text-anchor="middle"
+                        fill="#999"
+                        font-size="11"
+                      >
+                        continue &middot; retrieve &middot; generate alternatives
+                        &middot; reframe &middot; search differently
+                      </text>
+                      <path
+                        d="M 255 183 Q 140 170 148 92"
+                        fill="none"
+                        stroke="#1a1a1a"
+                        stroke-width="1.2"
+                        marker-end="url(#la)"
+                      />
+                    </g>
+                  </svg>
+                  <figcaption>
+                    A working loop, not a literal pipeline. Recognition may build up
+                    gradually from accumulating signals.
+                  </figcaption>
+                </figure>
 
-          <p>
-            <strong>Uncertainty</strong>: in the earlier framing, "I have plausible
-            alternatives, but I do not know which is correct; the uncertainty
-            concerns alternatives that are already represented." That is one form
-            of uncertainty, uncertainty over represented candidate solutions. It is
-            a special case of &#119984;, not the general definition.
-          </p>
-          <p>
-            <strong>Recognition of insufficiency</strong>: I have reason to suspect
-            that what is currently available may not contain what I need. The
-            intuition still holds. Experimentally it is measured against I, which
-            is known by construction.
-          </p>
+                <hr class="divider" />
 
-          <figure class="figure">
-            <svg
-              viewBox="0 0 700 270"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Two sketches: uncertainty is weighing alternatives already on the table; insufficiency is sensing that what is on the table, some of it partial or vague, may not be enough, before knowing what is missing."
-            >
-              <g font-family="Georgia, 'Times New Roman', serif">
-                <!-- Panel 1: uncertainty -->
-                <text
-                  x="170"
-                  y="24"
-                  text-anchor="middle"
-                  font-size="16"
-                  font-style="italic"
-                  fill="#1a1a1a"
-                >
-                  uncertainty
-                </text>
-                <ellipse
-                  cx="170"
-                  cy="130"
-                  rx="130"
-                  ry="85"
-                  fill="none"
-                  stroke="#1a1a1a"
-                  stroke-width="1.5"
-                />
-                <text
-                  x="170"
-                  y="228"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#777"
-                >
-                  alternatives on the table (C
-                  <tspan font-size="10" dy="2">t</tspan>
-                  )
-                </text>
+                <h2>Uncertainty vs insufficiency, intuitively</h2>
 
-                <circle cx="115" cy="105" r="5" fill="#1a1a1a" />
-                <text
-                  x="115"
-                  y="90"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#1a1a1a"
-                >
-                  c&#8321;
-                </text>
-                <circle cx="215" cy="100" r="5" fill="#1a1a1a" />
-                <text
-                  x="215"
-                  y="85"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#1a1a1a"
-                >
-                  c&#8322;
-                </text>
-                <circle cx="150" cy="170" r="5" fill="#1a1a1a" />
-                <text
-                  x="150"
-                  y="192"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#1a1a1a"
-                >
-                  c&#8323;
-                </text>
+                <p>
+                  <strong>Uncertainty</strong>: in the earlier framing, "I have plausible
+                  alternatives, but I do not know which is correct; the uncertainty
+                  concerns alternatives that are already represented." That is one form
+                  of uncertainty, uncertainty over represented candidate solutions. It is
+                  a special case of &#119984;, not the general definition.
+                </p>
+                <p>
+                  <strong>Recognition of insufficiency</strong>: I have reason to suspect
+                  that what is currently available may not contain what I need. The
+                  intuition still holds. Experimentally it is measured against I, which
+                  is known by construction.
+                </p>
 
-                <text
-                  x="163"
-                  y="142"
-                  text-anchor="middle"
-                  font-size="20"
-                  fill="#4B2E83"
-                >
-                  ?
-                </text>
-                <text
-                  x="170"
-                  y="255"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#555"
-                >
-                  "which one of these is right?"
-                </text>
+                <figure class="figure">
+                  <svg
+                    viewBox="0 0 700 270"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Two sketches: uncertainty is weighing alternatives already on the table; insufficiency is sensing that what is on the table, some of it partial or vague, may not be enough, before knowing what is missing."
+                  >
+                    <g font-family="Georgia, 'Times New Roman', serif">
+                      <text
+                        x="170"
+                        y="24"
+                        text-anchor="middle"
+                        font-size="16"
+                        font-style="italic"
+                        fill="#1a1a1a"
+                      >
+                        uncertainty
+                      </text>
+                      <ellipse
+                        cx="170"
+                        cy="130"
+                        rx="130"
+                        ry="85"
+                        fill="none"
+                        stroke="#1a1a1a"
+                        stroke-width="1.5"
+                      />
+                      <text
+                        x="170"
+                        y="228"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#777"
+                      >
+                        alternatives on the table (C
+                        <tspan font-size="10" dy="2">t</tspan>
+                        )
+                      </text>
 
-                <!-- Panel 2: insufficiency -->
-                <text
-                  x="500"
-                  y="24"
-                  text-anchor="middle"
-                  font-size="16"
-                  font-style="italic"
-                  fill="#1a1a1a"
-                >
-                  insufficiency
-                </text>
-                <ellipse
-                  cx="480"
-                  cy="140"
-                  rx="115"
-                  ry="75"
-                  fill="none"
-                  stroke="#1a1a1a"
-                  stroke-width="1.5"
-                />
-                <text
-                  x="480"
-                  y="228"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#777"
-                >
-                  some of it partial or vague
-                </text>
+                      <circle cx="115" cy="105" r="5" fill="#1a1a1a" />
+                      <text
+                        x="115"
+                        y="90"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#1a1a1a"
+                      >
+                        c&#8321;
+                      </text>
+                      <circle cx="215" cy="100" r="5" fill="#1a1a1a" />
+                      <text
+                        x="215"
+                        y="85"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#1a1a1a"
+                      >
+                        c&#8322;
+                      </text>
+                      <circle cx="150" cy="170" r="5" fill="#1a1a1a" />
+                      <text
+                        x="150"
+                        y="192"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#1a1a1a"
+                      >
+                        c&#8323;
+                      </text>
 
-                <circle cx="435" cy="120" r="5" fill="#1a1a1a" />
-                <text
-                  x="435"
-                  y="105"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#1a1a1a"
-                >
-                  c&#8321;
-                </text>
-                <circle cx="525" cy="115" r="5" fill="#999" />
-                <text
-                  x="525"
-                  y="100"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#999"
-                >
-                  c&#8322; (vague)
-                </text>
-                <circle
-                  cx="470"
-                  cy="175"
-                  r="6"
-                  fill="none"
-                  stroke="#999"
-                  stroke-width="1.4"
-                  stroke-dasharray="3 3"
-                />
-                <text
-                  x="470"
-                  y="199"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#999"
-                >
-                  c&#8323; (partial)
-                </text>
+                      <text
+                        x="163"
+                        y="142"
+                        text-anchor="middle"
+                        font-size="20"
+                        fill="#4B2E83"
+                      >
+                        ?
+                      </text>
+                      <text
+                        x="170"
+                        y="255"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#555"
+                      >
+                        "which one of these is right?"
+                      </text>
 
-                <text
-                  x="648"
-                  y="62"
-                  text-anchor="middle"
-                  font-size="20"
-                  fill="#4B2E83"
-                >
-                  ?
-                </text>
-                <text
-                  x="622"
-                  y="42"
-                  text-anchor="middle"
-                  font-size="12"
-                  fill="#4B2E83"
-                >
-                  missing? not sure what
-                </text>
-                <path
-                  d="M 575 95 Q 610 75 638 64"
-                  fill="none"
-                  stroke="#4B2E83"
-                  stroke-width="1.2"
-                  stroke-dasharray="4 4"
-                />
+                      <text
+                        x="500"
+                        y="24"
+                        text-anchor="middle"
+                        font-size="16"
+                        font-style="italic"
+                        fill="#1a1a1a"
+                      >
+                        insufficiency
+                      </text>
+                      <ellipse
+                        cx="480"
+                        cy="140"
+                        rx="115"
+                        ry="75"
+                        fill="none"
+                        stroke="#1a1a1a"
+                        stroke-width="1.5"
+                      />
+                      <text
+                        x="480"
+                        y="228"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#777"
+                      >
+                        some of it partial or vague
+                      </text>
 
-                <text
-                  x="500"
-                  y="255"
-                  text-anchor="middle"
-                  font-size="13"
-                  fill="#555"
-                >
-                  "...what I have may not be enough"
-                </text>
-              </g>
-            </svg>
-            <figcaption>
-              The old picture (a specific h<sup>*</sup> sitting outside a neat
-              set) is one special case of insufficiency, not the definition. The
-              left panel, likewise, is one special case of uncertainty.
-            </figcaption>
-          </figure>
+                      <circle cx="435" cy="120" r="5" fill="#1a1a1a" />
+                      <text
+                        x="435"
+                        y="105"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#1a1a1a"
+                      >
+                        c&#8321;
+                      </text>
+                      <circle cx="525" cy="115" r="5" fill="#999" />
+                      <text
+                        x="525"
+                        y="100"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#999"
+                      >
+                        c&#8322; (vague)
+                      </text>
+                      <circle
+                        cx="470"
+                        cy="175"
+                        r="6"
+                        fill="none"
+                        stroke="#999"
+                        stroke-width="1.4"
+                        stroke-dasharray="3 3"
+                      />
+                      <text
+                        x="470"
+                        y="199"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#999"
+                      >
+                        c&#8323; (partial)
+                      </text>
 
-          <hr class="divider" />
+                      <text
+                        x="648"
+                        y="62"
+                        text-anchor="middle"
+                        font-size="20"
+                        fill="#4B2E83"
+                      >
+                        ?
+                      </text>
+                      <text
+                        x="622"
+                        y="42"
+                        text-anchor="middle"
+                        font-size="12"
+                        fill="#4B2E83"
+                      >
+                        missing? not sure what
+                      </text>
+                      <path
+                        d="M 575 95 Q 610 75 638 64"
+                        fill="none"
+                        stroke="#4B2E83"
+                        stroke-width="1.2"
+                        stroke-dasharray="4 4"
+                      />
 
-          <h2>Recognition vs control</h2>
+                      <text
+                        x="500"
+                        y="255"
+                        text-anchor="middle"
+                        font-size="13"
+                        fill="#555"
+                      >
+                        "...what I have may not be enough"
+                      </text>
+                    </g>
+                  </svg>
+                  <figcaption>
+                    The old picture (a specific h<sup>*</sup> sitting outside a neat
+                    set) is one special case of insufficiency, not the definition. The
+                    left panel, likewise, is one special case of uncertainty.
+                  </figcaption>
+                </figure>
 
-          <h3>What &Icirc; is not</h3>
+                <hr class="divider" />
 
-          <p>
-            Recognition of insufficiency is different from
-            <em>simply making an error</em>, <em>low confidence</em>,
-            <em>being stuck</em>,
-            <em>already knowing the missing alternative</em>, and
-            <em>an automatic strategy switch</em>. Those can be signals,
-            correlates, causes, or consequences of &Icirc;, but they are not the
-            thing itself. Whether it is different from
-            <em>uncertainty between represented alternatives</em> is kept, but as
-            the empirical question above rather than an assertion.
-          </p>
+                <h2>Recognition vs control</h2>
 
-          <h3>Recognition vs control response</h3>
+                <h3>What &Icirc; is not</h3>
 
-          <p>
-            &Icirc; is not defined by what it triggers. Given recognition, the
-            control response can vary:
-          </p>
-          <p class="formula">
-            &Icirc;
-            <span class="rel">&#10230;</span>
-            continue &middot; retrieve &middot; generate alternatives &middot;
-            reframe &middot; search externally &middot; nothing
-          </p>
-          <p class="sub">
-            Which response wins (including committing anyway) is a downstream
-            question about costs and task demands, not the definition of
-            &Icirc;. Monitoring and control stay separate.
-          </p>
+                <p>
+                  Recognition of insufficiency is different from
+                  <em>simply making an error</em>, <em>low confidence</em>,
+                  <em>being stuck</em>,
+                  <em>already knowing the missing alternative</em>, and
+                  <em>an automatic strategy switch</em>. Those can be signals,
+                  correlates, causes, or consequences of &Icirc;, but they are not the
+                  thing itself. Whether it is different from
+                  <em>uncertainty between represented alternatives</em> is kept, but as
+                  the empirical question above rather than an assertion.
+                </p>
 
-          <hr class="divider" />
+                <h3>Recognition vs control response</h3>
 
-          <h2>The reasoning trajectory (Clusterwords)</h2>
+                <p>
+                  &Icirc; is not defined by what it triggers. Given recognition, the
+                  control response can vary:
+                </p>
+                <p class="formula">
+                  &Icirc;
+                  <span class="rel">&#10230;</span>
+                  continue &middot; retrieve &middot; generate alternatives &middot;
+                  reframe &middot; search externally &middot; nothing
+                </p>
+                <p class="sub">
+                  Which response wins (including committing anyway) is a downstream
+                  question about costs and task demands, not the definition of
+                  &Icirc;. Monitoring and control stay separate.
+                </p>
 
-          <p>
-            Clusterwords (the game on the home page) lets us observe something
-            richer than commit-versus-don't-commit:
-          </p>
-          <p class="formula">
-            C<sub>0</sub>
-            <span class="rel">&#10230;</span>
-            C<sub>1</sub>
-            <span class="rel">&#10230;</span>
-            C<sub>2</sub>
-            <span class="rel">&#10230;</span>
-            &#8943;
-          </p>
-          <p>
-            Possibilities are generated, partially formed, refined, abandoned,
-            recombined, and sometimes recognized as inadequate. Suppose the board
-            hides EAGLE, BIRDIE, BOGEY, PAR:
-          </p>
-          <p class="formula">
-            "these feel related"
-            <span class="rel">&#10230;</span>
-            "these four belong together somehow"
-            <span class="rel">&#10230;</span>
-            "golf-related"
-            <span class="rel">&#10230;</span>
-            "golf scoring terms"
-          </p>
-          <p>
-            The question is not where exactly this becomes a hypothesis. It is:
-            how does this possibility evolve inside C<sub>t</sub>, and what does
-            its evolution tell the reasoner about whether what is currently
-            available is adequate? The guesses give observable anchors in that
-            trajectory. The trajectory is still, perhaps eventually, the most
-            interesting part, but it creates too many confounds for a first
-            experiment. So it comes second:
-          </p>
-          <p class="formula">
-            first: one-shot / closed information
-            <span class="rel">&#10230;</span>
-            later: sequential
-          </p>
-          <p>
-            If the first experiment suggests that insufficiency is meaningful
-            beyond uncertainty, I becomes I<sub>t</sub>, &Icirc; becomes
-            &Icirc;<sub>t</sub>, and the system can take an action:
-          </p>
-          <p class="formula">
-            a<sub>t</sub> &#8712; {seek information, act}
-          </p>
-          <p>
-            Then the original question can be tested: does recognizing
-            insufficiency provide a better signal for deciding when to seek
-            additional information than uncertainty alone? That is where
-            explore &#10231; exploit enters.
-          </p>
+                <hr class="divider" />
 
-          <hr class="divider" />
+                <h2>The reasoning trajectory (Clusterwords)</h2>
+
+                <p>
+                  Clusterwords (the game on the home page) lets us observe something
+                  richer than commit-versus-don't-commit:
+                </p>
+                <p class="formula">
+                  C<sub>0</sub>
+                  <span class="rel">&#10230;</span>
+                  C<sub>1</sub>
+                  <span class="rel">&#10230;</span>
+                  C<sub>2</sub>
+                  <span class="rel">&#10230;</span>
+                  &#8943;
+                </p>
+                <p>
+                  Possibilities are generated, partially formed, refined, abandoned,
+                  recombined, and sometimes recognized as inadequate. Suppose the board
+                  hides EAGLE, BIRDIE, BOGEY, PAR:
+                </p>
+                <p class="formula">
+                  "these feel related"
+                  <span class="rel">&#10230;</span>
+                  "these four belong together somehow"
+                  <span class="rel">&#10230;</span>
+                  "golf-related"
+                  <span class="rel">&#10230;</span>
+                  "golf scoring terms"
+                </p>
+                <p>
+                  The question is not where exactly this becomes a hypothesis. It is:
+                  how does this possibility evolve inside C<sub>t</sub>, and what does
+                  its evolution tell the reasoner about whether what is currently
+                  available is adequate? The guesses give observable anchors in that
+                  trajectory. The trajectory is still, perhaps eventually, the most
+                  interesting part, but it creates too many confounds for a first
+                  experiment. So it comes second:
+                </p>
+                <p class="formula">
+                  first: one-shot / closed information
+                  <span class="rel">&#10230;</span>
+                  later: sequential
+                </p>
+                <p>
+                  If the first experiment suggests that insufficiency is meaningful
+                  beyond uncertainty, I becomes I<sub>t</sub>, &Icirc; becomes
+                  &Icirc;<sub>t</sub>, and the system can take an action:
+                </p>
+                <p class="formula">
+                  a<sub>t</sub> &#8712; {seek information, act}
+                </p>
+                <p>
+                  Then the original question can be tested: does recognizing
+                  insufficiency provide a better signal for deciding when to seek
+                  additional information than uncertainty alone? That is where
+                  explore &#10231; exploit enters.
+                </p>
+
+                <hr class="divider" />
 
 
-          <h2>Bounded agent</h2>
+                <h2>Bounded agent</h2>
 
-          <p>
-            A <strong>bounded agent</strong> cannot consider every possible
-            explanation, action, or future consequence due to limited resources.
-          </p>
+                <p>
+                  A <strong>bounded agent</strong> cannot consider every possible
+                  explanation, action, or future consequence due to limited resources.
+                </p>
 
-          <hr class="divider" />
+                <hr class="divider" />
 
-          <h2 class="big-heading">
-            How the framing evolved <span class="tag">history</span>
-          </h2>
+                <h2 class="big-heading">
+                  How the framing evolved <span class="tag">history</span>
+                </h2>
 
-          <p><strong>Version A</strong>: a literal hypothesis set.</p>
-          <p class="formula">
-            &#8459;<sub>t</sub> = {h&#8321;, h&#8322;, h&#8323;}, &nbsp;P(h<sup
-              >*</sup
-            >
-            &#8713; &#8459;<sub>t</sub>) &gt; 0
-          </p>
-          <p>"How do I know h<sup>*</sup> isn't in my set?"</p>
+                <p><strong>Version A</strong>: a literal hypothesis set.</p>
+                <p class="formula">
+                  &#8459;<sub>t</sub> = {h&#8321;, h&#8322;, h&#8323;}, &nbsp;P(h<sup
+                    >*</sup
+                  >
+                  &#8713; &#8459;<sub>t</sub>) &gt; 0
+                </p>
+                <p>"How do I know h<sup>*</sup> isn't in my set?"</p>
 
-          <p>
-            <strong>Version B</strong>: but what even counts as h? Can
-            hypotheses be partial?
-          </p>
-          <p class="formula">h = these four share r, &nbsp;r = ?</p>
+                <p>
+                  <strong>Version B</strong>: but what even counts as h? Can
+                  hypotheses be partial?
+                </p>
+                <p class="formula">h = these four share r, &nbsp;r = ?</p>
 
-          <p>
-            <strong>Version C</strong>: don't require a literal hypothesis set.
-          </p>
-          <p class="formula">
-            G<sub>t</sub>
-            <span class="rel">&#10231;</span>
-            C<sub>t</sub>
-            <span class="rel">&#10230;</span>
-            A<sub>t</sub>
-          </p>
-          <p>
-            Possibilities of different degrees of specification become available
-            during generative reasoning. The project studies what signals tell
-            the reasoner that what is currently available may be insufficient,
-            without first solving where a hypothesis begins.
-          </p>
+                <p>
+                  <strong>Version C</strong>: don't require a literal hypothesis set.
+                </p>
+                <p class="formula">
+                  G<sub>t</sub>
+                  <span class="rel">&#10231;</span>
+                  C<sub>t</sub>
+                  <span class="rel">&#10230;</span>
+                  A<sub>t</sub>
+                </p>
+                <p>
+                  Possibilities of different degrees of specification become available
+                  during generative reasoning. The project studies what signals tell
+                  the reasoner that what is currently available may be insufficient,
+                  without first solving where a hypothesis begins.
+                </p>
 
-          <p>
-            <strong>Current</strong>: separate actual insufficiency from its
-            recognition, and both from uncertainty. Version C was missing the
-            distinction between insufficiency and recognition: A<sub>t</sub> is
-            &Icirc;<sub>t</sub>, and I was not there at all.
-          </p>
-          <p class="formula">
-            I
-            <span class="rel">&#10230;</span>
-            &Icirc;
-            <span class="dim">phenomenon: can the system recognize objective insufficiency?</span>
-          </p>
-          <p class="formula">
-            &#119984;
-            <span class="rel">&#10231;<span class="rel-label">?</span></span>
-            I, &Icirc;
-            <span class="dim">does uncertainty explain recognition, or can they dissociate?</span>
-          </p>
-          <p class="formula">
-            G<sub>t</sub>
-            <span class="rel">&#10231;</span>
-            C<sub>t</sub>
-            <span class="rel">&#10230;</span>
-            &Icirc;<sub>t</sub>
-            <span class="dim">later mechanism: what dynamics of candidate generation produce recognition?</span>
-          </p>
-          <p>
-            Not a rejection of the earlier framework; a reorganization. The
-            construct-validity layer that had been missing underneath it.
-          </p>
+                <p>
+                  <strong>Current</strong>: separate actual insufficiency from its
+                  recognition, and both from uncertainty. Version C was missing the
+                  distinction between insufficiency and recognition: A<sub>t</sub> is
+                  &Icirc;<sub>t</sub>, and I was not there at all.
+                </p>
+                <p class="formula">
+                  I
+                  <span class="rel">&#10230;</span>
+                  &Icirc;
+                  <span class="dim">phenomenon: can the system recognize objective insufficiency?</span>
+                </p>
+                <p class="formula">
+                  &#119984;
+                  <span class="rel">&#10231;<span class="rel-label">?</span></span>
+                  I, &Icirc;
+                  <span class="dim">does uncertainty explain recognition, or can they dissociate?</span>
+                </p>
+                <p class="formula">
+                  G<sub>t</sub>
+                  <span class="rel">&#10231;</span>
+                  C<sub>t</sub>
+                  <span class="rel">&#10230;</span>
+                  &Icirc;<sub>t</sub>
+                  <span class="dim">later mechanism: what dynamics of candidate generation produce recognition?</span>
+                </p>
+                <p>
+                  Not a rejection of the earlier framework; a reorganization. The
+                  construct-validity layer that had been missing underneath it.
+                </p>
 
-          <h3>
-            Questions we still need to answer (C<sub>t</sub>: what's on the
-            table)
-          </h3>
+                <h3>
+                  Questions we still need to answer (C<sub>t</sub>: what's on the
+                  table)
+                </h3>
 
-          <ul class="essay-list">
-            <li>
-              What is the representational object? Is it a rule, causal model,
-              gist, category, explanation, structured relation?
-            </li>
-            <li>
-              Can it be incomplete or coarse? Can the person have "something
-              about these belongs together" without the full explanation?
-            </li>
-            <li>
-              Can that partial representation guide a deliberate decision?
-            </li>
-            <li>Can it later be refined while preserving earlier content?</li>
-            <li>
-              When does the literature treat it as the same representation
-              becoming more specific versus a new hypothesis replacing the old
-              one?
-            </li>
-            <li>
-              What behavioral evidence shows that the representation is actually
-              available to the person?
-            </li>
-            <li>
-              What counts as a currently available possibility in a language
-              model? Must a possibility have been explicitly generated into
-              context by the time of a decision, or can an unexpressed internal
-              representation count as available?
-            </li>
-          </ul>
+                <ul class="essay-list">
+                  <li>
+                    What is the representational object? Is it a rule, causal model,
+                    gist, category, explanation, structured relation?
+                  </li>
+                  <li>
+                    Can it be incomplete or coarse? Can the person have "something
+                    about these belongs together" without the full explanation?
+                  </li>
+                  <li>
+                    Can that partial representation guide a deliberate decision?
+                  </li>
+                  <li>Can it later be refined while preserving earlier content?</li>
+                  <li>
+                    When does the literature treat it as the same representation
+                    becoming more specific versus a new hypothesis replacing the old
+                    one?
+                  </li>
+                  <li>
+                    What behavioral evidence shows that the representation is actually
+                    available to the person?
+                  </li>
+                  <li>
+                    What counts as a currently available possibility in a language
+                    model? Must a possibility have been explicitly generated into
+                    context by the time of a decision, or can an unexpressed internal
+                    representation count as available?
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
-          <h3>Open questions (&Icirc;: recognizing insufficiency)</h3>
-
-          <ul class="essay-list">
-            <li>
-              How do humans recognize that the possibilities currently available
-              during reasoning may be insufficient?
-            </li>
-            <li>
-              What information in the dynamics of ongoing reasoning provides
-              evidence that the currently available possibilities may not be
-              enough?
-            </li>
-            <li>
-              How does a reasoner distinguish "I have not solved this yet" from
-              "what I currently have may itself be insufficient"?
-            </li>
-            <li>
-              Can recognition of insufficiency occur before a reasoner can
-              identify what possibility is missing?
-            </li>
-            <li>
-              Does recognition of insufficiency depend on a single diagnostic
-              signal, or on the integration of multiple signals over time?
-            </li>
-            <li>
-              How do failure, confidence, progress, retrieval, and changes in
-              candidate possibilities contribute to recognition of
-              insufficiency?
-            </li>
-            <li>
-              Does the history of reasoning matter (repeated failure, repeated
-              return to the same possibilities), or is the current reasoning
-              state sufficient?
-            </li>
-            <li>
-              How does the partial development of a possibility affect judgments
-              of insufficiency? Does a vague but promising possibility feel
-              different from no promising possibility at all?
-            </li>
-            <li>
-              When a useful possibility has failed to enter consideration, are
-              there detectable signatures in the reasoning process before that
-              possibility is eventually discovered?
-            </li>
-            <li>
-              Can a computational model predict when a person will conclude that
-              their currently available possibilities may be insufficient?
-            </li>
-            <li>
-              Can that model distinguish recognition of insufficiency from low
-              confidence, difficulty, retrieval failure, conflict, or simply
-              needing more time?
-            </li>
-            <li>
-              What causes recognition of insufficiency to change subsequent
-              reasoning? Does it lead to more search, different search,
-              refinement of partial possibilities, retrieval, or
-              representational change?
-            </li>
-            <li>
-              When does additional search reflect recognition of insufficiency
-              rather than ordinary persistence?
-            </li>
-            <li>
-              Do people differ systematically in their ability to recognize
-              insufficiency, and do those differences predict successful
-              discovery of previously unconsidered possibilities?
-            </li>
-            <li>
-              Does experience with a task change recognition of insufficiency by
-              changing which possibilities become available, by changing how
-              their adequacy is monitored, or both?
-            </li>
-            <li>
-              Do contemporary machine reasoners recognize when their currently
-              available possibilities may be insufficient, or do they primarily
-              continue evaluating and elaborating what they have already
-              generated?
-            </li>
-            <li>
-              When humans and machines fail because a useful possibility never
-              entered consideration, do they show different signatures before
-              the failure?
-            </li>
-            <li>
-              Do machines use signals analogous to those that predict
-              recognition of insufficiency in humans?
-            </li>
-            <li>
-              Can a computational mechanism derived from human recognition of
-              insufficiency predict machine failures that confidence alone
-              cannot?
-            </li>
-            <li>
-              Can introducing such a mechanism improve a machine reasoner's
-              ability to change its search when its currently available
-              possibilities are inadequate?
-            </li>
-          </ul>
-
+          <!-- Hidden for now, kept for later: the references list.
           <div class="refs">
             <p class="refs-label">Papers closest to the center right now</p>
             <ol>
+              <li>
+                Kumaran, Daw, Osindero, Veli&#269;kovi&#263; &amp; Patraucean,
+                <a href="https://arxiv.org/abs/2603.22161">Causal Evidence that Language Models use Confidence to Drive Behavior</a>. arXiv, 2026.
+              </li>
+              <li>
+                Xiang, Ji, Xu, Qiao, Yang, Li &amp; Zhang,
+                <a href="https://arxiv.org/abs/2604.06787">When Is Thinking Enough? Early Exit via Sufficiency Assessment for Efficient Reasoning</a>. arXiv, 2026.
+              </li>
+              <li>
+                Qiu et al.,
+                <a href="https://arxiv.org/abs/2604.19656">Pause or Fabricate? Training Language Models for Grounded Reasoning</a>. arXiv, 2026.
+              </li>
+              <li>
+                Jain &amp; Garimella,
+                <a href="https://arxiv.org/abs/2512.06476">Knowing What's Missing: Assessing Information Sufficiency in Question Answering</a>. arXiv, 2025.
+              </li>
+              <li>
+                Li, Li, Dong, Zhang, Zhang, Liu, Wang, Tang &amp; Liu,
+                <a href="https://arxiv.org/abs/2502.12961">Adaptive Tool Use in Large Language Models with Meta-Cognition Trigger</a>. arXiv, 2025.
+              </li>
+              <li>
+                Grand, Pepe, Tenenbaum &amp; Andreas,
+                <a href="https://arxiv.org/abs/2510.20886">Shoot First, Ask Questions Later? Building Rational Agents that Explore and Act Like People</a>. ICLR, 2026.
+              </li>
+              <li>
+                Venhoff, Arcuschin, Torr, Conmy &amp; Nanda,
+                <a href="https://arxiv.org/abs/2506.18167">Understanding Reasoning in Thinking Language Models via Steering Vectors</a>. arXiv, 2025.
+              </li>
+              <li>
+                Koriat,
+                <a href="https://iipdm.haifa.ac.il/images/publications/Asher_Koriat/1993-Koriat-PR%20FOK.pdf">How Do We Know That We Know? The Accessibility Model of the Feeling of Knowing</a>. Psychological Review, 1993.
+              </li>
               <li>
                 Thomas, Dougherty, Sprenger &amp; Harbison,
                 <a href="https://pubmed.ncbi.nlm.nih.gov/18211189/"
@@ -1156,7 +1241,7 @@
               </li>
             </ol>
           </div>
-        </details>
+          -->
       </article>
 
       <footer>
@@ -1166,5 +1251,7 @@
         </p>
       </footer>
     </div>
+    <script src="cells.js"></script>
+    <script src="codex.js"></script>
   </body>
 </html>
