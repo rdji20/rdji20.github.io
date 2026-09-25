@@ -1541,3 +1541,12 @@ footer a { color: #777; }
 @media (prefers-reduced-motion: reduce) {
   .cxb-tile, .cxb-bar { transition: none; animation: none !important; }
 }
+
+.big-line.purple-text {
+  color: var(--violet);
+  background: #ece6f5;                 /* the lavender from the purple cells */
+  padding: .05em .3em;
+  border-radius: 6px;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone; /* each wrapped line gets its own rounded highlight */
+}
