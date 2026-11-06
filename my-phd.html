@@ -6,7 +6,7 @@
     <title>My PhD — Roberto Infante</title>
     <meta
       name="description"
-      content="Roberto Infante — my PhD: recognition of insufficiency during generative reasoning, in humans and machines."
+      content="Roberto Infante — my PhD: recognizing informational insufficiency in sequential decisions, in humans and language models."
     />
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,25 +56,26 @@
         <p class="page-meta">
           <span class="date-chip">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-            <time datetime="2026-09-24">September 24, 2026</time>
+            <time datetime="2026-11-05">November 5, 2026</time>
           </span>
         </p>
 
-        <h2>Recognition of insufficiency during generative reasoning</h2>
+        <h2>Recognizing informational insufficiency in sequential decisions</h2>
 
         <p>
           The broader phenomenon is <strong>awareness of unawareness</strong>:
-          a reasoning system may become sensitive that its current basis is
-          inadequate before it knows what is missing or how to repair it.
+          a reasoner may recognize that its knowledge is insufficient for a
+          decision before it can identify exactly what information is missing.
         </p>
 
         <p class="q">
-          How does a reasoning system recognize that its current basis is
-          inadequate, and how does that recognition control what it does next?
+          How does a reasoner recognize that its knowledge is insufficient
+          before identifying exactly what information is missing to take or not
+          take an action?
         </p>
         <p>
-          This means that the system detects a problem before it knows the
-          repair, which we call <strong class="hl">recognition before
+          This means the reasoner detects that something is missing before it
+          knows what it is, which we call <strong class="hl">recognition before
           identification</strong>.
         </p>
 
@@ -85,12 +86,11 @@
           thinking, retrieve information, ask for help, try another approach,
           use a tool, or stop.
         </p>
-        <p>Something has to control that allocation.</p>
         <p>
-          Confidence already does some of this. Recent work from Google DeepMind
-          and Princeton showed that internal confidence is not merely something
-          models report: manipulating confidence representations changes whether
-          a model answers or abstains. <a class="src src-multi" href="https://www.nature.com/articles/s42256-026-01293-x" target="_blank" rel="noopener" title="Kumaran, Daw et al. (2026). Causal evidence that language models use confidence to drive behaviour. Nature Machine Intelligence. Google DeepMind + Princeton."><span class="src-logos"><img src="https://www.google.com/s2/favicons?domain=deepmind.google&sz=64" alt="" width="14" height="14" loading="lazy" /><img src="https://www.google.com/s2/favicons?domain=princeton.edu&sz=64" alt="" width="14" height="14" loading="lazy" /><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=64" alt="" width="14" height="14" loading="lazy" /></span>Google DeepMind · Princeton · Nature</a>
+          Recent work from Google DeepMind and Princeton showed that language
+          models have an internal confidence signal and use it to decide whether
+          to answer or abstain. Changing that signal inside the model changes how
+          often it abstains. <a class="src src-multi" href="https://www.nature.com/articles/s42256-026-01293-x" target="_blank" rel="noopener" title="Kumaran, Daw et al. (2026). Causal evidence that language models use confidence to drive behaviour. Nature Machine Intelligence. Google DeepMind + Princeton."><span class="src-logos"><img src="https://www.google.com/s2/favicons?domain=deepmind.google&sz=64" alt="" width="14" height="14" loading="lazy" /><img src="https://www.google.com/s2/favicons?domain=princeton.edu&sz=64" alt="" width="14" height="14" loading="lazy" /><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=64" alt="" width="14" height="14" loading="lazy" /></span>Google DeepMind · Princeton · Nature</a>
         </p>
         <p>
           Now, confidence answers questions like <span class="uline">how likely
@@ -117,8 +117,8 @@
         <p>
           The interesting case is not simply that the model eventually generates
           another meaning. It is whether, before identifying that meaning, there
-          is evidence that the model has become sensitive to the inadequacy of
-          what it currently has.
+          is evidence that the model has recognized that its information is
+          insufficient.
         </p>
         <p>
           The model does not yet know that BANK also means X. It may only have
@@ -251,53 +251,57 @@
 
         <h3>What uncertainty is doing here</h3>
         <p>
-          Uncertainty is not the main research question. Confidence, semantic
-          uncertainty, self-consistency, internal confidence representations,
-          and related measures are useful controls because they provide simpler
-          explanations for behavior.
+          Existing accounts of uncertainty and confidence are the first
+          explanation to test. Confidence, semantic uncertainty,
+          self-consistency, and internal confidence representations may already
+          explain when a reasoner recognizes that its information is
+          insufficient. The hard case is a reasoner that stays confident even
+          though the evidence it needs is missing.
         </p>
-        <p>The goal is not to prove that "insufficiency is different from uncertainty."</p>
         <p>
-          The goal is to determine what allows a reasoner to detect the limits
-          of its ongoing reasoning before it has found the missing solution, and
-          whether that detection changes subsequent control.
+          If these accounts explain the judgments, that is a result in itself.
+          If they don't, something else is doing the work, and the next step is
+          to model what that is and whether it shapes later decisions as new
+          information becomes available.
         </p>
 
         <h3>What could turn out to be true</h3>
         <p>
-          There may be no special representation of insufficiency. What looks
-          like recognition could be completely explained by confidence,
-          conflict, error signals, progress monitoring, search heuristics, or
-          some combination of them.
+          If existing accounts of confidence and uncertainty explain these
+          judgments, the work builds on those models. If they don't, the next
+          step is to develop new mechanisms that let agents recognize
+          informational insufficiency and use that recognition to regulate their
+          decisions.
         </p>
         <p>
-          Models may also never recognize inadequacy before identification; they
-          may simply continue generating possibilities until something works.
+          Models may also never recognize insufficiency before identification;
+          they may simply keep generating possibilities until something works.
+          Or recognition may show up in behavior without matching one clean
+          internal variable. Those are all informative outcomes, so the project
+          does not assume a new cognitive variable exists and set out to prove
+          it.
         </p>
         <p>
-          Or recognition may exist behaviorally without corresponding to one
-          clean internal variable.
-        </p>
-        <p>Those are all informative outcomes.</p>
-        <p>
-          The project therefore does not assume that I have discovered a new
-          cognitive variable and need to prove that it exists.
+          Whatever the mechanism turns out to be, the aim is to validate it
+          experimentally and build it into autonomous systems whose decisions
+          can be monitored and audited over time.
         </p>
         <h3>The questions</h3>
+        <p>Studying this breaks into three questions:</p>
         <ol class="qlist">
           <li>
-            Can monitoring detect inadequacy before the missing content becomes
-            available?
+            Does it happen? Can a reasoner recognize that its information is
+            insufficient before providing a candidate answer or identifying what
+            is missing?
           </li>
           <li>
-            What would make a competent model decide not to act when its current
-            reasoning is inadequate?
+            What explains it? Can existing models of uncertainty explain the
+            recognition of informational insufficiency, or is something else
+            needed?
           </li>
-          <li>Why did it decide not to act?</li>
           <li>
-            What allows a reasoning system to detect that its ongoing reasoning
-            is inadequate before it has found the missing content, and how, if
-            at all, is that information used to control what it does next?
+            Does it matter for action? Does that recognition influence subsequent
+            decisions to act or not act as new information becomes available?
           </li>
         </ol>
         <p>That is the computational problem I am currently studying.</p>
